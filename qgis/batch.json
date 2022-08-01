@@ -1,38 +1,50 @@
 [
   {
     "PARAMETERS": {
-      "curbinnat": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
-      "fut1probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
-      "fut2probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
-      "fut2probpot (2)": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
+      "curbinnat": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
+      "fut1probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
+      "fut2probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
+      "fut2probpot (2)": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
       "gridsize": "80000"
     },
     "OUTPUTS": {
-      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-tree4f/out/Fraxinus_excelsior_80.geojson"
+      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-trees4f/out/geojson/Fraxinus_excelsior_80.geojson"
     }
   },
   {
     "PARAMETERS": {
-      "curbinnat": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
-      "fut1probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
-      "fut2probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
-      "fut2probpot (2)": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
+      "curbinnat": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
+      "fut1probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
+      "fut2probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
+      "fut2probpot (2)": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
       "gridsize": "40000"
     },
     "OUTPUTS": {
-      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-tree4f/out/Fraxinus_excelsior_40.geojson"
+      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-trees4f/out/geojson/Fraxinus_excelsior_40.geojson"
     }
   },
   {
     "PARAMETERS": {
-      "curbinnat": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
-      "fut1probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
-      "fut2probpot": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
-      "fut2probpot (2)": "'/Users/erik/Work/eu-tree4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
+      "curbinnat": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
+      "fut1probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
+      "fut2probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
+      "fut2probpot (2)": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
       "gridsize": "20000"
     },
     "OUTPUTS": {
-      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-tree4f/out/Fraxinus_excelsior_20.geojson"
+      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-trees4f/out/geojson/Fraxinus_excelsior_20.geojson"
+    }
+  },
+  {
+    "PARAMETERS": {
+      "curbinnat": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/bin/Fraxinus_excelsior/Fraxinus_excelsior_ens-sdms_cur_bin_nat.tif'",
+      "fut1probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut1_prob_pot.tif'",
+      "fut2probpot": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut2_prob_pot.tif'",
+      "fut2probpot (2)": "'/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms/prob/Fraxinus_excelsior_ens-sdms_rcp85_fut3_prob_pot.tif'",
+      "gridsize": "10000"
+    },
+    "OUTPUTS": {
+      "native:reprojectlayer_1:final": "/Users/erik/Work/eu-trees4f/out/geojson/Fraxinus_excelsior_10.geojson"
     }
   }
 ]
