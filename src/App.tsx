@@ -1,29 +1,22 @@
-import React from "react";
-import "./App.css";
-import DeckGL from "@deck.gl/react/typed";
-import { LineLayer, BitmapLayer } from "@deck.gl/layers/typed";
-import { TileLayer } from "@deck.gl/geo-layers/typed";
+import React from 'react'
+import './App.css'
+import DeckGL from '@deck.gl/react/typed'
+import { BitmapLayer } from '@deck.gl/layers/typed'
+import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
+import { CENTER } from './constants'
+
 // Viewport settings
 const INITIAL_VIEW_STATE = {
-  longitude: -122.41669,
-  latitude: 37.7853,
-  zoom: 13,
-  pitch: 0,
+  longitude: CENTER[0],
+  latitude: CENTER[1],
+  zoom: 3,
+  pitch: 30,
   bearing: 0,
-};
-
-// Data to be used by the LineLayer
-const data = [
-  {
-    sourcePosition: [-122.41669, 37.7853],
-    targetPosition: [-122.41669, 37.781],
-  },
-];
+}
 
 function App() {
   const basemap = new TileLayer({
-    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
-    data: "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    data: 'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png',
 
     minZoom: 0,
     maxZoom: 19,
@@ -32,17 +25,26 @@ function App() {
     renderSubLayers: (props) => {
       const {
         bbox: { west, south, east, north },
-      } = props.tile as any;
+      } = props.tile as any
 
       return new BitmapLayer(props, {
         data: null,
         image: props.data,
         bounds: [west, south, east, north],
-      });
+      })
     },
-  });
+  })
 
-  const layers = [basemap, new LineLayer({ id: "line-layer", data })];
+  const layer = new MVTLayer({
+    data: 'http://localhost:9090/Fraxinus_excelsior/{z}/{x}/{y}.pbf',
+    minZoom: 0,
+    maxZoom: 7,
+    getPointRadius: 1000,
+    getFillColor: [255, 0, 0],
+    pointType: 'circle',
+  })
+
+  const layers = [basemap, layer]
 
   return (
     <DeckGL
@@ -50,7 +52,7 @@ function App() {
       controller={true}
       layers={layers}
     />
-  );
+  )
 }
 
-export default App;
+export default App
