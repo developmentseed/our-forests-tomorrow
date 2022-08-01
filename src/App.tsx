@@ -59,9 +59,14 @@ function App() {
     setTimeStep(e.target.value.toString() as TimeStep)
   }, [])
 
+  const [species, setSpecies] = useState<string>('Fraxinus_excelsior')
+  const onSpeciesChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
+    setSpecies(e.target.value)
+  }, [])
+
   const layers = useMemo(() => {
     const layer = new MVTLayer({
-      data: 'http://localhost:9090/Fraxinus_excelsior/{z}/{x}/{y}.pbf',
+      data: `http://localhost:9090/${species}/{z}/{x}/{y}.pbf`,
       minZoom: 0,
       maxZoom: 8,
       pointType: 'circle',
@@ -103,7 +108,7 @@ function App() {
 
     const layers = [basemap, layer]
     return layers
-  }, [timeStep, viewState.zoom])
+  }, [timeStep, species, viewState.zoom])
 
   return (
     <Fragment>
@@ -116,6 +121,14 @@ function App() {
       />
       <div className="ui">
         <div>z: {viewState.zoom}</div>
+        <div>
+          <label htmlFor="species">Species:</label>
+
+          <select name="species" id="species" onChange={onSpeciesChange}>
+            <option value="Fraxinus_excelsior">Fraxinus Excelsior</option>
+            <option value="Quercus_ilex">Quercus Ilex</option>
+          </select>
+        </div>
         <input
           type="range"
           list="tickmarks"
@@ -131,6 +144,7 @@ function App() {
           <option value="2065" label="2065"></option>
           <option value="2095" label="2095"></option>
         </datalist>
+        {timeStep}
       </div>
     </Fragment>
   )
