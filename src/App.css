@@ -1,6 +1,11 @@
-.ui {
+.ui,
+.timeseries {
   position: absolute;
   z-index: 1;
   padding: 1rem;
   background: white;
+}
+
+.timeseries {
+  right: 0;
 }

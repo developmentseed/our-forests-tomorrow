@@ -4,14 +4,23 @@ import React, {
   Fragment,
   ChangeEvent,
   useMemo,
+  useRef,
 } from 'react'
 import './App.css'
 import DeckGL from '@deck.gl/react/typed'
 import { MapViewState } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
 import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
-import { CENTER, FUT_BY_TIME_STEP, MAX_ZOOM } from './constants'
+import {
+  CENTER,
+  COLOR_BY_CELL_TYPE,
+  FUT_BY_TIME_STEP,
+  MAX_ZOOM,
+} from './constants'
 import { Cell, TimeStep } from './types'
+import type { Feature } from 'geojson'
+import Timeseries from './Timeseries'
+import { getCellTypeAtTimeStep } from './utils'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -64,50 +73,28 @@ function App() {
         data: `${baseTilesURL}/${species}/{z}/{x}/{y}.pbf`,
         minZoom: 0,
         maxZoom: 8,
+        pickable: true,
         pointType: 'circle',
         getPointRadius: () => {
           // TODO Need more ad-hoc rule depending on grid size
           return ((MAX_ZOOM - viewState.zoom) / MAX_ZOOM) * 20000
         },
         getFillColor: (d: Cell) => {
-          const nat = d.properties.nat_1
-          if (timeStep === '2005') {
-            if (nat === 1) {
-              return [0, 150, 0]
-            }
-          } else {
-            const probKey = FUT_BY_TIME_STEP[timeStep]
-            const prob = d.properties[probKey]
-            if (nat === 1) {
-              if (prob < 500) {
-                // decolonized
-                return [255, 0, 0]
-              } else {
-                // stable
-                return [0, 150, 0]
-              }
-            } else {
-              if (prob > 500) {
-                // suitable
-                return [0, 255, 0]
-              }
-            }
-          }
-          return [0, 0, 0, 0]
+          return COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
         },
         updateTriggers: {
           // This tells deck.gl to recalculate fill color when `timeStep` changes
           getFillColor: timeStep,
         },
         onViewportLoad: (tiles) => {
-          // // This gets Raw MVT data...
-          console.log(tiles)
+          // This gets Raw MVT data...
+          // console.log(tiles)
           // console.log(tiles[0].data)
-          try {
-            console.log(gridLayer.getRenderedFeatures(100))
-          } catch (e) {
-            console.log(e)
-          }
+          //   try {
+          //     console.log(gridLayer.getRenderedFeatures(100))
+          //   } catch (e) {
+          //     console.log(e)
+          //   }
         },
       }),
     [viewState.zoom, timeStep, species]
@@ -115,24 +102,33 @@ function App() {
 
   const layers = [basemap, gridLayer]
 
+  const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
+  const [timeseries, setTimeseries] = useState<undefined | Feature[]>(undefined)
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
       // // Manipulate view state
       // viewState.target[0] = Math.min(viewState.target[0], 10)
       // // Save the view state and trigger rerender
       setViewState(viewState)
-      // try {
-      //   console.log(gridLayer.getRenderedFeatures())
-      // } catch (e) {
-      //   console.log(e)
-      // }
+      if (timeoutId.current) clearTimeout(timeoutId.current)
+      timeoutId.current = setTimeout(() => {
+        console.log('ping')
+        try {
+          setTimeseries(gridLayer.getRenderedFeatures())
+        } catch (e) {
+          console.log(e)
+        }
+      }, 100)
     },
     [gridLayer]
   )
 
+  const deckRef = useRef(null)
+
   return (
     <Fragment>
       <DeckGL
+        ref={deckRef}
         initialViewState={INITIAL_VIEW_STATE}
         controller={true}
         viewState={viewState}
@@ -140,7 +136,6 @@ function App() {
         layers={layers}
       />
       <div className="ui">
-        <div>z: {viewState.zoom}</div>
         <div>
           <label htmlFor="species">Species:</label>
 
@@ -165,6 +160,9 @@ function App() {
           <option value="2095" label="2095"></option>
         </datalist>
         {timeStep}
+      </div>
+      <div className="timeseries">
+        <Timeseries features={timeseries} />
       </div>
     </Fragment>
   )
