@@ -24,7 +24,6 @@ const INITIAL_VIEW_STATE = {
 
 const basemap = new TileLayer({
   data: 'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png',
-
   minZoom: 0,
   maxZoom: 19,
   tileSize: 256,
@@ -42,18 +41,14 @@ const basemap = new TileLayer({
   },
 })
 
+const isLocal = window.location.hostname === 'localhost'
+const baseTilesURL = isLocal
+  ? '//localhost:9090/'
+  : '//storage.googleapis.com/eu-trees4f-tiles/pbf'
+
 function App() {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
 
-  const onViewStateChange = useCallback(
-    ({ viewState }: { viewState: MapViewState }) => {
-      // // Manipulate view state
-      // viewState.target[0] = Math.min(viewState.target[0], 10)
-      // // Save the view state and trigger rerender
-      setViewState(viewState)
-    },
-    []
-  )
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
   const onTimestepChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setTimeStep(e.target.value.toString() as TimeStep)
@@ -63,52 +58,77 @@ function App() {
   const onSpeciesChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setSpecies(e.target.value)
   }, [])
-
-  const layers = useMemo(() => {
-    const layer = new MVTLayer({
-      data: `http://localhost:9090/${species}/{z}/{x}/{y}.pbf`,
-      minZoom: 0,
-      maxZoom: 8,
-      pointType: 'circle',
-      getPointRadius: () => {
-        // TODO Need more ad-hoc rule depending on grid size
-        return ((MAX_ZOOM - viewState.zoom) / MAX_ZOOM) * 20000
-      },
-      getFillColor: (d: Cell) => {
-        const nat = d.properties.nat_1
-        if (timeStep === '2005') {
-          if (nat === 1) {
-            return [0, 150, 0]
-          }
-        } else {
-          const probKey = FUT_BY_TIME_STEP[timeStep]
-          const prob = d.properties[probKey]
-          if (nat === 1) {
-            if (prob < 500) {
-              // decolonized
-              return [255, 0, 0]
-            } else {
-              // stable
+  const gridLayer = useMemo(
+    () =>
+      new MVTLayer({
+        data: `${baseTilesURL}/${species}/{z}/{x}/{y}.pbf`,
+        minZoom: 0,
+        maxZoom: 8,
+        pointType: 'circle',
+        getPointRadius: () => {
+          // TODO Need more ad-hoc rule depending on grid size
+          return ((MAX_ZOOM - viewState.zoom) / MAX_ZOOM) * 20000
+        },
+        getFillColor: (d: Cell) => {
+          const nat = d.properties.nat_1
+          if (timeStep === '2005') {
+            if (nat === 1) {
               return [0, 150, 0]
             }
           } else {
-            if (prob > 500) {
-              // suitable
-              return [0, 255, 0]
+            const probKey = FUT_BY_TIME_STEP[timeStep]
+            const prob = d.properties[probKey]
+            if (nat === 1) {
+              if (prob < 500) {
+                // decolonized
+                return [255, 0, 0]
+              } else {
+                // stable
+                return [0, 150, 0]
+              }
+            } else {
+              if (prob > 500) {
+                // suitable
+                return [0, 255, 0]
+              }
             }
           }
-        }
-        return [0, 0, 0, 0]
-      },
-      updateTriggers: {
-        // This tells deck.gl to recalculate fill color when `timeStep` changes
-        getFillColor: timeStep,
-      },
-    })
+          return [0, 0, 0, 0]
+        },
+        updateTriggers: {
+          // This tells deck.gl to recalculate fill color when `timeStep` changes
+          getFillColor: timeStep,
+        },
+        onViewportLoad: (tiles) => {
+          // // This gets Raw MVT data...
+          console.log(tiles)
+          // console.log(tiles[0].data)
+          try {
+            console.log(gridLayer.getRenderedFeatures(100))
+          } catch (e) {
+            console.log(e)
+          }
+        },
+      }),
+    [viewState.zoom, timeStep, species]
+  )
 
-    const layers = [basemap, layer]
-    return layers
-  }, [timeStep, species, viewState.zoom])
+  const layers = [basemap, gridLayer]
+
+  const onViewStateChange = useCallback(
+    ({ viewState }: { viewState: MapViewState }) => {
+      // // Manipulate view state
+      // viewState.target[0] = Math.min(viewState.target[0], 10)
+      // // Save the view state and trigger rerender
+      setViewState(viewState)
+      // try {
+      //   console.log(gridLayer.getRenderedFeatures())
+      // } catch (e) {
+      //   console.log(e)
+      // }
+    },
+    [gridLayer]
+  )
 
   return (
     <Fragment>
