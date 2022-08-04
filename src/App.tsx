@@ -73,7 +73,7 @@ function App() {
         pickable: true,
         pointType: 'circle',
         getPointRadius: () => {
-          if (tilesZoom >= 0 && tilesZoom <= 2) {
+          if (tilesZoom <= 2) {
             return 20000
           } else if (tilesZoom >= 3 && tilesZoom <= 4) {
             return 10000

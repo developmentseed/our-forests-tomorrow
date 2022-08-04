@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const {
+import fs from 'fs'
+
+import {
   SPECIES,
   QGIS_BATCH,
   GRIDS,
@@ -8,7 +9,8 @@ const {
   SPECIES_WHITELIST,
   EUTREES4F_DATASET_ABS_PATH,
   GEOJSON_ABS_PATH,
-} = require('./constants')
+} from '../src/constants_common'
+
 const speciesList = JSON.parse(fs.readFileSync(SPECIES, 'utf-8'))
 
 const batch = speciesList.flatMap((species) => {

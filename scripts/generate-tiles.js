@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const { SPECIES, GRIDS, SPECIES_WHITELIST, PBF } = require('./constants')
+import fs from 'fs'
+import { SPECIES, GRIDS, SPECIES_WHITELIST, PBF } from '../src/constants_common'
+
 const speciesList = JSON.parse(fs.readFileSync(SPECIES, 'utf-8'))
 const exec = require('child_process').execSync
 

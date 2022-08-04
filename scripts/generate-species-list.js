@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const { SPECIES } = require('./constants')
+import { SPECIES } from '../src/constants_common.js'
+import fs from 'fs'
 
 const dirs = fs
   .readdirSync('./in/EU-Trees4F_dataset/single_models/')
