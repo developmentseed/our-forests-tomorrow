@@ -11,12 +11,7 @@ import DeckGL from '@deck.gl/react/typed'
 import { MapViewState } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
 import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
-import {
-  CENTER,
-  COLOR_BY_CELL_TYPE,
-  FUT_BY_TIME_STEP,
-  MAX_ZOOM,
-} from './constants'
+import { CENTER, COLOR_BY_CELL_TYPE } from './constants'
 import { Cell, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
@@ -67,6 +62,8 @@ function App() {
   const onSpeciesChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
     setSpecies(e.target.value)
   }, [])
+
+  const [tilesZoom, setTilesZoom] = useState(viewState.zoom)
   const gridLayer = useMemo(
     () =>
       new MVTLayer({
@@ -76,8 +73,15 @@ function App() {
         pickable: true,
         pointType: 'circle',
         getPointRadius: () => {
-          // TODO Need more ad-hoc rule depending on grid size
-          return ((MAX_ZOOM - viewState.zoom) / MAX_ZOOM) * 20000
+          if (tilesZoom >= 0 && tilesZoom <= 2) {
+            return 20000
+          } else if (tilesZoom >= 3 && tilesZoom <= 4) {
+            return 10000
+          } else if (tilesZoom >= 5 && tilesZoom <= 6) {
+            return 5000
+          } else if (tilesZoom >= 6) {
+            return 2500
+          }
         },
         getFillColor: (d: Cell) => {
           return COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
@@ -85,36 +89,30 @@ function App() {
         updateTriggers: {
           // This tells deck.gl to recalculate fill color when `timeStep` changes
           getFillColor: timeStep,
+          getPointRadius: tilesZoom,
         },
         onViewportLoad: (tiles) => {
-          // This gets Raw MVT data...
-          // console.log(tiles)
-          // console.log(tiles[0].data)
-          //   try {
-          //     console.log(gridLayer.getRenderedFeatures(100))
-          //   } catch (e) {
-          //     console.log(e)
-          //   }
+          if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
+            setTilesZoom(tiles[0].zoom)
+          }
         },
       }),
-    [viewState.zoom, timeStep, species]
+    [timeStep, species, tilesZoom]
   )
 
   const layers = [basemap, gridLayer]
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
-  const [timeseries, setTimeseries] = useState<undefined | Feature[]>(undefined)
+  const [renderedFeatures, setRenderedFeatures] = useState<
+    undefined | Feature[]
+  >(undefined)
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
-      // // Manipulate view state
-      // viewState.target[0] = Math.min(viewState.target[0], 10)
-      // // Save the view state and trigger rerender
       setViewState(viewState)
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
-        console.log('ping')
         try {
-          setTimeseries(gridLayer.getRenderedFeatures())
+          setRenderedFeatures(gridLayer.getRenderedFeatures())
         } catch (e) {
           console.log(e)
         }
@@ -136,9 +134,9 @@ function App() {
         layers={layers}
       />
       <div className="ui">
+        {tilesZoom}
         <div>
           <label htmlFor="species">Species:</label>
-
           <select name="species" id="species" onChange={onSpeciesChange}>
             <option value="Fraxinus_excelsior">Fraxinus Excelsior</option>
             <option value="Quercus_ilex">Quercus Ilex</option>
@@ -162,7 +160,7 @@ function App() {
         {timeStep}
       </div>
       <div className="timeseries">
-        <Timeseries features={timeseries} />
+        <Timeseries features={renderedFeatures} />
       </div>
     </Fragment>
   )

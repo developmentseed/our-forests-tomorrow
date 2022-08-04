@@ -1,19 +1,17 @@
 import type { Feature } from 'geojson'
 import { useMemo } from 'react'
 import { COLOR_BY_CELL_TYPE, TIME_STEPS } from './constants'
-import { Cell, CellType, TimeStep } from './types'
+import { CellType } from './types'
 import { getCellTypeAtTimeStep } from './utils'
 import { area, stack, stackOffsetSilhouette, curveCatmullRom } from 'd3-shape'
-import { scaleLinear, scaleOrdinal } from 'd3-scale'
-import { max } from 'd3-array'
-import path from 'path'
+import { scaleLinear } from 'd3-scale'
 
 export type TimeseriesProps = {
   features?: Feature[]
 }
 
 function Timeseries({ features }: TimeseriesProps) {
-  const numFeatures = features?.length || 0
+  // const numFeatures = features?.length || 0
   const timeseriesData = useMemo(() => {
     if (!features) return []
     const featureCellTypesIndices = features.map((f) => {
@@ -35,7 +33,6 @@ function Timeseries({ features }: TimeseriesProps) {
       }, 0)
       return ys
     })
-    console.log(featureCellTypesIndices, data)
     return data
   }, [features])
 
@@ -58,16 +55,14 @@ function Timeseries({ features }: TimeseriesProps) {
       .curve(curveCatmullRom)
 
     const layouted = series.map((s) => {
-      console.log(s)
       return {
         path: areaLayout(s as any),
         color: COLOR_BY_CELL_TYPE[s.key as CellType],
       }
     })
 
-    console.log(series, layouted)
     return layouted
-  }, [timeseriesData, numFeatures])
+  }, [timeseriesData])
 
   return (
     <svg width={300} height={200}>

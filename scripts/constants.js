@@ -11,6 +11,6 @@ module.exports = {
     { res: 80000, minZoom: 0, maxZoom: 2 },
     { res: 40000, minZoom: 3, maxZoom: 4 },
     { res: 20000, minZoom: 5, maxZoom: 6 },
-    // { res: 10000, minZoom: 7, maxZoom: 8 },
+    { res: 10000, minZoom: 7, maxZoom: 8 },
   ],
 }
