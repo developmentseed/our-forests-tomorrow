@@ -1,7 +1,8 @@
-.ui {
+.timestep {
   position: absolute;
-  bottom: 0;
   z-index: 1;
   padding: 1rem;
   background: white;
+  padding: 1rem;
+  bottom: 0;
 }
