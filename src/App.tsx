@@ -16,6 +16,9 @@ import { Cell, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { getCellTypeAtTimeStep } from './utils'
+import SPECIES from './species.json'
+
+console.log(SPECIES)
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {

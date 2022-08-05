@@ -3,6 +3,7 @@ export const GEOJSON_ABS_PATH = '/Users/erik/Work/eu-trees4f/out/geojson'
 export const EUTREES4F_DATASET_ABS_PATH =
   '/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms'
 export const SPECIES = './out/species.json'
+export const SPECIES_DETAIL = './src/species_detail.json'
 export const QGIS_BATCH = './out/qgis/batch.json'
 export const PBF = './out/pbf'
 export const RCP = '85'
