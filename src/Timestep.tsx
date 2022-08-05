@@ -1,15 +1,25 @@
-import React, { ChangeEvent, useCallback, useContext } from 'react'
+import React, {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useContext,
+} from 'react'
 import { TimestepContext } from './App'
 import { TimeStep } from './types'
 import './Timestep.css'
 
-function Timestep() {
-  const { timeStep, setTimeStep } = useContext(TimestepContext)
-  const onTimestepChange = useCallback(
+export type TimestepProps = {
+  timeStep: TimeStep
+  onTimestepChange: Dispatch<SetStateAction<TimeStep>>
+}
+
+function Timestep({ timeStep, onTimestepChange }: TimestepProps) {
+  const onTimestepChangeCallback = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setTimeStep(e.target.value.toString() as TimeStep)
+      onTimestepChange(e.target.value.toString() as TimeStep)
     },
-    [setTimeStep]
+    [onTimestepChange]
   )
   return (
     <div className="timestep">
@@ -19,7 +29,7 @@ function Timestep() {
         min="2005"
         max="2095"
         step="30"
-        onChange={onTimestepChange}
+        onChange={onTimestepChangeCallback}
         value={timeStep}
       ></input>
       <datalist id="tickmarks">

@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useMemo } from 'react'
+import React, { useState, Fragment } from 'react'
 import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
@@ -11,23 +11,18 @@ export const TimestepContext = React.createContext({
 })
 
 function App() {
-  const [timeStep, setTimeStep] = useState('2005')
-  const timeStepValue = useMemo(
-    () => ({ timeStep, setTimeStep } as any),
-    [timeStep]
-  )
-  // const [species, setSpecies] = useState<string>('Fraxinus_excelsior')
+  const [timeStep, setTimeStep] = useState<TimeStep>('2005')
+
+  const [species, setSpecies] = useState<string>('Fraxinus_excelsior')
   // const onSpeciesChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
   //   setSpecies(e.target.value)
   // }, [])
 
   return (
     <Fragment>
-      <TimestepContext.Provider value={timeStepValue}>
-        <Map species="Fraxinus_excelsior" />
-        <Timestep />
-      </TimestepContext.Provider>
-      <SpeciesChoice />
+      <Map timeStep={timeStep} species={species} />
+      <Timestep timeStep={timeStep} onTimestepChange={setTimeStep} />
+      <SpeciesChoice species={species} onSpeciesChange={setSpecies} />
     </Fragment>
   )
 }

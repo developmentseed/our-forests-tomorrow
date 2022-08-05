@@ -1,22 +1,35 @@
-import SPECIES from './species_detail.json'
 import './SpeciesChoice.css'
-const SPECIES_IDS = Object.keys(SPECIES)
-const COLORS = SPECIES_IDS.map(
-  () =>
-    `rgb(${Math.floor(150 * Math.random())}, ${
-      200 + Math.floor(50 * Math.random())
-    }, ${Math.floor(150 * Math.random())})`
-)
-function SpeciesChoice() {
+import { Dispatch, SetStateAction, useCallback } from 'react'
+import cx from 'classnames'
+import { SPECIES_COLORS, SPECIES_IDS } from './constants'
+
+export type SpeciesChoiceProps = {
+  species: string
+  onSpeciesChange: Dispatch<SetStateAction<string>>
+}
+
+function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
   console.log('lalla')
+  const onSpeciesClick = useCallback(
+    (speciesId: string) => {
+      onSpeciesChange(speciesId)
+    },
+    [onSpeciesChange]
+  )
   return (
     <div className="speciesChoice">
       {SPECIES_IDS.map((speciesId, i) => (
         <div
+          onClick={() => onSpeciesClick(speciesId)}
           key={speciesId}
-          className="speciesSection"
+          className={cx('speciesSection', {
+            selected: speciesId === species,
+            available:
+              speciesId === 'Fraxinus_excelsior' ||
+              speciesId === 'Quercus_ilex',
+          })}
           style={{
-            backgroundColor: COLORS[i],
+            backgroundColor: SPECIES_COLORS[i],
           }}
         ></div>
       ))}

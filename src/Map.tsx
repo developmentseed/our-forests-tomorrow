@@ -1,23 +1,14 @@
-import React, {
-  useCallback,
-  useState,
-  Fragment,
-  ChangeEvent,
-  useMemo,
-  useRef,
-  useContext,
-} from 'react'
+import React, { useCallback, useState, Fragment, useMemo, useRef } from 'react'
 import './Map.css'
 import DeckGL from '@deck.gl/react/typed'
 import { MapViewState } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
 import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
-import { CENTER, COLOR_BY_CELL_TYPE } from './constants'
-import { Cell } from './types'
+import { CENTER, COLOR_BY_CELL_TYPE, SPECIES_COLORS } from './constants'
+import { Cell, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { getCellTypeAtTimeStep } from './utils'
-import { TimestepContext } from './App'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -53,13 +44,13 @@ const basemap = new TileLayer({
 })
 
 export type MapProps = {
+  timeStep: TimeStep
   species: string
 }
 
-function Map({ species }: MapProps) {
+function Map({ species, timeStep }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const [tilesZoom, setTilesZoom] = useState(viewState.zoom)
-  const { timeStep } = useContext(TimestepContext)
 
   const gridLayer = useMemo(
     () =>
@@ -81,6 +72,8 @@ function Map({ species }: MapProps) {
           }
         },
         getFillColor: (d: Cell) => {
+          const type = getCellTypeAtTimeStep(d, timeStep)
+          if (type === 'stable') return SPECIES_COLORS[species]
           return COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
         },
         updateTriggers: {
