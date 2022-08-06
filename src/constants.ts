@@ -25,9 +25,13 @@ export const COLOR_BY_CELL_TYPE: Record<CellType, number[]> = {
 
 export const SPECIES_IDS = Object.keys(SPECIES)
 
-export const SPECIES_COLORS = SPECIES_IDS.map(
-  () =>
-    `rgb(${Math.floor(150 * Math.random())}, ${
-      200 + Math.floor(50 * Math.random())
-    }, ${Math.floor(150 * Math.random())})`
+export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
+  SPECIES_IDS.map((s) => [
+    s,
+    [
+      Math.floor(150 * Math.random()),
+      200 + Math.floor(50 * Math.random()),
+      Math.floor(150 * Math.random()),
+    ],
+  ])
 )

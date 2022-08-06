@@ -113,13 +113,16 @@ function Map({ species, timeStep }: MapProps) {
 
   return (
     <Fragment>
-      <DeckGL
-        initialViewState={INITIAL_VIEW_STATE}
-        controller={true}
-        viewState={viewState}
-        onViewStateChange={onViewStateChange as any}
-        layers={layers}
-      />
+      <div className="map">
+        <DeckGL
+          initialViewState={INITIAL_VIEW_STATE}
+          controller={true}
+          viewState={viewState}
+          onViewStateChange={onViewStateChange as any}
+          layers={layers}
+          // style={{ position: 'fixed', border: '1px solid red' }}
+        />
+      </div>
 
       <div className="timeseries">
         <Timeseries features={renderedFeatures} />

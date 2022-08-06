@@ -2,6 +2,7 @@ import './SpeciesChoice.css'
 import { Dispatch, SetStateAction, useCallback } from 'react'
 import cx from 'classnames'
 import { SPECIES_COLORS, SPECIES_IDS } from './constants'
+import { deckColorToCss } from './utils'
 
 export type SpeciesChoiceProps = {
   species: string
@@ -18,7 +19,7 @@ function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
   )
   return (
     <div className="speciesChoice">
-      {SPECIES_IDS.map((speciesId, i) => (
+      {SPECIES_IDS.map((speciesId) => (
         <div
           onClick={() => onSpeciesClick(speciesId)}
           key={speciesId}
@@ -29,9 +30,11 @@ function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
               speciesId === 'Quercus_ilex',
           })}
           style={{
-            backgroundColor: SPECIES_COLORS[i],
+            backgroundColor: deckColorToCss(SPECIES_COLORS[speciesId]),
           }}
-        ></div>
+        >
+          <div className="label">{speciesId}</div>
+        </div>
       ))}
     </div>
   )

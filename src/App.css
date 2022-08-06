@@ -1,7 +1,6 @@
-.ui {
-  position: absolute;
-  bottom: 0;
-  z-index: 1;
-  padding: 1rem;
-  background: white;
+#root {
+  height: 100%;
+}
+.map {
+  height: 100%;
 }

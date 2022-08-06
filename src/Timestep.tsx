@@ -3,9 +3,7 @@ import React, {
   Dispatch,
   SetStateAction,
   useCallback,
-  useContext,
 } from 'react'
-import { TimestepContext } from './App'
 import { TimeStep } from './types'
 import './Timestep.css'
 

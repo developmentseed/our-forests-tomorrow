@@ -25,3 +25,5 @@ export const getCellTypeAtTimeStep = (
   }
   return 'unknown'
 }
+
+export const deckColorToCss = (rgb: number[]) => `rgb(${rgb.join(', ')})`
