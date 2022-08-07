@@ -9,6 +9,7 @@ import { Cell, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { getCellTypeAtTimeStep } from './utils'
+import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from './constants_common'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -24,8 +25,9 @@ const baseTilesURL = isLocal
   ? '//localhost:9090/'
   : '//storage.googleapis.com/eu-trees4f-tiles/pbf'
 
-const basemap = new TileLayer({
-  data: 'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png',
+const basemapLabels = new TileLayer({
+  id: 'basemapLabels',
+  data: 'https://a.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}@2x.png ',
   minZoom: 0,
   maxZoom: 19,
   tileSize: 256,
@@ -41,6 +43,44 @@ const basemap = new TileLayer({
       bounds: [west, south, east, north],
     })
   },
+})
+const basemap = new TileLayer({
+  id: 'basemap',
+  data: 'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png ',
+  minZoom: 0,
+  maxZoom: 19,
+  tileSize: 256,
+
+  renderSubLayers: (props) => {
+    const {
+      bbox: { west, south, east, north },
+    } = props.tile as any
+
+    return new BitmapLayer(props, {
+      data: null,
+      image: props.data,
+      bounds: [west, south, east, north],
+    })
+  },
+})
+
+const countries = new MVTLayer({
+  id: 'countries',
+  data: `${baseTilesURL}/${BASEMAP_COUNTRIES}/{z}/{x}/{y}.pbf`,
+  minZoom: 0,
+  maxZoom: 5,
+  getLineColor: [192, 192, 192],
+  getFillColor: [0, 30, 0],
+  getLineWidth: 2000,
+})
+const regions = new MVTLayer({
+  id: 'regions',
+  data: `${baseTilesURL}/${BASEMAP_REGIONS}/{z}/{x}/{y}.pbf`,
+  minZoom: 0,
+  maxZoom: 5,
+  getFillColor: [0, 0, 0, 0],
+  getLineColor: [192, 192, 192],
+  getLineWidth: 1000,
 })
 
 export type MapProps = {
@@ -90,7 +130,7 @@ function Map({ species, timeStep }: MapProps) {
     [timeStep, species, tilesZoom]
   )
 
-  const layers = [basemap, gridLayer]
+  const layers = [countries, gridLayer, basemapLabels, regions]
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const [renderedFeatures, setRenderedFeatures] = useState<

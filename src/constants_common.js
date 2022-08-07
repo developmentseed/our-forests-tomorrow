@@ -6,6 +6,12 @@ export const SPECIES = './out/species.json'
 export const SPECIES_DETAIL = './src/species_detail.json'
 export const QGIS_BATCH = './out/qgis/batch.json'
 export const PBF = './out/pbf'
+export const IN = 'in'
+export const GEOJSON = 'out/geojson'
+export const BASEMAP_COUNTRIES = 'basemap_countries'
+export const BASEMAP_COUNTRIES_SRC = 'ne_10m_admin_0_countries'
+export const BASEMAP_REGIONS = 'basemap_regions'
+export const BASEMAP_REGIONS_SRC = 'ne_10m_admin_1_states_provinces'
 export const RCP = '85'
 export const SPECIES_WHITELIST = [
   'Fraxinus_excelsior',

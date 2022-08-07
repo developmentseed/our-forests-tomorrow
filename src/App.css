@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,600&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  z-index: 1;
+  position: fixed;
+}
+
+h1 {
+  font-family: 'Imbue', serif;
+  font-size: 3rem;
+  filter: drop-shadow(0 0 5px black) drop-shadow(0 0 20px black);
+}
+
 #root {
   height: 100%;
 }

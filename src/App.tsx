@@ -4,6 +4,8 @@ import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
 import Timestep from './Timestep'
 import { TimeStep } from './types'
+import { deckColorToCss } from './utils'
+import { SPECIES_COLORS } from './constants'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
@@ -12,6 +14,15 @@ function App() {
 
   return (
     <Fragment>
+      <header>
+        <h1
+          style={{
+            color: deckColorToCss(SPECIES_COLORS[species]),
+          }}
+        >
+          {species}
+        </h1>
+      </header>
       <Map timeStep={timeStep} species={species} />
       <Timestep timeStep={timeStep} onTimestepChange={setTimeStep} />
       <SpeciesChoice species={species} onSpeciesChange={setSpecies} />
