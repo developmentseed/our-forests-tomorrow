@@ -1,11 +1,19 @@
-import React, { useCallback, useState, Fragment, useMemo, useRef } from 'react'
+import React, {
+  useCallback,
+  useState,
+  Fragment,
+  useMemo,
+  useRef,
+  Dispatch,
+  SetStateAction,
+} from 'react'
 import './Map.css'
 import DeckGL from '@deck.gl/react/typed'
-import { MapViewState } from '@deck.gl/core/typed'
+import { MapViewState, PickingInfo } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
 import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
 import { CENTER, COLOR_BY_CELL_TYPE, SPECIES_COLORS } from './constants'
-import { Cell, TimeStep } from './types'
+import { Cell, RegionFeature, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { getCellTypeAtTimeStep } from './utils'
@@ -73,24 +81,30 @@ const countries = new MVTLayer({
   getFillColor: [0, 30, 0],
   getLineWidth: 1000,
 })
-const regions = new MVTLayer({
-  id: 'regions',
-  data: `${baseTilesURL}/${BASEMAP_REGIONS}/{z}/{x}/{y}.pbf`,
-  minZoom: 0,
-  maxZoom: 5,
-  getFillColor: [0, 0, 0, 0],
-  getLineColor: [192, 192, 192],
-  getLineWidth: 500,
-})
 
 export type MapProps = {
   timeStep: TimeStep
   species: string
+  onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
 }
 
-function Map({ species, timeStep }: MapProps) {
+function Map({ species, timeStep, onRegionChange }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const [tilesZoom, setTilesZoom] = useState(viewState.zoom)
+
+  const regions = new MVTLayer({
+    id: 'regions',
+    data: `${baseTilesURL}/${BASEMAP_REGIONS}/{z}/{x}/{y}.pbf`,
+    minZoom: 0,
+    maxZoom: 5,
+    getFillColor: [0, 0, 0, 0],
+    getLineColor: [192, 192, 192],
+    getLineWidth: 500,
+    pickable: true,
+    onClick: (o: PickingInfo) => {
+      onRegionChange(o.object)
+    },
+  })
 
   const gridLayer = useMemo(
     () =>

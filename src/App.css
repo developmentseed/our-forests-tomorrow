@@ -1,3 +1,8 @@
+:root {
+  --light: rgb(240, 255, 240);
+  --dark: rgb(10, 20, 10);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,600&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
@@ -18,7 +23,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(240, 255, 240);
+  color: var(--light);
 }
 
 header {
@@ -40,4 +45,18 @@ h1 {
 }
 .map {
   height: 100%;
+}
+
+button {
+  width: 25px;
+  height: 25px;
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 99px;
+  border: 1px solid var(--light);
+  cursor: pointer;
+}
+
+button::after {
+  content: '<';
 }

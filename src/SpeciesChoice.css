@@ -3,6 +3,16 @@
   top: 0;
   right: 0;
   z-index: 1;
+}
+
+.speciesChoice h1 {
+  font-size: 1.6rem;
+  margin: 1rem;
+}
+
+.speciesMenu {
+  position: absolute;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -10,7 +20,8 @@
   transition: all 150ms;
 }
 
-.speciesChoice:hover {
+.speciesMenu:hover,
+.hasRegion .speciesMenu {
   width: 350px;
 }
 
