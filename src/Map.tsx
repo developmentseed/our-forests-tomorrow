@@ -6,10 +6,15 @@ import React, {
   useRef,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from 'react'
 import './Map.css'
 import DeckGL from '@deck.gl/react/typed'
-import { MapViewState, PickingInfo } from '@deck.gl/core/typed'
+import {
+  MapViewState,
+  PickingInfo,
+  WebMercatorViewport,
+} from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
 import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
 import { CENTER, COLOR_BY_CELL_TYPE, SPECIES_COLORS } from './constants'
@@ -18,6 +23,8 @@ import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { getCellTypeAtTimeStep } from './utils'
 import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from './constants_common'
+import bbox from '@turf/bbox'
+import cx from 'classnames'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -85,10 +92,11 @@ const countries = new MVTLayer({
 export type MapProps = {
   timeStep: TimeStep
   species: string
+  region: RegionFeature | null
   onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
 }
 
-function Map({ species, timeStep, onRegionChange }: MapProps) {
+function Map({ species, timeStep, region, onRegionChange }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const [tilesZoom, setTilesZoom] = useState(viewState.zoom)
 
@@ -165,9 +173,30 @@ function Map({ species, timeStep, onRegionChange }: MapProps) {
     [gridLayer]
   )
 
+  useEffect(() => {
+    if (!countries.context) return
+    const { viewport } = countries.context
+    const wmViewport = viewport as WebMercatorViewport
+    const regionBbox = bbox(region?.geometry)
+    const { longitude, latitude, zoom } = wmViewport.fitBounds(
+      [
+        [regionBbox[0], regionBbox[1]],
+        [regionBbox[2], regionBbox[3]],
+      ],
+      { padding: 100 }
+    )
+    setViewState({
+      ...viewState,
+      longitude,
+      latitude,
+      zoom,
+      transitionDuration: 1000,
+    })
+  }, [region])
+
   return (
     <Fragment>
-      <div className="map">
+      <div className={cx('map', { hasRegion: region !== null })}>
         <DeckGL
           initialViewState={INITIAL_VIEW_STATE}
           controller={true}

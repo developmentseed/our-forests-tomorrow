@@ -28,7 +28,12 @@ function App() {
         </h1>
         <p>Lorem Ipsum, dolor sit amet</p>
       </header>
-      <Map timeStep={timeStep} species={species} onRegionChange={setRegion} />
+      <Map
+        timeStep={timeStep}
+        species={species}
+        region={region}
+        onRegionChange={setRegion}
+      />
       <Timestep timeStep={timeStep} onTimestepChange={setTimeStep} />
       <SpeciesChoice
         species={species}

@@ -2,7 +2,6 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: var(--dark);
 }
 .timeseries {
   position: fixed;
@@ -12,4 +11,8 @@
   background: white;
   right: 100px;
   opacity: 0.3;
+}
+
+.hasRegion.map {
+  width: calc(100% - 350px);
 }

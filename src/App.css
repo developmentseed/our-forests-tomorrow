@@ -24,6 +24,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--light);
+  background: var(--dark);
 }
 
 header {
