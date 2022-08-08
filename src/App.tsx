@@ -22,6 +22,7 @@ function App() {
         >
           {species}
         </h1>
+        <p>Lorem Ipsum, dolor sit amet</p>
       </header>
       <Map timeStep={timeStep} species={species} />
       <Timestep timeStep={timeStep} onTimestepChange={setTimeStep} />

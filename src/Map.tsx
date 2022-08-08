@@ -71,7 +71,7 @@ const countries = new MVTLayer({
   maxZoom: 5,
   getLineColor: [192, 192, 192],
   getFillColor: [0, 30, 0],
-  getLineWidth: 2000,
+  getLineWidth: 1000,
 })
 const regions = new MVTLayer({
   id: 'regions',
@@ -80,7 +80,7 @@ const regions = new MVTLayer({
   maxZoom: 5,
   getFillColor: [0, 0, 0, 0],
   getLineColor: [192, 192, 192],
-  getLineWidth: 1000,
+  getLineWidth: 500,
 })
 
 export type MapProps = {

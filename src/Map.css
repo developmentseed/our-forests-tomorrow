@@ -2,7 +2,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: black;
+  background: rgb(10, 20, 10);
 }
 .timeseries {
   position: fixed;

@@ -1,18 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,600&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@font-face {
+  font-family: 'ITC Cheltenham Std Book Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('ITC Cheltenham Std Book Condensed'),
+    url('./CheltenhamStdBookCond.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ITC Cheltenham Std Light Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('ITC Cheltenham Std Light Condensed'),
+    url('CheltenhamStdLightCond.woff') format('woff');
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  color: rgb(240, 255, 240);
 }
 
 header {
+  margin: 1rem;
   z-index: 1;
   position: fixed;
 }
 
 h1 {
-  font-family: 'Imbue', serif;
+  font-family: 'ITC Cheltenham Std Light Condensed', serif;
   font-size: 3rem;
   filter: drop-shadow(0 0 5px black) drop-shadow(0 0 20px black);
+  font-weight: normal;
+  margin: 0;
 }
 
 #root {
