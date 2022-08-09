@@ -9,9 +9,9 @@ export const PBF = './out/pbf'
 export const IN = 'in'
 export const GEOJSON = 'out/geojson'
 export const BASEMAP_COUNTRIES = 'basemap_countries'
-export const BASEMAP_COUNTRIES_SRC = 'ne_10m_admin_0_countries'
+export const BASEMAP_COUNTRIES_SRC = 'gadm_countries.geojson'
 export const BASEMAP_REGIONS = 'basemap_regions'
-export const BASEMAP_REGIONS_SRC = 'ne_10m_admin_1_states_provinces'
+export const BASEMAP_REGIONS_SRC = 'gadm_regions_custom.geojson'
 export const RCP = '85'
 export const SPECIES_WHITELIST = [
   'Fraxinus_excelsior',
@@ -27,4 +27,37 @@ export const GRIDS = [
   { res: 40000, minZoom: 3, maxZoom: 4 },
   { res: 20000, minZoom: 5, maxZoom: 6 },
   { res: 10000, minZoom: 7, maxZoom: 8 },
+]
+
+// < 100 000km2
+export const COUNTRIES_WITHOUT_REGIONS = [
+  'Hungary',
+  'Portugal',
+  'Serbia',
+  'Austria',
+  'Czechia',
+  'Ireland',
+  'Lithuania',
+  'Latvia',
+  'Croatia',
+  'Bosnia and Herzegovina',
+  'Slovakia',
+  'Estonia',
+  'Denmark',
+  'Switzerland',
+  'Netherlands',
+  'Moldova',
+  'Belgium',
+  'Albania',
+  'North Macedonia',
+  'Turkey',
+  'Slovenia',
+  'Montenegro',
+  'Kosovo',
+  'Azerbaijan',
+  'Georgia',
+  'Luxembourg',
+  'Andorra',
+  'Malta',
+  'Liechtenstein',
 ]

@@ -10,21 +10,14 @@ import React, {
 } from 'react'
 import './Map.css'
 import DeckGL from '@deck.gl/react/typed'
-import {
-  MapViewState,
-  PickingInfo,
-  WebMercatorViewport,
-} from '@deck.gl/core/typed'
-import { BitmapLayer } from '@deck.gl/layers/typed'
-import { TileLayer, MVTLayer } from '@deck.gl/geo-layers/typed'
-import { CENTER, COLOR_BY_CELL_TYPE, SPECIES_COLORS } from './constants'
-import { Cell, RegionFeature, TimeStep } from './types'
+import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
+import { CENTER, EUROPE_BBOX } from './constants'
+import { RegionFeature, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import Timeseries from './Timeseries'
-import { getCellTypeAtTimeStep } from './utils'
-import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from './constants_common'
 import bbox from '@turf/bbox'
 import cx from 'classnames'
+import useMapLayers from './hooks/useMapLayers'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -35,60 +28,6 @@ const INITIAL_VIEW_STATE = {
   bearing: 0,
 }
 
-const isLocal = window.location.hostname === 'localhost'
-const baseTilesURL = isLocal
-  ? '//localhost:9090/'
-  : '//storage.googleapis.com/eu-trees4f-tiles/pbf'
-
-const basemapLabels = new TileLayer({
-  id: 'basemapLabels',
-  data: 'https://a.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}@2x.png ',
-  minZoom: 0,
-  maxZoom: 19,
-  tileSize: 256,
-
-  renderSubLayers: (props) => {
-    const {
-      bbox: { west, south, east, north },
-    } = props.tile as any
-
-    return new BitmapLayer(props, {
-      data: null,
-      image: props.data,
-      bounds: [west, south, east, north],
-    })
-  },
-})
-const basemap = new TileLayer({
-  id: 'basemap',
-  data: 'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png ',
-  minZoom: 0,
-  maxZoom: 19,
-  tileSize: 256,
-
-  renderSubLayers: (props) => {
-    const {
-      bbox: { west, south, east, north },
-    } = props.tile as any
-
-    return new BitmapLayer(props, {
-      data: null,
-      image: props.data,
-      bounds: [west, south, east, north],
-    })
-  },
-})
-
-const countries = new MVTLayer({
-  id: 'countries',
-  data: `${baseTilesURL}/${BASEMAP_COUNTRIES}/{z}/{x}/{y}.pbf`,
-  minZoom: 0,
-  maxZoom: 5,
-  getLineColor: [192, 192, 192],
-  getFillColor: [0, 30, 0],
-  getLineWidth: 1000,
-})
-
 export type MapProps = {
   timeStep: TimeStep
   species: string
@@ -98,61 +37,12 @@ export type MapProps = {
 
 function Map({ species, timeStep, region, onRegionChange }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
-  const [tilesZoom, setTilesZoom] = useState(viewState.zoom)
 
-  const regions = new MVTLayer({
-    id: 'regions',
-    data: `${baseTilesURL}/${BASEMAP_REGIONS}/{z}/{x}/{y}.pbf`,
-    minZoom: 0,
-    maxZoom: 5,
-    getFillColor: [0, 0, 0, 0],
-    getLineColor: [192, 192, 192],
-    getLineWidth: 500,
-    pickable: true,
-    onClick: (o: PickingInfo) => {
-      onRegionChange(o.object)
-    },
+  const { layers, countries, grid } = useMapLayers({
+    timeStep,
+    species,
+    onRegionChange,
   })
-
-  const gridLayer = useMemo(
-    () =>
-      new MVTLayer({
-        data: `${baseTilesURL}/${species}/{z}/{x}/{y}.pbf`,
-        minZoom: 0,
-        maxZoom: 8,
-        pickable: true,
-        pointType: 'circle',
-        getPointRadius: () => {
-          if (tilesZoom <= 2) {
-            return 20000
-          } else if (tilesZoom >= 3 && tilesZoom <= 4) {
-            return 10000
-          } else if (tilesZoom >= 5 && tilesZoom <= 6) {
-            return 5000
-          } else if (tilesZoom >= 6) {
-            return 2500
-          }
-        },
-        getFillColor: (d: Cell) => {
-          const type = getCellTypeAtTimeStep(d, timeStep)
-          if (type === 'stable') return SPECIES_COLORS[species]
-          return COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
-        },
-        updateTriggers: {
-          // This tells deck.gl to recalculate fill color when `timeStep` changes
-          getFillColor: timeStep,
-          getPointRadius: tilesZoom,
-        },
-        onViewportLoad: (tiles) => {
-          if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
-            setTilesZoom(tiles[0].zoom)
-          }
-        },
-      }),
-    [timeStep, species, tilesZoom]
-  )
-
-  const layers = [countries, gridLayer, basemapLabels, regions]
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const [renderedFeatures, setRenderedFeatures] = useState<
@@ -164,24 +54,25 @@ function Map({ species, timeStep, region, onRegionChange }: MapProps) {
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
         try {
-          setRenderedFeatures(gridLayer.getRenderedFeatures())
+          setRenderedFeatures(grid.getRenderedFeatures())
         } catch (e) {
           console.log(e)
         }
       }, 100)
     },
-    [gridLayer]
+    [grid]
   )
 
   useEffect(() => {
     if (!countries.context) return
     const { viewport } = countries.context
     const wmViewport = viewport as WebMercatorViewport
-    const regionBbox = bbox(region?.geometry)
+
+    const baseBbox = region ? bbox(region.geometry) : EUROPE_BBOX
     const { longitude, latitude, zoom } = wmViewport.fitBounds(
       [
-        [regionBbox[0], regionBbox[1]],
-        [regionBbox[2], regionBbox[3]],
+        [baseBbox[0], baseBbox[1]],
+        [baseBbox[2], baseBbox[3]],
       ],
       { padding: 100 }
     )
@@ -203,7 +94,6 @@ function Map({ species, timeStep, region, onRegionChange }: MapProps) {
           viewState={viewState}
           onViewStateChange={onViewStateChange as any}
           layers={layers}
-          // style={{ position: 'fixed', border: '1px solid red' }}
         />
       </div>
 
