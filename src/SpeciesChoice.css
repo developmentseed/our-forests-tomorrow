@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 20px;
+  width: 0px;
   transition: all 150ms;
 }
 
@@ -28,6 +28,12 @@
 .speciesSection {
   height: 30px;
   width: 100%;
+  background: var(--dark);
+  /* border: 0; */
+  border-left-width: 20px;
+  border-left-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .speciesSection:hover {
@@ -38,11 +44,11 @@
   margin-left: 2rem;
 }
 
-.available {
+/* .available {
   border: 1px solid orange;
-}
+} */
 
-.selected {
+/* .selected {
   width: 100%;
   border: 2px solid black;
-}
+} */

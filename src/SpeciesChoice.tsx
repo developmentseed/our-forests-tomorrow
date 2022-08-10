@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { SPECIES_COLORS, SPECIES_IDS } from './constants'
 import { deckColorToCss } from './utils'
 import { RegionFeature } from './types'
+import { SPECIES_WHITELIST } from './constants_common'
 
 export type SpeciesChoiceProps = {
   species: string
@@ -41,12 +42,10 @@ function SpeciesChoice({
             key={speciesId}
             className={cx('speciesSection', {
               selected: speciesId === species,
-              available:
-                speciesId === 'Fraxinus_excelsior' ||
-                speciesId === 'Quercus_ilex',
+              available: SPECIES_WHITELIST.includes(speciesId),
             })}
             style={{
-              backgroundColor: deckColorToCss(SPECIES_COLORS[speciesId]),
+              borderColor: deckColorToCss(SPECIES_COLORS[speciesId]),
             }}
           >
             <div className="label">{speciesId}</div>

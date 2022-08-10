@@ -9,7 +9,7 @@ import {
   SPECIES_WHITELIST,
   EUTREES4F_DATASET_ABS_PATH,
   GEOJSON_ABS_PATH,
-} from '../src/constants_common'
+} from '../src/constants_common.js'
 
 const speciesList = JSON.parse(fs.readFileSync(SPECIES, 'utf-8'))
 

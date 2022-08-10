@@ -81,18 +81,18 @@ const REGIONS: LayerGenerator = {
 const GRID: LayerGenerator = {
   config: {
     ...BASE_ZOOM_CONFIG,
-    // pickable: true,
+    pickable: true,
     binary: false,
     pointType: 'circle',
   } as MVTLayerProps,
   overrides: {
     data: (species: string) => `${baseTilesURL}/${species}/{z}/{x}/{y}.pbf`,
     getPointRadiusByZoom: (zoom: number) => {
-      if (zoom <= 2) {
+      if (zoom <= 1) {
         return 20000
-      } else if (zoom >= 3 && zoom <= 4) {
+      } else if (zoom >= 2 && zoom <= 3) {
         return 10000
-      } else if (zoom >= 5 && zoom <= 6) {
+      } else if (zoom >= 4 && zoom <= 5) {
         return 5000
       } else if (zoom >= 6) {
         return 2500
