@@ -9,6 +9,8 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@turf/bbox": "^6.5.0",
+    "@turf/bbox-polygon": "^6.5.0",
+    "@turf/points-within-polygon": "^6.5.0",
     "@types/d3-array": "^3.0.3",
     "@types/geojson": "^7946.0.10",
     "@types/jest": "^27.0.1",

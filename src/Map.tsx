@@ -2,11 +2,10 @@ import React, {
   useCallback,
   useState,
   Fragment,
-  useMemo,
   useRef,
+  useEffect,
   Dispatch,
   SetStateAction,
-  useEffect,
 } from 'react'
 import './Map.css'
 import DeckGL from '@deck.gl/react/typed'
@@ -41,6 +40,7 @@ function Map({ species, timeStep, region, onRegionChange }: MapProps) {
   const { layers, countries, grid } = useMapLayers({
     timeStep,
     species,
+    region,
     onRegionChange,
   })
 

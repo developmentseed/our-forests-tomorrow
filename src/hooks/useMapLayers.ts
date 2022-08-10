@@ -11,7 +11,7 @@ import {
   BASEMAP_REGIONS,
   COUNTRIES_WITHOUT_REGIONS,
 } from '../constants_common'
-import { Dispatch, SetStateAction, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Cell, LayerGenerator, RegionFeature, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
 import { COLOR_BY_CELL_TYPE, SPECIES_COLORS } from '../constants'
@@ -98,10 +98,21 @@ const GRID: LayerGenerator = {
         return 2500
       }
     },
-    getFillColor: (d: Cell, timeStep: TimeStep, species: string) => {
+    getFillColor: (
+      d: Cell,
+      timeStep: TimeStep,
+      species: string,
+      region: RegionFeature | null
+    ) => {
       const type = getCellTypeAtTimeStep(d, timeStep)
-      if (type === 'stable') return SPECIES_COLORS[species]
-      return COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      const baseColor =
+        type === 'stable'
+          ? SPECIES_COLORS[species]
+          : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      if (!region) return baseColor
+      // TODO filter by region
+      const alpha = false ? 255 : 50
+      return [...baseColor, alpha]
     },
   },
 }
@@ -109,10 +120,16 @@ const GRID: LayerGenerator = {
 type UseMapLayerProps = {
   timeStep: TimeStep
   species: string
-  onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
+  region: RegionFeature | null
+  onRegionChange: (region: RegionFeature | null) => void
 }
 
-function useMapLayers({ timeStep, species, onRegionChange }: UseMapLayerProps) {
+function useMapLayers({
+  timeStep,
+  species,
+  region,
+  onRegionChange,
+}: UseMapLayerProps) {
   const [tilesZoom, setTilesZoom] = useState(3)
   const [hoveredRegionId, setHoveredRegionId] = useState<number | null>(null)
 
@@ -178,10 +195,11 @@ function useMapLayers({ timeStep, species, onRegionChange }: UseMapLayerProps) {
       ...GRID.config,
       data: GRID.overrides.data(species),
       getPointRadius: GRID.overrides.getPointRadiusByZoom(tilesZoom),
-      getFillColor: (d) => GRID.overrides.getFillColor(d, timeStep, species),
+      getFillColor: (d) =>
+        GRID.overrides.getFillColor(d, timeStep, species, region),
       updateTriggers: {
         getPointRadius: tilesZoom,
-        getFillColor: timeStep,
+        getFillColor: [timeStep, species, region],
       },
       onViewportLoad: (tiles) => {
         if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
@@ -200,6 +218,7 @@ function useMapLayers({ timeStep, species, onRegionChange }: UseMapLayerProps) {
     species,
     timeStep,
     tilesZoom,
+    region,
     onRegionChange,
     hoveredRegionId,
     setHoveredRegionId,

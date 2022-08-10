@@ -1,12 +1,10 @@
-import { Feature, Geometry } from 'geojson'
+import { BBox, Feature, Geometry, Point } from 'geojson'
 import { LayerProps } from '@deck.gl/core/typed'
 import { MVTLayerProps, TileLayerProps } from '@deck.gl/layers/typed'
 
 export type TimeStep = '2005' | '2035' | '2065' | '2095'
 export type CellType = 'stable' | 'decolonized' | 'suitable' | 'unknown'
-export type Cell = {
-  properties: CellProps
-}
+export type Cell = Feature<Point, CellProps>
 
 export type CellProps = {
   id: number
@@ -15,6 +13,8 @@ export type CellProps = {
 export type RegionProps = {
   name_en: string
   name_fr: string
+  bbox: BBox
+  bboxPoly: Feature<Polygon>
   // COUNTRY: string
   // NAME_1: string
 }
