@@ -32,9 +32,16 @@ export type MapProps = {
   species: string
   region: RegionFeature | null
   onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
+  onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
 }
 
-function Map({ species, timeStep, region, onRegionChange }: MapProps) {
+function Map({
+  species,
+  timeStep,
+  region,
+  onRegionChange,
+  onRenderedFeaturesChange,
+}: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
 
   const { layers, countries, grid } = useMapLayers({
@@ -45,16 +52,14 @@ function Map({ species, timeStep, region, onRegionChange }: MapProps) {
   })
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
-  const [renderedFeatures, setRenderedFeatures] = useState<
-    undefined | Feature[]
-  >(undefined)
+
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
       setViewState(viewState)
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
         try {
-          setRenderedFeatures(grid.getRenderedFeatures())
+          onRenderedFeaturesChange(grid.getRenderedFeatures())
         } catch (e) {
           console.log(e)
         }
@@ -95,10 +100,6 @@ function Map({ species, timeStep, region, onRegionChange }: MapProps) {
           onViewStateChange={onViewStateChange as any}
           layers={layers}
         />
-      </div>
-
-      <div className="timeseries">
-        <Timeseries features={renderedFeatures} />
       </div>
     </Fragment>
   )

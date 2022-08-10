@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   Dispatch,
+  ReactNode,
   SetStateAction,
   useCallback,
 } from 'react'
@@ -8,11 +9,12 @@ import { TimeStep } from './types'
 import './Timestep.css'
 
 export type TimestepProps = {
+  children: ReactNode
   timeStep: TimeStep
   onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
-function Timestep({ timeStep, onTimestepChange }: TimestepProps) {
+function Timestep({ children, timeStep, onTimestepChange }: TimestepProps) {
   const onTimestepChangeCallback = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       onTimestepChange(e.target.value.toString() as TimeStep)
@@ -37,6 +39,7 @@ function Timestep({ timeStep, onTimestepChange }: TimestepProps) {
         <option value="2095" label="2095"></option>
       </datalist>
       {timeStep}
+      {children}
     </div>
   )
 }

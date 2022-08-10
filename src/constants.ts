@@ -20,7 +20,7 @@ export const TIME_STEPS: TimeStep[] = ['2005', '2035', '2065', '2095']
 
 export const COLOR_BY_CELL_TYPE: Record<CellType, number[]> = {
   stable: [0, 150, 0],
-  decolonized: [255, 0, 0],
+  decolonized: [216, 46, 14],
   suitable: [0, 0, 255],
   unknown: [0, 0, 0, 0],
 }
