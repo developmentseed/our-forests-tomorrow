@@ -1,18 +1,30 @@
 import type { Feature } from 'geojson'
-import { useMemo } from 'react'
+import { Dispatch, Fragment, SetStateAction, useCallback, useMemo } from 'react'
 import { COLOR_BY_CELL_TYPE, SPECIES_COLORS, TIME_STEPS } from './constants'
-import { CellType } from './types'
+import { CellType, TimeStep } from './types'
 import { getCellTypeAtTimeStep } from './utils'
 import { area, stack, stackOffsetWiggle, curveCatmullRom } from 'd3-shape'
 import { scaleLinear } from 'd3-scale'
 import { max } from 'd3-array'
+import './Timeseries.css'
+import cx from 'classnames'
+
+const W = 250
+const H = 120
 
 export type TimeseriesProps = {
   features?: Feature[]
   species: string
+  timeStep: TimeStep
+  onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
-function Timeseries({ features, species }: TimeseriesProps) {
+function Timeseries({
+  features,
+  species,
+  onTimestepChange,
+  timeStep,
+}: TimeseriesProps) {
   // const numFeatures = features?.length || 0
   const timeseriesData = useMemo(() => {
     if (!features) return []
@@ -52,7 +64,7 @@ function Timeseries({ features, species }: TimeseriesProps) {
       .keys(['suitable', 'stable', 'decolonized'])
       .offset(stackOffsetWiggle)
     const series = stackLayout(timeseriesData)
-    const scaleX = scaleLinear().domain([1995, 2105]).range([0, 250])
+    const scaleX = scaleLinear().domain([1995, 2105]).range([0, W])
     const scaleY = scaleLinear().domain([0, maxY]).range([0, 80])
 
     const areaLayout = area()
@@ -76,19 +88,32 @@ function Timeseries({ features, species }: TimeseriesProps) {
     })
 
     return layouted
-  }, [timeseriesData])
+  }, [timeseriesData, maxY, species])
 
   return (
-    <svg width={300} height={120}>
-      {pathContainers.map((pathContainer, sublayerIndex) => (
-        <g key={sublayerIndex} transform={`translate(0, 40)`}>
-          <path
-            d={pathContainer.path || ''}
-            fill={`rgb(${pathContainer.color[0]}, ${pathContainer.color[1]}, ${pathContainer.color[2]})`}
-          />
-        </g>
-      ))}
-    </svg>
+    <Fragment>
+      <svg width={W} height={H}>
+        {pathContainers.map((pathContainer, sublayerIndex) => (
+          <g key={sublayerIndex} transform={`translate(0, 40)`}>
+            <path
+              d={pathContainer.path || ''}
+              fill={`rgb(${pathContainer.color[0]}, ${pathContainer.color[1]}, ${pathContainer.color[2]})`}
+            />
+          </g>
+        ))}
+      </svg>
+      <div className="axis">
+        {['2005', '2035', '2065', '2095'].map((y) => (
+          <button
+            className={cx({ selected: y === timeStep })}
+            onMouseEnter={() => onTimestepChange(y as TimeStep)}
+            key={y}
+          >
+            {y}
+          </button>
+        ))}
+      </div>
+    </Fragment>
   )
 }
 

@@ -58,6 +58,6 @@ button {
   cursor: pointer;
 }
 
-button::after {
+button.back::after {
   content: '<';
 }

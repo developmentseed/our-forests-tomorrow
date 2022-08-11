@@ -8,10 +8,13 @@ import { deckColorToCss } from './utils'
 import { SPECIES_COLORS } from './constants'
 import { Feature } from 'geojson'
 import Timeseries from './Timeseries'
+import { SPECIES_WHITELIST } from './constants_common'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
-  const [species, setSpecies] = useState<string>('Fraxinus_excelsior')
+  const [species, setSpecies] = useState<string>(
+    SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
+  )
   const [region, setRegion] = useState<RegionFeature | null>(null)
   const [renderedFeatures, setRenderedFeatures] = useState<
     undefined | Feature[]
@@ -40,8 +43,13 @@ function App() {
         onRegionChange={setRegion}
         onRenderedFeaturesChange={setRenderedFeatures}
       />
-      <Timestep timeStep={timeStep} onTimestepChange={setTimeStep}>
-        <Timeseries features={renderedFeatures} species={species} />
+      <Timestep>
+        <Timeseries
+          timeStep={timeStep}
+          onTimestepChange={setTimeStep}
+          features={renderedFeatures}
+          species={species}
+        />
       </Timestep>
       <SpeciesChoice
         species={species}

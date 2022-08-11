@@ -30,7 +30,7 @@ function SpeciesChoice({
       {region ? (
         <h1>
           Species in {region.properties.name_en}{' '}
-          <button onClick={onRegionClose}></button>
+          <button className="back" onClick={onRegionClose}></button>
         </h1>
       ) : (
         <h1>Species:</h1>

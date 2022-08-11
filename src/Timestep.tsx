@@ -10,20 +10,20 @@ import './Timestep.css'
 
 export type TimestepProps = {
   children: ReactNode
-  timeStep: TimeStep
-  onTimestepChange: Dispatch<SetStateAction<TimeStep>>
+  // timeStep: TimeStep
+  // onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
-function Timestep({ children, timeStep, onTimestepChange }: TimestepProps) {
-  const onTimestepChangeCallback = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      onTimestepChange(e.target.value.toString() as TimeStep)
-    },
-    [onTimestepChange]
-  )
+function Timestep({ children }: TimestepProps) {
+  // const onTimestepChangeCallback = useCallback(
+  //   (e: ChangeEvent<HTMLInputElement>) => {
+  //     onTimestepChange(e.target.value.toString() as TimeStep)
+  //   },
+  //   [onTimestepChange]
+  // )
   return (
     <div className="timestep">
-      <input
+      {/* <input
         type="range"
         list="tickmarks"
         min="2005"
@@ -38,7 +38,7 @@ function Timestep({ children, timeStep, onTimestepChange }: TimestepProps) {
         <option value="2065" label="2065"></option>
         <option value="2095" label="2095"></option>
       </datalist>
-      {timeStep}
+      {timeStep} */}
       {children}
     </div>
   )
