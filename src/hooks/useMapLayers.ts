@@ -18,7 +18,7 @@ import { COLOR_BY_CELL_TYPE, SPECIES_COLORS } from '../constants'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
-  ? '//localhost:9090/'
+  ? '//localhost:9090'
   : '//storage.googleapis.com/eu-trees4f-tiles/pbf'
 
 const LABELS: LayerGenerator = {
@@ -86,7 +86,8 @@ const GRID: LayerGenerator = {
     pointType: 'circle',
   } as MVTLayerProps,
   overrides: {
-    data: (species: string) => `${baseTilesURL}/${species}/{z}/{x}/{y}.pbf`,
+    data: (species: string) =>
+      `${baseTilesURL}/species/${species}/{z}/{x}/{y}.pbf`,
     getPointRadiusByZoom: (zoom: number) => {
       if (zoom <= 1) {
         return 20000

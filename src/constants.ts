@@ -37,3 +37,9 @@ export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
     ],
   ])
 )
+
+export enum CellTypeEnum {
+  Decolonized,
+  Stable,
+  Suitable,
+}

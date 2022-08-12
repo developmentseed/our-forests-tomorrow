@@ -8,7 +8,16 @@ export type Cell = Feature<Point, CellProps>
 
 export type CellProps = {
   id: number
-} & Record<TimeStep, number>
+  fid: number
+  fid_2: number
+  nat_2005: number
+  prob_2035: number
+  prob_2065: number
+  prob_2095: number
+  status_2035: CellTypeEnum
+  status_2065: CellTypeEnum
+  status_2095: CellTypeEnum
+}
 
 export type RegionProps = {
   name_en: string
