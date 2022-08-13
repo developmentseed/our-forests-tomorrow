@@ -3,6 +3,7 @@ import { LayerProps } from '@deck.gl/core/typed'
 import { MVTLayerProps, TileLayerProps } from '@deck.gl/layers/typed'
 
 export type TimeStep = '2005' | '2035' | '2065' | '2095'
+export type TimeStepFuture = '2035' | '2065' | '2095'
 export type CellType = 'stable' | 'decolonized' | 'suitable' | 'unknown'
 export type Cell = Feature<Point, CellProps>
 
@@ -24,6 +25,7 @@ export type RegionProps = {
   name_fr: string
   bbox: BBox
   bboxPoly: Feature<Polygon>
+  fid: number
   // COUNTRY: string
   // NAME_1: string
 }
@@ -34,3 +36,8 @@ export type LayerGenerator = {
   config: LayerProps
   overrides?: any
 }
+
+export type ValuesByCellType = [number, number, number]
+export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType>
+export type ValuesByRegionFid = Record<string, ValuesByYear>
+export type StatsBySpecies = Record<string, ValuesByRegionFid>

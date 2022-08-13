@@ -1,14 +1,14 @@
-import React, { useState, Fragment, useCallback } from 'react'
+import React, { useState, Fragment, useCallback, useEffect } from 'react'
 import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
 import Timestep from './Timestep'
-import { RegionFeature, TimeStep } from './types'
-import { deckColorToCss } from './utils'
-import { SPECIES_COLORS } from './constants'
+import { RegionFeature, StatsBySpecies, TimeStep } from './types'
 import { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { SPECIES_WHITELIST } from './constants_common'
+import RegionStats from './RegionStats'
+import SpeciesStats from './SpeciesStats'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
@@ -24,18 +24,25 @@ function App() {
     setRegion(null)
   }, [setRegion])
 
-  return (
+  const [stats, setStats] = useState<StatsBySpecies | null>(null)
+  useEffect(() => {
+    if (stats) return
+    fetch('./stats.json')
+      .then((r) => r.json())
+      .then((data) => {
+        setStats(data)
+      })
+  }, [stats])
+
+  return !stats ? (
+    <div>loading</div>
+  ) : (
     <Fragment>
-      <header>
-        <h1
-          style={{
-            color: deckColorToCss(SPECIES_COLORS[species]),
-          }}
-        >
-          {species}
-        </h1>
-        <p>Lorem Ipsum, dolor sit amet</p>
-      </header>
+      {region ? (
+        <RegionStats stats={stats} region={region} species={species} />
+      ) : (
+        <SpeciesStats stats={stats} species={species} />
+      )}
       <Map
         timeStep={timeStep}
         species={species}
