@@ -1,108 +1,108 @@
 <!DOCTYPE model>
 <Option type="Map">
-  <Option type="Map" name="children">
-    <Option type="Map" name="qgis:executesql_1">
-      <Option type="bool" name="active" value="true"/>
+  <Option name="children" type="Map">
+    <Option name="qgis:executesql_1" type="Map">
+      <Option value="true" name="active" type="bool"/>
       <Option name="alg_config"/>
-      <Option type="QString" name="alg_id" value="qgis:executesql"/>
-      <Option type="QString" name="color" value=""/>
-      <Option type="Map" name="comment">
-        <Option type="QString" name="color" value=""/>
-        <Option type="QString" name="component_description" value=""/>
-        <Option type="double" name="component_height" value="60"/>
-        <Option type="double" name="component_pos_x" value="536"/>
-        <Option type="double" name="component_pos_y" value="325.66666666666663"/>
-        <Option type="double" name="component_width" value="100"/>
-        <Option type="bool" name="outputs_collapsed" value="true"/>
-        <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option value="qgis:executesql" name="alg_id" type="QString"/>
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="536" name="component_pos_x" type="double"/>
+        <Option value="325.66666666666663" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option type="QString" name="component_description" value="Execute SQL"/>
-      <Option type="double" name="component_height" value="30"/>
-      <Option type="double" name="component_pos_x" value="410.66666666666663"/>
-      <Option type="double" name="component_pos_y" value="336"/>
-      <Option type="double" name="component_width" value="200"/>
+      <Option value="Execute SQL" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="410.66666666666663" name="component_pos_x" type="double"/>
+      <Option value="336" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
       <Option name="dependencies"/>
-      <Option type="QString" name="id" value="qgis:executesql_1"/>
-      <Option type="Map" name="outputs">
-        <Option type="Map" name="sql_output">
-          <Option type="QString" name="child_id" value="qgis:executesql_1"/>
-          <Option type="QString" name="color" value=""/>
-          <Option type="Map" name="comment">
-            <Option type="QString" name="color" value=""/>
-            <Option type="QString" name="component_description" value=""/>
-            <Option type="double" name="component_height" value="60"/>
-            <Option type="double" name="component_pos_x" value="0"/>
-            <Option type="double" name="component_pos_y" value="0"/>
-            <Option type="double" name="component_width" value="100"/>
-            <Option type="bool" name="outputs_collapsed" value="true"/>
-            <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option value="qgis:executesql_1" name="id" type="QString"/>
+      <Option name="outputs" type="Map">
+        <Option name="sql_output" type="Map">
+          <Option value="qgis:executesql_1" name="child_id" type="QString"/>
+          <Option value="" name="color" type="QString"/>
+          <Option name="comment" type="Map">
+            <Option value="" name="color" type="QString"/>
+            <Option value="" name="component_description" type="QString"/>
+            <Option value="60" name="component_height" type="double"/>
+            <Option value="0" name="component_pos_x" type="double"/>
+            <Option value="0" name="component_pos_y" type="double"/>
+            <Option value="100" name="component_width" type="double"/>
+            <Option value="true" name="outputs_collapsed" type="bool"/>
+            <Option value="true" name="parameters_collapsed" type="bool"/>
           </Option>
-          <Option type="QString" name="component_description" value="sql_output"/>
-          <Option type="double" name="component_height" value="30"/>
-          <Option type="double" name="component_pos_x" value="536"/>
-          <Option type="double" name="component_pos_y" value="415.66666666666663"/>
-          <Option type="double" name="component_width" value="200"/>
-          <Option type="invalid" name="default_value"/>
-          <Option type="bool" name="mandatory" value="false"/>
-          <Option type="QString" name="name" value="sql_output"/>
-          <Option type="QString" name="output_name" value="OUTPUT"/>
-          <Option type="bool" name="outputs_collapsed" value="true"/>
-          <Option type="bool" name="parameters_collapsed" value="true"/>
+          <Option value="sql_output" name="component_description" type="QString"/>
+          <Option value="30" name="component_height" type="double"/>
+          <Option value="536" name="component_pos_x" type="double"/>
+          <Option value="415.66666666666663" name="component_pos_y" type="double"/>
+          <Option value="200" name="component_width" type="double"/>
+          <Option name="default_value" type="invalid"/>
+          <Option value="false" name="mandatory" type="bool"/>
+          <Option value="sql_output" name="name" type="QString"/>
+          <Option value="OUTPUT" name="output_name" type="QString"/>
+          <Option value="true" name="outputs_collapsed" type="bool"/>
+          <Option value="true" name="parameters_collapsed" type="bool"/>
         </Option>
       </Option>
-      <Option type="bool" name="outputs_collapsed" value="true"/>
-      <Option type="bool" name="parameters_collapsed" value="true"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="INPUT_DATASOURCES">
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
+      <Option name="params" type="Map">
+        <Option name="INPUT_DATASOURCES" type="List">
           <Option type="Map">
-            <Option type="QString" name="parameter_name" value="grid"/>
-            <Option type="int" name="source" value="0"/>
+            <Option value="grid" name="parameter_name" type="QString"/>
+            <Option value="0" name="source" type="int"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT_GEOMETRY_CRS">
+        <Option name="INPUT_GEOMETRY_CRS" type="List">
           <Option type="Map">
-            <Option type="int" name="source" value="2"/>
-            <Option type="invalid" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option name="static_value" type="invalid"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT_GEOMETRY_FIELD">
+        <Option name="INPUT_GEOMETRY_FIELD" type="List">
           <Option type="Map">
-            <Option type="int" name="source" value="2"/>
-            <Option type="QString" name="static_value" value=""/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT_GEOMETRY_TYPE">
+        <Option name="INPUT_GEOMETRY_TYPE" type="List">
           <Option type="Map">
-            <Option type="int" name="source" value="2"/>
-            <Option type="invalid" name="static_value"/>
+            <Option value="2" name="source" type="int"/>
+            <Option name="static_value" type="invalid"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT_QUERY">
+        <Option name="INPUT_QUERY" type="List">
           <Option type="Map">
-            <Option type="int" name="source" value="2"/>
-            <Option type="QString" name="static_value" value="SELECT&#xa;  geometry,&#xa;  fid as region_id,&#xa;  COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,&#xa;  COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,&#xa;  COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,&#xa;  COUNT(case status_2065 when 0 then 1 else null end) as count_2065_decolonized,&#xa;  COUNT(case status_2065 when 1 then 1 else null end) as count_2065_stable,&#xa;  COUNT(case status_2065 when 2 then 1 else null end) as count_2065_suitable,&#xa;  COUNT(case status_2095 when 0 then 1 else null end) as count_2095_decolonized,&#xa;  COUNT(case status_2095 when 1 then 1 else null end) as count_2095_stable,&#xa;  COUNT(case status_2095 when 2 then 1 else null end) as count_2095_suitable&#xa;  from 'input1'&#xa;  group by fid&#xa;  &#xa;UNION&#xa;&#xa;SELECT&#xa;  geometry,&#xa;  fid_2 as region_id,&#xa;  COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,&#xa;  COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,&#xa;  COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,&#xa;  COUNT(case status_2065 when 0 then 1 else null end) as count_2065_decolonized,&#xa;  COUNT(case status_2065 when 1 then 1 else null end) as count_2065_stable,&#xa;  COUNT(case status_2065 when 2 then 1 else null end) as count_2065_suitable,&#xa;  COUNT(case status_2095 when 0 then 1 else null end) as count_2095_decolonized,&#xa;  COUNT(case status_2095 when 1 then 1 else null end) as count_2095_stable,&#xa;  COUNT(case status_2095 when 2 then 1 else null end) as count_2095_suitable&#xa;  from 'input1'&#xa;  WHERE fid_2 not null&#xa;  group by fid_2"/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="SELECT&#xa;  geometry,&#xa;  fid as region_id,&#xa;  COUNT(case nat_2005 when 1 then 1 else null end) as count_2005,&#xa;  COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,&#xa;  COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,&#xa;  COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,&#xa;  COUNT(case status_2065 when 0 then 1 else null end) as count_2065_decolonized,&#xa;  COUNT(case status_2065 when 1 then 1 else null end) as count_2065_stable,&#xa;  COUNT(case status_2065 when 2 then 1 else null end) as count_2065_suitable,&#xa;  COUNT(case status_2095 when 0 then 1 else null end) as count_2095_decolonized,&#xa;  COUNT(case status_2095 when 1 then 1 else null end) as count_2095_stable,&#xa;  COUNT(case status_2095 when 2 then 1 else null end) as count_2095_suitable&#xa;  from 'input1'&#xa;  group by fid&#xa;  &#xa;UNION&#xa;&#xa;SELECT&#xa;  geometry,&#xa;  fid_2 as region_id,&#xa;    COUNT(case nat_2005 when 1 then 1 else null end) as count_2005,&#xa;  COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,&#xa;  COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,&#xa;  COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,&#xa;  COUNT(case status_2065 when 0 then 1 else null end) as count_2065_decolonized,&#xa;  COUNT(case status_2065 when 1 then 1 else null end) as count_2065_stable,&#xa;  COUNT(case status_2065 when 2 then 1 else null end) as count_2065_suitable,&#xa;  COUNT(case status_2095 when 0 then 1 else null end) as count_2095_decolonized,&#xa;  COUNT(case status_2095 when 1 then 1 else null end) as count_2095_stable,&#xa;  COUNT(case status_2095 when 2 then 1 else null end) as count_2095_suitable&#xa;  from 'input1'&#xa;  WHERE fid_2 not null&#xa;  group by fid_2" name="static_value" type="QString"/>
           </Option>
         </Option>
-        <Option type="List" name="INPUT_UID_FIELD">
+        <Option name="INPUT_UID_FIELD" type="List">
           <Option type="Map">
-            <Option type="int" name="source" value="2"/>
-            <Option type="QString" name="static_value" value=""/>
+            <Option value="2" name="source" type="int"/>
+            <Option value="" name="static_value" type="QString"/>
           </Option>
         </Option>
       </Option>
     </Option>
   </Option>
-  <Option type="Map" name="designerParameterValues">
-    <Option type="QString" name="grid" value="Reprojected_d970fc9b_aae0_4cad_bedc_53ea8acb4a73"/>
-    <Option type="QgsProcessingOutputLayerDefinition" name="qgis:executesql_1:sql_output">
+  <Option name="designerParameterValues" type="Map">
+    <Option value="Reprojected_d970fc9b_aae0_4cad_bedc_53ea8acb4a73" name="grid" type="QString"/>
+    <Option name="qgis:executesql_1:sql_output" type="QgsProcessingOutputLayerDefinition">
       <Option type="Map">
-        <Option type="Map" name="create_options">
-          <Option type="QString" name="fileEncoding" value="System"/>
+        <Option name="create_options" type="Map">
+          <Option value="System" name="fileEncoding" type="QString"/>
         </Option>
-        <Option type="Map" name="sink">
-          <Option type="bool" name="active" value="true"/>
-          <Option type="int" name="type" value="1"/>
-          <Option type="QString" name="val" value="/Users/erik/Work/eu-trees4f/out/stats/test.csv"/>
+        <Option name="sink" type="Map">
+          <Option value="true" name="active" type="bool"/>
+          <Option value="1" name="type" type="int"/>
+          <Option value="/Users/erik/Work/eu-trees4f/out/stats/test.csv" name="val" type="QString"/>
         </Option>
       </Option>
     </Option>
@@ -110,59 +110,59 @@
   <Option name="groupBoxes"/>
   <Option name="help"/>
   <Option name="modelVariables"/>
-  <Option type="QString" name="model_group" value=""/>
-  <Option type="QString" name="model_name" value="stats"/>
-  <Option type="Map" name="parameterDefinitions">
-    <Option type="Map" name="grid">
-      <Option type="List" name="data_types">
-        <Option type="int" value="0"/>
+  <Option value="" name="model_group" type="QString"/>
+  <Option value="stats" name="model_name" type="QString"/>
+  <Option name="parameterDefinitions" type="Map">
+    <Option name="grid" type="Map">
+      <Option name="data_types" type="List">
+        <Option value="0" type="int"/>
       </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" name="description" value="grid"/>
-      <Option type="int" name="flags" value="0"/>
-      <Option type="QString" name="help" value=""/>
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="grid" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option type="QString" name="name" value="grid"/>
-      <Option type="QString" name="parameter_type" value="source"/>
+      <Option value="grid" name="name" type="QString"/>
+      <Option value="source" name="parameter_type" type="QString"/>
     </Option>
-    <Option type="Map" name="qgis:executesql_1:sql_output">
-      <Option type="bool" name="create_by_default" value="true"/>
-      <Option type="int" name="data_type" value="-1"/>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" name="description" value="sql_output"/>
-      <Option type="int" name="flags" value="0"/>
-      <Option type="QString" name="help" value=""/>
+    <Option name="qgis:executesql_1:sql_output" type="Map">
+      <Option value="true" name="create_by_default" type="bool"/>
+      <Option value="-1" name="data_type" type="int"/>
+      <Option name="default" type="invalid"/>
+      <Option name="defaultGui" type="invalid"/>
+      <Option value="sql_output" name="description" type="QString"/>
+      <Option value="0" name="flags" type="int"/>
+      <Option value="" name="help" type="QString"/>
       <Option name="metadata"/>
-      <Option type="QString" name="name" value="qgis:executesql_1:sql_output"/>
-      <Option type="QString" name="parameter_type" value="sink"/>
-      <Option type="bool" name="supports_append" value="false"/>
-      <Option type="bool" name="supports_non_file_outputs" value="true"/>
+      <Option value="qgis:executesql_1:sql_output" name="name" type="QString"/>
+      <Option value="sink" name="parameter_type" type="QString"/>
+      <Option value="false" name="supports_append" type="bool"/>
+      <Option value="true" name="supports_non_file_outputs" type="bool"/>
     </Option>
   </Option>
   <Option name="parameterOrder"/>
-  <Option type="Map" name="parameters">
-    <Option type="Map" name="grid">
-      <Option type="QString" name="color" value=""/>
-      <Option type="Map" name="comment">
-        <Option type="QString" name="color" value=""/>
-        <Option type="QString" name="component_description" value=""/>
-        <Option type="double" name="component_height" value="60"/>
-        <Option type="double" name="component_pos_x" value="665.3333333333333"/>
-        <Option type="double" name="component_pos_y" value="263"/>
-        <Option type="double" name="component_width" value="100"/>
-        <Option type="bool" name="outputs_collapsed" value="true"/>
-        <Option type="bool" name="parameters_collapsed" value="true"/>
+  <Option name="parameters" type="Map">
+    <Option name="grid" type="Map">
+      <Option value="" name="color" type="QString"/>
+      <Option name="comment" type="Map">
+        <Option value="" name="color" type="QString"/>
+        <Option value="" name="component_description" type="QString"/>
+        <Option value="60" name="component_height" type="double"/>
+        <Option value="665.3333333333333" name="component_pos_x" type="double"/>
+        <Option value="263" name="component_pos_y" type="double"/>
+        <Option value="100" name="component_width" type="double"/>
+        <Option value="true" name="outputs_collapsed" type="bool"/>
+        <Option value="true" name="parameters_collapsed" type="bool"/>
       </Option>
-      <Option type="QString" name="component_description" value="grid"/>
-      <Option type="double" name="component_height" value="30"/>
-      <Option type="double" name="component_pos_x" value="329.3333333333333"/>
-      <Option type="double" name="component_pos_y" value="226.66666666666666"/>
-      <Option type="double" name="component_width" value="200"/>
-      <Option type="QString" name="name" value="grid"/>
-      <Option type="bool" name="outputs_collapsed" value="true"/>
-      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option value="grid" name="component_description" type="QString"/>
+      <Option value="30" name="component_height" type="double"/>
+      <Option value="329.3333333333333" name="component_pos_x" type="double"/>
+      <Option value="226.66666666666666" name="component_pos_y" type="double"/>
+      <Option value="200" name="component_width" type="double"/>
+      <Option value="grid" name="name" type="QString"/>
+      <Option value="true" name="outputs_collapsed" type="bool"/>
+      <Option value="true" name="parameters_collapsed" type="bool"/>
     </Option>
   </Option>
 </Option>

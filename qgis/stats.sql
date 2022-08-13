@@ -1,6 +1,7 @@
 SELECT
   geometry,
   fid as region_id,
+  COUNT(case nat_2005 when 1 then 1 else null end) as count_2005,
   COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,
   COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,
   COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,
@@ -18,6 +19,7 @@ UNION
 SELECT
   geometry,
   fid_2 as region_id,
+    COUNT(case nat_2005 when 1 then 1 else null end) as count_2005,
   COUNT(case status_2035 when 0 then 1 else null end) as count_2035_decolonized,
   COUNT(case status_2035 when 1 then 1 else null end) as count_2035_stable,
   COUNT(case status_2035 when 2 then 1 else null end) as count_2035_suitable,

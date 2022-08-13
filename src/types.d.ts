@@ -38,6 +38,7 @@ export type LayerGenerator = {
 }
 
 export type ValuesByCellType = [number, number, number]
-export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType>
+export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> &
+  Record<'2005', number>
 export type ValuesByRegionFid = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionFid>

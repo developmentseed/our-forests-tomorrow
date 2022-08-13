@@ -22,7 +22,8 @@ const s = speciesList.flatMap((species) => {
   const stats = Object.fromEntries(
     statsArr.map((regionStats) => {
       const regionStatsByYear = Object.fromEntries(
-        ['2035', '2065', '2095'].map((y) => {
+        ['2005', '2035', '2065', '2095'].map((y) => {
+          if (y === '2005') return [2005, parseInt(regionStats.count_2005)]
           return [
             y,
             [
