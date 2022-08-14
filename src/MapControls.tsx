@@ -8,13 +8,13 @@ import React, {
 import { TimeStep } from './types'
 import './Timestep.css'
 
-export type TimestepProps = {
+export type MapControlsProps = {
   children: ReactNode
   // timeStep: TimeStep
   // onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
-function Timestep({ children }: TimestepProps) {
+function MapControls({ children }: MapControlsProps) {
   // const onTimestepChangeCallback = useCallback(
   //   (e: ChangeEvent<HTMLInputElement>) => {
   //     onTimestepChange(e.target.value.toString() as TimeStep)
@@ -44,4 +44,4 @@ function Timestep({ children }: TimestepProps) {
   )
 }
 
-export default Timestep
+export default MapControls

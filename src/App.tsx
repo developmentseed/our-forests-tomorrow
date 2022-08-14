@@ -2,7 +2,7 @@ import React, { useState, Fragment, useCallback, useEffect } from 'react'
 import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
-import Timestep from './Timestep'
+import Timestep from './MapControls'
 import { RegionFeature, StatsBySpecies, TimeStep } from './types'
 import { Feature } from 'geojson'
 import Timeseries from './Timeseries'
@@ -25,13 +25,18 @@ function App() {
   }, [setRegion])
 
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
+  const [speciesDetail, setSpeciesDetail] = useState<any>(null)
   useEffect(() => {
     if (stats) return
-    fetch('./stats.json')
-      .then((r) => r.json())
-      .then((data) => {
-        setStats(data)
-      })
+    Promise.all(
+      ['./stats.json', './species_detail.json'].map((url) =>
+        fetch(url).then((resp) => resp.json())
+      )
+    ).then((data) => {
+      const [stats, speciesDetail] = data
+      setStats(stats)
+      setSpeciesDetail(speciesDetail)
+    })
   }, [stats])
 
   return !stats ? (
@@ -41,7 +46,7 @@ function App() {
       {region ? (
         <RegionStats stats={stats} region={region} species={species} />
       ) : (
-        <SpeciesStats stats={stats} species={species} />
+        <SpeciesStats stats={stats} species={species} speciesDetail={speciesDetail} />
       )}
       <Map
         timeStep={timeStep}

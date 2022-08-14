@@ -1,6 +1,7 @@
 import { CellType, TimeStep } from './types'
 
-import SPECIES from './species_detail.json'
+import SPECIES from './species.json'
+export const SPECIES_IDS = SPECIES
 
 export const GEOTIFF_BBOX = [
   -18.9166666670000012, 27.0833333330000059, 49.9999999989999964,
@@ -24,8 +25,6 @@ export const COLOR_BY_CELL_TYPE: Record<CellType, number[]> = {
   suitable: [0, 0, 255],
   unknown: [0, 0, 0, 0],
 }
-
-export const SPECIES_IDS = Object.keys(SPECIES)
 
 export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
   SPECIES_IDS.map((s) => [

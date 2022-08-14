@@ -5,10 +5,12 @@ import { deckColorToCss } from './utils'
 export type SpeciesStatsProps = {
   species: string
   stats: StatsBySpecies
+  speciesDetail: any
 }
 
-function SpeciesStats({ species, stats }: SpeciesStatsProps) {
+function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   const currentStats = stats[species]
+  const detail = speciesDetail[species]
   console.log('species stats:', currentStats)
   return (
     <header>
@@ -17,9 +19,9 @@ function SpeciesStats({ species, stats }: SpeciesStatsProps) {
           color: deckColorToCss(SPECIES_COLORS[species]),
         }}
       >
-        {species}
+        {species}, {detail.en.aliases[0]}
       </h1>
-      <p>Lorem Ipsum, dolor sit amet</p>
+      <p>{detail.en.extract}</p>
     </header>
   )
 }
