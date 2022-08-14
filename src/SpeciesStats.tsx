@@ -1,3 +1,4 @@
+import InlineDropdown from './components/InlineDropdown'
 import { SPECIES_COLORS } from './constants'
 import { StatsBySpecies } from './types'
 import { deckColorToCss } from './utils'
@@ -11,6 +12,7 @@ export type SpeciesStatsProps = {
 function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   const currentStats = stats[species]
   const detail = speciesDetail[species]
+  const name = detail.en.aliases[0]
   console.log('species stats:', currentStats)
   return (
     <header>
@@ -19,8 +21,12 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
           color: deckColorToCss(SPECIES_COLORS[species]),
         }}
       >
-        {species}, {detail.en.aliases[0]}
+        {species}, {name}
       </h1>
+      <p>
+        {name} currently grows in{' '}
+        <InlineDropdown data={['Bretagne', 'Murcia', 'Portugal', 'Slovenia']} />
+      </p>
       <p>{detail.en.extract}</p>
     </header>
   )
