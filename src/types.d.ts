@@ -42,3 +42,12 @@ export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> &
   Record<'2005', number>
 export type ValuesByRegionFid = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionFid>
+export type Region = {
+  fid: number
+  GID_0: string
+  COUNTRY: string
+  GID_1?: string
+  NAME_1?: string
+  TYPE_1?: string
+  ENGTYPE_1?: string
+}

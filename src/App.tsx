@@ -3,7 +3,7 @@ import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
 import MapControls from './MapControls'
-import { RegionFeature, StatsBySpecies, TimeStep } from './types'
+import { Region, RegionFeature, StatsBySpecies, TimeStep } from './types'
 import { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { SPECIES_WHITELIST } from './constants_common'
@@ -26,16 +26,18 @@ function App() {
 
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
   const [speciesDetail, setSpeciesDetail] = useState<any>(null)
+  const [regions, setRegions] = useState<Region[]>([])
   useEffect(() => {
     if (stats) return
     Promise.all(
-      ['./stats.json', './species_detail.json'].map((url) =>
+      ['./stats.json', './species_detail.json', './regions.json'].map((url) =>
         fetch(url).then((resp) => resp.json())
       )
     ).then((data) => {
-      const [stats, speciesDetail] = data
+      const [stats, speciesDetail, regions] = data
       setStats(stats)
       setSpeciesDetail(speciesDetail)
+      setRegions(regions)
     })
   }, [stats])
 
@@ -50,6 +52,7 @@ function App() {
           stats={stats}
           species={species}
           speciesDetail={speciesDetail}
+          regions={regions}
         />
       )}
       <Map

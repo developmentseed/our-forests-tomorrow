@@ -83,6 +83,47 @@
         </Option>
       </Option>
     </Option>
+    <Option type="Map" name="native:centroids_3">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="native:centroids" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="637.7794382243105" name="component_pos_x"/>
+        <Option type="double" value="844.9595158638946" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Centroids" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="963.4027768817888" name="component_pos_x"/>
+      <Option type="double" value="578.9057044939897" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="native:centroids_3" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ALL_PARTS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value="native:creategrid_2" name="child_id"/>
+            <Option type="QString" value="OUTPUT" name="output_name"/>
+            <Option type="int" value="1" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
     <Option type="Map" name="native:creategrid_2">
       <Option type="bool" value="true" name="active"/>
       <Option name="alg_config"/>
@@ -100,8 +141,8 @@
       </Option>
       <Option type="QString" value="Create grid" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="972.3597600365179" name="component_pos_x"/>
-      <Option type="double" value="563.4106782384449" name="component_pos_y"/>
+      <Option type="double" value="953.6389287966625" name="component_pos_x"/>
+      <Option type="double" value="504.36805663582413" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option name="dependencies"/>
       <Option type="QString" value="native:creategrid_2" name="id"/>
@@ -171,7 +212,7 @@
       <Option type="QString" value="Create spatial index" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="980.5303592079288" name="component_pos_x"/>
-      <Option type="double" value="652.7833278492944" name="component_pos_y"/>
+      <Option type="double" value="654.2233917908218" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
       <Option name="dependencies"/>
       <Option type="QString" value="native:createspatialindex_1" name="id"/>
@@ -181,7 +222,7 @@
       <Option type="Map" name="params">
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value="native:creategrid_2" name="child_id"/>
+            <Option type="QString" value="native:centroids_3" name="child_id"/>
             <Option type="QString" value="OUTPUT" name="output_name"/>
             <Option type="int" value="1" name="source"/>
           </Option>
@@ -291,6 +332,7 @@
             <Option type="StringList" name="static_value">
               <Option type="QString" value="fid"/>
               <Option type="QString" value="COUNTRY"/>
+              <Option type="QString" value="GID_0"/>
             </Option>
           </Option>
         </Option>
@@ -368,6 +410,7 @@
               <Option type="QString" value="fid"/>
               <Option type="QString" value="NAME_1"/>
               <Option type="QString" value="TYPE_1"/>
+              <Option type="QString" value="GID_1"/>
             </Option>
           </Option>
         </Option>
