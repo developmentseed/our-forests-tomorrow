@@ -43,6 +43,7 @@ export enum CellTypeEnum {
   Suitable,
 }
 
+// > 100 000km2
 export const COUNTRIES_WITH_REGIONS_GIDS = [
   'BEL',
   'BGR',

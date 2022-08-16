@@ -14,7 +14,7 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   const currentStats = stats[species]
   const detail = speciesDetail[species]
   const name = detail.en.aliases[0]
-  console.log('species stats:', currentStats)
+  // console.log('species stats:', currentStats)
   const naturallyPresent = useMemo(() => {
     const arr = Object.entries(currentStats)
     const ordered = arr.sort((a, b) => {
@@ -26,7 +26,7 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
     )
     return filtered
   }, [currentStats])
-  console.log(naturallyPresent)
+
   return (
     <header>
       <h1

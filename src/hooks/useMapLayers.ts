@@ -6,15 +6,15 @@ import {
   MVTLayer,
   MVTLayerProps,
 } from '@deck.gl/geo-layers/typed'
-import {
-  BASEMAP_COUNTRIES,
-  BASEMAP_REGIONS,
-  COUNTRIES_WITHOUT_REGIONS,
-} from '../constants_common'
+import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from '../constants_common'
 import { useMemo, useState } from 'react'
 import { Cell, LayerGenerator, RegionFeature, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
-import { COLOR_BY_CELL_TYPE, SPECIES_COLORS } from '../constants'
+import {
+  COLOR_BY_CELL_TYPE,
+  COUNTRIES_WITH_REGIONS_GIDS,
+  SPECIES_COLORS,
+} from '../constants'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
@@ -145,8 +145,7 @@ function useMapLayers({
           : COUNTRIES.overrides.getLineWidth[0]
       },
       onClick: (o: PickingInfo) => {
-        // TODO use COUNTRIES_WITH_REGIONS_GIDS
-        if (COUNTRIES_WITHOUT_REGIONS.includes(o.object.properties.COUNTRY)) {
+        if (!COUNTRIES_WITH_REGIONS_GIDS.includes(o.object.properties.GID_0)) {
           onRegionChange({
             ...o.object,
             properties: {
