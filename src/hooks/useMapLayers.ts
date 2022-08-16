@@ -145,6 +145,7 @@ function useMapLayers({
           : COUNTRIES.overrides.getLineWidth[0]
       },
       onClick: (o: PickingInfo) => {
+        // TODO use COUNTRIES_WITH_REGIONS_GIDS
         if (COUNTRIES_WITHOUT_REGIONS.includes(o.object.properties.COUNTRY)) {
           onRegionChange({
             ...o.object,

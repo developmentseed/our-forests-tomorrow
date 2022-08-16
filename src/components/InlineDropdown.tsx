@@ -5,6 +5,7 @@ import {
   useDismiss,
   useInteractions,
 } from '@floating-ui/react-dom-interactions'
+import { ValuesByYear } from '../types'
 
 export type Item = {
   label: string
@@ -12,7 +13,7 @@ export type Item = {
 
 export type InlineDropdownProps = {
   // children: ReactNode
-  data: string[]
+  data: [string, ValuesByYear][]
 }
 
 function InlineDropdown({ data }: InlineDropdownProps) {
@@ -29,7 +30,10 @@ function InlineDropdown({ data }: InlineDropdownProps) {
   return (
     <Fragment>
       <span>
-        {data.slice(0, 3).join(', ')}{' '}
+        {data
+          .slice(0, 3)
+          .map((d) => d[1].region?.label)
+          .join(', ')}{' '}
         <button ref={reference} {...getReferenceProps()}>
           +
         </button>
@@ -46,7 +50,7 @@ function InlineDropdown({ data }: InlineDropdownProps) {
           {...getFloatingProps()}
         >
           {data.map((d) => (
-            <li>{d}</li>
+            <li>{d[1].region?.label}</li>
           ))}
         </div>
       )}

@@ -3,7 +3,14 @@ import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
 import MapControls from './MapControls'
-import { Region, RegionFeature, StatsBySpecies, TimeStep } from './types'
+import {
+  Region,
+  RegionFeature,
+  StatsBySpecies,
+  TimeStep,
+  ValuesByRegionGID,
+  ValuesByYear,
+} from './types'
 import { Feature } from 'geojson'
 import Timeseries from './Timeseries'
 import { SPECIES_WHITELIST } from './constants_common'
@@ -35,9 +42,42 @@ function App() {
       )
     ).then((data) => {
       const [stats, speciesDetail, regions] = data
-      setStats(stats)
       setSpeciesDetail(speciesDetail)
-      setRegions(regions)
+
+      const regionsWithLabels = (regions as Region[]).map((r) => {
+        return {
+          ...r,
+          label: r.GID_1 ? `${r.NAME_1} (${r.COUNTRY})` : r.COUNTRY,
+        }
+      })
+      console.log(regionsWithLabels)
+
+      // attach regions to stats
+      const statsWithRegions = Object.fromEntries(
+        Object.entries(stats as StatsBySpecies).map(
+          ([species, speciesStats]: [string, ValuesByRegionGID]) => {
+            const regionEntries = Object.entries(speciesStats).map(
+              ([regionGID, regionStats]: [string, ValuesByYear]) => {
+                const region = regionsWithLabels.find(
+                  (r: Region) =>
+                    r.GID_1 === regionGID || (!r.GID_1 && r.GID_0 === regionGID)
+                )
+                return [
+                  regionGID,
+                  {
+                    ...regionStats,
+                    region,
+                  } as ValuesByYear,
+                ]
+              }
+            )
+            return [species, Object.fromEntries(regionEntries)]
+          }
+        )
+      )
+      console.log(statsWithRegions)
+      setStats(statsWithRegions as StatsBySpecies)
+      setRegions(regionsWithLabels)
     })
   }, [stats])
 
@@ -52,7 +92,6 @@ function App() {
           stats={stats}
           species={species}
           speciesDetail={speciesDetail}
-          regions={regions}
         />
       )}
       <Map

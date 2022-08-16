@@ -42,3 +42,19 @@ export enum CellTypeEnum {
   Stable,
   Suitable,
 }
+
+export const COUNTRIES_WITH_REGIONS_GIDS = [
+  'BEL',
+  'BGR',
+  'DEU',
+  'ESP',
+  'FIN',
+  'FRA',
+  'GBR',
+  'GRC',
+  'ITA',
+  'NOR',
+  'POL',
+  'ROU',
+  'SWE',
+]
