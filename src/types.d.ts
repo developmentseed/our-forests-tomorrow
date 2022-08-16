@@ -15,9 +15,9 @@ export type CellProps = {
   prob_2035: number
   prob_2065: number
   prob_2095: number
-  status_2035: CellTypeEnum
-  status_2065: CellTypeEnum
-  status_2095: CellTypeEnum
+  status_2035: number
+  status_2065: number
+  status_2095: number
 }
 
 export type RegionProps = {
@@ -51,4 +51,11 @@ export type Region = {
   TYPE_1?: string
   ENGTYPE_1?: string
   label: string
+}
+
+export type TimeseriesData = {
+  t: number
+  0: number
+  1: number
+  2: number
 }

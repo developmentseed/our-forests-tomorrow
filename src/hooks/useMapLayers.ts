@@ -11,6 +11,7 @@ import { useMemo, useState } from 'react'
 import { Cell, LayerGenerator, RegionFeature, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
 import {
+  CellTypeEnum,
   COLOR_BY_CELL_TYPE,
   COUNTRIES_WITH_REGIONS_GIDS,
   SPECIES_COLORS,
@@ -107,7 +108,7 @@ const GRID: LayerGenerator = {
     ) => {
       const type = getCellTypeAtTimeStep(d, timeStep)
       const baseColor =
-        type === 'stable'
+        type === CellTypeEnum.Stable
           ? SPECIES_COLORS[species]
           : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
       if (!region) return baseColor

@@ -27,6 +27,7 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
     return filtered
   }, [currentStats])
 
+  console.log(currentStats)
   return (
     <header>
       <h1

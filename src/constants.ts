@@ -19,11 +19,18 @@ export const MAX_ZOOM = 8
 
 export const TIME_STEPS: TimeStep[] = ['2005', '2035', '2065', '2095']
 
-export const COLOR_BY_CELL_TYPE: Record<CellType, number[]> = {
-  stable: [0, 150, 0],
-  decolonized: [216, 46, 14],
-  suitable: [0, 0, 255],
-  unknown: [0, 0, 0, 0],
+export enum CellTypeEnum {
+  Decolonized,
+  Stable,
+  Suitable,
+  Unknown,
+}
+
+export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, number[]> = {
+  [CellTypeEnum.Stable]: [0, 150, 0],
+  [CellTypeEnum.Decolonized]: [216, 46, 14],
+  [CellTypeEnum.Suitable]: [0, 0, 255],
+  [CellTypeEnum.Unknown]: [0, 0, 0, 0],
 }
 
 export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
@@ -36,12 +43,6 @@ export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
     ],
   ])
 )
-
-export enum CellTypeEnum {
-  Decolonized,
-  Stable,
-  Suitable,
-}
 
 // > 100 000km2
 export const COUNTRIES_WITH_REGIONS_GIDS = [

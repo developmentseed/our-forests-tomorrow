@@ -12,7 +12,7 @@ import {
   ValuesByYear,
 } from './types'
 import { Feature } from 'geojson'
-import Timeseries from './Timeseries'
+import MapTimeseries from './MapTimeseries'
 import { SPECIES_WHITELIST } from './constants_common'
 import RegionStats from './RegionStats'
 import SpeciesStats from './SpeciesStats'
@@ -50,7 +50,6 @@ function App() {
           label: r.GID_1 ? `${r.NAME_1} (${r.COUNTRY})` : r.COUNTRY,
         }
       })
-      console.log(regionsWithLabels)
 
       // attach regions to stats
       const statsWithRegions = Object.fromEntries(
@@ -75,7 +74,6 @@ function App() {
           }
         )
       )
-      console.log(statsWithRegions)
       setStats(statsWithRegions as StatsBySpecies)
       setRegions(regionsWithLabels)
     })
@@ -102,7 +100,7 @@ function App() {
         onRenderedFeaturesChange={setRenderedFeatures}
       />
       <MapControls>
-        <Timeseries
+        <MapTimeseries
           timeStep={timeStep}
           onTimestepChange={setTimeStep}
           features={renderedFeatures}
