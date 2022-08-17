@@ -15,9 +15,10 @@ type TimeseriesProps = {
 
 function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
   const toArray = useMemo(() => {
-    return Object.entries(data).map(([year, values]) => {
-      if (year === '2005') return [0, values, 0]
-      return values
+    return Object.entries(data).flatMap(([year, values]: any) => {
+      if (isNaN(parseInt(year))) return []
+      if (year === '2005') return [[0, values, 0]]
+      return [values]
     })
   }, [data]) as number[][]
 
@@ -38,7 +39,7 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
       .offset(stackOffsetWiggle)
     const series = stackLayout(paddedSeries as any)
     const scaleX = scaleLinear().domain([1995, 2105]).range([0, width])
-    const scaleY = scaleLinear().domain([0, maxY]).range([0, 80])
+    const scaleY = scaleLinear().domain([0, maxY]).range([0, height])
 
     const areaLayout = area()
       .x((_, i) => {
@@ -66,7 +67,7 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
   return (
     <svg width={width} height={height}>
       {pathContainers.map((pathContainer, sublayerIndex) => (
-        <g key={sublayerIndex} transform={`translate(0, 40)`}>
+        <g key={sublayerIndex} transform={`translate(0, 0)`}>
           <path
             d={pathContainer.path || ''}
             fill={deckColorToCss(pathContainer.color)}

@@ -4,7 +4,8 @@ import { MVTLayerProps, TileLayerProps } from '@deck.gl/layers/typed'
 
 export type TimeStep = '2005' | '2035' | '2065' | '2095'
 export type TimeStepFuture = '2035' | '2065' | '2095'
-export type CellType = 'stable' | 'decolonized' | 'suitable' | 'unknown'
+// TODO always index by int
+export type TimeStepFuturNum = 2035 | 2065 | 2095
 export type Cell = Feature<Point, CellProps>
 
 export type CellProps = {
@@ -37,8 +38,8 @@ export type LayerGenerator = {
   overrides?: any
 }
 
-export type ValuesByCellType = [number, number, number]
-export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> &
+export type ValuesByCellType = [number, number, number, number?]
+export type ValuesByYear = Record<TimeStepFutureNum, ValuesByCellType> &
   Record<'2005', number> & { region?: Region }
 export type ValuesByRegionGID = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionGID>

@@ -4,6 +4,8 @@ import {
   useClick,
   useDismiss,
   useInteractions,
+  flip,
+  shift,
 } from '@floating-ui/react-dom-interactions'
 import { ValuesByYear } from '../types'
 
@@ -12,16 +14,17 @@ export type Item = {
 }
 
 export type InlineDropdownProps = {
-  // children: ReactNode
+  children: ReactNode
   data: [string, ValuesByYear][]
 }
 
-function InlineDropdown({ data }: InlineDropdownProps) {
+function InlineDropdown({ children, data }: InlineDropdownProps) {
   const [open, setOpen] = useState<boolean>(false)
 
   const { x, y, reference, floating, strategy, context } = useFloating({
     open,
     onOpenChange: setOpen,
+    middleware: [flip(), shift()],
   })
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
@@ -49,9 +52,10 @@ function InlineDropdown({ data }: InlineDropdownProps) {
           }}
           {...getFloatingProps()}
         >
-          {data.map((d) => (
+          {children}
+          {/* {data.map((d) => (
             <li>{d[1].region?.label}</li>
-          ))}
+          ))} */}
         </div>
       )}
     </Fragment>

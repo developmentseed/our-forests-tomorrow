@@ -1,6 +1,13 @@
-import { useMemo } from 'react'
+import { Fragment, useMemo } from 'react'
 import InlineDropdown from './components/InlineDropdown'
-import { COUNTRIES_WITH_REGIONS_GIDS, SPECIES_COLORS } from './constants'
+import StatsDropdown from './components/StatsDropdown'
+import Timeseries from './components/Timeseries'
+import {
+  CellTypeEnum,
+  COUNTRIES_WITH_REGIONS_GIDS,
+  SPECIES_COLORS,
+} from './constants'
+import { useStatsByRegions } from './hooks/useStats'
 import { Region, StatsBySpecies, ValuesByYear } from './types'
 import { deckColorToCss } from './utils'
 
@@ -12,22 +19,24 @@ export type SpeciesStatsProps = {
 
 function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   const currentStats = stats[species]
+  const color = SPECIES_COLORS[species]
   const detail = speciesDetail[species]
   const name = detail.en.aliases[0]
   // console.log('species stats:', currentStats)
-  const naturallyPresent = useMemo(() => {
-    const arr = Object.entries(currentStats)
-    const ordered = arr.sort((a, b) => {
-      return b[1][2005] - a[1][2005]
-    })
-    const filtered = ordered.filter(
-      ([GID]: [string, ValuesByYear]) =>
-        !COUNTRIES_WITH_REGIONS_GIDS.includes(GID)
-    )
-    return filtered
-  }, [currentStats])
+  const naturallyPresent = useStatsByRegions(currentStats)
+  const willDisappear = useStatsByRegions(
+    currentStats,
+    2095,
+    'desc',
+    CellTypeEnum.Decolonized
+  )
+  const couldThrive = useStatsByRegions(
+    currentStats,
+    2095,
+    'desc',
+    CellTypeEnum.Suitable
+  )
 
-  console.log(currentStats)
   return (
     <header>
       <h1
@@ -37,10 +46,13 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
       >
         {species}, {name}
       </h1>
-      <p>
+      <div>
         {name} is naturally present in{' '}
-        <InlineDropdown data={naturallyPresent} />
-      </p>
+        <StatsDropdown data={naturallyPresent} color={color} />. By 2095, that
+        species is likely to disappear from{' '}
+        <StatsDropdown data={willDisappear} color={color} />. However, by 2095
+        it could thrive in <StatsDropdown data={couldThrive} color={color} />
+      </div>
       <p>{detail.en.extract}</p>
     </header>
   )

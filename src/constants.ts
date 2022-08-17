@@ -1,4 +1,4 @@
-import { CellType, TimeStep } from './types'
+import { TimeStep } from './types'
 
 import SPECIES from './species.json'
 export const SPECIES_IDS = SPECIES
