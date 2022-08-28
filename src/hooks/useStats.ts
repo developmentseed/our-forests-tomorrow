@@ -9,6 +9,7 @@ export function useStatsByRegions(
   type: CellTypeEnum = CellTypeEnum.Stable
 ) {
   return useMemo(() => {
+    if (!currentStats) return []
     const arr = Object.entries(currentStats)
     const ordered = arr.sort((a, b) => {
       const values: { a?: number; b?: number } =

@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from 'react'
 import { TimeStep } from './types'
-import './Timestep.css'
+import './MapControls.css'
 
 export type MapControlsProps = {
   children: ReactNode

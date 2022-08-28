@@ -21,7 +21,7 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   const currentStats = stats[species]
   const color = SPECIES_COLORS[species]
   const detail = speciesDetail[species]
-  const name = detail.en.aliases[0]
+  const name = detail?.en?.aliases?.[0]
   // console.log('species stats:', currentStats)
   const naturallyPresent = useStatsByRegions(currentStats)
   const willDisappear = useStatsByRegions(
