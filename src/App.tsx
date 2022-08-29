@@ -14,8 +14,7 @@ import useCoreData from './hooks/useCoreData'
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
   const [species, setSpecies] = useState<string>(
-    'Acer_opalus'
-    // SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
+    SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
   )
   const [region, setRegion] = useState<RegionFeature | null>(null)
   const [renderedFeatures, setRenderedFeatures] = useState<
