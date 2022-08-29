@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import { RegionFeature, StatsBySpecies } from './types'
 
-export type RegionStatsProps = {
+export type RegionPageProps = {
   region: RegionFeature
   species: string
   stats: StatsBySpecies
 }
 
-function RegionStats({ region, species, stats }: RegionStatsProps) {
+function RegionPage({ region, species, stats }: RegionPageProps) {
   const currentStats = useMemo(() => {
     return Object.fromEntries(
       Object.entries(stats).map(([spc, spcStats]) => {
@@ -25,4 +25,4 @@ function RegionStats({ region, species, stats }: RegionStatsProps) {
   )
 }
 
-export default RegionStats
+export default RegionPage

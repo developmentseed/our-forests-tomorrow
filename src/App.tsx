@@ -7,8 +7,8 @@ import { RegionFeature, TimeStep } from './types'
 import { Feature } from 'geojson'
 import MapTimeseries from './MapTimeseries'
 import { SPECIES_WHITELIST } from './constants_common'
-import RegionStats from './RegionStats'
-import SpeciesStats from './SpeciesStats'
+import RegionStats from './RegionPage'
+import SpeciesStats from './SpeciesPage'
 import useCoreData from './hooks/useCoreData'
 
 function App() {

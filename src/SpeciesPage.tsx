@@ -11,13 +11,13 @@ import { useStatsByRegions } from './hooks/useStats'
 import { Region, StatsBySpecies, ValuesByYear } from './types'
 import { deckColorToCss } from './utils'
 
-export type SpeciesStatsProps = {
+export type SpeciesPageProps = {
   species: string
   stats: StatsBySpecies
   speciesDetail: any
 }
 
-function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
+function SpeciesPage({ species, stats, speciesDetail }: SpeciesPageProps) {
   const currentStats = stats[species]
   const color = SPECIES_COLORS[species]
   const detail = speciesDetail[species]
@@ -58,4 +58,4 @@ function SpeciesStats({ species, stats, speciesDetail }: SpeciesStatsProps) {
   )
 }
 
-export default SpeciesStats
+export default SpeciesPage
