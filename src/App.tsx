@@ -1,26 +1,21 @@
-import React, { useState, Fragment, useCallback, useEffect } from 'react'
+import React, { useState, Fragment, useCallback } from 'react'
 import './App.css'
 import SpeciesChoice from './SpeciesChoice'
 import Map from './Map'
 import MapControls from './MapControls'
-import {
-  Region,
-  RegionFeature,
-  StatsBySpecies,
-  TimeStep,
-  ValuesByRegionGID,
-  ValuesByYear,
-} from './types'
+import { RegionFeature, TimeStep } from './types'
 import { Feature } from 'geojson'
 import MapTimeseries from './MapTimeseries'
 import { SPECIES_WHITELIST } from './constants_common'
 import RegionStats from './RegionStats'
 import SpeciesStats from './SpeciesStats'
+import useCoreData from './hooks/useCoreData'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
   const [species, setSpecies] = useState<string>(
-    SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
+    'Acer_opalus'
+    // SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
   )
   const [region, setRegion] = useState<RegionFeature | null>(null)
   const [renderedFeatures, setRenderedFeatures] = useState<
@@ -31,53 +26,7 @@ function App() {
     setRegion(null)
   }, [setRegion])
 
-  const [stats, setStats] = useState<StatsBySpecies | null>(null)
-  const [speciesDetail, setSpeciesDetail] = useState<any>(null)
-  const [regions, setRegions] = useState<Region[]>([])
-  useEffect(() => {
-    if (stats) return
-    Promise.all(
-      ['./stats.json', './species_detail.json', './regions.json'].map((url) =>
-        fetch(url).then((resp) => resp.json())
-      )
-    ).then((data) => {
-      const [stats, speciesDetail, regions] = data
-      setSpeciesDetail(speciesDetail)
-
-      const regionsWithLabels = (regions as Region[]).map((r) => {
-        return {
-          ...r,
-          label: r.GID_1 ? `${r.NAME_1} (${r.COUNTRY})` : r.COUNTRY,
-        }
-      })
-
-      // attach regions to stats
-      const statsWithRegions = Object.fromEntries(
-        Object.entries(stats as StatsBySpecies).map(
-          ([species, speciesStats]: [string, ValuesByRegionGID]) => {
-            const regionEntries = Object.entries(speciesStats).map(
-              ([regionGID, regionStats]: [string, ValuesByYear]) => {
-                const region = regionsWithLabels.find(
-                  (r: Region) =>
-                    r.GID_1 === regionGID || (!r.GID_1 && r.GID_0 === regionGID)
-                )
-                return [
-                  regionGID,
-                  {
-                    ...regionStats,
-                    region,
-                  } as ValuesByYear,
-                ]
-              }
-            )
-            return [species, Object.fromEntries(regionEntries)]
-          }
-        )
-      )
-      setStats(statsWithRegions as StatsBySpecies)
-      setRegions(regionsWithLabels)
-    })
-  }, [stats])
+  const { stats, speciesDetail, regions } = useCoreData()
 
   return !stats ? (
     <div>loading</div>
