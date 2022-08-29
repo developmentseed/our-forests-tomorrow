@@ -20,8 +20,7 @@
   transition: all 150ms;
 }
 
-.speciesMenu:hover,
-.hasRegion .speciesMenu {
+.speciesMenu:hover {
   width: 350px;
 }
 

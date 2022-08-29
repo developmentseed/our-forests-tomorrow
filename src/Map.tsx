@@ -14,7 +14,6 @@ import { CENTER, EUROPE_BBOX } from './constants'
 import { RegionFeature, TimeStep } from './types'
 import type { Feature } from 'geojson'
 import bbox from '@turf/bbox'
-import cx from 'classnames'
 import useMapLayers from './hooks/useMapLayers'
 
 // Viewport settings
@@ -91,7 +90,7 @@ function Map({
 
   return (
     <Fragment>
-      <div className={cx('map', { hasRegion: region !== null })}>
+      <div className="map">
         <DeckGL
           initialViewState={INITIAL_VIEW_STATE}
           controller={true}

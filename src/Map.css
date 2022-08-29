@@ -12,7 +12,3 @@
   right: 100px;
   opacity: 0.3;
 }
-
-.hasRegion.map {
-  width: calc(100% - 350px);
-}

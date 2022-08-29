@@ -4,21 +4,13 @@ import cx from 'classnames'
 import { SPECIES_COLORS, SPECIES_IDS } from './constants'
 import { deckColorToCss } from './utils'
 import { RegionFeature } from './types'
-import { SPECIES_WHITELIST } from './constants_common'
 
 export type SpeciesChoiceProps = {
   species: string
-  region: RegionFeature | null
   onSpeciesChange: Dispatch<SetStateAction<string>>
-  onRegionClose: Dispatch<SetStateAction<any>>
 }
 
-function SpeciesChoice({
-  species,
-  region,
-  onSpeciesChange,
-  onRegionClose,
-}: SpeciesChoiceProps) {
+function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
       onSpeciesChange(speciesId)
@@ -26,15 +18,8 @@ function SpeciesChoice({
     [onSpeciesChange]
   )
   return (
-    <div className={cx('speciesChoice', { hasRegion: region !== null })}>
-      {region ? (
-        <h1>
-          Species in {region.properties.name_en}{' '}
-          <button className="back" onClick={onRegionClose}></button>
-        </h1>
-      ) : (
-        <h1>Species:</h1>
-      )}
+    <div className="speciesChoice">
+      <h1>Species:</h1>
       <div className="speciesMenu">
         {SPECIES_IDS.map((speciesId) => (
           <div
@@ -42,7 +27,6 @@ function SpeciesChoice({
             key={speciesId}
             className={cx('speciesSection', {
               selected: speciesId === species,
-              available: SPECIES_WHITELIST.includes(speciesId),
             })}
             style={{
               borderColor: deckColorToCss(SPECIES_COLORS[speciesId]),

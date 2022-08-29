@@ -21,6 +21,7 @@ function App() {
     undefined | Feature[]
   >(undefined)
 
+  // TODO move to reg page
   const closeRegion = useCallback(() => {
     setRegion(null)
   }, [setRegion])
@@ -55,12 +56,7 @@ function App() {
           species={species}
         />
       </MapControls>
-      <SpeciesChoice
-        species={species}
-        region={region}
-        onSpeciesChange={setSpecies}
-        onRegionClose={closeRegion}
-      />
+      <SpeciesChoice species={species} onSpeciesChange={setSpecies} />
     </Fragment>
   )
 }
