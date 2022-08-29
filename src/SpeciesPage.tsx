@@ -1,14 +1,7 @@
-import { Fragment, useMemo } from 'react'
-import InlineDropdown from './components/InlineDropdown'
 import StatsDropdown from './components/StatsDropdown'
-import Timeseries from './components/Timeseries'
-import {
-  CellTypeEnum,
-  COUNTRIES_WITH_REGIONS_GIDS,
-  SPECIES_COLORS,
-} from './constants'
-import { useStatsByRegions } from './hooks/useStats'
-import { Region, StatsBySpecies, ValuesByYear } from './types'
+import { CellTypeEnum, SPECIES_COLORS } from './constants'
+import { useStats } from './hooks/useStats'
+import { StatsBySpecies } from './types'
 import { deckColorToCss } from './utils'
 
 export type SpeciesPageProps = {
@@ -23,15 +16,17 @@ function SpeciesPage({ species, stats, speciesDetail }: SpeciesPageProps) {
   const detail = speciesDetail[species]
   const name = detail?.en?.aliases?.[0]
   console.log('species stats:', currentStats)
-  const naturallyPresent = useStatsByRegions(currentStats)
-  const willDisappear = useStatsByRegions(
+  const naturallyPresent = useStats(currentStats, 'byRegion')
+  const willDisappear = useStats(
     currentStats,
+    'byRegion',
     2095,
     'desc',
     CellTypeEnum.Decolonized
   )
-  const couldThrive = useStatsByRegions(
+  const couldThrive = useStats(
     currentStats,
+    'byRegion',
     2095,
     'desc',
     CellTypeEnum.Suitable

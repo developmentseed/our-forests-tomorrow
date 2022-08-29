@@ -7,7 +7,6 @@ import {
   flip,
   shift,
 } from '@floating-ui/react-dom-interactions'
-import { ValuesByYear } from '../types'
 
 export type Item = {
   label: string
@@ -15,10 +14,10 @@ export type Item = {
 
 export type InlineDropdownProps = {
   children: ReactNode
-  data: [string, ValuesByYear][]
+  items: { label?: string }[]
 }
 
-function InlineDropdown({ children, data }: InlineDropdownProps) {
+function InlineDropdown({ children, items }: InlineDropdownProps) {
   const [open, setOpen] = useState<boolean>(false)
 
   const { x, y, reference, floating, strategy, context } = useFloating({
@@ -33,9 +32,9 @@ function InlineDropdown({ children, data }: InlineDropdownProps) {
   return (
     <Fragment>
       <span>
-        {data
+        {items
           .slice(0, 3)
-          .map((d) => d[1].region?.label)
+          .map((d) => d.label)
           .join(', ')}{' '}
         <button ref={reference} {...getReferenceProps()}>
           +

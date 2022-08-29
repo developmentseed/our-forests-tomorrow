@@ -19,6 +19,7 @@ function useCoreData() {
     ).then((data) => {
       const [stats, speciesDetail, regions] = data
       setSpeciesDetail(speciesDetail)
+      console.log(speciesDetail)
 
       const regionsWithLabels = (regions as Region[]).map((r) => {
         return {
@@ -27,7 +28,7 @@ function useCoreData() {
         }
       })
 
-      // attach regions to stats
+      // attach regions and species meta to stats
       const statsWithRegions = Object.fromEntries(
         Object.entries(stats as StatsBySpecies).map(
           ([species, speciesStats]: [string, ValuesByRegionGID]) => {
@@ -37,11 +38,15 @@ function useCoreData() {
                   (r: Region) =>
                     r.GID_1 === regionGID || (!r.GID_1 && r.GID_0 === regionGID)
                 )
+                const speciesDetailForStats = speciesDetail[species]
                 return [
                   regionGID,
                   {
                     ...regionStats,
                     region,
+                    speciesDetail: {
+                      name: speciesDetailForStats?.en?.aliases?.[0],
+                    },
                   } as ValuesByYear,
                 ]
               }

@@ -63,7 +63,7 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
     })
 
     return layouted
-  }, [paddedSeries, maxY, mainColor, width])
+  }, [paddedSeries, maxY, height, mainColor, width])
   return (
     <svg width={width} height={height}>
       {pathContainers.map((pathContainer, sublayerIndex) => (

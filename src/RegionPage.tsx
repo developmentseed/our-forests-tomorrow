@@ -1,5 +1,7 @@
-import { Dispatch, SetStateAction, useMemo } from 'react'
-import { RegionFeature, StatsBySpecies } from './types'
+import { Dispatch, SetStateAction } from 'react'
+import StatsDropdown from './components/StatsDropdown'
+import { useAllSpeciesStatsForRegion, useStats } from './hooks/useStats'
+import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from './types'
 
 export type RegionPageProps = {
   region: RegionFeature
@@ -14,22 +16,29 @@ function RegionPage({
   stats,
   onRegionClose,
 }: RegionPageProps) {
-  const currentStats = useMemo(() => {
-    return Object.fromEntries(
-      Object.entries(stats).map(([spc, spcStats]) => {
-        const spcStatsForRegion = spcStats[region.properties.fid]
-        return [spc, spcStatsForRegion]
-      })
-    )
-  }, [region, stats])
-  console.log('region stats:', currentStats, region.properties)
+  const currentStats: ValuesBySpeciesID = useAllSpeciesStatsForRegion(
+    region,
+    stats
+  )
+
+  const naturallyPresent = useStats(currentStats, 'bySpecies')
+
+  // console.log('region stats:', currentStats, region.properties)
+  // console.log(naturallyPresent)
   return (
     <header>
       <h1>
         {region.properties.name_en}{' '}
         <button className="back" onClick={onRegionClose}></button>
       </h1>
-      <p>Lorem Ipsum, dolor sit amet</p>
+      <div>
+        In {region.properties.name_en},{' '}
+        <StatsDropdown
+          data={naturallyPresent}
+          color={[0, 255, 0]}
+          labelKey="species"
+        />
+      </div>
     </header>
   )
 }

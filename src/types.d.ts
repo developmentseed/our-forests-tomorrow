@@ -26,10 +26,9 @@ export type RegionProps = {
   name_fr: string
   bbox: BBox
   bboxPoly: Feature<Polygon>
-  fid: number
   // COUNTRY: string
   // NAME_1: string
-}
+} & Region
 
 export type RegionFeature = Feature<Geometry, RegionProps>
 
@@ -40,8 +39,12 @@ export type LayerGenerator = {
 
 export type ValuesByCellType = [number, number, number, number?]
 export type ValuesByYear = Record<TimeStepFutureNum, ValuesByCellType> &
-  Record<'2005', number> & { region?: Region }
+  Record<'2005', number> & { region?: Region } & {
+    speciesDetail?: { name: string }
+  }
 export type ValuesByRegionGID = Record<string, ValuesByYear>
+export type ValuesBySpeciesID = Record<string, ValuesByYear>
+export type ValuesBySpeciesIDOrValuesByRegionGID = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionGID>
 export type Region = {
   fid: number
