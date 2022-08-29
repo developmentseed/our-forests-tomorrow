@@ -84,6 +84,7 @@ const REGIONS: LayerGenerator = {
 const GRID: LayerGenerator = {
   config: {
     ...BASE_TILED_LAYER_CONFIG,
+    id: 'grid',
     pickable: true,
     binary: false,
     pointType: 'circle',
@@ -213,7 +214,7 @@ function useMapLayers({
     } as Omit<MVTLayerProps, 'TilesetClass'>)
 
     return {
-      layers: [countries, labels, regions, grid],
+      layers: [countries, regions, grid, labels],
       countries,
       regions,
       grid,
