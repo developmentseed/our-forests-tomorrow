@@ -10,6 +10,7 @@ import { SPECIES_WHITELIST } from './constants_common'
 import RegionStats from './RegionPage'
 import SpeciesStats from './SpeciesPage'
 import useCoreData from './hooks/useCoreData'
+import Nav from './nav/Nav'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
@@ -32,6 +33,7 @@ function App() {
     <div>loading</div>
   ) : (
     <Fragment>
+      <Nav />
       {region ? (
         <RegionStats
           stats={stats}

@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useCallback } from 'react'
 import cx from 'classnames'
 import { SPECIES_COLORS, SPECIES_IDS } from './constants'
 import { deckColorToCss } from './utils'
+import { useTranslation } from 'react-i18next'
 
 export type SpeciesChoiceProps = {
   species: string
@@ -10,6 +11,7 @@ export type SpeciesChoiceProps = {
 }
 
 function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
+  const { t } = useTranslation()
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
       onSpeciesChange(speciesId)
@@ -18,7 +20,7 @@ function SpeciesChoice({ species, onSpeciesChange }: SpeciesChoiceProps) {
   )
   return (
     <div className="speciesChoice">
-      <h1>Species:</h1>
+      <h1>{t('nav.species')}:</h1>
       <div className="speciesMenu">
         {SPECIES_IDS.map((speciesId) => (
           <div
