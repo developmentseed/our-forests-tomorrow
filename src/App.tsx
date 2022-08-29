@@ -33,7 +33,12 @@ function App() {
   ) : (
     <Fragment>
       {region ? (
-        <RegionStats stats={stats} region={region} species={species} />
+        <RegionStats
+          stats={stats}
+          region={region}
+          species={species}
+          onRegionClose={closeRegion}
+        />
       ) : (
         <SpeciesStats
           stats={stats}

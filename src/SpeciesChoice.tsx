@@ -3,7 +3,6 @@ import { Dispatch, SetStateAction, useCallback } from 'react'
 import cx from 'classnames'
 import { SPECIES_COLORS, SPECIES_IDS } from './constants'
 import { deckColorToCss } from './utils'
-import { RegionFeature } from './types'
 
 export type SpeciesChoiceProps = {
   species: string
