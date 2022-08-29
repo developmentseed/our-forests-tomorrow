@@ -44,13 +44,15 @@ const LABELS: LayerGenerator = {
   } as TileLayerProps,
 }
 
-const BASE_ZOOM_CONFIG = {
+const BASE_TILED_LAYER_CONFIG = {
   minZoom: 0,
   maxZoom: 8,
+  // noop on tile errors
+  onTileError: (err: any) => {},
 }
 
 const BASE_REGIONS_CONFIG = {
-  ...BASE_ZOOM_CONFIG,
+  ...BASE_TILED_LAYER_CONFIG,
   getLineColor: [192, 192, 192],
   pickable: true,
 }
@@ -81,7 +83,7 @@ const REGIONS: LayerGenerator = {
 
 const GRID: LayerGenerator = {
   config: {
-    ...BASE_ZOOM_CONFIG,
+    ...BASE_TILED_LAYER_CONFIG,
     pickable: true,
     binary: false,
     pointType: 'circle',
