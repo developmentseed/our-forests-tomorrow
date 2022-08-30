@@ -1,11 +1,11 @@
 import type { Feature } from 'geojson'
 import { Dispatch, Fragment, SetStateAction, useMemo } from 'react'
-import { CellTypeEnum, SPECIES_COLORS, TIME_STEPS } from './constants'
-import { TimeStep } from './types'
-import { getCellTypeAtTimeStep } from './utils'
+import { CellTypeEnum, SPECIES_COLORS, TIME_STEPS } from '../constants'
+import { TimeStep } from '../types'
+import { getCellTypeAtTimeStep } from '../utils'
 import './MapTimeseries.css'
 import cx from 'classnames'
-import Timeseries from './components/Timeseries'
+import Timeseries from '../components/Timeseries'
 
 const W = 250
 const H = 120

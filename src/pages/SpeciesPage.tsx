@@ -1,8 +1,8 @@
-import StatsDropdown from './components/StatsDropdown'
-import { CellTypeEnum, SPECIES_COLORS } from './constants'
-import { useStats } from './hooks/useStats'
-import { StatsBySpecies } from './types'
-import { deckColorToCss } from './utils'
+import StatsDropdown from '../components/StatsDropdown'
+import { CellTypeEnum, SPECIES_COLORS } from '../constants'
+import { useStats } from '../hooks/useStats'
+import { StatsBySpecies } from '../types'
+import { deckColorToCss } from '../utils'
 
 export type SpeciesPageProps = {
   species: string

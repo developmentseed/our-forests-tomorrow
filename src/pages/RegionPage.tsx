@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
-import StatsDropdown from './components/StatsDropdown'
-import { useAllSpeciesStatsForRegion, useStats } from './hooks/useStats'
-import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from './types'
+import StatsDropdown from '../components/StatsDropdown'
+import { useAllSpeciesStatsForRegion, useStats } from '../hooks/useStats'
+import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from '../types'
 
 export type RegionPageProps = {
   region: RegionFeature

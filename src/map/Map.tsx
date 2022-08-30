@@ -9,12 +9,12 @@ import React, {
 } from 'react'
 import './Map.css'
 import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
-import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
-import { CENTER, EUROPE_BBOX } from './constants'
-import { CellProps, Region, RegionFeature, TimeStep } from './types'
-import type { Feature } from 'geojson'
 import bbox from '@turf/bbox'
-import useMapLayers from './hooks/useMapLayers'
+import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
+import { CENTER, EUROPE_BBOX } from '../constants'
+import { CellProps, Region, RegionFeature, TimeStep } from '../types'
+import type { Feature } from 'geojson'
+import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 
 // Viewport settings

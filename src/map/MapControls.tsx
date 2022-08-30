@@ -5,7 +5,7 @@ import React, {
   SetStateAction,
   useCallback,
 } from 'react'
-import { TimeStep } from './types'
+import { TimeStep } from '../types'
 import './MapControls.css'
 
 export type MapControlsProps = {
