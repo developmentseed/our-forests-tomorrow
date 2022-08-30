@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/build/static/css/main.0c0919f9.css",
-    "main.js": "/build/static/js/main.3622f2eb.js",
-    "static/js/787.d84c2e37.chunk.js": "/build/static/js/787.d84c2e37.chunk.js",
-    "static/media/CheltenhamStdBookCond.woff": "/build/static/media/CheltenhamStdBookCond.6e0e28d9e4489cedc8cb.woff",
-    "static/media/CheltenhamStdLightCond.woff": "/build/static/media/CheltenhamStdLightCond.d5b52851a589de30a5e4.woff",
-    "index.html": "/build/index.html",
-    "static/media/getFetch.cjs": "/build/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.0c0919f9.css.map": "/build/static/css/main.0c0919f9.css.map",
-    "main.3622f2eb.js.map": "/build/static/js/main.3622f2eb.js.map",
-    "787.d84c2e37.chunk.js.map": "/build/static/js/787.d84c2e37.chunk.js.map"
+    "main.css": "/eu-trees4f-viz/build/static/css/main.f0317a2f.css",
+    "main.js": "/eu-trees4f-viz/build/static/js/main.8fc1759d.js",
+    "static/js/787.d84c2e37.chunk.js": "/eu-trees4f-viz/build/static/js/787.d84c2e37.chunk.js",
+    "static/media/CheltenhamStdBookCond.woff": "/eu-trees4f-viz/build/static/media/CheltenhamStdBookCond.6e0e28d9e4489cedc8cb.woff",
+    "static/media/CheltenhamStdLightCond.woff": "/eu-trees4f-viz/build/static/media/CheltenhamStdLightCond.d5b52851a589de30a5e4.woff",
+    "index.html": "/eu-trees4f-viz/build/index.html",
+    "static/media/getFetch.cjs": "/eu-trees4f-viz/build/static/media/getFetch.c780682470504fffbd04.cjs",
+    "main.f0317a2f.css.map": "/eu-trees4f-viz/build/static/css/main.f0317a2f.css.map",
+    "main.8fc1759d.js.map": "/eu-trees4f-viz/build/static/js/main.8fc1759d.js.map",
+    "787.d84c2e37.chunk.js.map": "/eu-trees4f-viz/build/static/js/787.d84c2e37.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c0919f9.css",
-    "static/js/main.3622f2eb.js"
+    "static/css/main.f0317a2f.css",
+    "static/js/main.8fc1759d.js"
   ]
 }
