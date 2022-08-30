@@ -60,3 +60,11 @@ export const COUNTRIES_WITH_REGIONS_GIDS = [
   'ROU',
   'SWE',
 ]
+
+export const THEME = {
+  colors: {
+    light: 'rgb(240, 255, 240)',
+    dark: 'rgb(10, 20, 10)',
+  },
+  mobile: '768px',
+}
