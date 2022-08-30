@@ -20,7 +20,32 @@ const GlobalStyles = styled.createGlobalStyle`
       url('CheltenhamStdLightCond.woff') format('woff');
   }
 
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
   body {
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     color: ${({ theme }) => theme.colors.light};
     background: ${({ theme }) => theme.colors.dark};

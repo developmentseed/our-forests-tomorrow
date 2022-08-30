@@ -4,12 +4,6 @@
   --dark: rgb(10, 20, 10);
 }
 
-header {
-  margin: 1rem;
-  z-index: 1;
-  position: fixed;
-}
-
 h1 {
   font-family: 'ITC Cheltenham Std Light Condensed', serif;
   font-size: 3rem;
@@ -18,16 +12,9 @@ h1 {
   margin: 0;
 }
 
-#root {
-  height: 100%;
-}
-.map {
-  height: 100%;
-}
-
 button {
-  width: 25px;
-  height: 25px;
+  /* width: 25px;
+  height: 25px; */
   background: var(--dark);
   color: var(--light);
   border-radius: 99px;

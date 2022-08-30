@@ -34,6 +34,13 @@ function App() {
   ) : (
     <Fragment>
       <Nav />
+      <Map
+        timeStep={timeStep}
+        species={species}
+        region={region}
+        onRegionChange={setRegion}
+        onRenderedFeaturesChange={setRenderedFeatures}
+      />
       {region ? (
         <RegionStats
           stats={stats}
@@ -48,13 +55,7 @@ function App() {
           speciesDetail={speciesDetail}
         />
       )}
-      <Map
-        timeStep={timeStep}
-        species={species}
-        region={region}
-        onRegionChange={setRegion}
-        onRenderedFeaturesChange={setRenderedFeatures}
-      />
+
       <MapControls>
         <MapTimeseries
           timeStep={timeStep}
@@ -63,7 +64,7 @@ function App() {
           species={species}
         />
       </MapControls>
-      <SpeciesChoice species={species} onSpeciesChange={setSpecies} />
+      {/* <SpeciesChoice species={species} onSpeciesChange={setSpecies} /> */}
     </Fragment>
   )
 }

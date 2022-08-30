@@ -7,7 +7,6 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
-import './Map.css'
 import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
 import bbox from '@turf/bbox'
 import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
@@ -16,6 +15,7 @@ import { CellProps, Region, RegionFeature, TimeStep } from '../types'
 import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
+import { MapWrapper } from './Map.styled'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -124,23 +124,23 @@ function Map({
         const label = region ? regionProps.NAME_1 : countryProps.COUNTRY
         tooltips.push(`Click to analyze ${label}`)
       }
-      console.log(tooltips)
+      // console.log(tooltips)
     },
     [deckRef, timeStep, species]
   )
 
   return (
     <Fragment>
-      <div className="map" onMouseMove={onMouseMove}>
+      <MapWrapper onMouseMove={onMouseMove}>
         <DeckGL
           ref={deckRef}
           initialViewState={INITIAL_VIEW_STATE}
-          controller={true}
+          controller={{ scrollZoom: false }}
           viewState={viewState}
           onViewStateChange={onViewStateChange as any}
           layers={layers}
         />
-      </div>
+      </MapWrapper>
     </Fragment>
   )
 }
