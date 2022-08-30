@@ -52,9 +52,6 @@ function InlineDropdown({ children, items }: InlineDropdownProps) {
           {...getFloatingProps()}
         >
           {children}
-          {/* {data.map((d) => (
-            <li>{d[1].region?.label}</li>
-          ))} */}
         </div>
       )}
     </Fragment>

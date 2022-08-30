@@ -8,16 +8,24 @@ export const NavWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0.3rem;
+  z-index: 1;
 
   & > section {
     display: flex;
   }
+`
 
-  & > section > nav {
+export const NavHeader = styled.div`
+  display: flex;
+  & > nav {
     margin-left: 1rem;
   }
 
   & h1 {
     font-size: 1.2rem;
   }
+`
+
+export const NavButtons = styled.div`
+  display: flex;
 `

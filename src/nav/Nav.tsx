@@ -1,14 +1,16 @@
 import { useTranslation } from 'react-i18next'
-import { NavWrapper } from './Nav.styled'
+import Menu from './Menu'
+import { NavButtons, NavHeader, NavWrapper } from './Nav.styled'
 
 function Nav() {
   const { i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
+
   return (
     <NavWrapper>
-      <section>
+      <NavHeader>
         <h1>Our trees future</h1>
         <nav>
           <button
@@ -26,11 +28,11 @@ function Nav() {
             fr
           </button>
         </nav>
-      </section>
-      <nav>
-        <button>species</button>
-        <button>regions</button>
-      </nav>
+      </NavHeader>
+      <NavButtons>
+        <Menu label="species">species</Menu>
+        <Menu label="regions">regions</Menu>
+      </NavButtons>
     </NavWrapper>
   )
 }
