@@ -1,0 +1,2634 @@
+[
+  {
+    "fid": 198,
+    "GID_0": "BEL",
+    "COUNTRY": "Belgium",
+    "GID_1": "BEL.1_1",
+    "NAME_1": "Bruxelles",
+    "TYPE_1": "Gewest",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 199,
+    "GID_0": "BEL",
+    "COUNTRY": "Belgium",
+    "GID_1": "BEL.2_1",
+    "NAME_1": "Vlaanderen",
+    "TYPE_1": "Gewest",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 200,
+    "GID_0": "BEL",
+    "COUNTRY": "Belgium",
+    "GID_1": "BEL.3_1",
+    "NAME_1": "Wallonie",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 237,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.1_1",
+    "NAME_1": "Blagoevgrad",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 238,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.2_1",
+    "NAME_1": "Burgas",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 239,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.3_1",
+    "NAME_1": "Dobrich",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 240,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.4_1",
+    "NAME_1": "Gabrovo",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 241,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.5_1",
+    "NAME_1": "Grad Sofiya",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 242,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.6_1",
+    "NAME_1": "Haskovo",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 243,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.7_1",
+    "NAME_1": "Kardzhali",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 244,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.8_1",
+    "NAME_1": "Kyustendil",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 245,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.9_1",
+    "NAME_1": "Lovech",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 246,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.10_1",
+    "NAME_1": "Montana",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 247,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.11_1",
+    "NAME_1": "Pazardzhik",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 248,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.12_1",
+    "NAME_1": "Pernik",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 249,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.13_1",
+    "NAME_1": "Pleven",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 250,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.14_1",
+    "NAME_1": "Plovdiv",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 251,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.15_1",
+    "NAME_1": "Razgrad",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 252,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.16_1",
+    "NAME_1": "Ruse",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 253,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.17_1",
+    "NAME_1": "Shumen",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 254,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.18_1",
+    "NAME_1": "Silistra",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 255,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.19_1",
+    "NAME_1": "Sliven",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 256,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.20_1",
+    "NAME_1": "Smolyan",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 257,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.21_1",
+    "NAME_1": "Sofia",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 258,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.22_1",
+    "NAME_1": "Stara Zagora",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 259,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.23_1",
+    "NAME_1": "Targovishte",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 260,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.24_1",
+    "NAME_1": "Varna",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 261,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.25_1",
+    "NAME_1": "Veliko Tarnovo",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 262,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.26_1",
+    "NAME_1": "Vidin",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 263,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.27_1",
+    "NAME_1": "Vratsa",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 264,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria",
+    "GID_1": "BGR.28_1",
+    "NAME_1": "Yambol",
+    "TYPE_1": "Oblast",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 705,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.1_1",
+    "NAME_1": "Baden-Württemberg",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 706,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.2_1",
+    "NAME_1": "Bayern",
+    "TYPE_1": "Freistaat",
+    "ENGTYPE_1": "Free State"
+  },
+  {
+    "fid": 707,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.3_1",
+    "NAME_1": "Berlin",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 708,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.4_1",
+    "NAME_1": "Brandenburg",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 709,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.5_1",
+    "NAME_1": "Bremen",
+    "TYPE_1": "Freie Hansestadt",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 710,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.6_1",
+    "NAME_1": "Hamburg",
+    "TYPE_1": "Freie und Hansestadt",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 711,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.7_1",
+    "NAME_1": "Hessen",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 712,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.8_1",
+    "NAME_1": "Mecklenburg-Vorpommern",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 713,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.9_1",
+    "NAME_1": "Niedersachsen",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 714,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.10_1",
+    "NAME_1": "Nordrhein-Westfalen",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 715,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.11_1",
+    "NAME_1": "Rheinland-Pfalz",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 716,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.12_1",
+    "NAME_1": "Saarland",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 717,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.14_1",
+    "NAME_1": "Sachsen",
+    "TYPE_1": "Freistaat",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 718,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.13_1",
+    "NAME_1": "Sachsen-Anhalt",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 719,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.15_1",
+    "NAME_1": "Schleswig-Holstein",
+    "TYPE_1": "Land",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 720,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany",
+    "GID_1": "DEU.16_1",
+    "NAME_1": "Thüringen",
+    "TYPE_1": "Freistaat",
+    "ENGTYPE_1": "State"
+  },
+  {
+    "fid": 883,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.1_1",
+    "NAME_1": "Andalucía",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 884,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.2_1",
+    "NAME_1": "Aragón",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 885,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.3_1",
+    "NAME_1": "Cantabria",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 886,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.4_1",
+    "NAME_1": "Castilla-La Mancha",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 887,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.5_1",
+    "NAME_1": "Castilla y León",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 888,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.6_1",
+    "NAME_1": "Cataluña",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 889,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.7_1",
+    "NAME_1": "Ceuta y Melilla",
+    "TYPE_1": "Ciudad Autónoma",
+    "ENGTYPE_1": "Autonomous City"
+  },
+  {
+    "fid": 890,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.8_1",
+    "NAME_1": "Comunidad de Madrid",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 891,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.9_1",
+    "NAME_1": "Comunidad Foral de Navarra",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 892,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.10_1",
+    "NAME_1": "Comunidad Valenciana",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 893,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.11_1",
+    "NAME_1": "Extremadura",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 894,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.12_1",
+    "NAME_1": "Galicia",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 895,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.13_1",
+    "NAME_1": "Islas Baleares",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 896,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.14_1",
+    "NAME_1": "Islas Canarias",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 897,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.15_1",
+    "NAME_1": "La Rioja",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 898,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.16_1",
+    "NAME_1": "País Vasco",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 899,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.17_1",
+    "NAME_1": "Principado de Asturias",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 900,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain",
+    "GID_1": "ESP.18_1",
+    "NAME_1": "Región de Murcia",
+    "TYPE_1": "Comunidad Autónoma",
+    "ENGTYPE_1": "Autonomous Community"
+  },
+  {
+    "fid": 928,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland",
+    "GID_1": "FIN.1_1",
+    "NAME_1": "Eastern Finland",
+    "TYPE_1": "Lääni",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 929,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland",
+    "GID_1": "FIN.2_1",
+    "NAME_1": "Lapland",
+    "TYPE_1": "Lääni",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 930,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland",
+    "GID_1": "FIN.3_1",
+    "NAME_1": "Oulu",
+    "TYPE_1": "Lääni",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 931,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland",
+    "GID_1": "FIN.4_1",
+    "NAME_1": "Southern Finland",
+    "TYPE_1": "Lääni",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 932,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland",
+    "GID_1": "FIN.5_1",
+    "NAME_1": "Western Finland",
+    "TYPE_1": "Lääni",
+    "ENGTYPE_1": "Province"
+  },
+  {
+    "fid": 938,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.1_1",
+    "NAME_1": "Auvergne-Rhône-Alpes",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 939,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.2_1",
+    "NAME_1": "Bourgogne-Franche-Comté",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 940,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.3_1",
+    "NAME_1": "Bretagne",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 941,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.4_1",
+    "NAME_1": "Centre-Val de Loire",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 942,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.5_1",
+    "NAME_1": "Corse",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 943,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.6_1",
+    "NAME_1": "Grand Est",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 944,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.7_1",
+    "NAME_1": "Hauts-de-France",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 945,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.8_1",
+    "NAME_1": "Île-de-France",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 946,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.9_1",
+    "NAME_1": "Normandie",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 947,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.10_1",
+    "NAME_1": "Nouvelle-Aquitaine",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 948,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.11_1",
+    "NAME_1": "Occitanie",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 949,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.12_1",
+    "NAME_1": "Pays de la Loire",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 950,
+    "GID_0": "FRA",
+    "COUNTRY": "France",
+    "GID_1": "FRA.13_1",
+    "NAME_1": "Provence-Alpes-Côte d'Azur",
+    "TYPE_1": "Région",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 970,
+    "GID_0": "GBR",
+    "COUNTRY": "United Kingdom",
+    "GID_1": "GBR.2_1",
+    "NAME_1": "Northern Ireland",
+    "TYPE_1": "Constituent Country",
+    "ENGTYPE_1": "Constituent Country"
+  },
+  {
+    "fid": 971,
+    "GID_0": "GBR",
+    "COUNTRY": "United Kingdom",
+    "GID_1": "GBR.3_1",
+    "NAME_1": "Scotland",
+    "TYPE_1": "Constituent Country",
+    "ENGTYPE_1": "Constituent Country"
+  },
+  {
+    "fid": 972,
+    "GID_0": "GBR",
+    "COUNTRY": "United Kingdom",
+    "GID_1": "GBR.4_1",
+    "NAME_1": "Wales",
+    "TYPE_1": "Constituent Country",
+    "ENGTYPE_1": "Constituent Country"
+  },
+  {
+    "fid": 973,
+    "GID_0": "GBR",
+    "COUNTRY": "United Kingdom",
+    "GID_1": "GBR.1_1",
+    "NAME_1": "England",
+    "TYPE_1": "Constituent Country",
+    "ENGTYPE_1": "Constituent Country"
+  },
+  {
+    "fid": 1047,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.1_1",
+    "NAME_1": "Aegean",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1048,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.2_1",
+    "NAME_1": "Athos",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1049,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.3_1",
+    "NAME_1": "Attica",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1050,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.4_1",
+    "NAME_1": "Crete",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1051,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.5_1",
+    "NAME_1": "Epirus and Western Macedonia",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1052,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.6_1",
+    "NAME_1": "Macedonia and Thrace",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1053,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.7_1",
+    "NAME_1": "Peloponnese, Western Greece and",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1054,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece",
+    "GID_1": "GRC.8_1",
+    "NAME_1": "Thessaly and Central Greece",
+    "TYPE_1": "Apokentroménes dioikíseis",
+    "ENGTYPE_1": "Decentralized administration"
+  },
+  {
+    "fid": 1375,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.1_1",
+    "NAME_1": "Abruzzo",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1376,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.2_1",
+    "NAME_1": "Apulia",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1377,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.3_1",
+    "NAME_1": "Basilicata",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1378,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.4_1",
+    "NAME_1": "Calabria",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1379,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.5_1",
+    "NAME_1": "Campania",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1380,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.6_1",
+    "NAME_1": "Emilia-Romagna",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1381,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.7_1",
+    "NAME_1": "Friuli-Venezia Giulia",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Autonomous Region"
+  },
+  {
+    "fid": 1382,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.8_1",
+    "NAME_1": "Lazio",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1383,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.9_1",
+    "NAME_1": "Liguria",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1384,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.10_1",
+    "NAME_1": "Lombardia",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1385,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.11_1",
+    "NAME_1": "Marche",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1386,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.12_1",
+    "NAME_1": "Molise",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1387,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.13_1",
+    "NAME_1": "Piemonte",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1388,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.14_1",
+    "NAME_1": "Sardegna",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Autonomous Region"
+  },
+  {
+    "fid": 1389,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.15_1",
+    "NAME_1": "Sicily",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Autonomous Region"
+  },
+  {
+    "fid": 1390,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.16_1",
+    "NAME_1": "Toscana",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1391,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.17_1",
+    "NAME_1": "Trentino-Alto Adige",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Autonomous Region"
+  },
+  {
+    "fid": 1392,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.18_1",
+    "NAME_1": "Umbria",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 1393,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.19_1",
+    "NAME_1": "Valle d'Aosta",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Autonomous Region"
+  },
+  {
+    "fid": 1394,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy",
+    "GID_1": "ITA.20_1",
+    "NAME_1": "Veneto",
+    "TYPE_1": "Regione",
+    "ENGTYPE_1": "Region"
+  },
+  {
+    "fid": 2216,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.1_1",
+    "NAME_1": "Akershus",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2217,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.2_1",
+    "NAME_1": "Ãstfold",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2218,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.3_1",
+    "NAME_1": "Aust-Agder",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2219,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.4_1",
+    "NAME_1": "Buskerud",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2220,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.5_1",
+    "NAME_1": "Finnmark",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2221,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.6_1",
+    "NAME_1": "Hedmark",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2222,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.7_1",
+    "NAME_1": "Hordaland",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2223,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.8_1",
+    "NAME_1": "Møre og Romsdal",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2224,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.9_1",
+    "NAME_1": "Nord-Trøndelag",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2225,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.10_1",
+    "NAME_1": "Nordland",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2226,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.11_1",
+    "NAME_1": "Oppland",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2227,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.12_1",
+    "NAME_1": "Oslo",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2228,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.13_1",
+    "NAME_1": "Rogaland",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2229,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.14_1",
+    "NAME_1": "Sogn og Fjordane",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2230,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.15_1",
+    "NAME_1": "Sør-Trøndelag",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2231,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.16_1",
+    "NAME_1": "Telemark",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2232,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.17_1",
+    "NAME_1": "Troms",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2233,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.18_1",
+    "NAME_1": "Vest-Agder",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2234,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway",
+    "GID_1": "NOR.19_1",
+    "NAME_1": "Vestfold",
+    "TYPE_1": "Fylke",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2450,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.1_1",
+    "NAME_1": "Dolnośląskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2451,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.2_1",
+    "NAME_1": "Kujawsko-Pomorskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2452,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.3_1",
+    "NAME_1": "Łódzkie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2453,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.4_1",
+    "NAME_1": "Lubelskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2454,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.5_1",
+    "NAME_1": "Lubuskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2455,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.6_1",
+    "NAME_1": "Małopolskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2456,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.7_1",
+    "NAME_1": "Mazowieckie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2457,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.8_1",
+    "NAME_1": "Opolskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2458,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.9_1",
+    "NAME_1": "Podkarpackie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2459,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.10_1",
+    "NAME_1": "Podlaskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2460,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.11_1",
+    "NAME_1": "Pomorskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2461,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.12_1",
+    "NAME_1": "Śląskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2462,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.13_1",
+    "NAME_1": "Świętokrzyskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2463,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.14_1",
+    "NAME_1": "Warmińsko-Mazurskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2464,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.15_1",
+    "NAME_1": "Wielkopolskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2465,
+    "GID_0": "POL",
+    "COUNTRY": "Poland",
+    "GID_1": "POL.16_1",
+    "NAME_1": "Zachodniopomorskie",
+    "TYPE_1": "Województwo",
+    "ENGTYPE_1": "Voivodeship"
+  },
+  {
+    "fid": 2614,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.1_1",
+    "NAME_1": "Alba",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2615,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.2_1",
+    "NAME_1": "Arad",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2616,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.3_1",
+    "NAME_1": "Argeș",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2617,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.4_1",
+    "NAME_1": "Bacău",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2618,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.5_1",
+    "NAME_1": "Bihor",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2619,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.6_1",
+    "NAME_1": "Bistrița-Năsăud",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2620,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.7_1",
+    "NAME_1": "Botoșani",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2621,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.9_1",
+    "NAME_1": "Brăila",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2622,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.8_1",
+    "NAME_1": "Brașov",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2623,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.10_1",
+    "NAME_1": "Bucharest",
+    "TYPE_1": "Municipiu",
+    "ENGTYPE_1": "Municipality"
+  },
+  {
+    "fid": 2624,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.11_1",
+    "NAME_1": "Buzău",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2625,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.12_1",
+    "NAME_1": "Călărași",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2626,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.13_1",
+    "NAME_1": "Caraș-Severin",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2627,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.14_1",
+    "NAME_1": "Cluj",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2628,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.15_1",
+    "NAME_1": "Constanța",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2629,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.16_1",
+    "NAME_1": "Covasna",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2630,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.17_1",
+    "NAME_1": "Dâmbovița",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2631,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.18_1",
+    "NAME_1": "Dolj",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2632,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.19_1",
+    "NAME_1": "Galați",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2633,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.20_1",
+    "NAME_1": "Giurgiu",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2634,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.21_1",
+    "NAME_1": "Gorj",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2635,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.22_1",
+    "NAME_1": "Harghita",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2636,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.23_1",
+    "NAME_1": "Hunedoara",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2637,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.25_1",
+    "NAME_1": "Ialomița",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2638,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.24_1",
+    "NAME_1": "Iași",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2639,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.26_1",
+    "NAME_1": "Ilfov",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2640,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.27_1",
+    "NAME_1": "Maramureș",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2641,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.28_1",
+    "NAME_1": "Mehedinți",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2642,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.29_1",
+    "NAME_1": "Mureș",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2643,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.30_1",
+    "NAME_1": "Neamț",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2644,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.31_1",
+    "NAME_1": "Olt",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2645,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.32_1",
+    "NAME_1": "Prahova",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2646,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.33_1",
+    "NAME_1": "Sălaj",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2647,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.34_1",
+    "NAME_1": "Satu Mare",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2648,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.35_1",
+    "NAME_1": "Sibiu",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2649,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.36_1",
+    "NAME_1": "Suceava",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2650,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.37_1",
+    "NAME_1": "Teleorman",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2651,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.38_1",
+    "NAME_1": "Timiș",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2652,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.39_1",
+    "NAME_1": "Tulcea",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2653,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.40_1",
+    "NAME_1": "Vâlcea",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2654,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.41_1",
+    "NAME_1": "Vaslui",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2655,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania",
+    "GID_1": "ROU.42_1",
+    "NAME_1": "Vrancea",
+    "TYPE_1": "Judet",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2923,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.1_1",
+    "NAME_1": "Blekinge",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2924,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.2_1",
+    "NAME_1": "Dalarna",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2925,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.3_1",
+    "NAME_1": "Gävleborg",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2926,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.4_1",
+    "NAME_1": "Gotland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2927,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.5_1",
+    "NAME_1": "Halland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2928,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.6_1",
+    "NAME_1": "Jämtland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2929,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.7_1",
+    "NAME_1": "Jönköping",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2930,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.8_1",
+    "NAME_1": "Kalmar",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2931,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.9_1",
+    "NAME_1": "Kronoberg",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2932,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.10_1",
+    "NAME_1": "Norrbotten",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2933,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.11_1",
+    "NAME_1": "Orebro",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2934,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.12_1",
+    "NAME_1": "Östergötland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2935,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.13_1",
+    "NAME_1": "Skåne",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2936,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.14_1",
+    "NAME_1": "Södermanland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2937,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.15_1",
+    "NAME_1": "Stockholm",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2938,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.16_1",
+    "NAME_1": "Uppsala",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2939,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.17_1",
+    "NAME_1": "Värmland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2940,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.18_1",
+    "NAME_1": "Västerbotten",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2941,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.19_1",
+    "NAME_1": "Västernorrland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2942,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.20_1",
+    "NAME_1": "Västmanland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2943,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden",
+    "GID_1": "SWE.21_1",
+    "NAME_1": "Västra Götaland",
+    "TYPE_1": "Län",
+    "ENGTYPE_1": "County"
+  },
+  {
+    "fid": 2,
+    "GID_0": "AFG",
+    "COUNTRY": "Afghanistan"
+  },
+  {
+    "fid": 3,
+    "GID_0": "AGO",
+    "COUNTRY": "Angola"
+  },
+  {
+    "fid": 5,
+    "GID_0": "ALA",
+    "COUNTRY": "Åland"
+  },
+  {
+    "fid": 6,
+    "GID_0": "ALB",
+    "COUNTRY": "Albania"
+  },
+  {
+    "fid": 7,
+    "GID_0": "AND",
+    "COUNTRY": "Andorra"
+  },
+  {
+    "fid": 8,
+    "GID_0": "ARE",
+    "COUNTRY": "United Arab Emirates"
+  },
+  {
+    "fid": 10,
+    "GID_0": "ARM",
+    "COUNTRY": "Armenia"
+  },
+  {
+    "fid": 16,
+    "GID_0": "AUT",
+    "COUNTRY": "Austria"
+  },
+  {
+    "fid": 17,
+    "GID_0": "AZE",
+    "COUNTRY": "Azerbaijan"
+  },
+  {
+    "fid": 18,
+    "GID_0": "BDI",
+    "COUNTRY": "Burundi"
+  },
+  {
+    "fid": 19,
+    "GID_0": "BEL",
+    "COUNTRY": "Belgium"
+  },
+  {
+    "fid": 20,
+    "GID_0": "BEN",
+    "COUNTRY": "Benin"
+  },
+  {
+    "fid": 22,
+    "GID_0": "BFA",
+    "COUNTRY": "Burkina Faso"
+  },
+  {
+    "fid": 24,
+    "GID_0": "BGR",
+    "COUNTRY": "Bulgaria"
+  },
+  {
+    "fid": 25,
+    "GID_0": "BHR",
+    "COUNTRY": "Bahrain"
+  },
+  {
+    "fid": 27,
+    "GID_0": "BIH",
+    "COUNTRY": "Bosnia and Herzegovina"
+  },
+  {
+    "fid": 29,
+    "GID_0": "BLR",
+    "COUNTRY": "Belarus"
+  },
+  {
+    "fid": 33,
+    "GID_0": "BRA",
+    "COUNTRY": "Brazil"
+  },
+  {
+    "fid": 39,
+    "GID_0": "CAF",
+    "COUNTRY": "Central African Republic"
+  },
+  {
+    "fid": 40,
+    "GID_0": "CAN",
+    "COUNTRY": "Canada"
+  },
+  {
+    "fid": 42,
+    "GID_0": "CHE",
+    "COUNTRY": "Switzerland"
+  },
+  {
+    "fid": 44,
+    "GID_0": "CHN",
+    "COUNTRY": "China"
+  },
+  {
+    "fid": 45,
+    "GID_0": "Z02",
+    "COUNTRY": "China"
+  },
+  {
+    "fid": 46,
+    "GID_0": "Z03",
+    "COUNTRY": "China"
+  },
+  {
+    "fid": 47,
+    "GID_0": "Z08",
+    "COUNTRY": "China"
+  },
+  {
+    "fid": 48,
+    "GID_0": "CIV",
+    "COUNTRY": "Côte d'Ivoire"
+  },
+  {
+    "fid": 49,
+    "GID_0": "CMR",
+    "COUNTRY": "Cameroon"
+  },
+  {
+    "fid": 50,
+    "GID_0": "COD",
+    "COUNTRY": "Democratic Republic of the Congo"
+  },
+  {
+    "fid": 51,
+    "GID_0": "COG",
+    "COUNTRY": "Republic of the Congo"
+  },
+  {
+    "fid": 55,
+    "GID_0": "CPV",
+    "COUNTRY": "Cabo Verde"
+  },
+  {
+    "fid": 61,
+    "GID_0": "CYP",
+    "COUNTRY": "Cyprus"
+  },
+  {
+    "fid": 62,
+    "GID_0": "CZE",
+    "COUNTRY": "Czechia"
+  },
+  {
+    "fid": 63,
+    "GID_0": "DEU",
+    "COUNTRY": "Germany"
+  },
+  {
+    "fid": 64,
+    "GID_0": "DJI",
+    "COUNTRY": "Djibouti"
+  },
+  {
+    "fid": 66,
+    "GID_0": "DNK",
+    "COUNTRY": "Denmark"
+  },
+  {
+    "fid": 68,
+    "GID_0": "DZA",
+    "COUNTRY": "Algeria"
+  },
+  {
+    "fid": 70,
+    "GID_0": "EGY",
+    "COUNTRY": "Egypt"
+  },
+  {
+    "fid": 71,
+    "GID_0": "ERI",
+    "COUNTRY": "Eritrea"
+  },
+  {
+    "fid": 72,
+    "GID_0": "ESH",
+    "COUNTRY": "Western Sahara"
+  },
+  {
+    "fid": 73,
+    "GID_0": "ESP",
+    "COUNTRY": "Spain"
+  },
+  {
+    "fid": 74,
+    "GID_0": "EST",
+    "COUNTRY": "Estonia"
+  },
+  {
+    "fid": 75,
+    "GID_0": "ETH",
+    "COUNTRY": "Ethiopia"
+  },
+  {
+    "fid": 76,
+    "GID_0": "FIN",
+    "COUNTRY": "Finland"
+  },
+  {
+    "fid": 79,
+    "GID_0": "FRA",
+    "COUNTRY": "France"
+  },
+  {
+    "fid": 80,
+    "GID_0": "FRO",
+    "COUNTRY": "Faroe Islands"
+  },
+  {
+    "fid": 82,
+    "GID_0": "GAB",
+    "COUNTRY": "Gabon"
+  },
+  {
+    "fid": 83,
+    "GID_0": "GBR",
+    "COUNTRY": "United Kingdom"
+  },
+  {
+    "fid": 84,
+    "GID_0": "GEO",
+    "COUNTRY": "Georgia"
+  },
+  {
+    "fid": 85,
+    "GID_0": "GGY",
+    "COUNTRY": "Guernsey"
+  },
+  {
+    "fid": 86,
+    "GID_0": "GHA",
+    "COUNTRY": "Ghana"
+  },
+  {
+    "fid": 87,
+    "GID_0": "GIB",
+    "COUNTRY": "Gibraltar"
+  },
+  {
+    "fid": 88,
+    "GID_0": "GIN",
+    "COUNTRY": "Guinea"
+  },
+  {
+    "fid": 90,
+    "GID_0": "GMB",
+    "COUNTRY": "Gambia"
+  },
+  {
+    "fid": 91,
+    "GID_0": "GNB",
+    "COUNTRY": "Guinea-Bissau"
+  },
+  {
+    "fid": 92,
+    "GID_0": "GNQ",
+    "COUNTRY": "Equatorial Guinea"
+  },
+  {
+    "fid": 93,
+    "GID_0": "GRC",
+    "COUNTRY": "Greece"
+  },
+  {
+    "fid": 95,
+    "GID_0": "GRL",
+    "COUNTRY": "Greenland"
+  },
+  {
+    "fid": 97,
+    "GID_0": "GUF",
+    "COUNTRY": "French Guiana"
+  },
+  {
+    "fid": 102,
+    "GID_0": "HRV",
+    "COUNTRY": "Croatia"
+  },
+  {
+    "fid": 104,
+    "GID_0": "HUN",
+    "COUNTRY": "Hungary"
+  },
+  {
+    "fid": 106,
+    "GID_0": "IMN",
+    "COUNTRY": "Isle of Man"
+  },
+  {
+    "fid": 107,
+    "GID_0": "IND",
+    "COUNTRY": "India"
+  },
+  {
+    "fid": 108,
+    "GID_0": "Z01",
+    "COUNTRY": "India"
+  },
+  {
+    "fid": 109,
+    "GID_0": "Z04",
+    "COUNTRY": "India"
+  },
+  {
+    "fid": 112,
+    "GID_0": "Z09",
+    "COUNTRY": "India"
+  },
+  {
+    "fid": 113,
+    "GID_0": "IOT",
+    "COUNTRY": "British Indian Ocean Territory"
+  },
+  {
+    "fid": 114,
+    "GID_0": "IRL",
+    "COUNTRY": "Ireland"
+  },
+  {
+    "fid": 115,
+    "GID_0": "IRN",
+    "COUNTRY": "Iran"
+  },
+  {
+    "fid": 116,
+    "GID_0": "IRQ",
+    "COUNTRY": "Iraq"
+  },
+  {
+    "fid": 117,
+    "GID_0": "ISL",
+    "COUNTRY": "Iceland"
+  },
+  {
+    "fid": 118,
+    "GID_0": "ISR",
+    "COUNTRY": "Israel"
+  },
+  {
+    "fid": 119,
+    "GID_0": "ITA",
+    "COUNTRY": "Italy"
+  },
+  {
+    "fid": 121,
+    "GID_0": "JEY",
+    "COUNTRY": "Jersey"
+  },
+  {
+    "fid": 122,
+    "GID_0": "JOR",
+    "COUNTRY": "Jordan"
+  },
+  {
+    "fid": 124,
+    "GID_0": "KAZ",
+    "COUNTRY": "Kazakhstan"
+  },
+  {
+    "fid": 125,
+    "GID_0": "KEN",
+    "COUNTRY": "Kenya"
+  },
+  {
+    "fid": 126,
+    "GID_0": "KGZ",
+    "COUNTRY": "Kyrgyzstan"
+  },
+  {
+    "fid": 131,
+    "GID_0": "KWT",
+    "COUNTRY": "Kuwait"
+  },
+  {
+    "fid": 133,
+    "GID_0": "LBN",
+    "COUNTRY": "Lebanon"
+  },
+  {
+    "fid": 134,
+    "GID_0": "LBR",
+    "COUNTRY": "Liberia"
+  },
+  {
+    "fid": 135,
+    "GID_0": "LBY",
+    "COUNTRY": "Libya"
+  },
+  {
+    "fid": 137,
+    "GID_0": "LIE",
+    "COUNTRY": "Liechtenstein"
+  },
+  {
+    "fid": 138,
+    "GID_0": "LKA",
+    "COUNTRY": "Sri Lanka"
+  },
+  {
+    "fid": 140,
+    "GID_0": "LTU",
+    "COUNTRY": "Lithuania"
+  },
+  {
+    "fid": 141,
+    "GID_0": "LUX",
+    "COUNTRY": "Luxembourg"
+  },
+  {
+    "fid": 142,
+    "GID_0": "LVA",
+    "COUNTRY": "Latvia"
+  },
+  {
+    "fid": 144,
+    "GID_0": "MAR",
+    "COUNTRY": "Morocco"
+  },
+  {
+    "fid": 145,
+    "GID_0": "MCO",
+    "COUNTRY": "Monaco"
+  },
+  {
+    "fid": 146,
+    "GID_0": "MDA",
+    "COUNTRY": "Moldova"
+  },
+  {
+    "fid": 148,
+    "GID_0": "MDV",
+    "COUNTRY": "Maldives"
+  },
+  {
+    "fid": 151,
+    "GID_0": "MKD",
+    "COUNTRY": "North Macedonia"
+  },
+  {
+    "fid": 152,
+    "GID_0": "MLI",
+    "COUNTRY": "Mali"
+  },
+  {
+    "fid": 153,
+    "GID_0": "MLT",
+    "COUNTRY": "Malta"
+  },
+  {
+    "fid": 155,
+    "GID_0": "MNE",
+    "COUNTRY": "Montenegro"
+  },
+  {
+    "fid": 159,
+    "GID_0": "MRT",
+    "COUNTRY": "Mauritania"
+  },
+  {
+    "fid": 163,
+    "GID_0": "MWI",
+    "COUNTRY": "Malawi"
+  },
+  {
+    "fid": 168,
+    "GID_0": "NER",
+    "COUNTRY": "Niger"
+  },
+  {
+    "fid": 170,
+    "GID_0": "NGA",
+    "COUNTRY": "Nigeria"
+  },
+  {
+    "fid": 173,
+    "GID_0": "NLD",
+    "COUNTRY": "Netherlands"
+  },
+  {
+    "fid": 174,
+    "GID_0": "NOR",
+    "COUNTRY": "Norway"
+  },
+  {
+    "fid": 178,
+    "GID_0": "OMN",
+    "COUNTRY": "Oman"
+  },
+  {
+    "fid": 179,
+    "GID_0": "PAK",
+    "COUNTRY": "Pakistan"
+  },
+  {
+    "fid": 180,
+    "GID_0": "Z06",
+    "COUNTRY": "Pakistan"
+  },
+  {
+    "fid": 187,
+    "GID_0": "POL",
+    "COUNTRY": "Poland"
+  },
+  {
+    "fid": 190,
+    "GID_0": "PRT",
+    "COUNTRY": "Portugal"
+  },
+  {
+    "fid": 192,
+    "GID_0": "PSE",
+    "COUNTRY": "Palestine"
+  },
+  {
+    "fid": 194,
+    "GID_0": "QAT",
+    "COUNTRY": "Qatar"
+  },
+  {
+    "fid": 196,
+    "GID_0": "ROU",
+    "COUNTRY": "Romania"
+  },
+  {
+    "fid": 197,
+    "GID_0": "RUS",
+    "COUNTRY": "Russia"
+  },
+  {
+    "fid": 198,
+    "GID_0": "RWA",
+    "COUNTRY": "Rwanda"
+  },
+  {
+    "fid": 199,
+    "GID_0": "SAU",
+    "COUNTRY": "Saudi Arabia"
+  },
+  {
+    "fid": 200,
+    "GID_0": "SDN",
+    "COUNTRY": "Sudan"
+  },
+  {
+    "fid": 201,
+    "GID_0": "SEN",
+    "COUNTRY": "Senegal"
+  },
+  {
+    "fid": 204,
+    "GID_0": "SHN",
+    "COUNTRY": "Saint Helena, Ascension and Tris"
+  },
+  {
+    "fid": 205,
+    "GID_0": "SJM",
+    "COUNTRY": "Svalbard and Jan Mayen"
+  },
+  {
+    "fid": 207,
+    "GID_0": "SLE",
+    "COUNTRY": "Sierra Leone"
+  },
+  {
+    "fid": 209,
+    "GID_0": "SMR",
+    "COUNTRY": "San Marino"
+  },
+  {
+    "fid": 210,
+    "GID_0": "SOM",
+    "COUNTRY": "Somalia"
+  },
+  {
+    "fid": 212,
+    "GID_0": "SRB",
+    "COUNTRY": "Serbia"
+  },
+  {
+    "fid": 213,
+    "GID_0": "SSD",
+    "COUNTRY": "South Sudan"
+  },
+  {
+    "fid": 214,
+    "GID_0": "STP",
+    "COUNTRY": "São Tomé and Príncipe"
+  },
+  {
+    "fid": 215,
+    "GID_0": "SUR",
+    "COUNTRY": "Suriname"
+  },
+  {
+    "fid": 216,
+    "GID_0": "SVK",
+    "COUNTRY": "Slovakia"
+  },
+  {
+    "fid": 217,
+    "GID_0": "SVN",
+    "COUNTRY": "Slovenia"
+  },
+  {
+    "fid": 218,
+    "GID_0": "SWE",
+    "COUNTRY": "Sweden"
+  },
+  {
+    "fid": 221,
+    "GID_0": "SYC",
+    "COUNTRY": "Seychelles"
+  },
+  {
+    "fid": 222,
+    "GID_0": "SYR",
+    "COUNTRY": "Syria"
+  },
+  {
+    "fid": 224,
+    "GID_0": "TCD",
+    "COUNTRY": "Chad"
+  },
+  {
+    "fid": 225,
+    "GID_0": "TGO",
+    "COUNTRY": "Togo"
+  },
+  {
+    "fid": 227,
+    "GID_0": "TJK",
+    "COUNTRY": "Tajikistan"
+  },
+  {
+    "fid": 229,
+    "GID_0": "TKM",
+    "COUNTRY": "Turkmenistan"
+  },
+  {
+    "fid": 233,
+    "GID_0": "TUN",
+    "COUNTRY": "Tunisia"
+  },
+  {
+    "fid": 234,
+    "GID_0": "TUR",
+    "COUNTRY": "Turkey"
+  },
+  {
+    "fid": 237,
+    "GID_0": "TZA",
+    "COUNTRY": "Tanzania"
+  },
+  {
+    "fid": 238,
+    "GID_0": "UGA",
+    "COUNTRY": "Uganda"
+  },
+  {
+    "fid": 239,
+    "GID_0": "UKR",
+    "COUNTRY": "Ukraine"
+  },
+  {
+    "fid": 243,
+    "GID_0": "UZB",
+    "COUNTRY": "Uzbekistan"
+  },
+  {
+    "fid": 253,
+    "GID_0": "XAD",
+    "COUNTRY": "Akrotiri and Dhekelia"
+  },
+  {
+    "fid": 254,
+    "GID_0": "XCA",
+    "COUNTRY": "Caspian Sea"
+  },
+  {
+    "fid": 256,
+    "GID_0": "XKO",
+    "COUNTRY": "Kosovo"
+  },
+  {
+    "fid": 259,
+    "GID_0": "YEM",
+    "COUNTRY": "Yemen"
+  },
+  {
+    "fid": 261,
+    "GID_0": "ZMB",
+    "COUNTRY": "Zambia"
+  },
+  {
+    "fid": 262,
+    "GID_0": "ZNC",
+    "COUNTRY": "Northern Cyprus"
+  }
+]
