@@ -70,7 +70,15 @@ speciesList.forEach((currentSpeciesId) => {
           ]
         }
 
-        fs.writeFileSync(SPECIES_DATA, JSON.stringify(allSpeciesData))
+        const sorted = Object.entries(allSpeciesData)
+        sorted.sort(([keyA], [keyB]) => {
+          return keyA.localeCompare(keyB)
+        })
+
+        fs.writeFileSync(
+          SPECIES_DATA,
+          JSON.stringify(Object.fromEntries(sorted))
+        )
       })
     })
 })
