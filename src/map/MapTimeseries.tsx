@@ -1,6 +1,6 @@
 import type { Feature } from 'geojson'
 import { Dispatch, Fragment, SetStateAction, useMemo } from 'react'
-import { CellTypeEnum, SPECIES_COLORS, TIME_STEPS } from '../constants'
+import { CellTypeEnum, TIME_STEPS } from '../constants'
 import { TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
 import './MapTimeseries.css'
@@ -12,15 +12,15 @@ const H = 120
 
 export type MapTimeseriesProps = {
   features?: Feature[]
-  species: string
+  mainColor: number[]
   timeStep: TimeStep
   onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
 function MapTimeseries({
   features,
-  species,
   onTimestepChange,
+  mainColor,
   timeStep,
 }: MapTimeseriesProps) {
   // const numFeatures = features?.length || 0
@@ -58,7 +58,7 @@ function MapTimeseries({
     <Fragment>
       <Timeseries
         data={timeseriesData}
-        mainColor={SPECIES_COLORS[species]}
+        mainColor={mainColor}
         width={W}
         height={H}
       />

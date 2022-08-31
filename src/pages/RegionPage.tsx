@@ -5,14 +5,14 @@ import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from '../types'
 
 export type RegionPageProps = {
   region: RegionFeature
-  species: string
+  currentSpecies: string
   stats: StatsBySpecies
   onRegionClose: Dispatch<SetStateAction<any>>
 }
 
 function RegionPage({
   region,
-  species,
+  currentSpecies,
   stats,
   onRegionClose,
 }: RegionPageProps) {

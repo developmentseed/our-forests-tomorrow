@@ -17,10 +17,7 @@ function StatsDropdown({
   const items = useMemo(() => {
     return data.map((entry) => ({
       data: entry[1],
-      label:
-        labelKey === 'region'
-          ? entry[1].region?.label
-          : entry[1]?.speciesDetail?.name,
+      label: labelKey === 'region' ? entry[1].region?.label : entry[0], // TODO this is species id, grab name?,
     }))
   }, [data, labelKey])
   return (

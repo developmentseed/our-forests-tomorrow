@@ -28,15 +28,17 @@ const INITIAL_VIEW_STATE = {
 
 export type MapProps = {
   timeStep: TimeStep
-  species: string
+  currentSpecies: string
+  mainColor: number[]
   region: RegionFeature | null
   onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
   onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
 }
 
 function Map({
-  species,
   timeStep,
+  currentSpecies,
+  mainColor,
   region,
   onRegionChange,
   onRenderedFeaturesChange,
@@ -45,7 +47,8 @@ function Map({
 
   const { layers, countries, grid } = useMapLayers({
     timeStep,
-    species,
+    currentSpecies,
+    mainColor,
     region,
     onRegionChange,
   })
@@ -108,13 +111,13 @@ function Map({
         if (timeStep === '2005') {
           msg =
             gridCellProps.nat_2005 === 0
-              ? `${species} is not naturally present here`
-              : `${species} is naturally present here`
+              ? `${currentSpecies} is not naturally present here`
+              : `${currentSpecies} is naturally present here`
         } else {
           const prob = gridCellProps[`prob_${timeStep}`]
           const status = gridCellProps[`status_${timeStep}`]
           // TODO copy
-          msg = `Probability for ${species} here in ${timeStep} is ${prob}/1000 (status ${status})`
+          msg = `Probability for ${currentSpecies} here in ${timeStep} is ${prob}/1000 (status ${status})`
         }
         tooltips.push(msg)
       }
@@ -126,7 +129,7 @@ function Map({
       }
       // console.log(tooltips)
     },
-    [deckRef, timeStep, species]
+    [deckRef, timeStep, currentSpecies]
   )
 
   return (

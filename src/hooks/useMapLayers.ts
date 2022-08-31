@@ -14,7 +14,6 @@ import {
   CellTypeEnum,
   COLOR_BY_CELL_TYPE,
   COUNTRIES_WITH_REGIONS_GIDS,
-  SPECIES_COLORS,
 } from '../constants'
 
 const isLocal = window.location.hostname === 'localhost'
@@ -106,13 +105,13 @@ const GRID: LayerGenerator = {
     getFillColor: (
       d: Cell,
       timeStep: TimeStep,
-      species: string,
+      speciesColor: number[],
       region: RegionFeature | null
     ) => {
       const type = getCellTypeAtTimeStep(d, timeStep)
       const baseColor =
         type === CellTypeEnum.Stable
-          ? SPECIES_COLORS[species]
+          ? speciesColor
           : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
       if (!region) return baseColor
       // TODO filter by region
@@ -124,14 +123,16 @@ const GRID: LayerGenerator = {
 
 type UseMapLayerProps = {
   timeStep: TimeStep
-  species: string
+  currentSpecies: string
+  mainColor: number[]
   region: RegionFeature | null
   onRegionChange: (region: RegionFeature | null) => void
 }
 
 function useMapLayers({
   timeStep,
-  species,
+  currentSpecies,
+  mainColor,
   region,
   onRegionChange,
 }: UseMapLayerProps) {
@@ -198,13 +199,13 @@ function useMapLayers({
 
     const grid = new MVTLayer({
       ...GRID.config,
-      data: GRID.overrides.data(species),
+      data: GRID.overrides.data(currentSpecies),
       getPointRadius: GRID.overrides.getPointRadiusByZoom(tilesZoom),
       getFillColor: (d) =>
-        GRID.overrides.getFillColor(d, timeStep, species, region),
+        GRID.overrides.getFillColor(d, timeStep, mainColor, region),
       updateTriggers: {
         getPointRadius: tilesZoom,
-        getFillColor: [timeStep, species, region],
+        getFillColor: [timeStep, mainColor, region],
       },
       onViewportLoad: (tiles) => {
         if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
@@ -220,7 +221,8 @@ function useMapLayers({
       grid,
     }
   }, [
-    species,
+    currentSpecies,
+    mainColor,
     timeStep,
     tilesZoom,
     region,

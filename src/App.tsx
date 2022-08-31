@@ -13,7 +13,7 @@ import Nav from './nav/Nav'
 
 function App() {
   const [timeStep, setTimeStep] = useState<TimeStep>('2005')
-  const [species, setSpecies] = useState<string>(
+  const [currentSpecies, setCurrentSpecies] = useState<string>(
     SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
   )
   const [region, setRegion] = useState<RegionFeature | null>(null)
@@ -26,17 +26,20 @@ function App() {
     setRegion(null)
   }, [setRegion])
 
-  const { stats, speciesDetail, regions } = useCoreData()
+  const { stats, speciesData, regions } = useCoreData()
   // TODO species data for current locale
 
-  return !stats || !speciesDetail ? (
+  const currentSpeciesData = speciesData?.[currentSpecies]
+
+  return !stats || !speciesData || !currentSpeciesData ? (
     <div>loading</div>
   ) : (
     <Fragment>
-      <Nav species={speciesDetail} onSpeciesChange={setSpecies} />
+      <Nav species={speciesData} onSpeciesChange={setCurrentSpecies} />
       <Map
         timeStep={timeStep}
-        species={species}
+        currentSpecies={currentSpecies}
+        mainColor={currentSpeciesData.color}
         region={region}
         onRegionChange={setRegion}
         onRenderedFeaturesChange={setRenderedFeatures}
@@ -45,14 +48,14 @@ function App() {
         <RegionPage
           stats={stats}
           region={region}
-          species={species}
+          currentSpecies={currentSpecies}
           onRegionClose={closeRegion}
         />
       ) : (
         <SpeciesPage
           stats={stats}
-          species={species}
-          speciesDetail={speciesDetail}
+          currentSpecies={currentSpecies}
+          currentSpeciesData={currentSpeciesData}
         />
       )}
 
@@ -61,7 +64,7 @@ function App() {
           timeStep={timeStep}
           onTimestepChange={setTimeStep}
           features={renderedFeatures}
-          species={species}
+          mainColor={currentSpeciesData.color}
         />
       </MapControls>
     </Fragment>

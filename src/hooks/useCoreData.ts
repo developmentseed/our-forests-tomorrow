@@ -10,20 +10,17 @@ import {
 
 function useCoreData() {
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
-  const [speciesDetail, setSpeciesDetail] = useState<AllSpeciesData | null>(
-    null
-  )
+  const [speciesData, setSpeciesData] = useState<AllSpeciesData | null>(null)
   const [regions, setRegions] = useState<Region[]>([])
   useEffect(() => {
     if (stats) return
     Promise.all(
-      ['./stats.json', './species_detail.json', './regions.json'].map((url) =>
+      ['./stats.json', './regions.json', './species_data.json'].map((url) =>
         fetch(url).then((resp) => resp.json())
       )
     ).then((data) => {
-      const [stats, speciesDetail, regions] = data
-      setSpeciesDetail(speciesDetail as AllSpeciesData)
-      console.log(speciesDetail)
+      const [stats, regions, speciesData] = data
+      setSpeciesData(speciesData as AllSpeciesData)
 
       const regionsWithLabels = (regions as Region[]).map((r) => {
         return {
@@ -42,15 +39,15 @@ function useCoreData() {
                   (r: Region) =>
                     r.GID_1 === regionGID || (!r.GID_1 && r.GID_0 === regionGID)
                 )
-                const speciesDetailForStats = speciesDetail[species]
+                // const speciesDataForStats = speciesData[species]
                 return [
                   regionGID,
                   {
                     ...regionStats,
                     region,
-                    speciesDetail: {
-                      name: speciesDetailForStats?.en?.aliases?.[0],
-                    },
+                    // speciesData: {
+                    //   name: speciesDataForStats?.en?.aliases?.[0],
+                    // },
                   } as ValuesByYear,
                 ]
               }
@@ -63,7 +60,7 @@ function useCoreData() {
       setRegions(regionsWithLabels)
     })
   }, [stats])
-  return { stats, speciesDetail, regions }
+  return { stats, speciesData, regions }
 }
 
 export default useCoreData

@@ -1,21 +1,26 @@
+import { useTranslation } from 'react-i18next'
 import StatsDropdown from '../components/StatsDropdown'
-import { CellTypeEnum, SPECIES_COLORS } from '../constants'
+import { CellTypeEnum } from '../constants'
 import { useStats } from '../hooks/useStats'
-import { AllSpeciesData, StatsBySpecies } from '../types'
+import { Locale, SpeciesData, StatsBySpecies } from '../types'
 import { deckColorToCss } from '../utils'
 
 export type SpeciesPageProps = {
-  species: string
+  currentSpecies: string
+  currentSpeciesData: SpeciesData
   stats: StatsBySpecies
-  speciesDetail: AllSpeciesData
 }
 
-function SpeciesPage({ species, stats, speciesDetail }: SpeciesPageProps) {
-  const currentStats = stats[species]
-  const color = SPECIES_COLORS[species]
-  const detail = speciesDetail[species]
-  const name = detail?.en?.aliases?.[0]
-  console.log('species stats:', currentStats)
+function SpeciesPage({
+  currentSpecies,
+  currentSpeciesData,
+  stats,
+}: SpeciesPageProps) {
+  const { t, i18n } = useTranslation()
+  const locale = i18n.language as Locale
+  const currentStats = stats[currentSpecies]
+  const name = t(`species.${currentSpecies}`)
+
   const naturallyPresent = useStats(currentStats, 'byRegion')
   const willDisappear = useStats(
     currentStats,
@@ -36,19 +41,23 @@ function SpeciesPage({ species, stats, speciesDetail }: SpeciesPageProps) {
     <header>
       <h1
         style={{
-          color: deckColorToCss(SPECIES_COLORS[species]),
+          color: deckColorToCss(currentSpeciesData.color),
         }}
       >
-        {species}, {name}
+        {currentSpecies}, {name}
       </h1>
       <div>
         {name} is naturally present in{' '}
-        <StatsDropdown data={naturallyPresent} color={color} />. By 2095, that
-        species is likely to disappear from{' '}
-        <StatsDropdown data={willDisappear} color={color} />. However, by 2095
-        it could thrive in <StatsDropdown data={couldThrive} color={color} />
+        <StatsDropdown
+          data={naturallyPresent}
+          color={currentSpeciesData.color}
+        />
+        . By 2095, that species is likely to disappear from{' '}
+        <StatsDropdown data={willDisappear} color={currentSpeciesData.color} />.
+        However, by 2095 it could thrive in{' '}
+        <StatsDropdown data={couldThrive} color={currentSpeciesData.color} />
       </div>
-      <p>{detail.en.extract}</p>
+      <p>{currentSpeciesData.labels[locale].extract}</p>
     </header>
   )
 }

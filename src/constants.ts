@@ -33,17 +33,6 @@ export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, number[]> = {
   [CellTypeEnum.Unknown]: [0, 0, 0, 0],
 }
 
-export const SPECIES_COLORS: Record<string, number[]> = Object.fromEntries(
-  SPECIES_IDS.map((s) => [
-    s,
-    [
-      Math.floor(150 * Math.random()),
-      200 + Math.floor(50 * Math.random()),
-      Math.floor(150 * Math.random()),
-    ],
-  ])
-)
-
 // > 100 000km2
 export const COUNTRIES_WITH_REGIONS_GIDS = [
   'BEL',
