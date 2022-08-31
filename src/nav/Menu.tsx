@@ -4,19 +4,15 @@ import {
   useFloating,
   useInteractions,
 } from '@floating-ui/react-dom-interactions'
-import { Fragment, ReactNode, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Fragment, ReactNode, useCallback, useState } from 'react'
 import { MenuContents } from './Menu.styled'
-// import {  } from './Menu.styled'
 
 export type MenuProps = {
   label: string
-  children: ReactNode
-  // items: { label?: string }[]
+  children: (props: any) => ReactNode
 }
 
-function Menu({ children, label }: MenuProps) {
-  const { t } = useTranslation()
+function Menu({ label, children }: MenuProps) {
   const [open, setOpen] = useState<boolean>(false)
   const { reference, floating, strategy, context } = useFloating({
     open,
@@ -27,6 +23,10 @@ function Menu({ children, label }: MenuProps) {
     useClick(context),
     useDismiss(context),
   ])
+
+  const closeMenuCallback = useCallback(() => {
+    setOpen(false)
+  }, [])
 
   return (
     <Fragment>
@@ -39,7 +39,7 @@ function Menu({ children, label }: MenuProps) {
           strategy={strategy}
           {...getFloatingProps()}
         >
-          {children}
+          {children(closeMenuCallback)}
         </MenuContents>
       )}
     </Fragment>

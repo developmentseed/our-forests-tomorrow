@@ -21,6 +21,17 @@ export type CellProps = {
   status_2095: number
 }
 
+export type Region = {
+  fid: number
+  GID_0: string
+  COUNTRY: string
+  GID_1?: string
+  NAME_1?: string
+  TYPE_1?: string
+  ENGTYPE_1?: string
+  label: string
+}
+
 export type RegionProps = {
   name_en: string
   name_fr: string
@@ -46,16 +57,6 @@ export type ValuesByRegionGID = Record<string, ValuesByYear>
 export type ValuesBySpeciesID = Record<string, ValuesByYear>
 export type ValuesBySpeciesIDOrValuesByRegionGID = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionGID>
-export type Region = {
-  fid: number
-  GID_0: string
-  COUNTRY: string
-  GID_1?: string
-  NAME_1?: string
-  TYPE_1?: string
-  ENGTYPE_1?: string
-  label: string
-}
 
 export type TimeseriesData = {
   t: number
@@ -63,3 +64,14 @@ export type TimeseriesData = {
   1: number
   2: number
 }
+
+export type Locale = 'en' | 'fr'
+
+export type SpeciesDataByLocale = {
+  name: string
+  aliases: string[]
+  extract: string
+}
+
+export type SpeciesData = Record<Locale, SpeciesDataByLocale>
+export type AllSpeciesData = Record<string, SpeciesData>

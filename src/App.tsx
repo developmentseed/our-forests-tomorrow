@@ -7,8 +7,8 @@ import MapControls from './map/MapControls'
 import { RegionFeature, TimeStep } from './types'
 import MapTimeseries from './map/MapTimeseries'
 import { SPECIES_WHITELIST } from './constants_common'
-import RegionStats from './pages/RegionPage'
-import SpeciesStats from './pages/SpeciesPage'
+import RegionPage from './pages/RegionPage'
+import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
 import Nav from './nav/Nav'
 
@@ -28,12 +28,13 @@ function App() {
   }, [setRegion])
 
   const { stats, speciesDetail, regions } = useCoreData()
+  // TODO species data for current locale
 
-  return !stats ? (
+  return !stats || !speciesDetail ? (
     <div>loading</div>
   ) : (
     <Fragment>
-      <Nav />
+      <Nav species={speciesDetail} onSpeciesChange={setSpecies} />
       <Map
         timeStep={timeStep}
         species={species}
@@ -42,14 +43,14 @@ function App() {
         onRenderedFeaturesChange={setRenderedFeatures}
       />
       {region ? (
-        <RegionStats
+        <RegionPage
           stats={stats}
           region={region}
           species={species}
           onRegionClose={closeRegion}
         />
       ) : (
-        <SpeciesStats
+        <SpeciesPage
           stats={stats}
           species={species}
           speciesDetail={speciesDetail}

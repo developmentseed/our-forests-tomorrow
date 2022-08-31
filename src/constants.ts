@@ -66,5 +66,8 @@ export const THEME = {
     light: 'rgb(240, 255, 240)',
     dark: 'rgb(10, 20, 10)',
   },
+  layout: {
+    navHeight: '40px',
+  },
   mobile: '768px',
 }

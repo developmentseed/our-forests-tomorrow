@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import {
+  AllSpeciesData,
   Region,
+  SpeciesData,
   StatsBySpecies,
   ValuesByRegionGID,
   ValuesByYear,
@@ -8,7 +10,9 @@ import {
 
 function useCoreData() {
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
-  const [speciesDetail, setSpeciesDetail] = useState<any>(null)
+  const [speciesDetail, setSpeciesDetail] = useState<AllSpeciesData | null>(
+    null
+  )
   const [regions, setRegions] = useState<Region[]>([])
   useEffect(() => {
     if (stats) return
@@ -18,7 +22,7 @@ function useCoreData() {
       )
     ).then((data) => {
       const [stats, speciesDetail, regions] = data
-      setSpeciesDetail(speciesDetail)
+      setSpeciesDetail(speciesDetail as AllSpeciesData)
       console.log(speciesDetail)
 
       const regionsWithLabels = (regions as Region[]).map((r) => {

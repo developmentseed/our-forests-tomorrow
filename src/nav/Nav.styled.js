@@ -9,6 +9,7 @@ export const NavWrapper = styled.header`
   justify-content: space-between;
   padding: 0.3rem;
   z-index: 1;
+  height: ${({ theme }) => theme.layout.navHeight};
 
   & > section {
     display: flex;

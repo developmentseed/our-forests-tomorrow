@@ -1,8 +1,16 @@
+import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
+import { AllSpeciesData } from '../types'
 import Menu from './Menu'
 import { NavButtons, NavHeader, NavWrapper } from './Nav.styled'
+import SpeciesMenu from './SpeciesMenu'
 
-function Nav() {
+type NavProps = {
+  species: AllSpeciesData
+  onSpeciesChange: Dispatch<SetStateAction<string>>
+}
+
+function Nav({ species, onSpeciesChange }: NavProps) {
   const { i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
@@ -30,8 +38,16 @@ function Nav() {
         </nav>
       </NavHeader>
       <NavButtons>
-        <Menu label="species">species</Menu>
-        <Menu label="regions">regions</Menu>
+        <Menu label="species">
+          {(closeMenuCallback: any) => (
+            <SpeciesMenu
+              species={species}
+              onSpeciesChange={onSpeciesChange}
+              closeMenuCallback={closeMenuCallback}
+            />
+          )}
+        </Menu>
+        {/* <Menu label="regions">regions</Menu> */}
       </NavButtons>
     </NavWrapper>
   )
