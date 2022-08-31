@@ -1,11 +1,9 @@
 .timestep {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
   padding: 1rem;
   background: white;
   padding: 1rem;
-  bottom: 10px;
-  left: 50%;
+  top: 80px;
+  right: 10px;
   border-radius: 4px;
-  transform: translateX(-50%);
 }

@@ -4,6 +4,7 @@ import { CellTypeEnum } from '../constants'
 import { useStats } from '../hooks/useStats'
 import { Locale, SpeciesData, StatsBySpecies } from '../types'
 import { deckColorToCss } from '../utils'
+import { Title } from './Page.styled'
 
 export type SpeciesPageProps = {
   currentSpecies: string
@@ -39,13 +40,10 @@ function SpeciesPage({
 
   return (
     <header>
-      <h1
-        style={{
-          color: deckColorToCss(currentSpeciesData.color),
-        }}
-      >
+      <Title color={deckColorToCss(currentSpeciesData.color)}>
         {currentSpecies}, {name}
-      </h1>
+      </Title>
+
       <div>
         {name} is naturally present in{' '}
         <StatsDropdown

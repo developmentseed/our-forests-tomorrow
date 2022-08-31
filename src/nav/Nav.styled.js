@@ -3,27 +3,39 @@ import styled from 'styled-components'
 export const NavWrapper = styled.header`
   position: sticky;
   top: 0;
-  background-color: ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.dark};
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0.3rem;
+  align-items: center;
   z-index: 1;
   height: ${({ theme }) => theme.layout.navHeight};
-
-  & > section {
-    display: flex;
-  }
+  padding: 1rem;
 `
 
 export const NavHeader = styled.div`
   display: flex;
+  align-items: center;
+  & > h1 {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.3rem;
+    margin-right: 2rem;
+
+    & > b {
+      display: block;
+    }
+  }
   & > nav {
     margin-left: 1rem;
-  }
 
-  & h1 {
-    font-size: 1.2rem;
+    & > button {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: bold;
+    }
   }
 `
 

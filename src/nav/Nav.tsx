@@ -19,8 +19,11 @@ function Nav({ species, onSpeciesChange }: NavProps) {
   return (
     <NavWrapper>
       <NavHeader>
-        <h1>Our trees future</h1>
+        <h1>
+          <b>Our forests</b> tomorrow
+        </h1>
         <nav>
+          <button>about</button>
           <button
             type="button"
             onClick={() => changeLanguage('en')}
@@ -47,7 +50,9 @@ function Nav({ species, onSpeciesChange }: NavProps) {
             />
           )}
         </Menu>
-        {/* <Menu label="regions">regions</Menu> */}
+        <Menu label="regions">
+          {(closeMenuCallback: any) => <div>hello</div>}
+        </Menu>
       </NavButtons>
     </NavWrapper>
   )

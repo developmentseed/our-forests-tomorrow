@@ -46,9 +46,9 @@ const GlobalStyles = styled.createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: ${({ theme }) => theme.colors.light};
-    background: ${({ theme }) => theme.colors.dark};
+    font-family: ${({ theme }) => theme.fonts.sans};
+    color: ${({ theme }) => theme.colors.dark};
+    background: ${({ theme }) => theme.colors.light};
   }
   * {
     box-sizing: border-box;
@@ -59,6 +59,12 @@ const GlobalStyles = styled.createGlobalStyle`
   }
   img {
     max-width: 100%;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-family: ${({ theme }) => theme.fonts.sans};
   }
 `
 

@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useCallback } from 'react'
 import { Feature } from 'geojson'
-import './App.css'
 import Map from './map/Map'
 import MapControls from './map/MapControls'
 import { RegionFeature, TimeStep } from './types'

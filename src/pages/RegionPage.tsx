@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import StatsDropdown from '../components/StatsDropdown'
 import { useAllSpeciesStatsForRegion, useStats } from '../hooks/useStats'
 import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from '../types'
+import { Title } from './Page.styled'
 
 export type RegionPageProps = {
   region: RegionFeature
@@ -27,10 +28,10 @@ function RegionPage({
   // console.log(naturallyPresent)
   return (
     <header>
-      <h1>
+      <Title>
         {region.properties.name_en}{' '}
         <button className="back" onClick={onRegionClose}></button>
-      </h1>
+      </Title>
       <div>
         In {region.properties.name_en},{' '}
         <StatsDropdown
