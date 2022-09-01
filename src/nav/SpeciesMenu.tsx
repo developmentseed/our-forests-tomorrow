@@ -4,10 +4,11 @@ import {
   Fragment,
   SetStateAction,
   useCallback,
+  useMemo,
   useState,
 } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AllSpeciesData, Locale } from '../types'
+import { AllSpeciesData, Locale, SpeciesSortBy } from '../types'
 import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
 import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
@@ -61,15 +62,44 @@ function SpeciesMenu({
     [species, t, locale]
   )
 
+  const [sortBy, setSortBy] = useState<SpeciesSortBy>('vernacular')
+  const onSortClick = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      setSortBy(e.target.value as SpeciesSortBy)
+    },
+    [setSortBy]
+  )
+
+  const sorted = useMemo(() => {
+    const speciesSortedArr = Object.entries(species).sort(
+      ([speciesKeyA, speciesDataA], [speciesKeyB, speciesDataB]) => {
+        if (sortBy === 'latin') {
+          return speciesKeyA.localeCompare(speciesKeyB)
+        } else if (sortBy === 'vernacular') {
+          return t(`species.${speciesKeyA}`).localeCompare(
+            t(`species.${speciesKeyB}`)
+          )
+        } else return 0
+      }
+    )
+    return Object.fromEntries(speciesSortedArr)
+  }, [species, sortBy, t])
+
   return (
     <Fragment>
       <SpeciesMenuTools>
-        <div>sort by</div>
+        <div>
+          sort by{' '}
+          <select onChange={onSortClick} value={sortBy}>
+            <option value="vernacular">Vernacular name</option>
+            <option value="latin">Latin name</option>
+          </select>
+        </div>
         <div>
           search for a species{' '}
           <input
             type="text"
-            placeholder="e.g. Irish Oak"
+            placeholder="e.g. Irish Oak, mediterranean"
             onChange={onSearch}
           ></input>
         </div>
@@ -80,7 +110,7 @@ function SpeciesMenu({
           Explore the possible future of <b>67</b> tree species
         </Aside>
         <ul>
-          {Object.entries(species).map(([speciesKey, speciesData]) => (
+          {Object.entries(sorted).map(([speciesKey, speciesData]) => (
             <li key={speciesKey} onClick={() => onSpeciesClick(speciesKey)}>
               <SpeciesButton
                 color={deckColorToCss(speciesData.color)}
@@ -88,7 +118,15 @@ function SpeciesMenu({
                   !!highlightedIds && !highlightedIds.includes(speciesKey)
                 }
               >
-                {t(`species.${speciesKey}`)}
+                {sortBy === 'latin'
+                  ? speciesKey.replace('_', ' ')
+                  : t(`species.${speciesKey}`)}
+
+                <i>
+                  {sortBy === 'latin'
+                    ? t(`species.${speciesKey}`)
+                    : speciesKey.replace('_', ' ')}
+                </i>
               </SpeciesButton>
             </li>
           ))}

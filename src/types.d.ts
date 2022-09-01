@@ -83,3 +83,5 @@ export type SpeciesData = {
   color: number[]
 }
 export type AllSpeciesData = Record<string, SpeciesData>
+
+export type SpeciesSortBy = 'latin' | 'vernacular'

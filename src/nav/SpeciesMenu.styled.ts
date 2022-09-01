@@ -37,4 +37,10 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
   &:disabled {
     opacity: 0.5;
   }
+
+  & > i {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
 `
