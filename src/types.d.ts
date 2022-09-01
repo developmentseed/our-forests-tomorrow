@@ -4,8 +4,6 @@ import { MVTLayerProps, TileLayerProps } from '@deck.gl/layers/typed'
 
 export type TimeStep = '2005' | '2035' | '2065' | '2095'
 export type TimeStepFuture = '2035' | '2065' | '2095'
-// TODO always index by int
-export type TimeStepFuturNum = 2035 | 2065 | 2095
 export type Cell = Feature<Point, CellProps>
 
 export type CellProps = {

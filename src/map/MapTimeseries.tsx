@@ -8,7 +8,7 @@ import cx from 'classnames'
 import Timeseries from '../components/Timeseries'
 
 const W = 250
-const H = 120
+const H = 70
 
 export type MapTimeseriesProps = {
   features?: Feature[]

@@ -26,7 +26,6 @@ function App() {
   }, [setRegion])
 
   const { stats, speciesData, regions } = useCoreData()
-  // TODO species data for current locale
 
   const currentSpeciesData = speciesData?.[currentSpecies]
 
