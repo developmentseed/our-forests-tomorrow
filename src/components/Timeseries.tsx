@@ -1,10 +1,11 @@
 import { Fragment, useMemo } from 'react'
-import { ValuesByCellType, ValuesByYear } from '../types'
+import { TimeStep, ValuesByCellType, ValuesByYear } from '../types'
 import { CellTypeEnum, COLOR_BY_CELL_TYPE, TIME_STEPS } from '../constants'
 import { area, stack, stackOffsetWiggle, curveCatmullRom } from 'd3-shape'
 import { scaleLinear } from 'd3-scale'
 import { max } from 'd3-array'
 import { deckColorToCss } from '../utils'
+import SVGHatchPattern from './SVGHatchPattern'
 
 type TimeseriesLayoutParams = {
   width: number
@@ -12,6 +13,7 @@ type TimeseriesLayoutParams = {
   nodeWidth?: number
   nodeMaxHeight?: number
   nodeMinHeight?: number
+  nodeMinHeightToBeVisible?: number
   mainColor?: number[]
 }
 
@@ -24,13 +26,21 @@ function useTimeseriesLayout(
     height = 120,
     nodeWidth = 50,
     nodeMaxHeight = 30,
-    nodeMinHeight = 5,
-    mainColor,
+    nodeMinHeight = 2,
+    nodeMinHeightToBeVisible = 1,
+    mainColor = [0, 255, 0],
   } = params || {}
   if (!Object.keys(data).length) return { nodes: [], links: [] }
 
   const xNodeSpacing = (width - 4 * nodeWidth) / 3
   const xs = []
+
+  const getFill = (step: TimeStep, type: CellTypeEnum) => {
+    if (step === '2005' || type === CellTypeEnum.Stable)
+      return deckColorToCss(mainColor)
+    else if (type === CellTypeEnum.Suitable) return 'url(#diagonalHatch)'
+    else return deckColorToCss(COLOR_BY_CELL_TYPE[type])
+  }
 
   // Compute scales
   const allValues = Object.entries(data)
@@ -66,7 +76,7 @@ function useTimeseriesLayout(
         type: CellTypeEnum.Stable,
         value: values,
         step,
-        color: mainColor,
+        fill: getFill(step, CellTypeEnum.Stable),
       })
     } else {
       const futureValues = values as ValuesByCellType
@@ -77,7 +87,7 @@ function useTimeseriesLayout(
       ].forEach((type) => {
         const value = futureValues[type]
         // TODO instead of 10 use a min value in px/when scale applied
-        if (value && value > 0) {
+        if (value && scaleY(value) > nodeMinHeightToBeVisible) {
           stepNodes.push({
             x1,
             x2,
@@ -87,10 +97,7 @@ function useTimeseriesLayout(
             type,
             value,
             step,
-            color:
-              type === CellTypeEnum.Stable
-                ? mainColor
-                : COLOR_BY_CELL_TYPE[type],
+            fill: getFill(step, type),
           })
         }
       })
@@ -150,7 +157,7 @@ function useTimeseriesLayout(
             y2Top: node.y1,
             y1Bottom: prevNode.y2,
             y2Bottom: node.y2,
-            fill: node.color,
+            fill: getFill(node.step, node.type),
           }
 
           const cWidth = xNodeSpacing * 0.5
@@ -282,19 +289,20 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
           height={height}
           // style={{ border: '1px solid rgba(0,0,0,.1)' }}
         >
+          <SVGHatchPattern color={deckColorToCss(mainColor)} hatchWidth={1.5} />
           {nodes.map((node) => (
             <rect
               width={node.width}
               height={node.height}
               x={node.x1}
               y={node.y1}
-              fill={deckColorToCss(node.color)}
+              fill={node.fill}
               // stroke="black"
             ></rect>
           ))}
 
           {links.map((l) => (
-            <path d={l.d} fill={deckColorToCss(l.fill)} />
+            <path d={l.d} fill={l.fill} />
           ))}
         </svg>
         <div

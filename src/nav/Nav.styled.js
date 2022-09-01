@@ -9,7 +9,7 @@ export const NavWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
   height: ${({ theme }) => theme.layout.navHeight};
   padding: 1rem;
 `
