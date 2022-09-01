@@ -65,6 +65,7 @@ const GlobalStyles = styled.createGlobalStyle`
     background: none;
     border: none;
     font-family: ${({ theme }) => theme.fonts.sans};
+    cursor: pointer;
   }
 `
 

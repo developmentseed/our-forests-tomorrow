@@ -15,7 +15,7 @@ import { CellProps, Region, RegionFeature, TimeStep } from '../types'
 import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
-import { MapWrapper } from './Map.styled'
+import { MapWrapper, MapZoom } from './Map.styled'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -92,6 +92,22 @@ function Map({
     })
   }, [region])
 
+  const onZoomIn = useCallback(() => {
+    setViewState({
+      ...viewState,
+      zoom: viewState.zoom + 1,
+      transitionDuration: 100,
+    })
+  }, [setViewState, viewState])
+
+  const onZoomOut = useCallback(() => {
+    setViewState({
+      ...viewState,
+      zoom: viewState.zoom - 1,
+      transitionDuration: 100,
+    })
+  }, [setViewState, viewState])
+
   const deckRef = useRef<DeckGLRef>(null)
   const onMouseMove = useCallback(
     (event: any) => {
@@ -143,6 +159,10 @@ function Map({
           onViewStateChange={onViewStateChange as any}
           layers={layers}
         />
+        <MapZoom>
+          <button onClick={onZoomIn}>+</button>
+          <button onClick={onZoomOut}>-</button>
+        </MapZoom>
       </MapWrapper>
     </Fragment>
   )
