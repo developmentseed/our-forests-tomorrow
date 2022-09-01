@@ -66,42 +66,33 @@ function useTimeseriesLayout(
     xs[i] = x1
     const values = data[step]
     let stepNodes: any[] = []
-    if (step === '2005') {
-      stepNodes.push({
-        x1,
-        x2,
-        width: nodeWidth,
-        // TODO
-        height: clampedScaleY(values as number),
-        type: CellTypeEnum.Stable,
-        value: values,
-        step,
-        fill: getFill(step, CellTypeEnum.Stable),
-      })
-    } else {
-      const futureValues = values as ValuesByCellType
-      ;[
-        CellTypeEnum.Suitable,
-        CellTypeEnum.Stable,
-        CellTypeEnum.Decolonized,
-      ].forEach((type) => {
-        const value = futureValues[type]
-        // TODO instead of 10 use a min value in px/when scale applied
-        if (value && scaleY(value) > nodeMinHeightToBeVisible) {
-          stepNodes.push({
-            x1,
-            x2,
-            width: nodeWidth,
-            // TODO
-            height: clampedScaleY(value),
-            type,
-            value,
-            step,
-            fill: getFill(step, type),
-          })
-        }
-      })
-    }
+
+    const valuesArr: any = step === '2005' ? [values] : values
+    const types =
+      step === '2005'
+        ? [CellTypeEnum.Stable]
+        : [CellTypeEnum.Suitable, CellTypeEnum.Stable, CellTypeEnum.Decolonized]
+
+    types.forEach((type, ti) => {
+      const value =
+        step === '2005'
+          ? (values as number)
+          : (values as ValuesByCellType)[type]
+      // TODO instead of 10 use a min value in px/when scale applied
+      if (value && scaleY(value) > nodeMinHeightToBeVisible) {
+        stepNodes.push({
+          x1,
+          x2,
+          width: nodeWidth,
+          height: clampedScaleY(value),
+          type,
+          value,
+          step,
+          fill: getFill(step, type),
+        })
+      }
+    })
+
     const allNodesHeight = stepNodes.reduce(
       (prev, current) => prev + current.height,
       0
