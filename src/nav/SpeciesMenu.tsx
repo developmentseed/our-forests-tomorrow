@@ -1,6 +1,13 @@
-import { Dispatch, Fragment, SetStateAction, useCallback } from 'react'
+import {
+  ChangeEvent,
+  Dispatch,
+  Fragment,
+  SetStateAction,
+  useCallback,
+  useState,
+} from 'react'
 import { useTranslation } from 'react-i18next'
-import { AllSpeciesData } from '../types'
+import { AllSpeciesData, Locale } from '../types'
 import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
 import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
@@ -16,7 +23,8 @@ function SpeciesMenu({
   onSpeciesChange,
   closeMenuCallback,
 }: SpeciesMenuProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const locale = i18n.language as Locale
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
       onSpeciesChange(speciesId)
@@ -25,11 +33,46 @@ function SpeciesMenu({
     [onSpeciesChange, closeMenuCallback]
   )
 
+  const [highlightedIds, setHighlightedIds] = useState<string[] | null>(null)
+  const onSearch = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const term = e.target.value.toLowerCase()
+      if (term === '') {
+        setHighlightedIds(null)
+        return
+      }
+      const highlighted = Object.entries(species)
+        .filter(([speciesKey, speciesData]) => {
+          console.log(speciesData.labels[locale].extract)
+          return (
+            speciesKey.replace('_', ' ').toLowerCase().includes(term) ||
+            t(`species.${speciesKey}`).toLocaleLowerCase().includes(term) ||
+            speciesData.labels[locale].extract
+              ?.toLocaleLowerCase()
+              .includes(term) ||
+            speciesData.labels[locale].aliases?.some((a) =>
+              a.toLocaleLowerCase().includes(term)
+            )
+          )
+        })
+        .map(([speciesKey]) => speciesKey)
+      setHighlightedIds(highlighted)
+    },
+    [species, t, locale]
+  )
+
   return (
     <Fragment>
       <SpeciesMenuTools>
         <div>sort by</div>
-        <div>search for a species</div>
+        <div>
+          search for a species{' '}
+          <input
+            type="text"
+            placeholder="e.g. Irish Oak"
+            onChange={onSearch}
+          ></input>
+        </div>
         <button onClick={closeMenuCallback}>close</button>
       </SpeciesMenuTools>
       <MenuColumns>
@@ -39,7 +82,12 @@ function SpeciesMenu({
         <ul>
           {Object.entries(species).map(([speciesKey, speciesData]) => (
             <li key={speciesKey} onClick={() => onSpeciesClick(speciesKey)}>
-              <SpeciesButton color={deckColorToCss(speciesData.color)}>
+              <SpeciesButton
+                color={deckColorToCss(speciesData.color)}
+                disabled={
+                  !!highlightedIds && !highlightedIds.includes(speciesKey)
+                }
+              >
                 {t(`species.${speciesKey}`)}
               </SpeciesButton>
             </li>

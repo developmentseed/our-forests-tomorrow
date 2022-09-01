@@ -33,4 +33,8 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
   color: ${({ theme }) => theme.colors.light};
   text-align: left;
   text-transform: capitalize;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `
