@@ -11,11 +11,13 @@ import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
 import bbox from '@turf/bbox'
 import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
 import { CENTER, EUROPE_BBOX } from '../constants'
-import { CellProps, Region, RegionFeature, TimeStep } from '../types'
+import { CellProps, Region, RegionFeature } from '../types'
 import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
+import { currentSpeciesAtom, timeStepAtom } from '../atoms'
+import { useAtomValue } from 'jotai'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -27,8 +29,6 @@ const INITIAL_VIEW_STATE = {
 }
 
 export type MapProps = {
-  timeStep: TimeStep
-  currentSpecies: string
   mainColor: number[]
   region: RegionFeature | null
   onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
@@ -36,18 +36,16 @@ export type MapProps = {
 }
 
 function Map({
-  timeStep,
-  currentSpecies,
   mainColor,
   region,
   onRegionChange,
   onRenderedFeaturesChange,
 }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
+  const currentSpecies = useAtomValue(currentSpeciesAtom)
+  const timeStep = useAtomValue(timeStepAtom)
 
   const { layers, countries, grid } = useMapLayers({
-    timeStep,
-    currentSpecies,
     mainColor,
     region,
     onRegionChange,

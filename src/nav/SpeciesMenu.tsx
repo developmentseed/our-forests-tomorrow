@@ -1,37 +1,27 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  Fragment,
-  SetStateAction,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
+import { ChangeEvent, Fragment, useCallback, useMemo, useState } from 'react'
+import { useSetAtom } from 'jotai'
 import { useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy } from '../types'
 import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
 import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
+import { currentSpeciesAtom } from '../atoms'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
-  onSpeciesChange: Dispatch<SetStateAction<string>>
   closeMenuCallback: () => void
 }
 
-function SpeciesMenu({
-  species,
-  onSpeciesChange,
-  closeMenuCallback,
-}: SpeciesMenuProps) {
-  const { t, i18n } = useTranslation()
+function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
+  const { i18n } = useTranslation()
+  const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const locale = i18n.language as Locale
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
-      onSpeciesChange(speciesId)
+      setCurrentSpecies(speciesId)
       closeMenuCallback()
     },
-    [onSpeciesChange, closeMenuCallback]
+    [closeMenuCallback, setCurrentSpecies]
   )
 
   const [highlightedIds, setHighlightedIds] = useState<string[] | null>(null)

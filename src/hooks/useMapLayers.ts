@@ -1,5 +1,6 @@
 import { PickingInfo } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
+import { useAtomValue } from 'jotai'
 import {
   TileLayer,
   TileLayerProps,
@@ -15,6 +16,7 @@ import {
   COLOR_BY_CELL_TYPE,
   COUNTRIES_WITH_REGIONS_GIDS,
 } from '../constants'
+import { currentSpeciesAtom, timeStepAtom } from '../atoms'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
@@ -122,22 +124,16 @@ const GRID: LayerGenerator = {
 }
 
 type UseMapLayerProps = {
-  timeStep: TimeStep
-  currentSpecies: string
   mainColor: number[]
   region: RegionFeature | null
   onRegionChange: (region: RegionFeature | null) => void
 }
 
-function useMapLayers({
-  timeStep,
-  currentSpecies,
-  mainColor,
-  region,
-  onRegionChange,
-}: UseMapLayerProps) {
+function useMapLayers({ mainColor, region, onRegionChange }: UseMapLayerProps) {
   const [tilesZoom, setTilesZoom] = useState(3)
   const [hoveredRegionId, setHoveredRegionId] = useState<number | null>(null)
+  const currentSpecies = useAtomValue(currentSpeciesAtom)
+  const timeStep = useAtomValue(timeStepAtom)
 
   return useMemo(() => {
     const labels = new TileLayer(LABELS.config)

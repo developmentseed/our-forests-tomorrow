@@ -7,10 +7,9 @@ import SpeciesMenu from './SpeciesMenu'
 
 type NavProps = {
   species: AllSpeciesData
-  onSpeciesChange: Dispatch<SetStateAction<string>>
 }
 
-function Nav({ species, onSpeciesChange }: NavProps) {
+function Nav({ species }: NavProps) {
   const { i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
@@ -43,7 +42,6 @@ function Nav({ species, onSpeciesChange }: NavProps) {
           {(closeMenuCallback: any) => (
             <SpeciesMenu
               species={species}
-              onSpeciesChange={onSpeciesChange}
               closeMenuCallback={closeMenuCallback}
             />
           )}

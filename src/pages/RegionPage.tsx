@@ -1,22 +1,16 @@
 import { Dispatch, SetStateAction } from 'react'
-import StatsDropdown from '../components/StatsDropdown'
+import StatsDropdown from './StatsDropdown'
 import { useAllSpeciesStatsForRegion, useStats } from '../hooks/useStats'
 import { RegionFeature, StatsBySpecies, ValuesBySpeciesID } from '../types'
 import { Title } from './Page.styled'
 
 export type RegionPageProps = {
   region: RegionFeature
-  currentSpecies: string
   stats: StatsBySpecies
   onRegionClose: Dispatch<SetStateAction<any>>
 }
 
-function RegionPage({
-  region,
-  currentSpecies,
-  stats,
-  onRegionClose,
-}: RegionPageProps) {
+function RegionPage({ region, stats, onRegionClose }: RegionPageProps) {
   const currentStats: ValuesBySpeciesID = useAllSpeciesStatsForRegion(
     region,
     stats

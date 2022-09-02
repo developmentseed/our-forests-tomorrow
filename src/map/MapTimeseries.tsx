@@ -6,6 +6,8 @@ import { getCellTypeAtTimeStep } from '../utils'
 import './MapTimeseries.css'
 import cx from 'classnames'
 import Timeseries from '../components/Timeseries'
+import { useAtom } from 'jotai'
+import { timeStepAtom } from '../atoms'
 
 const W = 250
 const H = 70
@@ -13,16 +15,10 @@ const H = 70
 export type MapTimeseriesProps = {
   features?: Feature[]
   mainColor: number[]
-  timeStep: TimeStep
-  onTimestepChange: Dispatch<SetStateAction<TimeStep>>
 }
 
-function MapTimeseries({
-  features,
-  onTimestepChange,
-  mainColor,
-  timeStep,
-}: MapTimeseriesProps) {
+function MapTimeseries({ features, mainColor }: MapTimeseriesProps) {
+  const [timeStep, setTimeStep] = useAtom(timeStepAtom)
   // const numFeatures = features?.length || 0
   const timeseriesData = useMemo(() => {
     if (!features) return {}
@@ -67,7 +63,7 @@ function MapTimeseries({
         {['2005', '2035', '2065', '2095'].map((y) => (
           <button
             className={cx({ selected: y === timeStep })}
-            onMouseEnter={() => onTimestepChange(y as TimeStep)}
+            onMouseEnter={() => setTimeStep(y as TimeStep)}
             key={y}
           >
             {y}

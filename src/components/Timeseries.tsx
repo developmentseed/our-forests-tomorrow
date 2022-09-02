@@ -264,7 +264,7 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
   }, [paddedSeries, maxY, height, mainColor, width])
   return (
     <Fragment>
-      <svg width={width} height={height} style={{ marginBottom: '20px' }}>
+      {/* <svg width={width} height={height} style={{ marginBottom: '20px' }}>
         {pathContainers.map((pathContainer, sublayerIndex) => (
           <g key={sublayerIndex} transform={`translate(0, 0)`}>
             <path
@@ -273,7 +273,7 @@ function Timeseries({ data, mainColor, width, height }: TimeseriesProps) {
             />
           </g>
         ))}
-      </svg>
+      </svg> */}
       <div style={{ position: 'relative', marginBottom: '30px' }}>
         <svg
           width={width}

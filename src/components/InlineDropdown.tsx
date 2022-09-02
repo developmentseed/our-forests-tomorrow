@@ -47,7 +47,6 @@ function InlineDropdown({ children, items }: InlineDropdownProps) {
             position: strategy,
             top: y ?? 0,
             left: x ?? 0,
-            background: 'black',
           }}
           {...getFloatingProps()}
         >

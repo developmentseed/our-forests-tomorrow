@@ -1,24 +1,22 @@
 import { useTranslation } from 'react-i18next'
-import StatsDropdown from '../components/StatsDropdown'
+import StatsDropdown from './StatsDropdown'
 import { CellTypeEnum } from '../constants'
 import { useStats } from '../hooks/useStats'
 import { Locale, SpeciesData, StatsBySpecies } from '../types'
 import { deckColorToCss } from '../utils'
 import { Page, Title, PageContents } from './Page.styled'
+import { currentSpeciesAtom } from '../atoms'
+import { useAtomValue } from 'jotai'
 
 export type SpeciesPageProps = {
-  currentSpecies: string
   currentSpeciesData: SpeciesData
   stats: StatsBySpecies
 }
 
-function SpeciesPage({
-  currentSpecies,
-  currentSpeciesData,
-  stats,
-}: SpeciesPageProps) {
+function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
   const { t, i18n } = useTranslation()
   const locale = i18n.language as Locale
+  const currentSpecies = useAtomValue(currentSpeciesAtom)
   const currentStats = stats[currentSpecies]
 
   const naturallyPresent = useStats(currentStats, 'byRegion')
