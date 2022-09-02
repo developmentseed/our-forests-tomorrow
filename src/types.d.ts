@@ -66,6 +66,7 @@ export type TimeseriesData = {
 export type Locale = 'en' | 'fr'
 
 export type SpeciesLabels = {
+  name: string
   aliases: string[]
   extract: string
 }
@@ -81,6 +82,7 @@ export type SpeciesData = {
   thumbnail: WikiImage
   originalimage: WikiImage
   color: number[]
+  latin: string
 }
 export type AllSpeciesData = Record<string, SpeciesData>
 

@@ -5,7 +5,8 @@ import {
   useInteractions,
 } from '@floating-ui/react-dom-interactions'
 import { Fragment, ReactNode, useCallback, useState } from 'react'
-import { MenuButton, MenuContents } from './Menu.styled'
+import { MenuContents } from './Menu.styled'
+import { NavButton } from './Nav.styled'
 
 export type MenuProps = {
   label: string
@@ -30,9 +31,9 @@ function Menu({ label, children }: MenuProps) {
 
   return (
     <Fragment>
-      <MenuButton ref={reference} {...getReferenceProps()}>
+      <NavButton ref={reference} {...getReferenceProps()}>
         {label}
-      </MenuButton>
+      </NavButton>
       {open && (
         <MenuContents
           ref={floating}

@@ -46,9 +46,11 @@ const GlobalStyles = styled.createGlobalStyle`
 
   body {
     margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
     font-family: ${({ theme }) => theme.fonts.sans};
     color: ${({ theme }) => theme.colors.dark};
-    background: ${({ theme }) => theme.colors.light};
+    background: ${({ theme }) => theme.colors.background};
   }
   * {
     box-sizing: border-box;

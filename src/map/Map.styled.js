@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const MapWrapper = styled.div`
   position: relative;
-  height: 70vh;
+  height: 60vh;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.dark};
 `
 
 export const MapZoom = styled.div`

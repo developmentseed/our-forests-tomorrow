@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AllSpeciesData } from '../types'
 import Menu from './Menu'
-import { NavButtons, NavHeader, NavWrapper } from './Nav.styled'
+import { NavButton, NavButtons, NavHeader, NavWrapper } from './Nav.styled'
 import SpeciesMenu from './SpeciesMenu'
 
 type NavProps = {
@@ -23,21 +23,19 @@ function Nav({ species, onSpeciesChange }: NavProps) {
           <b>Our forests</b> tomorrow
         </h1>
         <nav>
-          <button>about</button>
-          <button
-            type="button"
+          <NavButton>about</NavButton>
+          <NavButton
             onClick={() => changeLanguage('en')}
             style={{ borderWidth: i18n.language === 'en' ? '2px' : '1px' }}
           >
             en
-          </button>
-          <button
-            type="button"
+          </NavButton>
+          <NavButton
             onClick={() => changeLanguage('fr')}
             style={{ borderWidth: i18n.language === 'fr' ? '2px' : '1px' }}
           >
             fr
-          </button>
+          </NavButton>
         </nav>
       </NavHeader>
       <NavButtons>

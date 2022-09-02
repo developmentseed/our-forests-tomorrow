@@ -30,15 +30,15 @@ export const NavHeader = styled.div`
   }
   & > nav {
     margin-left: 1rem;
-
-    & > button {
-      text-transform: uppercase;
-      font-size: 1rem;
-      font-weight: bold;
-    }
   }
 `
 
 export const NavButtons = styled.div`
   display: flex;
+`
+
+export const NavButton = styled.button`
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
 `

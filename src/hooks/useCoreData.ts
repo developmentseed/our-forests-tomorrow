@@ -1,4 +1,6 @@
+import { t } from 'i18next'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   AllSpeciesData,
   Region,
@@ -12,6 +14,7 @@ function useCoreData() {
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
   const [speciesData, setSpeciesData] = useState<AllSpeciesData | null>(null)
   const [regions, setRegions] = useState<Region[]>([])
+  const { i18n } = useTranslation()
   useEffect(() => {
     if (stats) return
     Promise.all(
@@ -19,8 +22,29 @@ function useCoreData() {
         fetch(url).then((resp) => resp.json())
       )
     ).then((data) => {
-      const [stats, regions, speciesData] = data
-      setSpeciesData(speciesData as AllSpeciesData)
+      const [stats, regions, allSpeciesData] = data
+
+      const allSpeciesDataWithLabels: AllSpeciesData = Object.fromEntries(
+        Object.entries(allSpeciesData).map(([speciesKey, speciesData]) => {
+          const data = {
+            ...(speciesData as any),
+            latin: speciesKey.replace('_', ' '),
+            labels: {
+              fr: {
+                ...(speciesData as any).labels.fr,
+                name: i18n.t(`species.${speciesKey}`, { lng: 'fr' }),
+              },
+              en: {
+                ...(speciesData as any).labels.en,
+                name: i18n.t(`species.${speciesKey}`, { lng: 'en' }),
+              },
+            },
+          }
+          return [speciesKey, data]
+        })
+      )
+      console.log(allSpeciesDataWithLabels)
+      setSpeciesData(allSpeciesDataWithLabels)
 
       const regionsWithLabels = (regions as Region[]).map((r) => {
         return {

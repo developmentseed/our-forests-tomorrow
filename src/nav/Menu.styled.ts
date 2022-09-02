@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-export const MenuButton = styled.button`
-  text-transform: uppercase;
-  font-size: 1rem;
-  font-weight: bold;
-`
-
 interface MenuContentsProps {
   readonly strategy: string
 }

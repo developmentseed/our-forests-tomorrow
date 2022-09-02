@@ -44,22 +44,18 @@ function SpeciesMenu({
       }
       const highlighted = Object.entries(species)
         .filter(([speciesKey, speciesData]) => {
-          console.log(speciesData.labels[locale].extract)
+          const labels = speciesData.labels[locale]
           return (
-            speciesKey.replace('_', ' ').toLowerCase().includes(term) ||
-            t(`species.${speciesKey}`).toLocaleLowerCase().includes(term) ||
-            speciesData.labels[locale].extract
-              ?.toLocaleLowerCase()
-              .includes(term) ||
-            speciesData.labels[locale].aliases?.some((a) =>
-              a.toLocaleLowerCase().includes(term)
-            )
+            speciesData.latin.toLowerCase().includes(term) ||
+            labels.name.toLocaleLowerCase().includes(term) ||
+            labels.extract?.toLocaleLowerCase().includes(term) ||
+            labels.aliases?.some((a) => a.toLocaleLowerCase().includes(term))
           )
         })
         .map(([speciesKey]) => speciesKey)
       setHighlightedIds(highlighted)
     },
-    [species, t, locale]
+    [species, locale]
   )
 
   const [sortBy, setSortBy] = useState<SpeciesSortBy>('vernacular')
@@ -76,14 +72,14 @@ function SpeciesMenu({
         if (sortBy === 'latin') {
           return speciesKeyA.localeCompare(speciesKeyB)
         } else if (sortBy === 'vernacular') {
-          return t(`species.${speciesKeyA}`).localeCompare(
-            t(`species.${speciesKeyB}`)
+          return speciesDataA.labels[locale].name.localeCompare(
+            speciesDataB.labels[locale].name
           )
         } else return 0
       }
     )
     return Object.fromEntries(speciesSortedArr)
-  }, [species, sortBy, t])
+  }, [species, sortBy, locale])
 
   return (
     <Fragment>
@@ -119,13 +115,13 @@ function SpeciesMenu({
                 }
               >
                 {sortBy === 'latin'
-                  ? speciesKey.replace('_', ' ')
-                  : t(`species.${speciesKey}`)}
+                  ? speciesData.latin
+                  : speciesData.labels[locale].name}
 
                 <i>
                   {sortBy === 'latin'
-                    ? t(`species.${speciesKey}`)
-                    : speciesKey.replace('_', ' ')}
+                    ? speciesData.labels[locale].name
+                    : speciesData.latin}
                 </i>
               </SpeciesButton>
             </li>
