@@ -14,20 +14,30 @@ const speciesMetaManual = JSON.parse(
 const allSpeciesData = {}
 
 speciesList.forEach((currentSpeciesId) => {
+  let aliasId
+  if (
+    speciesMetaManual[currentSpeciesId] &&
+    speciesMetaManual[currentSpeciesId].alias
+  ) {
+    aliasId = speciesMetaManual[currentSpeciesId].alias
+  }
+  const id = aliasId || currentSpeciesId
+
   fetch(
-    `https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&continue=0&search=${currentSpeciesId}`
+    `https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&continue=0&search=${id}`
   )
     .then((r) => r.json())
     .then((data) => {
       const mainResult = data.search[0]
-      const id = mainResult.id
+      const wdId = mainResult.id
+      console.log(currentSpeciesId, id)
 
       Promise.all(
         [
-          `https://www.wikidata.org/wiki/Special:EntityData/${id}.json`,
-          `https://en.wikipedia.org/api/rest_v1/page/summary/${currentSpeciesId}`,
-          `https://fr.wikipedia.org/api/rest_v1/page/summary/${currentSpeciesId}`,
-          `https://en.wikipedia.org/api/rest_v1/page/media-list/${currentSpeciesId}`,
+          `https://www.wikidata.org/wiki/Special:EntityData/${wdId}.json`,
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${id}`,
+          `https://fr.wikipedia.org/api/rest_v1/page/summary/${id}`,
+          `https://en.wikipedia.org/api/rest_v1/page/media-list/${id}`,
         ].map((url) => fetch(url).then((resp) => resp.json()))
       ).then(([wd, wikiEn, wikiFr, wikiMedia]) => {
         allSpeciesData[currentSpeciesId] = {
@@ -37,7 +47,7 @@ speciesList.forEach((currentSpeciesId) => {
           },
         }
 
-        const wdData = wd.entities[id]
+        const wdData = wd.entities[wdId]
         // allSpeciesLabels.en[currentSpeciesId].name = wdData.labels.en.value
         if (wdData.aliases.en) {
           allSpeciesData[currentSpeciesId].labels.en.aliases =

@@ -26,7 +26,7 @@
       "width": 2748,
       "height": 4305
     },
-    "color": [149, 223, 129]
+    "color": [124, 249, 66]
   },
   "Acer_campestre": {
     "labels": {
@@ -49,7 +49,7 @@
       "width": 1944,
       "height": 2592
     },
-    "color": [102, 242, 51]
+    "color": [17, 233, 129]
   },
   "Acer_opalus": {
     "labels": {
@@ -78,7 +78,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [148, 246, 63]
+    "color": [94, 214, 131]
   },
   "Acer_platanoides": {
     "labels": {
@@ -137,7 +137,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [54, 237, 11]
+    "color": [10, 209, 138]
   },
   "Alnus_glutinosa": {
     "labels": {
@@ -167,7 +167,7 @@
       "width": 1500,
       "height": 2000
     },
-    "color": [74, 229, 84]
+    "color": [79, 213, 59]
   },
   "Alnus_incana": {
     "labels": {
@@ -190,7 +190,7 @@
       "width": 650,
       "height": 428
     },
-    "color": [74, 211, 124]
+    "color": [58, 207, 118]
   },
   "Arbutus_unedo": {
     "labels": {
@@ -218,9 +218,31 @@
       "width": 1089,
       "height": 1069
     },
-    "color": [137, 231, 28]
+    "color": [51, 227, 75]
   },
-  "Aria_edulis": { "labels": { "en": {}, "fr": {} }, "color": [68, 229, 30] },
+  "Aria_edulis": {
+    "labels": {
+      "en": {
+        "aliases": ["common whitebeam", "whitebeam"],
+        "extract": "Sorbus aria, the whitebeam or common whitebeam, is a deciduous tree, the type species of the subgenus Sorbus subg. Aria of the genus Sorbus. It is native to most of Europe as well as North Africa and temperate Asia. Typically compact and domed, with few upswept branches and almost-white underside of the leaves, it generally favours dry limestone and chalk soils. The hermaphrodite cream-white flowers appear in May, are insect pollinated, and go on to produce scarlet berries, which are often eaten by birds."
+      },
+      "fr": {
+        "aliases": ["Alisier Blanc", "Alouchier"],
+        "extract": "L'Alisier blanc, Alisier de Bourgogne, Alouchier ou Sorbier des Alpes est un arbre de la famille des Rosacées originaire du sud de l'Europe."
+      }
+    },
+    "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Weilburg_-_Tiergarten_-_Mehlbeere.jpg/240px-Weilburg_-_Tiergarten_-_Mehlbeere.jpg",
+      "width": 240,
+      "height": 320
+    },
+    "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/4/45/Weilburg_-_Tiergarten_-_Mehlbeere.jpg",
+      "width": 1500,
+      "height": 2000
+    },
+    "color": [94, 234, 3]
+  },
   "Betula_pendula": {
     "labels": {
       "en": {
@@ -247,7 +269,7 @@
       "width": 2272,
       "height": 1704
     },
-    "color": [62, 240, 56]
+    "color": [148, 224, 70]
   },
   "Betula_pubescens": {
     "labels": {
@@ -276,11 +298,34 @@
       "width": 1944,
       "height": 2592
     },
-    "color": [122, 232, 40]
+    "color": [114, 245, 73]
   },
   "Borkhausenia_intermedia": {
-    "labels": { "en": {}, "fr": {} },
-    "color": [145, 228, 25]
+    "labels": {
+      "en": {
+        "aliases": ["Swedish whitebeam"],
+        "extract": "Scandosorbus intermedia, the Swedish whitebeam, is a species of whitebeam found in southern Sweden, with scattered occurrences in easternmost Denmark (Bornholm), the far southwest of Finland, Estonia, Latvia and northern Poland."
+      },
+      "fr": {
+        "aliases": [
+          "Alisier De Suède",
+          "Alisier de Suede",
+          "Sorbier de Scandinavie"
+        ],
+        "extract": "Sorbus intermedia, aussi appelé Alisier de Suède, Sorbier intermédiaire ou Sorbier de Scandinavie, est un arbre appartenant au genre des sorbiers de la famille des Rosaceae, sous-famille des Maloideae."
+      }
+    },
+    "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Zweedse_lijsterbes_27-08-2005_15.29.26.JPG/320px-Zweedse_lijsterbes_27-08-2005_15.29.26.JPG",
+      "width": 320,
+      "height": 240
+    },
+    "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/7/73/Zweedse_lijsterbes_27-08-2005_15.29.26.JPG",
+      "width": 2048,
+      "height": 1536
+    },
+    "color": [103, 238, 94]
   },
   "Carpinus_betulus": {
     "labels": {
@@ -307,7 +352,7 @@
       "width": 1944,
       "height": 1756
     },
-    "color": [62, 233, 107]
+    "color": [8, 233, 27]
   },
   "Carpinus_orientalis": {
     "labels": {
@@ -329,7 +374,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [93, 230, 116]
+    "color": [41, 203, 75]
   },
   "Castanea_sativa": {
     "labels": {
@@ -361,7 +406,7 @@
       "width": 1600,
       "height": 1303
     },
-    "color": [52, 217, 13]
+    "color": [59, 215, 12]
   },
   "Celtis_australis": {
     "labels": {
@@ -382,7 +427,7 @@
       "width": 1406,
       "height": 2291
     },
-    "color": [114, 227, 29]
+    "color": [28, 244, 131]
   },
   "Ceratonia_siliqua": {
     "labels": {
@@ -413,11 +458,35 @@
       "width": 3240,
       "height": 4320
     },
-    "color": [117, 226, 115]
+    "color": [73, 222, 38]
   },
   "Cormus_domestica": {
-    "labels": { "en": {}, "fr": {} },
-    "color": [129, 242, 117]
+    "labels": {
+      "en": {
+        "aliases": [
+          "service tree",
+          "service-tree",
+          "sorb tree",
+          "true service tree"
+        ],
+        "extract": "Sorbus domestica, with the common name service tree or sorb tree, is a species of Sorbus native to western, central and southern Europe, northwest Africa, and southwest Asia. It may be called true service tree, to distinguish it from wild service tree Sorbus torminalis."
+      },
+      "fr": {
+        "aliases": ["Sorbier domestique", "Corme", "Sorbus domestica"],
+        "extract": "Le Cormier ou Sorbier domestique est un arbre de la famille des Rosacées. Il donne des fruits appelés « cormes » ressemblant à des petites pommes ou poires, d'où leur surnom de poirillons."
+      }
+    },
+    "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Sorbus_domestica_FruitsLeaves_BotGardBln0906a.JPG/320px-Sorbus_domestica_FruitsLeaves_BotGardBln0906a.JPG",
+      "width": 320,
+      "height": 240
+    },
+    "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Sorbus_domestica_FruitsLeaves_BotGardBln0906a.JPG",
+      "width": 2048,
+      "height": 1536
+    },
+    "color": [44, 233, 106]
   },
   "Corylus_avellana": {
     "labels": {
@@ -440,7 +509,7 @@
       "width": 830,
       "height": 611
     },
-    "color": [137, 229, 42]
+    "color": [64, 236, 55]
   },
   "Cupressus_sempervirens": {
     "labels": {
@@ -472,7 +541,7 @@
       "width": 418,
       "height": 630
     },
-    "color": [77, 223, 76]
+    "color": [39, 207, 22]
   },
   "Fagus_sylvatica": {
     "labels": {
@@ -504,7 +573,7 @@
       "width": 3024,
       "height": 4032
     },
-    "color": [114, 223, 100]
+    "color": [95, 235, 53]
   },
   "Fraxinus_angustifolia": {
     "labels": {
@@ -527,7 +596,7 @@
       "width": 2848,
       "height": 2136
     },
-    "color": [145, 236, 24]
+    "color": [92, 227, 85]
   },
   "Fraxinus_excelsior": {
     "labels": {
@@ -556,7 +625,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [131, 232, 133]
+    "color": [46, 223, 122]
   },
   "Fraxinus_ornus": {
     "labels": {
@@ -578,7 +647,7 @@
       "width": 1288,
       "height": 1936
     },
-    "color": [124, 217, 60]
+    "color": [28, 231, 33]
   },
   "Juglans_regia": {
     "labels": {
@@ -607,7 +676,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [64, 232, 60]
+    "color": [44, 242, 100]
   },
   "Juniperus_thurifera": {
     "labels": {
@@ -634,7 +703,7 @@
       "width": 900,
       "height": 1200
     },
-    "color": [94, 241, 47]
+    "color": [63, 227, 36]
   },
   "Larix_decidua": {
     "labels": {
@@ -657,7 +726,7 @@
       "width": 4231,
       "height": 2821
     },
-    "color": [44, 203, 71]
+    "color": [12, 244, 20]
   },
   "Laurus_nobilis": {
     "labels": {
@@ -685,7 +754,7 @@
       "width": 2112,
       "height": 2816
     },
-    "color": [90, 203, 94]
+    "color": [35, 220, 101]
   },
   "Malus_sylvestris": {
     "labels": {
@@ -713,7 +782,7 @@
       "width": 2074,
       "height": 1556
     },
-    "color": [40, 243, 63]
+    "color": [53, 242, 102]
   },
   "Olea_europaea": {
     "labels": {
@@ -736,7 +805,7 @@
       "width": 494,
       "height": 500
     },
-    "color": [57, 202, 45]
+    "color": [99, 245, 103]
   },
   "Ostrya_carpinifolia": {
     "labels": {
@@ -759,7 +828,7 @@
       "width": 1638,
       "height": 1229
     },
-    "color": [106, 217, 21]
+    "color": [112, 244, 8]
   },
   "Picea_abies": {
     "labels": {
@@ -794,7 +863,7 @@
       "width": 2400,
       "height": 3600
     },
-    "color": [57, 231, 134]
+    "color": [28, 226, 78]
   },
   "Pinus_brutia": {
     "labels": {
@@ -816,7 +885,7 @@
       "width": 480,
       "height": 640
     },
-    "color": [49, 224, 71]
+    "color": [14, 205, 83]
   },
   "Pinus_cembra": {
     "labels": {
@@ -857,7 +926,7 @@
       "width": 1024,
       "height": 1365
     },
-    "color": [37, 214, 0]
+    "color": [31, 237, 36]
   },
   "Pinus_halepensis": {
     "labels": {
@@ -880,7 +949,7 @@
       "width": 4632,
       "height": 3464
     },
-    "color": [60, 223, 134]
+    "color": [110, 228, 65]
   },
   "Pinus_nigra": {
     "labels": {
@@ -909,7 +978,7 @@
       "width": 2712,
       "height": 2304
     },
-    "color": [48, 226, 126]
+    "color": [124, 206, 55]
   },
   "Pinus_pinaster": {
     "labels": {
@@ -938,7 +1007,7 @@
       "width": 536,
       "height": 800
     },
-    "color": [3, 229, 43]
+    "color": [99, 244, 27]
   },
   "Pinus_pinea": {
     "labels": {
@@ -961,7 +1030,7 @@
       "width": 3872,
       "height": 2592
     },
-    "color": [54, 202, 0]
+    "color": [61, 242, 147]
   },
   "Pinus_sylvestris": {
     "labels": {
@@ -989,7 +1058,7 @@
       "width": 2592,
       "height": 3888
     },
-    "color": [40, 210, 40]
+    "color": [71, 200, 69]
   },
   "Pistacia_lentiscus": {
     "labels": {
@@ -1010,7 +1079,7 @@
       "width": 1200,
       "height": 1600
     },
-    "color": [32, 239, 96]
+    "color": [11, 213, 83]
   },
   "Pistacia_terebinthus": {
     "labels": {
@@ -1037,7 +1106,7 @@
       "width": 3800,
       "height": 2718
     },
-    "color": [73, 200, 51]
+    "color": [24, 211, 137]
   },
   "Populus_alba": {
     "labels": {
@@ -1060,7 +1129,7 @@
       "width": 1559,
       "height": 850
     },
-    "color": [57, 240, 105]
+    "color": [31, 217, 30]
   },
   "Populus_nigra": {
     "labels": {
@@ -1083,7 +1152,7 @@
       "width": 1946,
       "height": 992
     },
-    "color": [86, 237, 145]
+    "color": [55, 242, 108]
   },
   "Populus_tremula": {
     "labels": {
@@ -1112,7 +1181,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [23, 218, 20]
+    "color": [104, 218, 28]
   },
   "Prunus_avium": {
     "labels": {
@@ -1145,7 +1214,7 @@
       "width": 2126,
       "height": 2136
     },
-    "color": [100, 201, 130]
+    "color": [133, 233, 96]
   },
   "Prunus_padus": {
     "labels": {
@@ -1179,7 +1248,7 @@
       "width": 837,
       "height": 682
     },
-    "color": [145, 245, 88]
+    "color": [92, 229, 121]
   },
   "Pyrus_communis": {
     "labels": {
@@ -1202,7 +1271,7 @@
       "width": 640,
       "height": 975
     },
-    "color": [9, 238, 63]
+    "color": [42, 238, 34]
   },
   "Quercus_cerris": {
     "labels": {
@@ -1232,7 +1301,7 @@
       "width": 981,
       "height": 718
     },
-    "color": [7, 207, 57]
+    "color": [34, 240, 24]
   },
   "Quercus_coccifera": {
     "labels": {
@@ -1261,7 +1330,7 @@
       "width": 468,
       "height": 291
     },
-    "color": [128, 240, 10]
+    "color": [0, 234, 11]
   },
   "Quercus_faginea": {
     "labels": {
@@ -1283,7 +1352,7 @@
       "width": 845,
       "height": 634
     },
-    "color": [70, 247, 135]
+    "color": [133, 229, 25]
   },
   "Quercus_frainetto": {
     "labels": {
@@ -1306,7 +1375,7 @@
       "width": 1418,
       "height": 886
     },
-    "color": [22, 246, 120]
+    "color": [84, 238, 113]
   },
   "Quercus_ilex": {
     "labels": {
@@ -1339,7 +1408,7 @@
       "width": 1936,
       "height": 1288
     },
-    "color": [143, 213, 76]
+    "color": [1, 229, 60]
   },
   "Quercus_petraea": {
     "labels": {
@@ -1368,7 +1437,7 @@
       "width": 1944,
       "height": 1917
     },
-    "color": [40, 213, 66]
+    "color": [18, 238, 2]
   },
   "Quercus_pubescens": {
     "labels": {
@@ -1390,7 +1459,7 @@
       "width": 675,
       "height": 900
     },
-    "color": [1, 222, 24]
+    "color": [125, 231, 147]
   },
   "Quercus_pyrenaica": {
     "labels": {
@@ -1418,7 +1487,7 @@
       "width": 2800,
       "height": 3346
     },
-    "color": [36, 202, 138]
+    "color": [95, 225, 62]
   },
   "Quercus_robur": {
     "labels": {
@@ -1453,7 +1522,7 @@
       "width": 701,
       "height": 948
     },
-    "color": [137, 224, 121]
+    "color": [134, 220, 87]
   },
   "Quercus_suber": {
     "labels": {
@@ -1483,7 +1552,7 @@
       "width": 5472,
       "height": 3648
     },
-    "color": [124, 228, 16]
+    "color": [20, 238, 141]
   },
   "Robinia_pseudoacacia": {
     "labels": {
@@ -1510,7 +1579,7 @@
       "width": 300,
       "height": 401
     },
-    "color": [65, 227, 27]
+    "color": [117, 220, 1]
   },
   "Salix_alba": {
     "labels": {
@@ -1533,7 +1602,7 @@
       "width": 1296,
       "height": 972
     },
-    "color": [63, 211, 80]
+    "color": [121, 217, 116]
   },
   "Sorbus_aucuparia": {
     "labels": {
@@ -1556,7 +1625,7 @@
       "width": 1600,
       "height": 1200
     },
-    "color": [143, 206, 24]
+    "color": [39, 238, 49]
   },
   "Taxus_baccata": {
     "labels": {
@@ -1579,7 +1648,7 @@
       "width": 4480,
       "height": 3906
     },
-    "color": [20, 229, 31]
+    "color": [70, 233, 82]
   },
   "Tilia_cordata": {
     "labels": {
@@ -1613,7 +1682,7 @@
       "width": 533,
       "height": 430
     },
-    "color": [24, 217, 82]
+    "color": [68, 212, 130]
   },
   "Tilia_platyphyllos": {
     "labels": {
@@ -1644,7 +1713,7 @@
       "width": 960,
       "height": 1280
     },
-    "color": [110, 220, 72]
+    "color": [28, 244, 14]
   },
   "Torminalis_glaberrima": {
     "labels": {
@@ -1654,11 +1723,25 @@
           "wild service tree",
           "chequers",
           "checker tree"
-        ]
+        ],
+        "extract": "Sorbus torminalis, with common names wild service tree, chequers, and checker tree, is a species of tree in the mountain ash or rowan genus (Sorbus) of the rose family (Rosaceae), that is native to Europe, parts of northern Africa and western Asia."
       },
-      "fr": { "aliases": ["Sorbier torminal", "Alisier torminal"] }
+      "fr": {
+        "aliases": ["Sorbier torminal", "Alisier torminal"],
+        "extract": "L'Alisier torminal, Alisier des bois ou Sorbier torminal est un arbre originaire d'Europe, d'Afrique du Nord et d'Asie Mineure, appartenant au genre des sorbiers, dans la sous-famille des Maloideae de la famille des Rosacées."
+      }
     },
-    "color": [101, 226, 34]
+    "thumbnail": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sorbus_torminalis_Full_tree.jpg/237px-Sorbus_torminalis_Full_tree.jpg",
+      "width": 237,
+      "height": 320
+    },
+    "originalimage": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sorbus_torminalis_Full_tree.jpg",
+      "width": 918,
+      "height": 1240
+    },
+    "color": [60, 202, 110]
   },
   "Ulmus_glabra": {
     "labels": {
@@ -1694,7 +1777,7 @@
       "width": 480,
       "height": 640
     },
-    "color": [103, 202, 122]
+    "color": [86, 216, 130]
   },
   "Ulmus_laevis": {
     "labels": {
@@ -1715,7 +1798,7 @@
       "width": 2500,
       "height": 1600
     },
-    "color": [137, 201, 52]
+    "color": [81, 211, 62]
   },
   "Ulmus_minor": {
     "labels": {
@@ -1738,6 +1821,6 @@
       "width": 1018,
       "height": 1272
     },
-    "color": [104, 231, 73]
+    "color": [6, 207, 76]
   }
 }
