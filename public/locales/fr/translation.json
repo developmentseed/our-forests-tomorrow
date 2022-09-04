@@ -65,10 +65,10 @@
     "Sorbus_aucuparia": "Sorbier des Oiseleurs",
     "Taxus_baccata": "If",
     "Tilia_cordata": "Tilleul à petites feuilles",
-    "Tilia_platyphyllos": "Tilia_platyphyllos",
-    "Torminalis_glaberrima": "Torminalis_glaberrima",
-    "Ulmus_glabra": "Ulmus_glabra",
-    "Ulmus_laevis": "Ulmus_laevis",
-    "Ulmus_minor": "Ulmus_minor"
+    "Tilia_platyphyllos": "Tilleul à grandes feuilles",
+    "Torminalis_glaberrima": "Alisier Torminal",
+    "Ulmus_glabra": "Orme de montagne",
+    "Ulmus_laevis": "Orme lisse",
+    "Ulmus_minor": "Orme champêtre"
   }
 }
