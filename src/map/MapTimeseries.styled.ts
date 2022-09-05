@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const MapTimeseriesWrapper = styled.nav`
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
 `
 
 export const TimestepNav = styled.nav`
   position: absolute;
-  top: 0;
+  top: 1rem;
 `
 
 export const TimestepButton = styled.button<{ selected: boolean }>`

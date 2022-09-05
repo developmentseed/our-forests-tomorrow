@@ -49,6 +49,7 @@ export const COUNTRIES_WITH_REGIONS_GIDS = [
 
 export const THEME = {
   colors: {
+    white: '#FFF',
     light: '#FFFBED',
     dark: '#04232F',
     background: '#B0D7C1',
@@ -62,6 +63,9 @@ export const THEME = {
     serif: 'ITC Cheltenham Std Light Condensed, serif',
     serifBold: 'ITC Cheltenham Std Book Condensed, serif',
     sans: 'Montserrat, sans-serif',
+  },
+  fontSizes: {
+    small: '0.7rem',
   },
   breakpoints: {
     mobile: '768px',

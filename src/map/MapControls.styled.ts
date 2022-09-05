@@ -2,10 +2,13 @@ import styled from 'styled-components'
 
 export const MapControlsWrapper = styled.div`
   position: absolute;
-  padding: 1rem;
-  background: white;
-  padding: 1rem;
-  top: 500px;
+  top: 400px;
   right: 20px;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    border-radius: 4px;
+    padding: 0.7rem 0.8rem 1rem;
+  }
 `

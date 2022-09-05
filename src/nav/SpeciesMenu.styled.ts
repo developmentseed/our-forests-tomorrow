@@ -43,7 +43,7 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
 
   & > i {
     display: block;
-    font-size: 0.7rem;
+    font-size: ${({ theme }) => theme.fontSizes.small};
     opacity: 0.7;
   }
 `

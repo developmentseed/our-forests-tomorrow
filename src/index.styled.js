@@ -69,6 +69,12 @@ const GlobalStyles = styled.createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.sans};
     cursor: pointer;
   }
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
 `
 
 export default GlobalStyles

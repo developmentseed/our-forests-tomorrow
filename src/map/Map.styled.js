@@ -10,8 +10,8 @@ export const MapWrapper = styled.div`
 export const MapZoom = styled.div`
   position: absolute;
   z-index: 1;
-  bottom: 30px;
-  left: 30px;
+  bottom: 20px;
+  left: 20px;
   display: flex;
   flex-direction: column;
 

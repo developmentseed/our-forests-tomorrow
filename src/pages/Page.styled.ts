@@ -35,7 +35,7 @@ export const PageContents = styled.div`
 
     & > p {
       margin: 1rem;
-      font-size: 0.8rem;
+      font-size: ${({ theme }) => theme.fontSizes.small};
       line-height: 1.4rem;
     }
 
