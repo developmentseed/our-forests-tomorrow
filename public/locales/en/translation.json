@@ -1,11 +1,11 @@
 {
   "general": {
-    "currentDistribution": "Current distribution",
+    "currentDistribution": "current distribution",
     "decolonization": "decolonization",
     "suitability": "suitability"
   },
   "nav": {
-    "species": "Species"
+    "species": "species"
   },
   "mapLegend": {
     "stable": "Stable in {{year}}",
