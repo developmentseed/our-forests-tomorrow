@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { ValuesByYear } from '../types'
 import InlineDropdown from '../components/InlineDropdown'
-import Timeseries from '../components/Timeseries'
 import { StatsDropdownWrapper } from './StatsDropdown.styled'
+import SimpleTimeseries from '../components/SimpleTimeseries'
 
 type StatsDropdownProps = {
   data: [string, ValuesByYear][]
@@ -27,12 +27,7 @@ function StatsDropdown({
         {items.slice(0, 10).map((d) => (
           <li key={d.label}>
             {d.label}
-            <Timeseries
-              data={d.data}
-              width={220}
-              height={80}
-              mainColor={color}
-            />
+            <SimpleTimeseries data={d.data} color={color} />
           </li>
         ))}
       </StatsDropdownWrapper>

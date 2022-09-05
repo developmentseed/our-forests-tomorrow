@@ -65,8 +65,17 @@ function Map({
         }
       }, 100)
     },
-    [grid]
+    [grid, onRenderedFeaturesChange]
   )
+
+  // TODO internal MVT layer error - force onViewStateChange?
+  // useEffect(() => {
+  //   try {
+  //     onRenderedFeaturesChange(grid.getRenderedFeatures())
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }, [grid, onRenderedFeaturesChange, currentSpecies])
 
   useEffect(() => {
     if (!countries.context) return

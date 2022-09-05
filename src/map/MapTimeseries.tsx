@@ -8,6 +8,8 @@ import cx from 'classnames'
 import Timeseries from '../components/Timeseries'
 import { useAtom } from 'jotai'
 import { timeStepAtom } from '../atoms'
+import useTimeseriesData from '../hooks/useTimeseriesData'
+import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 
 const W = 250
 const H = 70
@@ -20,40 +22,19 @@ export type MapTimeseriesProps = {
 function MapTimeseries({ features, mainColor }: MapTimeseriesProps) {
   const [timeStep, setTimeStep] = useAtom(timeStepAtom)
   // const numFeatures = features?.length || 0
-  const timeseriesData = useMemo(() => {
-    if (!features) return {}
-    const featureCellTypesIndices = features.map((f) => {
-      return TIME_STEPS.map((t) => {
-        const type = getCellTypeAtTimeStep(f as any, t)
-        return type
-      })
-    })
+  const timeseriesData = useTimeseriesData(features)
+  const layoutData = useTimeseriesLayout(timeseriesData, {
+    width: W,
+    height: H,
+    mainColor,
+  })
 
-    const timeseriesData = Object.fromEntries(
-      TIME_STEPS.map((t, i) => {
-        const values = [
-          featureCellTypesIndices.reduce((prev, cur) => {
-            return cur[i] === CellTypeEnum.Decolonized ? prev + 1 : prev
-          }, 0),
-          featureCellTypesIndices.reduce((prev, cur) => {
-            return cur[i] === CellTypeEnum.Stable ? prev + 1 : prev
-          }, 0),
-          featureCellTypesIndices.reduce((prev, cur) => {
-            return cur[i] === CellTypeEnum.Suitable ? prev + 1 : prev
-          }, 0),
-        ]
-        if (t === '2005') return [t, values[1]]
-        return [t, values]
-      })
-    )
-
-    return timeseriesData
-  }, [features])
+  if (!timeseriesData) return null
 
   return (
     <Fragment>
       <Timeseries
-        data={timeseriesData}
+        layoutData={layoutData}
         mainColor={mainColor}
         width={W}
         height={H}
