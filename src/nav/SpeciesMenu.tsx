@@ -6,6 +6,7 @@ import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
 import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
 import { currentSpeciesAtom } from '../atoms'
+import './SpeciesMenuSpritesheet.css'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -99,6 +100,7 @@ function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
           {Object.entries(sorted).map(([speciesKey, speciesData]) => (
             <li key={speciesKey} onClick={() => onSpeciesClick(speciesKey)}>
               <SpeciesButton
+                className={`sprite sprite-${speciesKey}`}
                 color={deckColorToCss(speciesData.color)}
                 disabled={
                   !!highlightedIds && !highlightedIds.includes(speciesKey)

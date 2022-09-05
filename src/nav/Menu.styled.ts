@@ -17,7 +17,7 @@ export const MenuColumns = styled.div`
   color: ${({ theme }) => theme.colors.light};
   display: flex;
   & > ul {
-    columns: 4;
+    columns: 5;
     list-style-type: none;
   }
 `

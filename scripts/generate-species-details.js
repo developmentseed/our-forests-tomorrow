@@ -4,6 +4,7 @@ import {
   SPECIES,
   SPECIES_DATA,
   SPECIES_META_MANUAL,
+  SPECIES_MEDIA,
 } from '../src/constants_common.js'
 import fs from 'fs'
 const speciesList = JSON.parse(fs.readFileSync(SPECIES, 'utf-8'))
@@ -12,6 +13,7 @@ const speciesMetaManual = JSON.parse(
 )
 
 const allSpeciesData = {}
+const allSpeciesMedia = {}
 
 speciesList.forEach((currentSpeciesId) => {
   let aliasId
@@ -46,6 +48,8 @@ speciesList.forEach((currentSpeciesId) => {
             fr: {},
           },
         }
+
+        allSpeciesMedia[currentSpeciesId] = wikiMedia
 
         const wdData = wd.entities[wdId]
         // allSpeciesLabels.en[currentSpeciesId].name = wdData.labels.en.value
@@ -84,10 +88,18 @@ speciesList.forEach((currentSpeciesId) => {
         sorted.sort(([keyA], [keyB]) => {
           return keyA.localeCompare(keyB)
         })
+        const sortedMedia = Object.entries(allSpeciesMedia)
+        sortedMedia.sort(([keyA], [keyB]) => {
+          return keyA.localeCompare(keyB)
+        })
 
         fs.writeFileSync(
           SPECIES_DATA,
           JSON.stringify(Object.fromEntries(sorted))
+        )
+        fs.writeFileSync(
+          SPECIES_MEDIA,
+          JSON.stringify(Object.fromEntries(sortedMedia))
         )
       })
     })

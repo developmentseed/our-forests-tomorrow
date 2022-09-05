@@ -26,7 +26,7 @@
       "width": 2748,
       "height": 4305
     },
-    "color": [124, 249, 66]
+    "color": [13, 243, 82]
   },
   "Acer_campestre": {
     "labels": {
@@ -49,7 +49,7 @@
       "width": 1944,
       "height": 2592
     },
-    "color": [17, 233, 129]
+    "color": [125, 240, 34]
   },
   "Acer_opalus": {
     "labels": {
@@ -78,7 +78,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [94, 214, 131]
+    "color": [28, 224, 16]
   },
   "Acer_platanoides": {
     "labels": {
@@ -137,7 +137,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [10, 209, 138]
+    "color": [64, 201, 22]
   },
   "Alnus_glutinosa": {
     "labels": {
@@ -167,7 +167,7 @@
       "width": 1500,
       "height": 2000
     },
-    "color": [79, 213, 59]
+    "color": [95, 207, 82]
   },
   "Alnus_incana": {
     "labels": {
@@ -190,7 +190,7 @@
       "width": 650,
       "height": 428
     },
-    "color": [58, 207, 118]
+    "color": [73, 222, 72]
   },
   "Arbutus_unedo": {
     "labels": {
@@ -218,7 +218,7 @@
       "width": 1089,
       "height": 1069
     },
-    "color": [51, 227, 75]
+    "color": [11, 245, 74]
   },
   "Aria_edulis": {
     "labels": {
@@ -241,7 +241,7 @@
       "width": 1500,
       "height": 2000
     },
-    "color": [94, 234, 3]
+    "color": [56, 200, 139]
   },
   "Betula_pendula": {
     "labels": {
@@ -269,7 +269,7 @@
       "width": 2272,
       "height": 1704
     },
-    "color": [148, 224, 70]
+    "color": [145, 219, 55]
   },
   "Betula_pubescens": {
     "labels": {
@@ -298,7 +298,7 @@
       "width": 1944,
       "height": 2592
     },
-    "color": [114, 245, 73]
+    "color": [67, 248, 49]
   },
   "Borkhausenia_intermedia": {
     "labels": {
@@ -325,7 +325,7 @@
       "width": 2048,
       "height": 1536
     },
-    "color": [103, 238, 94]
+    "color": [69, 221, 114]
   },
   "Carpinus_betulus": {
     "labels": {
@@ -352,7 +352,7 @@
       "width": 1944,
       "height": 1756
     },
-    "color": [8, 233, 27]
+    "color": [77, 221, 12]
   },
   "Carpinus_orientalis": {
     "labels": {
@@ -374,7 +374,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [41, 203, 75]
+    "color": [95, 237, 77]
   },
   "Castanea_sativa": {
     "labels": {
@@ -406,7 +406,7 @@
       "width": 1600,
       "height": 1303
     },
-    "color": [59, 215, 12]
+    "color": [34, 243, 115]
   },
   "Celtis_australis": {
     "labels": {
@@ -427,7 +427,7 @@
       "width": 1406,
       "height": 2291
     },
-    "color": [28, 244, 131]
+    "color": [13, 223, 22]
   },
   "Ceratonia_siliqua": {
     "labels": {
@@ -458,7 +458,7 @@
       "width": 3240,
       "height": 4320
     },
-    "color": [73, 222, 38]
+    "color": [96, 215, 143]
   },
   "Cormus_domestica": {
     "labels": {
@@ -486,7 +486,7 @@
       "width": 2048,
       "height": 1536
     },
-    "color": [44, 233, 106]
+    "color": [25, 249, 106]
   },
   "Corylus_avellana": {
     "labels": {
@@ -509,7 +509,7 @@
       "width": 830,
       "height": 611
     },
-    "color": [64, 236, 55]
+    "color": [14, 239, 82]
   },
   "Cupressus_sempervirens": {
     "labels": {
@@ -541,7 +541,7 @@
       "width": 418,
       "height": 630
     },
-    "color": [39, 207, 22]
+    "color": [101, 235, 83]
   },
   "Fagus_sylvatica": {
     "labels": {
@@ -573,7 +573,7 @@
       "width": 3024,
       "height": 4032
     },
-    "color": [95, 235, 53]
+    "color": [67, 203, 62]
   },
   "Fraxinus_angustifolia": {
     "labels": {
@@ -596,7 +596,7 @@
       "width": 2848,
       "height": 2136
     },
-    "color": [92, 227, 85]
+    "color": [109, 249, 99]
   },
   "Fraxinus_excelsior": {
     "labels": {
@@ -625,7 +625,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [46, 223, 122]
+    "color": [16, 201, 28]
   },
   "Fraxinus_ornus": {
     "labels": {
@@ -647,7 +647,7 @@
       "width": 1288,
       "height": 1936
     },
-    "color": [28, 231, 33]
+    "color": [12, 243, 137]
   },
   "Juglans_regia": {
     "labels": {
@@ -676,7 +676,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [44, 242, 100]
+    "color": [64, 237, 97]
   },
   "Juniperus_thurifera": {
     "labels": {
@@ -703,7 +703,7 @@
       "width": 900,
       "height": 1200
     },
-    "color": [63, 227, 36]
+    "color": [22, 213, 47]
   },
   "Larix_decidua": {
     "labels": {
@@ -726,7 +726,7 @@
       "width": 4231,
       "height": 2821
     },
-    "color": [12, 244, 20]
+    "color": [75, 221, 4]
   },
   "Laurus_nobilis": {
     "labels": {
@@ -754,7 +754,7 @@
       "width": 2112,
       "height": 2816
     },
-    "color": [35, 220, 101]
+    "color": [25, 224, 83]
   },
   "Malus_sylvestris": {
     "labels": {
@@ -782,7 +782,7 @@
       "width": 2074,
       "height": 1556
     },
-    "color": [53, 242, 102]
+    "color": [29, 202, 32]
   },
   "Olea_europaea": {
     "labels": {
@@ -805,7 +805,7 @@
       "width": 494,
       "height": 500
     },
-    "color": [99, 245, 103]
+    "color": [125, 212, 147]
   },
   "Ostrya_carpinifolia": {
     "labels": {
@@ -828,7 +828,7 @@
       "width": 1638,
       "height": 1229
     },
-    "color": [112, 244, 8]
+    "color": [133, 209, 22]
   },
   "Picea_abies": {
     "labels": {
@@ -863,7 +863,7 @@
       "width": 2400,
       "height": 3600
     },
-    "color": [28, 226, 78]
+    "color": [113, 200, 88]
   },
   "Pinus_brutia": {
     "labels": {
@@ -885,7 +885,7 @@
       "width": 480,
       "height": 640
     },
-    "color": [14, 205, 83]
+    "color": [88, 234, 73]
   },
   "Pinus_cembra": {
     "labels": {
@@ -926,7 +926,7 @@
       "width": 1024,
       "height": 1365
     },
-    "color": [31, 237, 36]
+    "color": [120, 244, 34]
   },
   "Pinus_halepensis": {
     "labels": {
@@ -949,7 +949,7 @@
       "width": 4632,
       "height": 3464
     },
-    "color": [110, 228, 65]
+    "color": [142, 245, 135]
   },
   "Pinus_nigra": {
     "labels": {
@@ -978,7 +978,7 @@
       "width": 2712,
       "height": 2304
     },
-    "color": [124, 206, 55]
+    "color": [132, 206, 75]
   },
   "Pinus_pinaster": {
     "labels": {
@@ -1007,7 +1007,7 @@
       "width": 536,
       "height": 800
     },
-    "color": [99, 244, 27]
+    "color": [51, 209, 133]
   },
   "Pinus_pinea": {
     "labels": {
@@ -1030,7 +1030,7 @@
       "width": 3872,
       "height": 2592
     },
-    "color": [61, 242, 147]
+    "color": [68, 217, 82]
   },
   "Pinus_sylvestris": {
     "labels": {
@@ -1058,7 +1058,7 @@
       "width": 2592,
       "height": 3888
     },
-    "color": [71, 200, 69]
+    "color": [23, 214, 119]
   },
   "Pistacia_lentiscus": {
     "labels": {
@@ -1079,7 +1079,7 @@
       "width": 1200,
       "height": 1600
     },
-    "color": [11, 213, 83]
+    "color": [7, 242, 37]
   },
   "Pistacia_terebinthus": {
     "labels": {
@@ -1106,7 +1106,7 @@
       "width": 3800,
       "height": 2718
     },
-    "color": [24, 211, 137]
+    "color": [119, 248, 96]
   },
   "Populus_alba": {
     "labels": {
@@ -1129,7 +1129,7 @@
       "width": 1559,
       "height": 850
     },
-    "color": [31, 217, 30]
+    "color": [122, 214, 73]
   },
   "Populus_nigra": {
     "labels": {
@@ -1152,7 +1152,7 @@
       "width": 1946,
       "height": 992
     },
-    "color": [55, 242, 108]
+    "color": [78, 235, 37]
   },
   "Populus_tremula": {
     "labels": {
@@ -1181,7 +1181,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [104, 218, 28]
+    "color": [7, 212, 23]
   },
   "Prunus_avium": {
     "labels": {
@@ -1214,7 +1214,7 @@
       "width": 2126,
       "height": 2136
     },
-    "color": [133, 233, 96]
+    "color": [97, 205, 138]
   },
   "Prunus_padus": {
     "labels": {
@@ -1248,7 +1248,7 @@
       "width": 837,
       "height": 682
     },
-    "color": [92, 229, 121]
+    "color": [145, 200, 126]
   },
   "Pyrus_communis": {
     "labels": {
@@ -1271,7 +1271,7 @@
       "width": 640,
       "height": 975
     },
-    "color": [42, 238, 34]
+    "color": [127, 226, 101]
   },
   "Quercus_cerris": {
     "labels": {
@@ -1301,7 +1301,7 @@
       "width": 981,
       "height": 718
     },
-    "color": [34, 240, 24]
+    "color": [62, 237, 37]
   },
   "Quercus_coccifera": {
     "labels": {
@@ -1330,7 +1330,7 @@
       "width": 468,
       "height": 291
     },
-    "color": [0, 234, 11]
+    "color": [62, 233, 140]
   },
   "Quercus_faginea": {
     "labels": {
@@ -1352,7 +1352,7 @@
       "width": 845,
       "height": 634
     },
-    "color": [133, 229, 25]
+    "color": [73, 204, 77]
   },
   "Quercus_frainetto": {
     "labels": {
@@ -1375,7 +1375,7 @@
       "width": 1418,
       "height": 886
     },
-    "color": [84, 238, 113]
+    "color": [132, 226, 135]
   },
   "Quercus_ilex": {
     "labels": {
@@ -1408,7 +1408,7 @@
       "width": 1936,
       "height": 1288
     },
-    "color": [1, 229, 60]
+    "color": [11, 232, 129]
   },
   "Quercus_petraea": {
     "labels": {
@@ -1437,7 +1437,7 @@
       "width": 1944,
       "height": 1917
     },
-    "color": [18, 238, 2]
+    "color": [1, 216, 59]
   },
   "Quercus_pubescens": {
     "labels": {
@@ -1459,7 +1459,7 @@
       "width": 675,
       "height": 900
     },
-    "color": [125, 231, 147]
+    "color": [92, 202, 85]
   },
   "Quercus_pyrenaica": {
     "labels": {
@@ -1487,7 +1487,7 @@
       "width": 2800,
       "height": 3346
     },
-    "color": [95, 225, 62]
+    "color": [80, 240, 136]
   },
   "Quercus_robur": {
     "labels": {
@@ -1522,7 +1522,7 @@
       "width": 701,
       "height": 948
     },
-    "color": [134, 220, 87]
+    "color": [36, 238, 81]
   },
   "Quercus_suber": {
     "labels": {
@@ -1552,7 +1552,7 @@
       "width": 5472,
       "height": 3648
     },
-    "color": [20, 238, 141]
+    "color": [98, 227, 0]
   },
   "Robinia_pseudoacacia": {
     "labels": {
@@ -1579,7 +1579,7 @@
       "width": 300,
       "height": 401
     },
-    "color": [117, 220, 1]
+    "color": [70, 233, 37]
   },
   "Salix_alba": {
     "labels": {
@@ -1602,7 +1602,7 @@
       "width": 1296,
       "height": 972
     },
-    "color": [121, 217, 116]
+    "color": [12, 212, 68]
   },
   "Sorbus_aucuparia": {
     "labels": {
@@ -1625,7 +1625,7 @@
       "width": 1600,
       "height": 1200
     },
-    "color": [39, 238, 49]
+    "color": [128, 213, 75]
   },
   "Taxus_baccata": {
     "labels": {
@@ -1648,7 +1648,7 @@
       "width": 4480,
       "height": 3906
     },
-    "color": [70, 233, 82]
+    "color": [129, 230, 137]
   },
   "Tilia_cordata": {
     "labels": {
@@ -1682,7 +1682,7 @@
       "width": 533,
       "height": 430
     },
-    "color": [68, 212, 130]
+    "color": [90, 229, 20]
   },
   "Tilia_platyphyllos": {
     "labels": {
@@ -1713,7 +1713,7 @@
       "width": 960,
       "height": 1280
     },
-    "color": [28, 244, 14]
+    "color": [34, 214, 102]
   },
   "Torminalis_glaberrima": {
     "labels": {
@@ -1741,7 +1741,7 @@
       "width": 918,
       "height": 1240
     },
-    "color": [60, 202, 110]
+    "color": [140, 203, 6]
   },
   "Ulmus_glabra": {
     "labels": {
@@ -1777,7 +1777,7 @@
       "width": 480,
       "height": 640
     },
-    "color": [86, 216, 130]
+    "color": [34, 213, 23]
   },
   "Ulmus_laevis": {
     "labels": {
@@ -1798,7 +1798,7 @@
       "width": 2500,
       "height": 1600
     },
-    "color": [81, 211, 62]
+    "color": [80, 231, 5]
   },
   "Ulmus_minor": {
     "labels": {
@@ -1821,6 +1821,6 @@
       "width": 1018,
       "height": 1272
     },
-    "color": [6, 207, 76]
+    "color": [77, 215, 88]
   }
 }

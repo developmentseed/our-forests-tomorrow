@@ -16,6 +16,7 @@ export const SpeciesMenuTools = styled.div`
 export const Aside = styled.aside`
   font-family: ${({ theme }) => theme.fonts.serif};
   font-size: 4rem;
+  width: 300px;
 
   & > b {
     font-family: ${({ theme }) => theme.fonts.serifBold};
@@ -33,6 +34,8 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
   color: ${({ theme }) => theme.colors.light};
   text-align: left;
   text-transform: capitalize;
+  width: 100%;
+  height: 40px;
 
   &:disabled {
     opacity: 0.5;
