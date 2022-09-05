@@ -1,6 +1,16 @@
 {
+  "general": {
+    "currentDistribution": "Current distribution",
+    "decolonization": "decolonization",
+    "suitability": "suitability"
+  },
   "nav": {
     "species": "Species"
+  },
+  "mapLegend": {
+    "stable": "Stable in {{year}}",
+    "decolonization": "Decolonization in {{year}}",
+    "suitability": "Suitability in {{year}}"
   },
   "species": {
     "Abies_alba": "Silver fir",
