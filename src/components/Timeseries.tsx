@@ -83,7 +83,13 @@ function Timeseries({ layoutData, mainColor, width, height }: TimeseriesProps) {
           height={height}
           // style={{ border: '1px solid rgba(0,0,0,.1)' }}
         >
-          <SVGHatchPattern color={deckColorToCss(mainColor)} hatchWidth={1.5} />
+          <defs>
+            <SVGHatchPattern
+              color={deckColorToCss(mainColor)}
+              hatchWidth={1.5}
+            />
+          </defs>
+
           {nodes.map((node, ni) => (
             <rect
               key={`node_${ni}`}
