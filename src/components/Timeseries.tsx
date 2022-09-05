@@ -100,29 +100,6 @@ function Timeseries({ layoutData, mainColor, width, height }: TimeseriesProps) {
             <path key={`link_${li}`} d={l.d} fill={l.fill} />
           ))}
         </svg>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-          }}
-        >
-          {TIME_STEPS.map((year, yi) => (
-            <div
-              key={yi}
-              style={{
-                position: 'absolute',
-                left: xs?.[yi],
-                width: `${nodeWidth}px`,
-                height: height + 30,
-                border: '0.1px dashed rgb(0,0,0,.2)',
-                display: 'flex',
-                alignItems: 'end',
-              }}
-            >
-              {year}
-            </div>
-          ))}
-        </div>
       </div>
     </Fragment>
   )

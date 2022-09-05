@@ -10,6 +10,11 @@ import { useAtom } from 'jotai'
 import { timeStepAtom } from '../atoms'
 import useTimeseriesData from '../hooks/useTimeseriesData'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
+import {
+  MapTimeseriesWrapper,
+  TimestepButton,
+  TimestepNav,
+} from './MapTimeseries.styled'
 
 const W = 250
 const H = 70
@@ -31,8 +36,10 @@ function MapTimeseries({ features, mainColor }: MapTimeseriesProps) {
 
   if (!timeseriesData) return null
 
+  const { xs, nodeWidth } = layoutData
+
   return (
-    <Fragment>
+    <MapTimeseriesWrapper>
       <Timeseries
         layoutData={layoutData}
         mainColor={mainColor}
@@ -40,18 +47,23 @@ function MapTimeseries({ features, mainColor }: MapTimeseriesProps) {
         height={H}
       />
 
-      <div className="axis">
-        {['2005', '2035', '2065', '2095'].map((y) => (
-          <button
-            className={cx({ selected: y === timeStep })}
-            onMouseEnter={() => setTimeStep(y as TimeStep)}
-            key={y}
+      <TimestepNav>
+        {TIME_STEPS.map((year, yi) => (
+          <TimestepButton
+            selected={year === timeStep}
+            key={yi}
+            onMouseEnter={() => setTimeStep(year)}
+            style={{
+              left: xs?.[yi],
+              width: `${nodeWidth}px`,
+              height: H + 40,
+            }}
           >
-            {y}
-          </button>
+            <span>{year}</span>
+          </TimestepButton>
         ))}
-      </div>
-    </Fragment>
+      </TimestepNav>
+    </MapTimeseriesWrapper>
   )
 }
 

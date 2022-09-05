@@ -8,19 +8,24 @@ type SimpleTimeseriesProps = {
   labelKey?: string
 }
 
+const W = 160
+const H = 40
+
 function SimpleTimeseries({ data, color }: SimpleTimeseriesProps) {
   const layoutData = useTimeseriesLayout(data, {
-    width: 220,
-    height: 80,
+    width: W,
+    height: H,
     mainColor: color,
+    nodeWidth: 35,
+    nodeMaxHeight: 10,
   })
 
   return (
     <Timeseries
       layoutData={layoutData}
       mainColor={color}
-      width={220}
-      height={80}
+      width={W}
+      height={H}
     />
   )
 }

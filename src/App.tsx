@@ -45,12 +45,10 @@ function App() {
         <SpeciesPage stats={stats} currentSpeciesData={currentSpeciesData} />
       )}
 
-      <MapControls>
-        <MapTimeseries
-          features={renderedFeatures}
-          mainColor={currentSpeciesData.color}
-        />
-      </MapControls>
+      <MapControls
+        features={renderedFeatures}
+        mainColor={currentSpeciesData.color}
+      />
     </Fragment>
   )
 }

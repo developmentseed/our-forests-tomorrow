@@ -53,6 +53,7 @@ export const THEME = {
     dark: '#04232F',
     background: '#B0D7C1',
     decolonized: '#E22E59',
+    darkgreen: '#0E817A',
   },
   layout: {
     navHeight: '70px',
