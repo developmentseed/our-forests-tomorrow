@@ -106,10 +106,11 @@ function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
                   !!highlightedIds && !highlightedIds.includes(speciesKey)
                 }
               >
-                {sortBy === 'latin'
-                  ? speciesData.latin
-                  : speciesData.labels[locale].name}
-
+                <b>
+                  {sortBy === 'latin'
+                    ? speciesData.latin
+                    : speciesData.labels[locale].name}
+                </b>
                 <i>
                   {sortBy === 'latin'
                     ? speciesData.labels[locale].name

@@ -1,7 +1,6 @@
-.sprite {
+.sprite:hover {
   background-image: url('./spritesheet.webp');
   background-repeat: no-repeat;
-  display: block;
 }
 
 .sprite-Abies_alba {

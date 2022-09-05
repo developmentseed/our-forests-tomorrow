@@ -41,8 +41,15 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
     opacity: 0.5;
   }
 
+  & > b {
+    display: inline-block;
+    font-weight: normal;
+    backdrop-filter: blur(10px);
+  }
+
   & > i {
-    display: block;
+    backdrop-filter: blur(10px);
+    display: inline-block;
     font-size: ${({ theme }) => theme.fontSizes.small};
     opacity: 0.7;
   }
