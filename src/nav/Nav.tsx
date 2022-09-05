@@ -1,5 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { AllSpeciesData } from '../types'
 import Menu from './Menu'
 import { NavButton, NavButtons, NavHeader, NavWrapper } from './Nav.styled'
@@ -10,7 +9,7 @@ type NavProps = {
 }
 
 function Nav({ species }: NavProps) {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
@@ -19,10 +18,13 @@ function Nav({ species }: NavProps) {
     <NavWrapper>
       <NavHeader>
         <h1>
-          <b>Our forests</b> tomorrow
+          <Trans
+            i18nKey="nav.title" // optional -> fallbacks to defaults if not provided
+            components={{ b: <b /> }}
+          />
         </h1>
         <nav>
-          <NavButton>about</NavButton>
+          <NavButton>{t('nav.about')}</NavButton>
           <NavButton
             onClick={() => changeLanguage('en')}
             style={{ borderWidth: i18n.language === 'en' ? '2px' : '1px' }}
@@ -38,7 +40,7 @@ function Nav({ species }: NavProps) {
         </nav>
       </NavHeader>
       <NavButtons>
-        <Menu label="species">
+        <Menu label={t('nav.species')}>
           {(closeMenuCallback: any) => (
             <SpeciesMenu
               species={species}
@@ -46,7 +48,7 @@ function Nav({ species }: NavProps) {
             />
           )}
         </Menu>
-        <Menu label="regions">
+        <Menu label={t('nav.regions')}>
           {(closeMenuCallback: any) => <div>hello</div>}
         </Menu>
       </NavButtons>

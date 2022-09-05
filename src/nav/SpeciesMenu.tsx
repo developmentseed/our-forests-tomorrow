@@ -14,7 +14,7 @@ type SpeciesMenuProps = {
 }
 
 function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const locale = i18n.language as Locale
   const onSpeciesClick = useCallback(
