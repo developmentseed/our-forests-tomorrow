@@ -1,16 +1,16 @@
 {
   "general": {
-    "currentDistribution": "Current distribution",
-    "decolonization": "decolonization",
-    "suitability": "suitability"
+    "currentDistribution": "Répartition actuelle",
+    "decolonization": "décolonisation",
+    "suitability": "adaptable"
   },
   "nav": {
     "species": "Espèces..."
   },
   "mapLegend": {
-    "stable": "Stable in {{year}}",
-    "decolonization": "Decolonization in {{year}}",
-    "suitability": "Suitability in {{year}}"
+    "stable": "stable en {{year}}",
+    "decolonization": "décolonisation en {{year}}",
+    "suitability": "adaptable en {{year}}"
   },
   "species": {
     "Abies_alba": "Sapin Blanc",
