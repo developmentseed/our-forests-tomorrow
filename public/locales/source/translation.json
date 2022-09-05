@@ -5,7 +5,10 @@
     "suitability": "suitability"
   },
   "nav": {
-    "species": "Species"
+    "title": "<b>Our Forests</b> tomorrow",
+    "about": "about",
+    "regions": "regions",
+    "species": "species"
   },
   "mapLegend": {
     "stable": "Stable in {{year}}",
