@@ -2,13 +2,23 @@
   "general": {
     "currentDistribution": "Répartition actuelle",
     "decolonization": "décolonisation",
-    "suitability": "adaptable"
+    "suitability": "adaptable",
+    "close": "close"
   },
   "nav": {
     "title": "<b>Nos Forêts</b> demain",
     "about": "à propos",
     "regions": "régions",
-    "species": "espèces"
+    "species": "espèces",
+    "sortBy": "ssort by",
+    "sortByOptions": {
+      "vernacular": "vernacular name",
+      "latin": "latin name",
+      "area": "distribution area (descending)"
+    },
+    "search": "search for a species name, description...",
+    "searchPlaceholder": "e.g. Irish oak, mediterranean...",
+    "exploreSpecies": "explore the possible future of <b>67</b> tree species"
   },
   "mapLegend": {
     "stable": "stable en {{year}}",
