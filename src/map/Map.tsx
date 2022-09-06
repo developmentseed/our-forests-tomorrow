@@ -6,6 +6,7 @@ import React, {
   useEffect,
   Dispatch,
   SetStateAction,
+  ReactNode,
 } from 'react'
 import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
 import bbox from '@turf/bbox'
@@ -33,6 +34,7 @@ export type MapProps = {
   region: RegionFeature | null
   onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
   onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
+  children: ReactNode
 }
 
 function Map({
@@ -40,6 +42,7 @@ function Map({
   region,
   onRegionChange,
   onRenderedFeaturesChange,
+  children,
 }: MapProps) {
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -170,6 +173,7 @@ function Map({
           <button onClick={onZoomIn}>+</button>
           <button onClick={onZoomOut}>-</button>
         </MapZoom>
+        {children}
       </MapWrapper>
     </Fragment>
   )

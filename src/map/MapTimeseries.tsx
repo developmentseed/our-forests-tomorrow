@@ -11,19 +11,19 @@ import {
   TimestepButton,
   TimestepNav,
 } from './MapTimeseries.styled'
+import { ValuesByYear } from '../types'
 
 const W = 250
 const H = 70
 
 export type MapTimeseriesProps = {
-  features?: Feature[]
+  timeseriesData: ValuesByYear | null
   mainColor: number[]
 }
 
-function MapTimeseries({ features, mainColor }: MapTimeseriesProps) {
+function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
   const [timeStep, setTimeStep] = useAtom(timeStepAtom)
   // const numFeatures = features?.length || 0
-  const timeseriesData = useTimeseriesData(features)
   const layoutData = useTimeseriesLayout(timeseriesData, {
     width: W,
     height: H,

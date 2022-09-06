@@ -15,6 +15,7 @@ export const CENTER = [
 export const MAX_ZOOM = 8
 
 export const TIME_STEPS: TimeStep[] = ['2005', '2035', '2065', '2095']
+export const CellTypesString: string[] = ['Decolonized', 'Stable', 'Suitable']
 
 export enum CellTypeEnum {
   Decolonized,
@@ -66,6 +67,9 @@ export const THEME = {
   },
   fontSizes: {
     small: '0.7rem',
+    subtitle: '1.6rem',
+    subtitleLineHeight: '2rem',
+    title: '2.4rem',
   },
   breakpoints: {
     mobile: '768px',

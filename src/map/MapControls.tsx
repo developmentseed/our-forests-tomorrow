@@ -3,16 +3,19 @@ import React from 'react'
 import { MapControlsWrapper } from './MapControls.styled'
 import MapLegend from './MapLegend'
 import MapTimeseries from './MapTimeseries'
+import MapSentence from './MapSentence'
+import { ValuesByYear } from '../types'
 
 export type MapControlsProps = {
-  features?: Feature[]
+  timeseriesData: ValuesByYear | null
   mainColor: number[]
 }
 
-function MapControls({ features, mainColor }: MapControlsProps) {
+function MapControls({ timeseriesData, mainColor }: MapControlsProps) {
   return (
     <MapControlsWrapper>
-      <MapTimeseries features={features} mainColor={mainColor} />
+      <MapSentence timeseriesData={timeseriesData} />
+      <MapTimeseries timeseriesData={timeseriesData} mainColor={mainColor} />
       <MapLegend mainColor={mainColor} />
     </MapControlsWrapper>
   )

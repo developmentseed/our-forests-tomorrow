@@ -9,6 +9,7 @@ import {
   ValuesByRegionGID,
   ValuesByYear,
 } from '../types'
+import { formatLatin } from '../utils'
 
 function useCoreData() {
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
@@ -28,7 +29,7 @@ function useCoreData() {
         Object.entries(allSpeciesData).map(([speciesKey, speciesData]) => {
           const data = {
             ...(speciesData as any),
-            latin: speciesKey.replace('_', ' '),
+            latin: formatLatin(speciesKey),
             labels: {
               fr: {
                 ...(speciesData as any).labels.fr,

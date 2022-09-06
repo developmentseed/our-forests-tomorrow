@@ -15,3 +15,5 @@ export const getCellTypeAtTimeStep = (
 }
 
 export const deckColorToCss = (rgb: number[]) => `rgb(${rgb.join(', ')})`
+
+export const formatLatin = (speciesId: string) => speciesId.replace('_', ' ')

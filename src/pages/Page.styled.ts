@@ -16,13 +16,14 @@ export const Title = styled.h1<TitleProps>`
   /* color: ${({ color, theme }) => color || theme.colors.light}; */
   color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.8rem;
-  line-height: 2.4rem;
 
   & > b {
-    font-size: 2.8rem;
+    font-size: ${({ theme }) => theme.fontSizes.title};
     display: block;
   }
+
+  font-size: ${({ theme }) => theme.fontSizes.subtitle};
+  line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
 `
 
 export const PageContents = styled.div`

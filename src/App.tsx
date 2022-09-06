@@ -11,6 +11,7 @@ import useCoreData from './hooks/useCoreData'
 import Nav from './nav/Nav'
 import { currentSpeciesAtom } from './atoms'
 import { useAtomValue } from 'jotai'
+import useTimeseriesData from './hooks/useTimeseriesData'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -28,6 +29,8 @@ function App() {
 
   const currentSpeciesData = speciesData?.[currentSpecies]
 
+  const timeseriesData = useTimeseriesData(renderedFeatures)
+
   return !stats || !speciesData || !currentSpeciesData ? (
     <div>loading</div>
   ) : (
@@ -38,17 +41,17 @@ function App() {
         region={region}
         onRegionChange={setRegion}
         onRenderedFeaturesChange={setRenderedFeatures}
-      />
+      >
+        <MapControls
+          timeseriesData={timeseriesData}
+          mainColor={currentSpeciesData.color}
+        />
+      </Map>
       {region ? (
         <RegionPage stats={stats} region={region} onRegionClose={closeRegion} />
       ) : (
         <SpeciesPage stats={stats} currentSpeciesData={currentSpeciesData} />
       )}
-
-      <MapControls
-        features={renderedFeatures}
-        mainColor={currentSpeciesData.color}
-      />
     </Fragment>
   )
 }
