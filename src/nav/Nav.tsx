@@ -19,10 +19,7 @@ function Nav({ species, stats }: NavProps) {
     <NavWrapper>
       <NavHeader>
         <h1>
-          <Trans
-            i18nKey="nav.title" // optional -> fallbacks to defaults if not provided
-            components={{ b: <b /> }}
-          />
+          <Trans i18nKey="nav.title" components={{ b: <b /> }} />
         </h1>
         <nav>
           <NavButton>{t('nav.about')}</NavButton>
