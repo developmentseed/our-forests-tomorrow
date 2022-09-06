@@ -1,20 +1,21 @@
 import { ChangeEvent, Fragment, useCallback, useMemo, useState } from 'react'
-import { useSetAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import { useTranslation } from 'react-i18next'
-import { AllSpeciesData, Locale, SpeciesSortBy } from '../types'
+import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
 import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
 import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
-import { currentSpeciesAtom } from '../atoms'
+import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import './SpeciesMenuSpritesheet.css'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
+  stats: StatsBySpecies
   closeMenuCallback: () => void
 }
 
-function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
-  const { t, i18n } = useTranslation()
+function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
+  const { i18n } = useTranslation()
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const locale = i18n.language as Locale
   const onSpeciesClick = useCallback(
@@ -49,7 +50,7 @@ function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
     [species, locale]
   )
 
-  const [sortBy, setSortBy] = useState<SpeciesSortBy>('vernacular')
+  const [sortBy, setSortBy] = useAtom(navSpeciesSortByAtom)
   const onSortClick = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       setSortBy(e.target.value as SpeciesSortBy)
@@ -66,11 +67,15 @@ function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
           return speciesDataA.labels[locale].name.localeCompare(
             speciesDataB.labels[locale].name
           )
+        } else if (sortBy === 'area') {
+          const speciesAStats = stats[speciesKeyA].global
+          const speciesBStats = stats[speciesKeyB].global
+          return (speciesBStats?.['2005'] || 0) - (speciesAStats?.['2005'] || 0)
         } else return 0
       }
     )
     return Object.fromEntries(speciesSortedArr)
-  }, [species, sortBy, locale])
+  }, [species, sortBy, locale, stats])
 
   return (
     <Fragment>
@@ -80,6 +85,7 @@ function SpeciesMenu({ species, closeMenuCallback }: SpeciesMenuProps) {
           <select onChange={onSortClick} value={sortBy}>
             <option value="vernacular">Vernacular name</option>
             <option value="latin">Latin name</option>
+            <option value="area">Distribution area (descending)</option>
           </select>
         </div>
         <div>

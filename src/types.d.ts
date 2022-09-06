@@ -52,7 +52,9 @@ export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> & {
   region?: Region
   speciesDetail?: { name: string }
 }
-export type ValuesByRegionGID = Record<string, ValuesByYear>
+export type ValuesByRegionGID = Record<string, ValuesByYear> & {
+  global?: ValuesByYear
+}
 export type ValuesBySpeciesID = Record<string, ValuesByYear>
 export type ValuesBySpeciesIDOrValuesByRegionGID = Record<string, ValuesByYear>
 export type StatsBySpecies = Record<string, ValuesByRegionGID> & {
@@ -89,4 +91,4 @@ export type SpeciesData = {
 }
 export type AllSpeciesData = Record<string, SpeciesData>
 
-export type SpeciesSortBy = 'latin' | 'vernacular'
+export type SpeciesSortBy = 'latin' | 'vernacular' | 'area'

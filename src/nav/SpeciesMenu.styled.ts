@@ -38,7 +38,7 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
   height: 40px;
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   & > b {

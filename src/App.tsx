@@ -4,7 +4,6 @@ import { Feature } from 'geojson'
 import Map from './map/Map'
 import MapControls from './map/MapControls'
 import { RegionFeature } from './types'
-import MapTimeseries from './map/MapTimeseries'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
@@ -35,7 +34,7 @@ function App() {
     <div>loading</div>
   ) : (
     <Fragment>
-      <Nav species={speciesData} />
+      <Nav species={speciesData} stats={stats} />
       <Map
         mainColor={currentSpeciesData.color}
         region={region}

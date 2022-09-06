@@ -1,14 +1,15 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { AllSpeciesData } from '../types'
+import { AllSpeciesData, StatsBySpecies } from '../types'
 import Menu from './Menu'
 import { NavButton, NavButtons, NavHeader, NavWrapper } from './Nav.styled'
 import SpeciesMenu from './SpeciesMenu'
 
 type NavProps = {
   species: AllSpeciesData
+  stats: StatsBySpecies
 }
 
-function Nav({ species }: NavProps) {
+function Nav({ species, stats }: NavProps) {
   const { t, i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
@@ -44,6 +45,7 @@ function Nav({ species }: NavProps) {
           {(closeMenuCallback: any) => (
             <SpeciesMenu
               species={species}
+              stats={stats}
               closeMenuCallback={closeMenuCallback}
             />
           )}
