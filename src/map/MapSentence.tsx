@@ -12,7 +12,6 @@ type MapSentenceProps = {
 }
 
 function MapSentence({ timeseriesData }: MapSentenceProps) {
-  console.log(timeseriesData)
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -63,7 +62,6 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
 
     // as a proportion of the total
     const ratios = [0, 1, 2].map((i) => yearData[i] / total)
-    console.log(ratios)
 
     const dominant = ratios.flatMap((v, i) => (v > 0.7 ? [i] : []))
     const majority = ratios.flatMap((v, i) => (v > 0.5 ? [i] : []))

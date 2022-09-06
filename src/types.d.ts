@@ -47,14 +47,17 @@ export type LayerGenerator = {
 }
 
 export type ValuesByCellType = [number, number, number, number?]
-export type ValuesByYear = Record<TimeStepFutureNum, ValuesByCellType> &
-  Record<'2005', number> & { region?: Region } & {
-    speciesDetail?: { name: string }
-  }
+export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> & {
+  '2005': number
+  region?: Region
+  speciesDetail?: { name: string }
+}
 export type ValuesByRegionGID = Record<string, ValuesByYear>
 export type ValuesBySpeciesID = Record<string, ValuesByYear>
 export type ValuesBySpeciesIDOrValuesByRegionGID = Record<string, ValuesByYear>
-export type StatsBySpecies = Record<string, ValuesByRegionGID>
+export type StatsBySpecies = Record<string, ValuesByRegionGID> & {
+  speciesCount?: Record<string, ValuesByYear>
+}
 
 export type TimeseriesData = {
   t: number

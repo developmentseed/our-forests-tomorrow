@@ -3,6 +3,7 @@ import { CellTypeEnum, COUNTRIES_WITH_REGIONS_GIDS } from '../constants'
 import {
   RegionFeature,
   StatsBySpecies,
+  TimeStepFuture,
   ValuesBySpeciesIDOrValuesByRegionGID,
   ValuesByYear,
 } from '../types'
@@ -25,13 +26,13 @@ export function useStats(
         ? Number.NEGATIVE_INFINITY
         : year === 2005
         ? statsA[2005]
-        : statsA[year][type]
+        : statsA[year.toString() as TimeStepFuture][type]
 
       const valueB = !statsB
         ? Number.NEGATIVE_INFINITY
         : year === 2005
         ? statsB[2005]
-        : statsB[year][type]
+        : statsB[year.toString() as TimeStepFuture][type]
 
       if (order === 'desc') {
         if (!valueA) return 1

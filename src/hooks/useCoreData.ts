@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import {
   AllSpeciesData,
   Region,
-  SpeciesData,
   StatsBySpecies,
   ValuesByRegionGID,
   ValuesByYear,
@@ -44,7 +43,7 @@ function useCoreData() {
           return [speciesKey, data]
         })
       )
-      console.log(allSpeciesDataWithLabels)
+
       setSpeciesData(allSpeciesDataWithLabels)
 
       const regionsWithLabels = (regions as Region[]).map((r) => {
@@ -81,10 +80,77 @@ function useCoreData() {
           }
         )
       )
-      setStats(statsWithRegions as StatsBySpecies)
+
+      // Compute overall stats
+      const getEmptyValuesByYear = () =>
+        ({
+          '2005': 0,
+          '2035': [0, 0, 0],
+          '2065': [0, 0, 0],
+          '2095': [0, 0, 0],
+        } as ValuesByYear)
+
+      const speciesCount: ValuesByRegionGID = {}
+      const statsWithGlobalStatsForSpecies = Object.fromEntries(
+        Object.entries(statsWithRegions).map(
+          ([species, speciesStats]: [string, ValuesByRegionGID]) => {
+            // summary for this species
+            const global = getEmptyValuesByYear()
+            Object.values(speciesStats)
+              .filter((regStats) => !regStats.region?.GID_1)
+              .forEach((regStats) => {
+                global['2005'] += regStats['2005']
+                regStats['2035'].forEach(
+                  (v, i) => ((global['2035'] as any)[i] += v || 0)
+                )
+                regStats['2065'].forEach(
+                  (v, i) => ((global['2065'] as any)[i] += v || 0)
+                )
+                regStats['2095'].forEach(
+                  (v, i) => ((global['2095'] as any)[i] += v || 0)
+                )
+              })
+
+            // summary for regions
+            Object.entries(speciesStats).forEach(([GID, regStats]) => {
+              if (!speciesCount[GID]) {
+                speciesCount[GID] = getEmptyValuesByYear()
+              }
+              speciesCount[GID]['2005'] += regStats['2005'] > 0 ? 1 : 0
+              regStats['2035'].forEach((v, i) => {
+                ;(speciesCount[GID]['2035'] as any)[i] +=
+                  (regStats['2035'][i] as any) > 0 ? 1 : 0
+              })
+              regStats['2065'].forEach((v, i) => {
+                ;(speciesCount[GID]['2065'] as any)[i] +=
+                  (regStats['2065'][i] as any) > 0 ? 1 : 0
+              })
+              regStats['2095'].forEach((v, i) => {
+                ;(speciesCount[GID]['2095'] as any)[i] +=
+                  (regStats['2095'][i] as any) > 0 ? 1 : 0
+              })
+            })
+
+            return [
+              species,
+              {
+                global,
+                ...speciesStats,
+              },
+            ]
+          }
+        )
+      )
+      const statsWithSpeciesCountForRegions = {
+        ...statsWithGlobalStatsForSpecies,
+        speciesCount,
+      }
+
+      console.log('????', statsWithSpeciesCountForRegions)
+      setStats(statsWithSpeciesCountForRegions as StatsBySpecies)
       setRegions(regionsWithLabels)
     })
-  }, [stats])
+  }, [stats, i18n])
   return { stats, speciesData, regions }
 }
 
