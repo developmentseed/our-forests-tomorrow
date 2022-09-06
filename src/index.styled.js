@@ -70,10 +70,18 @@ const GlobalStyles = styled.createGlobalStyle`
     cursor: pointer;
   }
 
+  ul {
+    list-style-type: none;
+  }
+
   ul,
   li {
     margin: 0;
     padding: 0;
+  }
+
+  input {
+    font-family: ${({ theme }) => theme.fonts.sans};
   }
 `
 

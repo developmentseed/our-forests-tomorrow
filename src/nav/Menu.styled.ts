@@ -18,6 +18,5 @@ export const MenuColumns = styled.div`
   display: flex;
   & > ul {
     columns: 5;
-    list-style-type: none;
   }
 `

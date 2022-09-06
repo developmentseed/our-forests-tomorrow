@@ -52,7 +52,8 @@ export const COUNTRIES_WITH_REGIONS_GIDS = [
 export const THEME = {
   colors: {
     white: '#FFF',
-    light: '#FFFBED',
+    light: 'rgb(255,251,237)',
+    lightFaded: 'rgb(255,251,237, .1)',
     dark: '#04232F',
     background: '#B0D7C1',
     darkgreen: '#0E817A',

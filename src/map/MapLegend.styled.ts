@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const MapLegendsWrapper = styled.ul`
   margin: 4px 0 0;
   background: ${({ theme }) => theme.colors.light};
-  list-style-type: none;
   font-size: ${({ theme }) => theme.fontSizes.small};
 `
 export const LegendItem = styled.li<{

@@ -1,12 +1,28 @@
-import { ChangeEvent, Fragment, useCallback, useMemo, useState } from 'react'
+import {
+  ChangeEvent,
+  Fragment,
+  MouseEvent,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react'
 import { useAtom, useSetAtom } from 'jotai'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
 import { deckColorToCss } from '../utils'
 import { MenuColumns } from './Menu.styled'
-import { Aside, SpeciesButton, SpeciesMenuTools } from './SpeciesMenu.styled'
+import {
+  Aside,
+  CloseButton,
+  Search,
+  SortByButton,
+  SortByList,
+  SpeciesButton,
+  SpeciesMenuTools,
+} from './SpeciesMenu.styled'
 import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import './SpeciesMenuSpritesheet.css'
+import Dropdown from '../components/Dropdown'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -15,7 +31,7 @@ type SpeciesMenuProps = {
 }
 
 function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const locale = i18n.language as Locale
 
@@ -53,8 +69,9 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
 
   const [sortBy, setSortBy] = useAtom(navSpeciesSortByAtom)
   const onSortClick = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      setSortBy(e.target.value as SpeciesSortBy)
+    (e: MouseEvent<HTMLElement>) => {
+      const value = (e.target as any).dataset.value
+      setSortBy(value as SpeciesSortBy)
     },
     [setSortBy]
   )
@@ -82,26 +99,36 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
     <Fragment>
       <SpeciesMenuTools>
         <div>
-          sort by{' '}
-          <select onChange={onSortClick} value={sortBy}>
-            <option value="vernacular">Vernacular name</option>
-            <option value="latin">Latin name</option>
-            <option value="area">Distribution area (descending)</option>
-          </select>
+          <label>{t('nav.sortBy')}</label>
+          <Dropdown
+            button={(reference: any, getReferenceProps: any) => (
+              <SortByButton ref={reference} {...getReferenceProps()}>
+                {t(`nav.sortByOptions.${sortBy}`)}
+              </SortByButton>
+            )}
+          >
+            <SortByList onClick={onSortClick}>
+              <li data-value="vernacular">
+                {t('nav.sortByOptions.vernacular')}
+              </li>
+              <li data-value="latin">{t('nav.sortByOptions.latin')}</li>
+              <li data-value="area">{t('nav.sortByOptions.area')}</li>
+            </SortByList>
+          </Dropdown>
         </div>
         <div>
-          search for a species{' '}
-          <input
+          <label>{t('nav.search')}</label>
+          <Search
             type="text"
-            placeholder="e.g. Irish Oak, mediterranean"
+            placeholder={t('nav.searchPlaceholder')}
             onChange={onSearch}
-          ></input>
+          ></Search>
         </div>
-        <button onClick={closeMenuCallback}>close</button>
+        <CloseButton onClick={closeMenuCallback}></CloseButton>
       </SpeciesMenuTools>
       <MenuColumns>
         <Aside>
-          Explore the possible future of <b>67</b> tree species
+          <Trans i18nKey="nav.exploreSpecies" components={{ b: <b /> }} />
         </Aside>
         <ul>
           {Object.entries(sorted).map(([speciesKey, speciesData]) => (
