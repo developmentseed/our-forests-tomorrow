@@ -95,9 +95,8 @@ export const Aside = styled.aside`
   & > b {
     display: block;
     font-family: ${({ theme }) => theme.fonts.serifBold};
-    /* line-height: 8rem; */
     font-size: 8rem;
-    margin: 1rem 0 1rem 0;
+    margin: 3.5rem 0 1.5rem 0;
   }
 `
 
