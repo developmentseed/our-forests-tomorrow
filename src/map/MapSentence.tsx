@@ -21,13 +21,6 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
 
   const species = formatLatin(currentSpecies)
   const context = t('mapLegend.context', undefined, { year })
-  const getSentence = (key: string) => {
-    return t(`mapLegend.${key}`, undefined, {
-      context,
-      species,
-      year,
-    })
-  }
 
   let sentence
   if (year === '2005') {
@@ -36,6 +29,37 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
     const yearData = timeseriesData[year] as number[]
     const reference = timeseriesData[2005] as number
     const total = sum(yearData)
+
+    const pcts = {
+      pctDecolonized: Math.round((yearData[0] / reference) * 100),
+      pctStable: Math.round((yearData[1] / reference) * 100),
+      pctSuitable: Math.round((yearData[2] / reference) * 100),
+    }
+
+    const getSentence = (key: string) => {
+      let pctsObj: Record<string, string | undefined> = {}
+      if (total > 0) {
+        pctsObj.pctDecolonized = t('mapLegend.pctDecolonized', undefined, {
+          pct: pcts.pctDecolonized,
+        })
+        pctsObj.pctStable = t('mapLegend.pctStable', undefined, {
+          pct: pcts.pctStable,
+        })
+        // case where suitable pct is Infinity/very high
+        pctsObj.pctSuitable =
+          pcts.pctSuitable < 1000
+            ? t('mapLegend.pctSuitable', undefined, { pct: pcts.pctSuitable })
+            : undefined
+      }
+      return t(`mapLegend.${key}`, undefined, {
+        context,
+        species,
+        year,
+        ...pctsObj,
+      })
+    }
+
+    if (total === 0) sentence = getSentence(t('noData'))
 
     // as a proportion of the total
     const ratios = [0, 1, 2].map((i) => yearData[i] / total)
