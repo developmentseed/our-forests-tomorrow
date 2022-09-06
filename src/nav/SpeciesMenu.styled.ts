@@ -67,6 +67,11 @@ export const Search = styled.input`
     color: ${({ theme }) => theme.colors.dark};
     opacity: 0.5;
   }
+
+  &:focus {
+    outline: none;
+    border-bottom-width: 2px;
+  }
 `
 
 export const CloseButton = styled.button`
@@ -81,13 +86,18 @@ export const Aside = styled.aside`
   font-size: 4rem;
   max-width: 35%;
   margin-right: 2rem;
-  line-height: 5rem;
+
+  & > p {
+    line-height: 4rem;
+    margin: 0;
+  }
 
   & > b {
     display: block;
     font-family: ${({ theme }) => theme.fonts.serifBold};
-    line-height: 8rem;
+    /* line-height: 8rem; */
     font-size: 8rem;
+    margin: 1rem 0 1rem 0;
   }
 `
 
