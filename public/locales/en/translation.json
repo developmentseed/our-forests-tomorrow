@@ -10,7 +10,7 @@
     "about": "about",
     "regions": "regions",
     "species": "species",
-    "sortBy": "ssort by",
+    "sortBy": "sort by",
     "sortByOptions": {
       "vernacular": "vernacular name",
       "latin": "latin name",
@@ -18,7 +18,7 @@
     },
     "search": "search for a species name, description...",
     "searchPlaceholder": "e.g. Irish oak, mediterranean...",
-    "exploreSpecies": "explore the possible future of <b>67</b> tree species"
+    "exploreSpecies": "<p>explore the possible future of<p><b>67</b><p>tree species</p>"
   },
   "mapLegend": {
     "stable": "Stable in {{year}}",
