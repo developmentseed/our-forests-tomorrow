@@ -9,14 +9,17 @@ export const MenuContents = styled.div<MenuContentsProps>`
   top: ${({ theme }) => theme.layout.navHeight};
   left: 0;
   width: 100%;
-  background: black;
+  background: ${({ theme }) => theme.colors.dark};
   z-index: 99;
 `
 
 export const MenuColumns = styled.div`
+  padding: 2rem 4rem 3rem 2rem;
   color: ${({ theme }) => theme.colors.light};
   display: flex;
+
+  justify-content: space-between;
   & > ul {
-    columns: 5;
+    columns: 4;
   }
 `

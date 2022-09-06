@@ -79,11 +79,14 @@ export const CloseButton = styled.button`
 export const Aside = styled.aside`
   font-family: ${({ theme }) => theme.fonts.serif};
   font-size: 4rem;
-  width: 300px;
+  max-width: 35%;
+  margin-right: 2rem;
+  line-height: 5rem;
 
   & > b {
-    font-family: ${({ theme }) => theme.fonts.serifBold};
     display: block;
+    font-family: ${({ theme }) => theme.fonts.serifBold};
+    line-height: 8rem;
     font-size: 8rem;
   }
 `
@@ -93,27 +96,28 @@ interface SpeciesButtonProps {
 }
 
 export const SpeciesButton = styled.button<SpeciesButtonProps>`
-  border-left: 2px solid ${({ color }) => color};
+  display: block;
+  border-left: 4px solid ${({ color }) => color};
   color: ${({ theme }) => theme.colors.light};
   text-align: left;
   text-transform: capitalize;
-  width: 100%;
-  height: 40px;
+  height: 34px;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  line-height: 0.8rem;
 
   &:disabled {
     opacity: 0.3;
   }
 
   & > b {
-    display: inline-block;
+    display: block;
     font-weight: normal;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
   }
 
-  & > i {
+  /* & > i {
     backdrop-filter: blur(10px);
-    display: inline-block;
-    font-size: ${({ theme }) => theme.fontSizes.small};
+    display: block;
     opacity: 0.7;
-  }
+  } */
 `

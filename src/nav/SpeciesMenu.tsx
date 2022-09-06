@@ -21,7 +21,6 @@ import {
   SpeciesMenuTools,
 } from './SpeciesMenu.styled'
 import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
-import './SpeciesMenuSpritesheet.css'
 import Dropdown from '../components/Dropdown'
 
 type SpeciesMenuProps = {
@@ -128,30 +127,33 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
       </SpeciesMenuTools>
       <MenuColumns>
         <Aside>
-          <Trans i18nKey="nav.exploreSpecies" components={{ b: <b /> }} />
+          <Trans
+            i18nKey="nav.exploreSpecies"
+            components={{ b: <b />, p: <p /> }}
+          />
         </Aside>
         <ul>
           {Object.entries(sorted).map(([speciesKey, speciesData]) => (
-            <li key={speciesKey} onClick={() => onSpeciesClick(speciesKey)}>
-              <SpeciesButton
-                className={`sprite sprite-${speciesKey}`}
-                color={deckColorToCss(speciesData.color)}
-                disabled={
-                  !!highlightedIds && !highlightedIds.includes(speciesKey)
-                }
-              >
-                <b>
-                  {sortBy === 'latin'
-                    ? speciesData.latin
-                    : speciesData.labels[locale].name}
-                </b>
-                <i>
-                  {sortBy === 'latin'
-                    ? speciesData.labels[locale].name
-                    : speciesData.latin}
-                </i>
-              </SpeciesButton>
-            </li>
+            <SpeciesButton
+              key={speciesKey}
+              onClick={() => onSpeciesClick(speciesKey)}
+              // className={`sprite sprite-${speciesKey}`}
+              color={deckColorToCss(speciesData.color)}
+              disabled={
+                !!highlightedIds && !highlightedIds.includes(speciesKey)
+              }
+            >
+              <b>
+                {sortBy === 'latin'
+                  ? speciesData.latin
+                  : speciesData.labels[locale].name}
+              </b>
+              {/* <i>
+                {sortBy === 'latin'
+                  ? speciesData.labels[locale].name
+                  : speciesData.latin}
+              </i> */}
+            </SpeciesButton>
           ))}
         </ul>
       </MenuColumns>
