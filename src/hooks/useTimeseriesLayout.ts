@@ -56,7 +56,6 @@ function useTimeseriesLayout(
     nodeMaxHeight = 30,
     nodeMinHeight = 2,
     nodeMinHeightToBeVisible = 1,
-    mainColor = [0, 255, 0],
   } = params || {}
   if (!data || !Object.keys(data).length)
     return { nodes: [], links: [], xs: [], nodeWidth: 0 }
@@ -66,7 +65,7 @@ function useTimeseriesLayout(
 
   const getFill = (step: TimeStep, type: CellTypeEnum) => {
     if (step === '2005' || type === CellTypeEnum.Stable)
-      return deckColorToCss(mainColor)
+      return deckColorToCss(COLOR_BY_CELL_TYPE[type])
     else if (type === CellTypeEnum.Suitable) return 'url(#diagonalHatch)'
     else return deckColorToCss(COLOR_BY_CELL_TYPE[type])
   }

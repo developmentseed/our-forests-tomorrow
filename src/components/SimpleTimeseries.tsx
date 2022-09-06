@@ -15,19 +15,11 @@ function SimpleTimeseries({ data, color }: SimpleTimeseriesProps) {
   const layoutData = useTimeseriesLayout(data, {
     width: W,
     height: H,
-    mainColor: color,
     nodeWidth: 24,
     nodeMaxHeight: 8,
   })
 
-  return (
-    <Timeseries
-      layoutData={layoutData}
-      mainColor={color}
-      width={W}
-      height={H}
-    />
-  )
+  return <Timeseries layoutData={layoutData} width={W} height={H} />
 }
 
 export default SimpleTimeseries

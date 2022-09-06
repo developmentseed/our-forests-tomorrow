@@ -15,14 +15,14 @@ function MapLegend({ mainColor }: MapLegendProps) {
   return (
     <MapLegendsWrapper>
       <LegendItem
-        color={timeStep === '2005' ? undefined : deckColorToCss(mainColor)}
+        color={timeStep === '2005' ? undefined : THEME.colors.suitable}
       >
         {timeStep === '2005'
           ? t('general.suitability')
           : t('mapLegend.suitability', undefined, { year: timeStep })}
       </LegendItem>
 
-      <LegendItem color={deckColorToCss(mainColor)}>
+      <LegendItem color={THEME.colors.stable}>
         {timeStep === '2005'
           ? t('general.currentDistribution')
           : t('mapLegend.stable', undefined, { year: timeStep })}

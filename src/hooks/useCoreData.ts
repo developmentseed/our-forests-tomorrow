@@ -26,6 +26,10 @@ function useCoreData() {
 
       const allSpeciesDataWithLabels: AllSpeciesData = Object.fromEntries(
         Object.entries(allSpeciesData).map(([speciesKey, speciesData]) => {
+          // console.log(
+          //   i18n.t(`species.${speciesKey}`, { lng: 'fr' }),
+          //   i18n.t(`species.${speciesKey}`, { lng: 'en' })
+          // )
           const data = {
             ...(speciesData as any),
             latin: formatLatin(speciesKey),

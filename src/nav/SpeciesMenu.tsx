@@ -18,6 +18,7 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
   const { i18n } = useTranslation()
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const locale = i18n.language as Locale
+
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
       setCurrentSpecies(speciesId)

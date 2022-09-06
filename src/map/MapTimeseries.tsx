@@ -24,7 +24,6 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
   const layoutData = useTimeseriesLayout(timeseriesData, {
     width: W,
     height: H,
-    mainColor,
   })
 
   if (!timeseriesData) return null
@@ -33,12 +32,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
 
   return (
     <MapTimeseriesWrapper>
-      <Timeseries
-        layoutData={layoutData}
-        mainColor={mainColor}
-        width={W}
-        height={H}
-      />
+      <Timeseries layoutData={layoutData} width={W} height={H} />
 
       <TimestepNav>
         {TIME_STEPS.map((year, yi) => (

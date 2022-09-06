@@ -1,4 +1,5 @@
 import { TimeStep } from './types'
+import { deckColorToCss } from './utils'
 
 export const GEOTIFF_BBOX = [
   -18.9166666670000012, 27.0833333330000059, 49.9999999989999964,
@@ -25,9 +26,9 @@ export enum CellTypeEnum {
 }
 
 export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, number[]> = {
-  [CellTypeEnum.Stable]: [0, 150, 0],
-  [CellTypeEnum.Decolonized]: [216, 46, 14],
-  [CellTypeEnum.Suitable]: [0, 0, 255],
+  [CellTypeEnum.Stable]: [14, 129, 122],
+  [CellTypeEnum.Decolonized]: [226, 46, 49],
+  [CellTypeEnum.Suitable]: [176, 215, 193],
   [CellTypeEnum.Unknown]: [0, 0, 0, 0],
 }
 
@@ -54,8 +55,10 @@ export const THEME = {
     light: '#FFFBED',
     dark: '#04232F',
     background: '#B0D7C1',
-    decolonized: '#E22E59',
     darkgreen: '#0E817A',
+    decolonized: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]),
+    stable: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]),
+    suitable: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Suitable]),
   },
   layout: {
     navHeight: '70px',

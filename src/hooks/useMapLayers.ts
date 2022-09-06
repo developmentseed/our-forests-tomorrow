@@ -111,10 +111,10 @@ const GRID: LayerGenerator = {
       region: RegionFeature | null
     ) => {
       const type = getCellTypeAtTimeStep(d, timeStep)
-      const baseColor =
-        type === CellTypeEnum.Stable
-          ? speciesColor
-          : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      const baseColor = COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      // type === CellTypeEnum.Stable
+      //   ? speciesColor
+      //   : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
       if (!region) return baseColor
       // TODO filter by region
       const alpha = false ? 255 : 50
@@ -127,9 +127,15 @@ type UseMapLayerProps = {
   mainColor: number[]
   region: RegionFeature | null
   onRegionChange: (region: RegionFeature | null) => void
+  onGridLoaded: (grid: any) => void
 }
 
-function useMapLayers({ mainColor, region, onRegionChange }: UseMapLayerProps) {
+function useMapLayers({
+  mainColor,
+  region,
+  onRegionChange,
+  onGridLoaded,
+}: UseMapLayerProps) {
   const [tilesZoom, setTilesZoom] = useState(3)
   const [hoveredRegionId, setHoveredRegionId] = useState<number | null>(null)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -207,6 +213,9 @@ function useMapLayers({ mainColor, region, onRegionChange }: UseMapLayerProps) {
         if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
           setTilesZoom(tiles[0].zoom)
         }
+        if (onGridLoaded) {
+          onGridLoaded(grid)
+        }
       },
     } as Omit<MVTLayerProps, 'TilesetClass'>)
 
@@ -225,6 +234,7 @@ function useMapLayers({ mainColor, region, onRegionChange }: UseMapLayerProps) {
     onRegionChange,
     hoveredRegionId,
     setHoveredRegionId,
+    onGridLoaded,
   ])
 }
 

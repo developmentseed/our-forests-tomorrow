@@ -1,18 +1,17 @@
 import { Fragment } from 'react'
-import { TIME_STEPS } from '../constants'
+import { CellTypeEnum, COLOR_BY_CELL_TYPE, TIME_STEPS } from '../constants'
 import { deckColorToCss } from '../utils'
 import SVGHatchPattern from './SVGHatchPattern'
 import { TimeseriesLayoutData } from '../hooks/useTimeseriesLayout'
 
 export type TimeseriesProps = {
   layoutData: TimeseriesLayoutData
-  mainColor: number[]
   width: number
   height: number
 }
 
-function Timeseries({ layoutData, mainColor, width, height }: TimeseriesProps) {
-  const { nodes, links, xs, nodeWidth } = layoutData
+function Timeseries({ layoutData, width, height }: TimeseriesProps) {
+  const { nodes, links } = layoutData
   // console.log(data, nodes, links)
 
   // const toArray = useMemo(() => {
@@ -85,7 +84,7 @@ function Timeseries({ layoutData, mainColor, width, height }: TimeseriesProps) {
         >
           <defs>
             <SVGHatchPattern
-              color={deckColorToCss(mainColor)}
+              color={deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Suitable])}
               hatchWidth={1.5}
             />
           </defs>

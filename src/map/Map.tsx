@@ -47,14 +47,23 @@ function Map({
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
+  const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
+  const onGridLoaded = useCallback(
+    (grid: any) => {
+      if (timeoutId.current) clearTimeout(timeoutId.current)
+      timeoutId.current = setTimeout(() => {
+        onRenderedFeaturesChange(grid.getRenderedFeatures())
+      }, 1)
+    },
+    [onRenderedFeaturesChange]
+  )
 
   const { layers, countries, grid } = useMapLayers({
     mainColor,
     region,
     onRegionChange,
+    onGridLoaded,
   })
-
-  const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
 
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
@@ -66,19 +75,10 @@ function Map({
         } catch (e) {
           console.log(e)
         }
-      }, 100)
+      }, 1000)
     },
     [grid, onRenderedFeaturesChange]
   )
-
-  // TODO internal MVT layer error - force onViewStateChange?
-  // useEffect(() => {
-  //   try {
-  //     onRenderedFeaturesChange(grid.getRenderedFeatures())
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }, [grid, onRenderedFeaturesChange, currentSpecies])
 
   useEffect(() => {
     if (!countries.context) return
