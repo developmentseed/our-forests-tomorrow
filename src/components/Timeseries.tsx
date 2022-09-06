@@ -77,7 +77,7 @@ function Timeseries({ layoutData, mainColor, width, height }: TimeseriesProps) {
           </g>
         ))}
       </svg> */}
-      <div style={{ position: 'relative', marginBottom: '30px' }}>
+      <div style={{ position: 'relative' }}>
         <svg
           width={width}
           height={height}

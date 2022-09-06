@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const MapTimeseriesWrapper = styled.nav`
   background-color: ${({ theme }) => theme.colors.white};
   position: relative;
+  padding-bottom: 50px;
 `
 
 export const TimestepNav = styled.nav`

@@ -1,10 +1,7 @@
-import type { Feature } from 'geojson'
 import { TIME_STEPS } from '../constants'
-import './MapTimeseries.css'
 import Timeseries from '../components/Timeseries'
 import { useAtom } from 'jotai'
 import { timeStepAtom } from '../atoms'
-import useTimeseriesData from '../hooks/useTimeseriesData'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import {
   MapTimeseriesWrapper,

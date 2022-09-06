@@ -47,7 +47,7 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
         })
         // case where suitable pct is Infinity/very high
         pctsObj.pctSuitable =
-          pcts.pctSuitable < 1000
+          pcts.pctSuitable < 10000
             ? t('mapLegend.pctSuitable', undefined, { pct: pcts.pctSuitable })
             : undefined
       }
