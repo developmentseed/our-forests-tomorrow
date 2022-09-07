@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
-export const MapWrapper = styled.div`
-  position: relative;
-  height: 60vh;
+export const MapWrapper = styled.div<{ fixed: boolean }>`
+  position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
+  top: ${({ fixed, theme }) => (fixed ? theme.layout.navHeight : 0)};
+  height: ${({ fixed }) => (fixed ? 'calc(100vh - 70px)' : '60vh')};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.dark};
+  transition: height 300ms;
 `
 
 export const MapZoom = styled.div`

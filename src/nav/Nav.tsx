@@ -1,4 +1,7 @@
+import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
+import { introCompletedAtom, introStepAtom } from '../atoms'
+import { IntroStepEnum } from '../intro/Intro'
 import { AllSpeciesData, StatsBySpecies } from '../types'
 import Menu from './Menu'
 import { NavButton, NavButtons, NavHeader, NavWrapper } from './Nav.styled'
@@ -14,9 +17,11 @@ function Nav({ species, stats }: NavProps) {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
+  const introStep = useAtomValue(introStepAtom)
+  const introCompleted = useAtomValue(introCompletedAtom)
 
   return (
-    <NavWrapper>
+    <NavWrapper visible={introCompleted || introStep > IntroStepEnum.Title}>
       <NavHeader>
         <h1>
           <Trans i18nKey="nav.title" components={{ b: <b /> }} />

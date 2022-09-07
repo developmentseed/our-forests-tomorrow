@@ -17,7 +17,7 @@ import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
-import { currentSpeciesAtom, timeStepAtom } from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { useAtomValue } from 'jotai'
 
 // Viewport settings
@@ -47,6 +47,8 @@ function Map({
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
+  const introCompleted = useAtomValue(introCompletedAtom)
+
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
     (grid: any) => {
@@ -160,7 +162,7 @@ function Map({
 
   return (
     <Fragment>
-      <MapWrapper onMouseMove={onMouseMove}>
+      <MapWrapper onMouseMove={onMouseMove} fixed={!introCompleted}>
         <DeckGL
           ref={deckRef}
           initialViewState={INITIAL_VIEW_STATE}

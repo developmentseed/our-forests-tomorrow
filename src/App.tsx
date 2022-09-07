@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useCallback } from 'react'
+import React, { useState, Fragment, useCallback, useEffect } from 'react'
 import { Feature } from 'geojson'
 
 import Map from './map/Map'
@@ -8,9 +8,10 @@ import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
 import Nav from './nav/Nav'
-import { currentSpeciesAtom } from './atoms'
+import { currentSpeciesAtom, introCompletedAtom } from './atoms'
 import { useAtomValue } from 'jotai'
 import useTimeseriesData from './hooks/useTimeseriesData'
+import Intro from './intro/Intro'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -18,6 +19,7 @@ function App() {
   const [renderedFeatures, setRenderedFeatures] = useState<
     undefined | Feature[]
   >(undefined)
+  const introCompleted = useAtomValue(introCompletedAtom)
 
   // TODO move to reg page
   const closeRegion = useCallback(() => {
@@ -25,6 +27,12 @@ function App() {
   }, [setRegion])
 
   const { stats, speciesData, regions } = useCoreData()
+
+  useEffect(() => {
+    if (introCompleted) {
+      window.scrollTo({ top: 0 })
+    }
+  }, [introCompleted])
 
   const currentSpeciesData = speciesData?.[currentSpecies]
 
@@ -35,6 +43,8 @@ function App() {
   ) : (
     <Fragment>
       <Nav species={speciesData} stats={stats} />
+
+      {!introCompleted && <Intro />}
       <Map
         mainColor={currentSpeciesData.color}
         region={region}
@@ -46,10 +56,21 @@ function App() {
           mainColor={currentSpeciesData.color}
         />
       </Map>
-      {region ? (
-        <RegionPage stats={stats} region={region} onRegionClose={closeRegion} />
-      ) : (
-        <SpeciesPage stats={stats} currentSpeciesData={currentSpeciesData} />
+      {introCompleted && (
+        <Fragment>
+          {region ? (
+            <RegionPage
+              stats={stats}
+              region={region}
+              onRegionClose={closeRegion}
+            />
+          ) : (
+            <SpeciesPage
+              stats={stats}
+              currentSpeciesData={currentSpeciesData}
+            />
+          )}
+        </Fragment>
       )}
     </Fragment>
   )
