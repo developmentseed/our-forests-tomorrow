@@ -150,7 +150,6 @@ function useCoreData() {
         speciesCount,
       }
 
-      console.log('????', statsWithSpeciesCountForRegions)
       setStats(statsWithSpeciesCountForRegions as StatsBySpecies)
       setRegions(regionsWithLabels)
     })

@@ -20,10 +20,13 @@ import { MapWrapper, MapZoom } from './Map.styled'
 import {
   currentSpeciesAtom,
   introCompletedAtom,
+  introIntersectionRatioAtom,
   introStepAtom,
   timeStepAtom,
 } from '../atoms'
 import { useAtomValue } from 'jotai'
+import { IntroStepEnum } from '../intro/Intro'
+import { easeOutCubic, lerp } from '../utils'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -53,6 +56,8 @@ function Map({
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
+  const introStep = useAtomValue(introStepAtom)
+  const introIntersectionRatio = useAtomValue(introIntersectionRatioAtom)
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
@@ -86,6 +91,43 @@ function Map({
     },
     [grid, onRenderedFeaturesChange]
   )
+
+  useEffect(() => {
+    if (introCompleted) {
+      setViewState({
+        ...viewState,
+        pitch: 0,
+        transitionDuration: 1000,
+      })
+    } else {
+      if (introStep < IntroStepEnum.Map) {
+        setViewState({
+          ...viewState,
+          pitch: 80,
+          transitionDuration: 1000,
+        })
+      } else {
+        setViewState({
+          ...viewState,
+          pitch: 40,
+          transitionDuration: 2000,
+          transitionEasing: easeOutCubic,
+        })
+      }
+    }
+  }, [introCompleted, introStep, setViewState])
+
+  useEffect(() => {
+    if (introStep === IntroStepEnum.Map) {
+      const zoom = lerp(INITIAL_VIEW_STATE.zoom, 5, introIntersectionRatio)
+      console.log(introIntersectionRatio, zoom)
+      setViewState({
+        ...viewState,
+        zoom,
+        // pitch: introCompleted ? 0 : 40,
+      })
+    }
+  }, [introStep, introIntersectionRatio, setViewState])
 
   useEffect(() => {
     if (!countries.context) return

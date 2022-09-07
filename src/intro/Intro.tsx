@@ -1,7 +1,11 @@
 import { useSetAtom } from 'jotai'
 import { ReactNode, useCallback, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { introCompletedAtom, introStepAtom } from '../atoms'
+import {
+  introCompletedAtom,
+  introIntersectionRatioAtom,
+  introStepAtom,
+} from '../atoms'
 import SpeciesMenuContent from '../nav/SpeciesMenuContent'
 import { AllSpeciesData } from '../types'
 import {
@@ -36,16 +40,20 @@ export enum IntroStepEnum {
 type IntroSectionProps = {
   id: IntroStepEnum
   children: ReactNode
+  threshold?: number | number[]
 }
 
-function IntroSection({ id, children }: IntroSectionProps) {
+function IntroSection({ id, children, threshold = 0.5 }: IntroSectionProps) {
   const setIntroStep = useSetAtom(introStepAtom)
+  const setIntroIntersectionRatio = useSetAtom(introIntersectionRatioAtom)
 
   const { ref, inView, entry } = useInView({
-    threshold: 0.5,
+    threshold,
   })
 
-  // console.log(entry)
+  if (entry) {
+    setIntroIntersectionRatio(entry?.intersectionRatio)
+  }
 
   useEffect(() => {
     if (inView) setIntroStep(id)
@@ -56,6 +64,10 @@ function IntroSection({ id, children }: IntroSectionProps) {
 type IntroProps = {
   species: AllSpeciesData
 }
+
+const CONTINUOUS_THRESHOLDS = Array(100)
+  .fill(0)
+  .map((_, i) => i / 100)
 
 function Intro({ species }: IntroProps) {
   const setIntroCompleted = useSetAtom(introCompletedAtom)
@@ -83,7 +95,7 @@ function Intro({ species }: IntroProps) {
           </SpeciesMenuContent>
         </IntroSpecies>
       </IntroSection>
-      <IntroSection id={IntroStepEnum.Map}>
+      <IntroSection id={IntroStepEnum.Map} threshold={CONTINUOUS_THRESHOLDS}>
         <IntroMap>Study precision</IntroMap>
       </IntroSection>
       <IntroSection id={IntroStepEnum.SpeciesExamplePage}>

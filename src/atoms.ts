@@ -15,3 +15,4 @@ export const navSpeciesSortByAtom = atom<SpeciesSortBy>('vernacular')
 
 export const introStepAtom = atom<IntroStepEnum>(IntroStepEnum.Title)
 export const introCompletedAtom = atomWithHash<boolean>('introCompleted', false)
+export const introIntersectionRatioAtom = atom<number>(0)
