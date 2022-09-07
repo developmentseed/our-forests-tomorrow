@@ -44,7 +44,7 @@ function App() {
     <Fragment>
       <Nav species={speciesData} stats={stats} />
 
-      {!introCompleted && <Intro />}
+      {!introCompleted && <Intro species={speciesData} />}
       <Map
         mainColor={currentSpeciesData.color}
         region={region}

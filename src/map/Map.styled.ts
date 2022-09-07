@@ -9,13 +9,16 @@ export const MapWrapper = styled.div<{ fixed: boolean }>`
   transition: height 300ms;
 `
 
-export const MapZoom = styled.div`
+export const MapZoom = styled.div<{ visible: boolean }>`
   position: absolute;
   z-index: 1;
   bottom: 20px;
   left: 20px;
   display: flex;
   flex-direction: column;
+  transform: ${({ visible }) =>
+    visible ? 'translateX(0px)' : 'translateX(-50px)'};
+  transition: transform 300ms;
 
   & > button {
     width: 30px;

@@ -1,7 +1,8 @@
 import { useAtomValue } from 'jotai'
 import { useTranslation } from 'react-i18next'
-import { timeStepAtom } from '../atoms'
+import { introStepAtom, timeStepAtom } from '../atoms'
 import { THEME } from '../constants'
+import { IntroStepEnum } from '../intro/Intro'
 import { deckColorToCss } from '../utils'
 import { LegendItem, MapLegendsWrapper } from './MapLegend.styled'
 
@@ -12,8 +13,9 @@ export type MapLegendProps = {
 function MapLegend({ mainColor }: MapLegendProps) {
   const { t } = useTranslation()
   const timeStep = useAtomValue(timeStepAtom)
+  const introStep = useAtomValue(introStepAtom)
   return (
-    <MapLegendsWrapper>
+    <MapLegendsWrapper visible={introStep >= IntroStepEnum.SpeciesExamplePage}>
       <LegendItem
         color={timeStep === '2005' ? undefined : THEME.colors.suitable}
       >

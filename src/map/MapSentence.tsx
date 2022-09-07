@@ -1,7 +1,7 @@
 import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
 import { useTranslation } from 'react-i18next'
-import { currentSpeciesAtom, timeStepAtom } from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { CellTypeEnum, CellTypesString } from '../constants'
 import { ValuesByYear } from '../types'
 import { formatLatin } from '../utils'
@@ -15,6 +15,7 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
+  const introCompleted = useAtomValue(introCompletedAtom)
 
   if (!timeseriesData || !timeseriesData[year]) return null
 
@@ -100,7 +101,9 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
     }
   }
 
-  return <MapSentenceWrapper>{sentence}</MapSentenceWrapper>
+  return (
+    <MapSentenceWrapper visible={introCompleted}>{sentence}</MapSentenceWrapper>
+  )
 }
 
 export default MapSentence

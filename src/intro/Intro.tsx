@@ -2,6 +2,8 @@ import { useSetAtom } from 'jotai'
 import { ReactNode, useCallback, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { introCompletedAtom, introStepAtom } from '../atoms'
+import SpeciesMenuContent from '../nav/SpeciesMenuContent'
+import { AllSpeciesData } from '../types'
 import {
   IntroForests,
   IntroMap,
@@ -40,7 +42,7 @@ function IntroSection({ id, children }: IntroSectionProps) {
   const setIntroStep = useSetAtom(introStepAtom)
 
   const { ref, inView, entry } = useInView({
-    threshold: 0.9,
+    threshold: 0.5,
   })
 
   // console.log(entry)
@@ -51,7 +53,11 @@ function IntroSection({ id, children }: IntroSectionProps) {
   return <IntroSectionWrapper ref={ref}>{children}</IntroSectionWrapper>
 }
 
-function Intro() {
+type IntroProps = {
+  species: AllSpeciesData
+}
+
+function Intro({ species }: IntroProps) {
   const setIntroCompleted = useSetAtom(introCompletedAtom)
   const onDismissClicked = useCallback(() => {
     setIntroCompleted(true)
@@ -71,7 +77,11 @@ function Intro() {
         </IntroForests>
       </IntroSection>
       <IntroSection id={IntroStepEnum.Species}>
-        <IntroSpecies>A large number (67) of tree species</IntroSpecies>
+        <IntroSpecies>
+          <SpeciesMenuContent species={species}>
+            A large number (67) of tree species blah blih blouh
+          </SpeciesMenuContent>
+        </IntroSpecies>
       </IntroSection>
       <IntroSection id={IntroStepEnum.Map}>
         <IntroMap>Study precision</IntroMap>

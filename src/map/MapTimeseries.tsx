@@ -1,7 +1,7 @@
 import { TIME_STEPS } from '../constants'
 import Timeseries from '../components/Timeseries'
-import { useAtom } from 'jotai'
-import { timeStepAtom } from '../atoms'
+import { useAtom, useAtomValue } from 'jotai'
+import { introStepAtom, timeStepAtom } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import {
   MapTimeseriesWrapper,
@@ -9,6 +9,7 @@ import {
   TimestepNav,
 } from './MapTimeseries.styled'
 import { ValuesByYear } from '../types'
+import { IntroStepEnum } from '../intro/Intro'
 
 const W = 250
 const H = 70
@@ -25,13 +26,14 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
     width: W,
     height: H,
   })
+  const introStep = useAtomValue(introStepAtom)
 
   if (!timeseriesData) return null
 
   const { xs, nodeWidth } = layoutData
 
   return (
-    <MapTimeseriesWrapper>
+    <MapTimeseriesWrapper visible={introStep >= IntroStepEnum.Chart}>
       <Timeseries layoutData={layoutData} width={W} height={H} />
 
       <TimestepNav>

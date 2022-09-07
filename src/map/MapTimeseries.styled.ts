@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
-export const MapTimeseriesWrapper = styled.nav`
+export const MapTimeseriesWrapper = styled.nav<{ visible: boolean }>`
   background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   padding-bottom: 50px;
+  transform: ${({ visible }) =>
+    visible ? 'translateX(0px)' : 'translateX(300px)'};
+  transition: transform 300ms;
 `
 
 export const TimestepNav = styled.nav`
@@ -26,6 +29,7 @@ export const TimestepButton = styled.button<{ selected: boolean }>`
     border-radius: 5px;
     padding: 4px;
     background: ${({ theme }) => theme.colors.background};
-    /* color: ${({ theme }) => theme.colors.darkgreen}; */
+    color: ${({ theme }) => theme.colors.darkgreen};
+    font-weight: bold;
   }
 `

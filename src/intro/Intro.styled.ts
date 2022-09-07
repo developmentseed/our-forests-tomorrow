@@ -14,6 +14,7 @@ export const IntroSectionWrapper = styled.div`
   display: flex;
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.serif};
+  font-size: ${({ theme }) => theme.fontSizes.subtitle};
 
   & > * {
     display: flex;
@@ -34,7 +35,11 @@ export const IntroForests = styled.div`
 `
 
 export const IntroSpecies = styled.div`
-  background: blue;
+  background: ${({ theme }) => theme.colors.dark};
+
+  & aside {
+    font-size: ${({ theme }) => theme.fontSizes.subtitle};
+  }
 `
 
 export const IntroMap = styled.div``

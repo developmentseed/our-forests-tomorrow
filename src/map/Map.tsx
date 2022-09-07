@@ -17,7 +17,12 @@ import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
-import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
+import {
+  currentSpeciesAtom,
+  introCompletedAtom,
+  introStepAtom,
+  timeStepAtom,
+} from '../atoms'
 import { useAtomValue } from 'jotai'
 
 // Viewport settings
@@ -171,7 +176,7 @@ function Map({
           onViewStateChange={onViewStateChange as any}
           layers={layers}
         />
-        <MapZoom>
+        <MapZoom visible={introCompleted}>
           <button onClick={onZoomIn}>+</button>
           <button onClick={onZoomOut}>-</button>
         </MapZoom>

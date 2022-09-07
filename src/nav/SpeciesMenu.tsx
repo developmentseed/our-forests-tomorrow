@@ -39,12 +39,12 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
     [closeMenuCallback, setCurrentSpecies]
   )
 
-  const [highlightedIds, setHighlightedIds] = useState<string[] | null>(null)
+  const [highlightedIds, setHighlightedIds] = useState<string[] | undefined>()
   const onSearch = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const term = e.target.value.toLowerCase()
       if (term === '') {
-        setHighlightedIds(null)
+        setHighlightedIds(undefined)
         return
       }
       const highlighted = Object.entries(species)

@@ -7,20 +7,20 @@ import { Aside, SpeciesButton } from './SpeciesMenuContent.styled'
 
 type SpeciesMenuContentProps = {
   species: AllSpeciesData
-  onSpeciesClick: (speciesKey: string) => void
-  highlightedIds: string[] | null
+  highlightedIds?: string[]
+  onSpeciesClick?: (speciesKey: string) => void
   showLatin?: boolean
   children?: ReactNode
 }
 
 function SpeciesMenuContent({
   species,
-  onSpeciesClick,
   highlightedIds,
+  onSpeciesClick,
   showLatin,
   children,
 }: SpeciesMenuContentProps) {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const locale = i18n.language as Locale
   return (
     <MenuColumns>
@@ -36,7 +36,9 @@ function SpeciesMenuContent({
         {Object.entries(species).map(([speciesKey, speciesData]) => (
           <SpeciesButton
             key={speciesKey}
-            onClick={() => onSpeciesClick(speciesKey)}
+            onClick={
+              onSpeciesClick ? () => onSpeciesClick(speciesKey) : undefined
+            }
             // className={`sprite sprite-${speciesKey}`}
             color={deckColorToCss(speciesData.color)}
             disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
