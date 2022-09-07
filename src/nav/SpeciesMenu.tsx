@@ -7,21 +7,18 @@ import {
   useState,
 } from 'react'
 import { useAtom, useSetAtom } from 'jotai'
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
-import { deckColorToCss } from '../utils'
-import { MenuColumns } from './Menu.styled'
 import {
-  Aside,
   CloseButton,
   Search,
   SortByButton,
   SortByList,
-  SpeciesButton,
   SpeciesMenuTools,
 } from './SpeciesMenu.styled'
 import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import Dropdown from '../components/Dropdown'
+import SpeciesMenuContent from './SpeciesMenuContent'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -125,38 +122,12 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
         </div>
         <CloseButton onClick={closeMenuCallback}></CloseButton>
       </SpeciesMenuTools>
-      <MenuColumns>
-        <Aside>
-          <Trans
-            i18nKey="nav.exploreSpecies"
-            components={{ b: <b />, p: <p /> }}
-          />
-        </Aside>
-        <ul>
-          {Object.entries(sorted).map(([speciesKey, speciesData]) => (
-            <SpeciesButton
-              key={speciesKey}
-              onClick={() => onSpeciesClick(speciesKey)}
-              // className={`sprite sprite-${speciesKey}`}
-              color={deckColorToCss(speciesData.color)}
-              disabled={
-                !!highlightedIds && !highlightedIds.includes(speciesKey)
-              }
-            >
-              <b>
-                {sortBy === 'latin'
-                  ? speciesData.latin
-                  : speciesData.labels[locale].name}
-              </b>
-              {/* <i>
-                {sortBy === 'latin'
-                  ? speciesData.labels[locale].name
-                  : speciesData.latin}
-              </i> */}
-            </SpeciesButton>
-          ))}
-        </ul>
-      </MenuColumns>
+      <SpeciesMenuContent
+        species={sorted}
+        showLatin={sortBy === 'latin'}
+        onSpeciesClick={onSpeciesClick}
+        highlightedIds={highlightedIds}
+      />
     </Fragment>
   )
 }

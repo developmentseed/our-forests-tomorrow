@@ -65,9 +65,9 @@ function Intro() {
       </IntroSection>
       <IntroSection id={IntroStepEnum.Forests}>
         <IntroForests>
-          Forests cover 35% of EU land Value of forests Under threat from pests,
-          habitat fragmentation, invasive species, climate change, water
-          scarcity, fires, storms
+          Forests cover 35% of EU land Value of forests <br />
+          Under threat from pests, habitat fragmentation, invasive species,
+          climate change, water scarcity, fires, storms
         </IntroForests>
       </IntroSection>
       <IntroSection id={IntroStepEnum.Species}>
