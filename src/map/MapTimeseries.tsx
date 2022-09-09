@@ -1,7 +1,7 @@
 import { TIME_STEPS } from '../constants'
 import Timeseries from '../components/Timeseries'
 import { useAtom, useAtomValue } from 'jotai'
-import { introStepAtom, timeStepAtom } from '../atoms'
+import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import {
   MapTimeseriesWrapper,
@@ -27,14 +27,20 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
     height: H,
   })
   const introStep = useAtomValue(introStepAtom)
+  const introCompleted = useAtomValue(introCompletedAtom)
 
   if (!timeseriesData) return null
 
   const { xs, nodeWidth } = layoutData
+  const showTimeseries = introCompleted || introStep >= IntroStepEnum.Chart
 
   return (
-    <MapTimeseriesWrapper visible={introStep >= IntroStepEnum.Chart}>
-      <Timeseries layoutData={layoutData} width={W} height={H} />
+    <MapTimeseriesWrapper
+      visible={introCompleted || introStep >= IntroStepEnum.Timesteps}
+    >
+      {showTimeseries && (
+        <Timeseries layoutData={layoutData} width={W} height={H} />
+      )}
 
       <TimestepNav>
         {TIME_STEPS.map((year, yi) => (
@@ -45,7 +51,10 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
             style={{
               left: xs?.[yi],
               width: `${nodeWidth}px`,
-              height: H + 40,
+              height:
+                introCompleted || introStep >= IntroStepEnum.Chart
+                  ? H + 40
+                  : 30,
             }}
           >
             <span>{year}</span>

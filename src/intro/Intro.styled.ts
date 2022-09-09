@@ -15,6 +15,7 @@ export const IntroSectionWrapper = styled.div`
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.serif};
   font-size: ${({ theme }) => theme.fontSizes.subtitle};
+  line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
 
   & > * {
     display: flex;
@@ -38,16 +39,19 @@ export const IntroSpecies = styled.div`
   background: ${({ theme }) => theme.colors.dark};
 
   & aside {
-    font-size: ${({ theme }) => theme.fontSizes.subtitle};
+    /* font-size: ${({ theme }) => theme.fontSizes.subtitle}; */
+    font-size: ${({ theme }) => theme.fontSizes.normal} !important;
   }
 `
 
 export const IntroMap = styled.div``
 
-export const IntroSpeciesExamplePage = styled.div``
+export const IntroSpeciesExamplePage = styled.div`
+  background: ${({ theme }) => theme.colors.background};
+`
 export const IntroSpeciesExampleMap = styled.div``
-export const IntroTimesteps = styled.div``
 export const IntroCurrent = styled.div``
+export const IntroTimesteps = styled.div``
 export const IntroDecolonization = styled.div``
 export const IntroSuitable = styled.div``
 export const IntroChart = styled.div``

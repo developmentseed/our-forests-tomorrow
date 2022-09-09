@@ -10,10 +10,11 @@ import { NavButton } from './Nav.styled'
 
 export type MenuProps = {
   label: string
+  visible: boolean
   children: (props: any) => ReactNode
 }
 
-function Menu({ label, children }: MenuProps) {
+function Menu({ label, visible, children }: MenuProps) {
   const [open, setOpen] = useState<boolean>(false)
   const { reference, floating, strategy, context } = useFloating({
     open,
@@ -31,7 +32,7 @@ function Menu({ label, children }: MenuProps) {
 
   return (
     <Fragment>
-      <NavButton ref={reference} {...getReferenceProps()}>
+      <NavButton visible={visible} ref={reference} {...getReferenceProps()}>
         {label}
       </NavButton>
       {open && (

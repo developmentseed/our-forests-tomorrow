@@ -6,7 +6,7 @@ export const MapLegendsWrapper = styled.ul<{ visible: boolean }>`
   font-size: ${({ theme }) => theme.fontSizes.small};
   transform: ${({ visible }) =>
     visible ? 'translateX(0px)' : 'translateX(300px)'};
-  transition: transform 300ms;
+  transition: transform 1000ms;
 `
 export const LegendItem = styled.li<{
   color?: string

@@ -43,7 +43,10 @@ function Nav({ species, stats }: NavProps) {
         </nav>
       </NavHeader>
       <NavButtons>
-        <Menu label={t('nav.species')}>
+        <Menu
+          label={t('nav.species')}
+          visible={introCompleted || introStep >= IntroStepEnum.Species}
+        >
           {(closeMenuCallback: any) => (
             <SpeciesMenu
               species={species}
@@ -52,7 +55,10 @@ function Nav({ species, stats }: NavProps) {
             />
           )}
         </Menu>
-        <Menu label={t('nav.regions')}>
+        <Menu
+          visible={introCompleted || introStep >= IntroStepEnum.RegionMap}
+          label={t('nav.regions')}
+        >
           {(closeMenuCallback: any) => <div>hello</div>}
         </Menu>
       </NavButtons>

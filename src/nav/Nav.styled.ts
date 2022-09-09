@@ -40,9 +40,12 @@ export const NavButtons = styled.div`
   display: flex;
 `
 
-export const NavButton = styled.button`
+export const NavButton = styled.button<{ visible?: boolean }>`
   color: ${({ theme }) => theme.colors.dark};
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: bold;
+  opacity: ${({ visible }) =>
+    visible === true || visible === undefined ? 1 : 0};
+  transition: opacity 300ms;
 `

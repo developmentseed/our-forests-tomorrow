@@ -5,9 +5,10 @@ import { IntroStepEnum } from './intro/Intro'
 import { SpeciesSortBy, TimeStep } from './types'
 export const currentSpeciesAtom = atomWithHash<string>(
   'currentSpecies',
-  SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
+  // SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
+  'Quercus_ilex'
 )
-export const timeStepAtom = atomWithHash<TimeStep>('timeStep', '2005', {
+export const timeStepAtom = atomWithHash<TimeStep>('timeStep', '2095', {
   replaceState: true,
 })
 

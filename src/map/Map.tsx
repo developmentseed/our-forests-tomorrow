@@ -11,31 +11,15 @@ import React, {
 import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
 import bbox from '@turf/bbox'
 import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
-import { CENTER, EUROPE_BBOX } from '../constants'
+import { CENTER, EUROPE_BBOX, MAP_DEFAULT_VIEWPORT } from '../constants'
 import { CellProps, Region, RegionFeature } from '../types'
 import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
-import {
-  currentSpeciesAtom,
-  introCompletedAtom,
-  introIntersectionRatioAtom,
-  introStepAtom,
-  timeStepAtom,
-} from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { useAtomValue } from 'jotai'
-import { IntroStepEnum } from '../intro/Intro'
-import { easeOutCubic, lerp } from '../utils'
-
-// Viewport settings
-const INITIAL_VIEW_STATE = {
-  longitude: CENTER[0],
-  latitude: CENTER[1],
-  zoom: 3,
-  // pitch: 30,
-  bearing: 0,
-}
+import { useIntroMapTransitions } from '../hooks/useIntroMapTransitions'
 
 export type MapProps = {
   mainColor: number[]
@@ -52,12 +36,10 @@ function Map({
   onRenderedFeaturesChange,
   children,
 }: MapProps) {
-  const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE)
+  const [viewState, setViewState] = useState<MapViewState>(MAP_DEFAULT_VIEWPORT)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
-  const introStep = useAtomValue(introStepAtom)
-  const introIntersectionRatio = useAtomValue(introIntersectionRatioAtom)
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
@@ -92,42 +74,18 @@ function Map({
     [grid, onRenderedFeaturesChange]
   )
 
-  useEffect(() => {
-    if (introCompleted) {
-      setViewState({
-        ...viewState,
-        pitch: 0,
-        transitionDuration: 1000,
-      })
-    } else {
-      if (introStep < IntroStepEnum.Map) {
-        setViewState({
-          ...viewState,
-          pitch: 80,
-          transitionDuration: 1000,
-        })
-      } else {
-        setViewState({
-          ...viewState,
-          pitch: 40,
-          transitionDuration: 2000,
-          transitionEasing: easeOutCubic,
-        })
-      }
-    }
-  }, [introCompleted, introStep, setViewState])
-
-  useEffect(() => {
-    if (introStep === IntroStepEnum.Map) {
-      const zoom = lerp(INITIAL_VIEW_STATE.zoom, 5, introIntersectionRatio)
-      console.log(introIntersectionRatio, zoom)
-      setViewState({
-        ...viewState,
-        zoom,
-        // pitch: introCompleted ? 0 : 40,
-      })
-    }
-  }, [introStep, introIntersectionRatio, setViewState])
+  // useEffect(() => {
+  //   if (introStep === IntroStepEnum.Map) {
+  //     const zoom = lerp(INITIAL_VIEW_STATE.zoom, 5, introIntersectionRatio)
+  //     console.log(introIntersectionRatio, zoom)
+  //     setViewState({
+  //       ...viewState,
+  //       zoom,
+  //       // pitch: introCompleted ? 0 : 40,
+  //     })
+  //   }
+  // }, [introStep, introIntersectionRatio, setViewState])
+  useIntroMapTransitions(viewState, setViewState)
 
   useEffect(() => {
     if (!countries.context) return
@@ -212,7 +170,7 @@ function Map({
       <MapWrapper onMouseMove={onMouseMove} fixed={!introCompleted}>
         <DeckGL
           ref={deckRef}
-          initialViewState={INITIAL_VIEW_STATE}
+          // initialViewState={INITIAL_VIEW_STATE}
           controller={{ scrollZoom: false }}
           viewState={viewState}
           onViewStateChange={onViewStateChange as any}

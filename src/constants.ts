@@ -12,6 +12,15 @@ export const CENTER = [
   (GEOTIFF_BBOX[0] + GEOTIFF_BBOX[2]) / 2,
   (GEOTIFF_BBOX[1] + GEOTIFF_BBOX[3]) / 2,
 ]
+// export const CENTER = [-20, 50]
+
+export const MAP_DEFAULT_VIEWPORT = {
+  longitude: CENTER[0],
+  latitude: CENTER[1],
+  zoom: 3,
+  pitch: 0,
+  bearing: 0,
+}
 
 export const MAX_ZOOM = 8
 
@@ -71,6 +80,7 @@ export const THEME = {
   },
   fontSizes: {
     small: '0.7rem',
+    normal: '1rem',
     subtitle: '1.6rem',
     subtitleLineHeight: '2rem',
     title: '2.4rem',
