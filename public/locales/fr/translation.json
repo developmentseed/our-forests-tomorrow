@@ -30,7 +30,7 @@
     "pctSuitable": "({{pct}}% adapté)",
     "here": "Ici",
     "hereExplanation": "Dans la zone de la carte actuellement visible",
-    "inRegion": "Dans la région: ",
+    "inRegion": "Dans la région: {{region}}",
     "current": "Ceci est la distribution actuelle de {{species}} (chorologie)",
     "overwhelminglyDecolonized": "<0>{{area}}</0>, en <2>{{year}}</2>, {{species}} risque de disparaître {{pctDecolonized}}",
     "overwhelminglyStable": "<0>{{area}}</0>, en <2>{{year}}</2>, {{species}} est stable {{pctStable}}",
