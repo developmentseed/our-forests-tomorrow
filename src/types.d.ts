@@ -28,6 +28,7 @@ export type Region = {
   ENGTYPE_1?: string
   label: string
   regions?: Region[]
+  bbox: number[]
 }
 
 export type RegionProps = {
@@ -38,8 +39,6 @@ export type RegionProps = {
   // COUNTRY: string
   // NAME_1: string
 } & Region
-
-export type RegionFeature = Feature<Geometry, RegionProps>
 
 export type LayerGenerator = {
   config: LayerProps

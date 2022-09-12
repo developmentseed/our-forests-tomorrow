@@ -12,43 +12,36 @@ import {
 
 type RegionsMenuContentProps = {
   regions: Region[]
-  // highlightedIds?: string[]
-  onRegionClick?: (speciesKey: string) => void
+  onRegionClick: (gid: string) => void
   children?: ReactNode
   closeBtn: ReactNode
 }
 
 function RegionsMenuContent({
   regions,
-  // highlightedIds,
   onRegionClick,
-  children,
   closeBtn,
 }: RegionsMenuContentProps) {
   const { t, i18n } = useTranslation()
   const locale = i18n.language as Locale
   const regionsByCountries = useRegionsByCountries(regions)
-  console.log(regionsByCountries)
   return (
     <Fragment>
       <CloseButtonWrapper>{closeBtn}</CloseButtonWrapper>
       <MenuColumns>
-        {/* <Aside>
-        {children || (
-          <Trans
-            i18nKey="nav.exploreSpecies"
-            components={{ b: <b />, p: <p /> }}
-          />
-        )}
-      </Aside> */}
-
         {regionsByCountries.map((country) => (
           <Country>
             <h3>{country.COUNTRY}</h3>
             <ul>
-              <RegionButton>{t('general.entireCountry')}</RegionButton>
+              <RegionButton onClick={() => onRegionClick(country.GID_0)}>
+                {t('general.entireCountry')}
+              </RegionButton>
               {country.regions?.map((region) => (
-                <RegionButton>{region.NAME_1}</RegionButton>
+                <RegionButton
+                  onClick={() => onRegionClick(region.GID_1 as string)}
+                >
+                  {region.NAME_1}
+                </RegionButton>
               ))}
             </ul>
           </Country>

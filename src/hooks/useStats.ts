@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { CellTypeEnum, COUNTRIES_WITH_REGIONS_GIDS } from '../constants'
 import {
-  RegionFeature,
+  Region,
   StatsBySpecies,
   TimeStepFuture,
   ValuesBySpeciesIDOrValuesByRegionGID,
@@ -56,13 +56,13 @@ export function useStats(
 }
 
 export function useAllSpeciesStatsForRegion(
-  region: RegionFeature,
+  region: Region,
   stats: StatsBySpecies
 ) {
   return useMemo(() => {
     return Object.fromEntries(
       Object.entries(stats).map(([spc, spcStats]) => {
-        const id = region.properties.GID_1 || region.properties.GID_0
+        const id = region.GID_1 || region.GID_0
         const spcStatsForRegion = spcStats[id]
         return [spc, spcStatsForRegion]
       })

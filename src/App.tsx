@@ -1,21 +1,31 @@
-import React, { useState, Fragment, useCallback, useEffect } from 'react'
+import React, {
+  useState,
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+} from 'react'
 import { Feature } from 'geojson'
 
 import Map from './map/Map'
 import MapControls from './map/MapControls'
-import { RegionFeature } from './types'
+import { Region } from './types'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
 import Nav from './nav/Nav'
-import { currentSpeciesAtom, introCompletedAtom } from './atoms'
-import { useAtomValue } from 'jotai'
+import {
+  currentRegionAtom,
+  currentSpeciesAtom,
+  introCompletedAtom,
+} from './atoms'
+import { useAtom, useAtomValue } from 'jotai'
 import useTimeseriesData from './hooks/useTimeseriesData'
 import Intro from './intro/Intro'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
-  const [region, setRegion] = useState<RegionFeature | null>(null)
+  const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
   const [renderedFeatures, setRenderedFeatures] = useState<
     undefined | Feature[]
   >(undefined)
@@ -23,8 +33,8 @@ function App() {
 
   // TODO move to reg page
   const closeRegion = useCallback(() => {
-    setRegion(null)
-  }, [setRegion])
+    setCurrentRegion(null)
+  }, [setCurrentRegion])
 
   const { stats, speciesData, regions } = useCoreData()
 
@@ -35,10 +45,17 @@ function App() {
   }, [introCompleted])
 
   const currentSpeciesData = speciesData?.[currentSpecies]
+  const currentRegionData = useMemo(
+    () =>
+      regions?.find(
+        (r) => r.GID_0 === currentRegion || r.GID_1 === currentRegion
+      ),
+    [currentRegion, regions]
+  )
 
   const timeseriesData = useTimeseriesData(renderedFeatures)
 
-  return !stats || !speciesData || !currentSpeciesData ? (
+  return !stats || !speciesData || !currentSpeciesData || !regions ? (
     <div>loading</div>
   ) : (
     <Fragment>
@@ -47,8 +64,7 @@ function App() {
       {!introCompleted && <Intro species={speciesData} />}
       <Map
         mainColor={currentSpeciesData.color}
-        region={region}
-        onRegionChange={setRegion}
+        currentRegionData={currentRegionData}
         onRenderedFeaturesChange={setRenderedFeatures}
       >
         <MapControls
@@ -58,10 +74,10 @@ function App() {
       </Map>
       {introCompleted && (
         <Fragment>
-          {region ? (
+          {currentRegionData ? (
             <RegionPage
               stats={stats}
-              region={region}
+              currentRegionData={currentRegionData as Region}
               onRegionClose={closeRegion}
             />
           ) : (

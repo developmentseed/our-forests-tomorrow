@@ -7,12 +7,12 @@ import React, {
   Dispatch,
   SetStateAction,
   ReactNode,
+  useLayoutEffect,
 } from 'react'
 import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
-import bbox from '@turf/bbox'
 import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
-import { CENTER, EUROPE_BBOX, MAP_DEFAULT_VIEWPORT } from '../constants'
-import { CellProps, Region, RegionFeature } from '../types'
+import { MAP_DEFAULT_VIEWPORT } from '../constants'
+import { CellProps, Region } from '../types'
 import type { Feature } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
@@ -23,23 +23,23 @@ import { useIntroMapTransitions } from '../hooks/useIntroMapTransitions'
 
 export type MapProps = {
   mainColor: number[]
-  region: RegionFeature | null
-  onRegionChange: Dispatch<SetStateAction<RegionFeature | null>>
   onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
   children: ReactNode
+  currentRegionData?: Region
 }
 
 function Map({
   mainColor,
-  region,
-  onRegionChange,
   onRenderedFeaturesChange,
   children,
+  currentRegionData,
 }: MapProps) {
-  const [viewState, setViewState] = useState<MapViewState>(MAP_DEFAULT_VIEWPORT)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
+
+  const [viewState, setViewState] = useState<MapViewState>(MAP_DEFAULT_VIEWPORT)
+  const mapWrapperRef = useRef(null)
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
@@ -52,12 +52,11 @@ function Map({
     [onRenderedFeaturesChange]
   )
 
-  const { layers, countries, grid } = useMapLayers({
+  const { layers, grid } = useMapLayers({
     mainColor,
-    region,
-    onRegionChange,
     onGridLoaded,
   })
+  useIntroMapTransitions(viewState, setViewState)
 
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
@@ -74,32 +73,36 @@ function Map({
     [grid, onRenderedFeaturesChange]
   )
 
-  // useEffect(() => {
-  //   if (introStep === IntroStepEnum.Map) {
-  //     const zoom = lerp(INITIAL_VIEW_STATE.zoom, 5, introIntersectionRatio)
-  //     console.log(introIntersectionRatio, zoom)
-  //     setViewState({
-  //       ...viewState,
-  //       zoom,
-  //       // pitch: introCompleted ? 0 : 40,
-  //     })
-  //   }
-  // }, [introStep, introIntersectionRatio, setViewState])
-  useIntroMapTransitions(viewState, setViewState)
+  const [mapSize, setMapSize] = useState<null | {
+    width: number
+    height: number
+  }>(null)
+  useLayoutEffect(() => {
+    setMapSize({
+      width: (mapWrapperRef.current as any).offsetWidth,
+      height: (mapWrapperRef.current as any).offsetHeight,
+    })
+  }, [])
 
   useEffect(() => {
-    if (!countries.context) return
-    const { viewport } = countries.context
-    const wmViewport = viewport as WebMercatorViewport
+    const bbox = currentRegionData?.bbox
+    if (!bbox || !mapSize) return
 
-    const baseBbox = region ? bbox(region.geometry) : EUROPE_BBOX
+    const wmViewport = new WebMercatorViewport({
+      ...viewState,
+      width: mapSize.width,
+      height: mapSize.height,
+    })
+
     const { longitude, latitude, zoom } = wmViewport.fitBounds(
       [
-        [baseBbox[0], baseBbox[1]],
-        [baseBbox[2], baseBbox[3]],
+        [bbox[0], bbox[1]],
+        [bbox[2], bbox[3]],
       ],
-      { padding: 100 }
+      { padding: 20 }
     )
+
+    // TODO won't work on mount as onViewStateChange happens after
     setViewState({
       ...viewState,
       longitude,
@@ -107,7 +110,7 @@ function Map({
       zoom,
       transitionDuration: 1000,
     })
-  }, [region])
+  }, [currentRegionData, mapWrapperRef, mapSize?.width, mapSize?.height])
 
   const onZoomIn = useCallback(() => {
     setViewState({
@@ -167,7 +170,11 @@ function Map({
 
   return (
     <Fragment>
-      <MapWrapper onMouseMove={onMouseMove} fixed={!introCompleted}>
+      <MapWrapper
+        onMouseMove={onMouseMove}
+        fixed={!introCompleted}
+        ref={mapWrapperRef}
+      >
         <DeckGL
           ref={deckRef}
           // initialViewState={INITIAL_VIEW_STATE}
