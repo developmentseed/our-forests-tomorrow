@@ -9,16 +9,16 @@ import {
 import { useAtom, useSetAtom } from 'jotai'
 import { useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
+import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
+import Dropdown from '../components/Dropdown'
+import SpeciesMenuContent from './SpeciesMenuContent'
 import {
   CloseButton,
   Search,
   SortByButton,
   SortByList,
-  SpeciesMenuTools,
-} from './SpeciesMenu.styled'
-import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
-import Dropdown from '../components/Dropdown'
-import SpeciesMenuContent from './SpeciesMenuContent'
+  MenuTools,
+} from './Menu.styled'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -93,7 +93,7 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
 
   return (
     <Fragment>
-      <SpeciesMenuTools>
+      <MenuTools>
         <div>
           <label>{t('nav.sortBy')}</label>
           <Dropdown
@@ -121,7 +121,7 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
           ></Search>
         </div>
         <CloseButton onClick={closeMenuCallback}></CloseButton>
-      </SpeciesMenuTools>
+      </MenuTools>
       <SpeciesMenuContent
         species={sorted}
         showLatin={sortBy === 'latin'}

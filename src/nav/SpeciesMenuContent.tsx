@@ -2,8 +2,7 @@ import { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale } from '../types'
 import { deckColorToCss } from '../utils'
-import { MenuColumns } from './Menu.styled'
-import { Aside, SpeciesButton } from './SpeciesMenuContent.styled'
+import { Aside, MenuColumns, SpeciesButton } from './SpeciesMenuContent.styled'
 
 type SpeciesMenuContentProps = {
   species: AllSpeciesData

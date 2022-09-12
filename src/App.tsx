@@ -42,7 +42,7 @@ function App() {
     <div>loading</div>
   ) : (
     <Fragment>
-      <Nav species={speciesData} stats={stats} />
+      <Nav species={speciesData} regions={regions} stats={stats} />
 
       {!introCompleted && <Intro species={speciesData} />}
       <Map

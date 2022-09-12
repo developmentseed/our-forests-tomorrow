@@ -20,7 +20,6 @@ export type CellProps = {
 }
 
 export type Region = {
-  fid: number
   GID_0: string
   COUNTRY: string
   GID_1?: string
@@ -28,6 +27,7 @@ export type Region = {
   TYPE_1?: string
   ENGTYPE_1?: string
   label: string
+  regions?: Region[]
 }
 
 export type RegionProps = {

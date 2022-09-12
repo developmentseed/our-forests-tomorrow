@@ -5,14 +5,16 @@ import { IntroStepEnum } from '../intro/Intro'
 import { AllSpeciesData, StatsBySpecies } from '../types'
 import Menu from './Menu'
 import { NavButton, NavButtons, NavHeader, NavWrapper } from './Nav.styled'
+import RegionsMenu from './RegionsMenu'
 import SpeciesMenu from './SpeciesMenu'
 
 type NavProps = {
   species: AllSpeciesData
+  regions: any
   stats: StatsBySpecies
 }
 
-function Nav({ species, stats }: NavProps) {
+function Nav({ species, regions, stats }: NavProps) {
   const { t, i18n } = useTranslation()
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
@@ -59,7 +61,12 @@ function Nav({ species, stats }: NavProps) {
           visible={introCompleted || introStep >= IntroStepEnum.RegionMap}
           label={t('nav.regions')}
         >
-          {(closeMenuCallback: any) => <div>hello</div>}
+          {(closeMenuCallback: any) => (
+            <RegionsMenu
+              regions={regions}
+              closeMenuCallback={closeMenuCallback}
+            />
+          )}
         </Menu>
       </NavButtons>
     </NavWrapper>

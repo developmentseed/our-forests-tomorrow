@@ -1,4 +1,14 @@
 import styled from 'styled-components'
+export const MenuColumns = styled.div`
+  padding: 2rem 1rem 3rem 1rem;
+  color: ${({ theme }) => theme.colors.light};
+  display: flex;
+
+  justify-content: space-between;
+  & > ul {
+    columns: 4;
+  }
+`
 
 export const Aside = styled.aside`
   font-family: ${({ theme }) => theme.fonts.serif};
