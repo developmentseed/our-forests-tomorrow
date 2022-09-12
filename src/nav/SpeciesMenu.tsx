@@ -12,13 +12,8 @@ import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
 import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import Dropdown from '../components/Dropdown'
 import SpeciesMenuContent from './SpeciesMenuContent'
-import {
-  CloseButton,
-  Search,
-  SortByButton,
-  SortByList,
-  MenuTools,
-} from './Menu.styled'
+import { Search, SortByButton, SortByList, MenuTools } from './Menu.styled'
+import { CloseButton } from '../components/CloseButton.styled'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData

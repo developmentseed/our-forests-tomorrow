@@ -6,6 +6,7 @@ export const CloseButtonWrapper = styled.div`
   top: 1rem;
   & > button {
     color: ${({ theme }) => theme.colors.white} !important;
+    border-color: ${({ theme }) => theme.colors.white};
   }
 `
 

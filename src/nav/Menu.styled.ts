@@ -86,10 +86,3 @@ export const Search = styled.input`
     border-bottom-width: 2px;
   }
 `
-
-export const CloseButton = styled.button`
-  &::after {
-    content: '⤫';
-    font-size: 1.8rem;
-  }
-`

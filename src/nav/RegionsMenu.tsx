@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Locale } from '../types'
 import { currentRegionAtom } from '../atoms'
 import RegionsMenuContent from './RegionsMenuContent'
-import { CloseButton, MenuTools } from './Menu.styled'
+import { CloseButton } from '../components/CloseButton.styled'
 
 type RegionsMenuProps = {
   regions: any

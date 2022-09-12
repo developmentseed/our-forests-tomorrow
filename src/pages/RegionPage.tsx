@@ -3,6 +3,7 @@ import StatsDropdown from './StatsDropdown'
 import { useAllSpeciesStatsForRegion, useStats } from '../hooks/useStats'
 import { Region, StatsBySpecies, ValuesBySpeciesID } from '../types'
 import { Title } from './Page.styled'
+import { CloseButton } from '../components/CloseButton.styled'
 
 export type RegionPageProps = {
   currentRegionData: Region
@@ -27,8 +28,7 @@ function RegionPage({
   return (
     <header>
       <Title>
-        {currentRegionData.NAME_1}{' '}
-        <button className="back" onClick={onRegionClose}></button>
+        {currentRegionData.NAME_1} <CloseButton onClick={onRegionClose} />
       </Title>
       <div>
         In {currentRegionData.NAME_1},{' '}
