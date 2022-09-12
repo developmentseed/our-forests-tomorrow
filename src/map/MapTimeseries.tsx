@@ -5,11 +5,12 @@ import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import {
   MapTimeseriesWrapper,
-  TimestepButton,
+  TimestepButtonWrapper,
   TimestepNav,
 } from './MapTimeseries.styled'
 import { ValuesByYear } from '../types'
 import { IntroStepEnum } from '../intro/Intro'
+import { TimestepButton } from '../components/Button.styled'
 
 const W = 250
 const H = 70
@@ -44,8 +45,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
 
       <TimestepNav>
         {TIME_STEPS.map((year, yi) => (
-          <TimestepButton
-            selected={year === timeStep}
+          <TimestepButtonWrapper
             key={yi}
             onMouseEnter={() => setTimeStep(year)}
             style={{
@@ -57,8 +57,8 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
                   : 30,
             }}
           >
-            <span>{year}</span>
-          </TimestepButton>
+            <TimestepButton selected={year === timeStep}>{year}</TimestepButton>
+          </TimestepButtonWrapper>
         ))}
       </TimestepNav>
     </MapTimeseriesWrapper>

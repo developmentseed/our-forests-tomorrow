@@ -1,17 +1,19 @@
 import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
-import { CellTypeEnum, CellTypesString } from '../constants'
-import { ValuesByYear } from '../types'
+import { TimestepButton, WithTooltip } from '../components/Button.styled'
+import { CellTypesString } from '../constants'
+import { Region, ValuesByYear } from '../types'
 import { formatLatin } from '../utils'
 import { MapSentenceWrapper } from './MapSentence.styled'
 
 type MapSentenceProps = {
   timeseriesData: ValuesByYear | null
+  currentRegionData?: Region
 }
 
-function MapSentence({ timeseriesData }: MapSentenceProps) {
+function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -20,7 +22,7 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
   if (!timeseriesData || !timeseriesData[year]) return null
 
   const species = formatLatin(currentSpecies)
-  const context = t('mapLegend.context', undefined, { year })
+  // const context = t('mapLegend.context', undefined, { year })
 
   let sentence
   if (year === '2005') {
@@ -37,67 +39,89 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
     }
 
     const getSentence = (key: string) => {
-      let pctsObj: Record<string, string | undefined> = {}
+      let pctDecolonized, pctStable, pctSuitable
       if (total > 0) {
-        pctsObj.pctDecolonized = t('mapLegend.pctDecolonized', undefined, {
+        pctDecolonized = t('mapLegend.pctDecolonized', undefined, {
           pct: pcts.pctDecolonized,
         })
-        pctsObj.pctStable = t('mapLegend.pctStable', undefined, {
+        pctStable = t('mapLegend.pctStable', undefined, {
           pct: pcts.pctStable,
         })
         // case where suitable pct is Infinity/very high
-        pctsObj.pctSuitable =
+        pctSuitable =
           pcts.pctSuitable < 10000
             ? t('mapLegend.pctSuitable', undefined, { pct: pcts.pctSuitable })
             : undefined
       }
-      return t(`mapLegend.${key}`, undefined, {
-        context,
-        species,
-        year,
-        ...pctsObj,
-      })
+
+      const transKey = `mapLegend.${key}`
+      console.log(transKey)
+
+      const area = currentRegionData
+        ? t('mapLegend.inRegion', undefined, {
+            region: currentRegionData.NAME_1 || currentRegionData.COUNTRY,
+          })
+        : t('mapLegend.here')
+
+      return (
+        <Trans i18nKey={transKey}>
+          {!currentRegionData ? (
+            <WithTooltip title={t('mapLegend.hereExplanation')}>
+              {{ area }}
+            </WithTooltip>
+          ) : (
+            <span>{{ area }}</span>
+          )}
+          , by
+          <TimestepButton selected={true}>{{ year }}</TimestepButton>
+          {{ species }} is likely to disappear {{ pctDecolonized }}, while in
+          some areas it might become suitable {{ pctSuitable }} {{ pctStable }}
+        </Trans>
+      )
     }
 
     if (total === 0) sentence = getSentence(t('noData'))
+    else {
+      // as a proportion of the total
+      const ratios = [0, 1, 2].map((i) => yearData[i] / total)
 
-    // as a proportion of the total
-    const ratios = [0, 1, 2].map((i) => yearData[i] / total)
+      const dominant = ratios.flatMap((v, i) => (v > 0.7 ? [i] : []))
+      const majority = ratios.flatMap((v, i) => (v > 0.5 ? [i] : []))
+      const secondary = ratios.flatMap((v, i) =>
+        v > 0.35 && v <= 0.7 ? [i] : []
+      )
+      const tertiary = ratios.flatMap((v, i) =>
+        v > 0.2 && v <= 0.5 ? [i] : []
+      )
 
-    const dominant = ratios.flatMap((v, i) => (v > 0.7 ? [i] : []))
-    const majority = ratios.flatMap((v, i) => (v > 0.5 ? [i] : []))
-    const secondary = ratios.flatMap((v, i) =>
-      v > 0.35 && v <= 0.7 ? [i] : []
-    )
-    const tertiary = ratios.flatMap((v, i) => (v > 0.2 && v <= 0.5 ? [i] : []))
-
-    let key: string | null = null
-    if (dominant.length) {
-      key = `overwhelmingly${CellTypesString[dominant[0]]}`
-    } else {
-      if (secondary.length === 2) {
-        key = `both${CellTypesString[secondary[0]]}And${
-          CellTypesString[secondary[1]]
-        }`
-      } else if (majority.length) {
-        let biggestTertiaryValue = Number.NEGATIVE_INFINITY
-        let biggestTertiaryIndex = 0
-        ratios.forEach((r, i) => {
-          if (r > biggestTertiaryValue && tertiary.includes(i)) {
-            biggestTertiaryValue = r
-            biggestTertiaryIndex = i
-          }
-        })
-        key = `mostly${CellTypesString[majority[0]]}Somewhat${
-          CellTypesString[biggestTertiaryIndex]
-        }`
+      let key: string | null = null
+      if (dominant.length) {
+        key = `overwhelmingly${CellTypesString[dominant[0]]}`
       } else {
-        sentence = getSentence('equal')
+        if (secondary.length === 2) {
+          key = `both${CellTypesString[secondary[0]]}And${
+            CellTypesString[secondary[1]]
+          }`
+        } else if (majority.length) {
+          let biggestTertiaryValue = Number.NEGATIVE_INFINITY
+          let biggestTertiaryIndex = 0
+          ratios.forEach((r, i) => {
+            if (r > biggestTertiaryValue && tertiary.includes(i)) {
+              biggestTertiaryValue = r
+              biggestTertiaryIndex = i
+            }
+          })
+          key = `mostly${CellTypesString[majority[0]]}Somewhat${
+            CellTypesString[biggestTertiaryIndex]
+          }`
+        } else {
+          sentence = getSentence('equal')
+        }
       }
-    }
 
-    if (key) {
-      sentence = getSentence(key)
+      if (key) {
+        sentence = getSentence(key)
+      }
     }
   }
 

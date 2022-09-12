@@ -68,6 +68,7 @@ function App() {
         onRenderedFeaturesChange={setRenderedFeatures}
       >
         <MapControls
+          currentRegionData={currentRegionData}
           timeseriesData={timeseriesData}
           mainColor={currentSpeciesData.color}
         />

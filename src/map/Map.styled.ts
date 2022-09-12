@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const MapWrapper = styled.div<{ fixed: boolean }>`
   position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
   top: ${({ fixed, theme }) => (fixed ? theme.layout.navHeight : 0)};
-  height: ${({ fixed }) => (fixed ? 'calc(100vh - 70px)' : '60vh')};
+  height: ${({ fixed }) => (fixed ? 'calc(100vh - 70px)' : '70vh')};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.dark};
   transition: height 300ms;

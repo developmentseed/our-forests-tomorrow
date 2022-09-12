@@ -14,22 +14,13 @@ export const TimestepNav = styled.nav`
   top: 1rem;
 `
 
-export const TimestepButton = styled.button<{ selected: boolean }>`
+export const TimestepButtonWrapper = styled.button`
   position: absolute;
   border: 0.1px dashed rgb(0, 0, 0, 0.2);
   display: flex;
   align-items: end;
   padding: 0;
-  & > span {
+  & > button {
     width: 100%;
-    opacity: ${({ selected }) => (selected ? 1 : 0.4)};
-    border-width: ${({ selected }) => (selected ? '1px' : 0)};
-    border-color: ${({ theme }) => theme.colors.darkgreen};
-    border-style: solid;
-    border-radius: 5px;
-    padding: 4px;
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.darkgreen};
-    font-weight: bold;
   }
 `

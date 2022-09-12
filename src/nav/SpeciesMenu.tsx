@@ -13,7 +13,7 @@ import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import Dropdown from '../components/Dropdown'
 import SpeciesMenuContent from './SpeciesMenuContent'
 import { Search, SortByButton, SortByList, MenuTools } from './Menu.styled'
-import { CloseButton } from '../components/CloseButton.styled'
+import { CloseButton } from '../components/Button.styled'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData

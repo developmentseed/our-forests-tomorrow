@@ -8,7 +8,7 @@ import {
   ValuesByYear,
 } from '../types'
 import { Title } from './Page.styled'
-import { CloseButton } from '../components/CloseButton.styled'
+import { CloseButton } from '../components/Button.styled'
 import { useSetAtom } from 'jotai'
 import { currentSpeciesAtom } from '../atoms'
 
