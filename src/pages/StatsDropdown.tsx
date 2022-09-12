@@ -8,12 +8,14 @@ type StatsDropdownProps = {
   data: [string, ValuesByYear][]
   color: number[]
   labelKey?: string
+  onItemClick?: (d: ValuesByYear) => void
 }
 
 function StatsDropdown({
   data,
   color,
   labelKey = 'region',
+  onItemClick,
 }: StatsDropdownProps) {
   const items = useMemo(() => {
     return data.map((entry) => ({
@@ -25,7 +27,12 @@ function StatsDropdown({
     <InlineDropdown items={items}>
       <StatsDropdownWrapper>
         {items.slice(0, 10).map((d) => (
-          <li key={d.label}>
+          <li
+            key={d.label}
+            onClick={() => {
+              if (onItemClick) onItemClick(d.data)
+            }}
+          >
             {d.label}
             <SimpleTimeseries data={d.data} color={color} />
           </li>

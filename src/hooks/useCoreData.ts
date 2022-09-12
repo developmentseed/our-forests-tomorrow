@@ -73,9 +73,7 @@ function useCoreData() {
                   {
                     ...regionStats,
                     region,
-                    // speciesData: {
-                    //   name: speciesDataForStats?.en?.aliases?.[0],
-                    // },
+                    species,
                   } as ValuesByYear,
                 ]
               }

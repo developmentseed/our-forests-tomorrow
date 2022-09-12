@@ -48,8 +48,8 @@ export type LayerGenerator = {
 export type ValuesByCellType = [number, number, number, number?]
 export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> & {
   '2005': number
+  species?: string
   region?: Region
-  speciesDetail?: { name: string }
 }
 export type ValuesByRegionGID = Record<string, ValuesByYear> & {
   global?: ValuesByYear
