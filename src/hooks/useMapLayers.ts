@@ -110,12 +110,7 @@ const GRID: LayerGenerator = {
       speciesColor: number[],
       region?: string
     ) => {
-      const type = getCellTypeAtTimeStep(d, timeStep)
-      if (!type) {
-        // console.log(d, timeStep)
-        return [0, 0, 0, 0]
-      }
-      const baseColor = COLOR_BY_CELL_TYPE[type]
+      const baseColor = COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
       // type === CellTypeEnum.Stable
       //   ? speciesColor
       //   : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]

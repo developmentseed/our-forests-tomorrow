@@ -26,9 +26,9 @@ function StatsDropdown({
   return (
     <InlineDropdown items={items}>
       <StatsDropdownWrapper>
-        {items.slice(0, 10).map((d) => (
+        {items.slice(0, 10).map((d, i) => (
           <li
-            key={d.label}
+            key={i}
             onClick={() => {
               if (onItemClick) onItemClick(d.data)
             }}
