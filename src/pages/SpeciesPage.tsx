@@ -8,6 +8,7 @@ import { Page, Title, PageContents } from './Page.styled'
 import { currentRegionAtom, currentSpeciesAtom } from '../atoms'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
+import Hexagon from '../components/Hexagon'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
@@ -83,6 +84,7 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
             color={currentSpeciesData.color}
             onItemClick={onRegionClick}
           />
+          <Hexagon type={CellTypeEnum.Suitable} />
         </article>
       </PageContents>
     </Page>

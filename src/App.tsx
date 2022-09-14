@@ -22,6 +22,9 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import useTimeseriesData from './hooks/useTimeseriesData'
 import Intro from './intro/Intro'
+import SVGHatchPattern from './components/SVGHatchPattern'
+import { deckColorToCss } from './utils'
+import { CellTypeEnum, COLOR_BY_CELL_TYPE } from './constants'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -89,6 +92,20 @@ function App() {
           )}
         </Fragment>
       )}
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="13"
+        // viewBox="0 0 726 628"
+      >
+        <defs>
+          <SVGHatchPattern
+            color={deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable])}
+            hatchWidth={1.5}
+          />
+        </defs>
+      </svg>
     </Fragment>
   )
 }

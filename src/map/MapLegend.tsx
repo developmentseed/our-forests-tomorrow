@@ -1,7 +1,9 @@
 import { useAtomValue } from 'jotai'
+import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
-import { THEME } from '../constants'
+import Hexagon from '../components/Hexagon'
+import { CellTypeEnum, THEME } from '../constants'
 import { IntroStepEnum } from '../intro/Intro'
 import { deckColorToCss } from '../utils'
 import { LegendItem, MapLegendsWrapper } from './MapLegend.styled'
@@ -19,26 +21,31 @@ function MapLegend({ mainColor }: MapLegendProps) {
     <MapLegendsWrapper
       visible={introCompleted || introStep >= IntroStepEnum.SpeciesExamplePage}
     >
-      <LegendItem
-        color={timeStep === '2005' ? undefined : THEME.colors.suitable}
-      >
-        {timeStep === '2005'
-          ? t('general.suitability')
-          : t('mapLegend.suitability', undefined, { year: timeStep })}
+      <LegendItem disabled={timeStep === '2005'}>
+        <Fragment>
+          <Hexagon type={CellTypeEnum.Suitable} />
+          {timeStep === '2005'
+            ? t('general.suitability')
+            : t('mapLegend.suitability', undefined, { year: timeStep })}
+        </Fragment>
       </LegendItem>
 
-      <LegendItem color={THEME.colors.stable}>
-        {timeStep === '2005'
-          ? t('general.currentDistribution')
-          : t('mapLegend.stable', undefined, { year: timeStep })}
+      <LegendItem>
+        <Fragment>
+          <Hexagon type={CellTypeEnum.Stable} />
+          {timeStep === '2005'
+            ? t('general.currentDistribution')
+            : t('mapLegend.stable', undefined, { year: timeStep })}
+        </Fragment>
       </LegendItem>
 
-      <LegendItem
-        color={timeStep === '2005' ? undefined : THEME.colors.decolonized}
-      >
-        {timeStep === '2005'
-          ? t('general.decolonization')
-          : t('mapLegend.decolonization', undefined, { year: timeStep })}
+      <LegendItem disabled={timeStep === '2005'}>
+        <Fragment>
+          <Hexagon type={CellTypeEnum.Decolonized} />
+          {timeStep === '2005'
+            ? t('general.decolonization')
+            : t('mapLegend.decolonization', undefined, { year: timeStep })}
+        </Fragment>
       </LegendItem>
     </MapLegendsWrapper>
   )

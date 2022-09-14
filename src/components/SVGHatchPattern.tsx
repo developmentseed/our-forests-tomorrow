@@ -8,12 +8,7 @@ export default function SVGHatchPattern({
   hatchWidth = 1,
 }: SVGHatchPatternProps) {
   return (
-    <pattern
-      id="diagonalHatch"
-      patternUnits="userSpaceOnUse"
-      width="4"
-      height="4"
-    >
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="4" height="4">
       <path
         d="M-1,1 l2,-2
              M0,4 l4,-4

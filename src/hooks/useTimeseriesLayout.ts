@@ -66,7 +66,7 @@ function useTimeseriesLayout(
   const getFill = (step: TimeStep, type: CellTypeEnum) => {
     if (step === '2005' || type === CellTypeEnum.Stable)
       return deckColorToCss(COLOR_BY_CELL_TYPE[type])
-    else if (type === CellTypeEnum.Suitable) return 'url(#diagonalHatch)'
+    else if (type === CellTypeEnum.Suitable) return 'url(#hatch)'
     else return deckColorToCss(COLOR_BY_CELL_TYPE[type])
   }
 
