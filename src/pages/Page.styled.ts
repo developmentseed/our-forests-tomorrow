@@ -27,6 +27,7 @@ export const Title = styled.h1<TitleProps>`
 
 export const PageContents = styled.div`
   display: flex;
+  align-items: flex-start;
 
   & > aside {
     min-width: 300px;

@@ -49,13 +49,13 @@ function RegionPage({
         <CloseButton onClick={onRegionClose} />
       </Title>
       <PageContents>
-        In {currentRegionData.NAME_1},{' '}
+        {/* In {currentRegionData.NAME_1},{' '}
         <StatsDropdown
           data={naturallyPresent}
           color={[0, 255, 0]}
           labelKey="species"
           onItemClick={onSpeciesClick}
-        />
+        /> */}
       </PageContents>
     </Page>
   )

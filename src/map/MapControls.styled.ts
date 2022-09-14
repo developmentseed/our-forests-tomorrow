@@ -10,6 +10,6 @@ export const MapControlsWrapper = styled.div`
 
   & > * {
     border-radius: 4px;
-    padding: 0.7rem 0.8rem 1rem;
+    padding: 0.8rem;
   }
 `

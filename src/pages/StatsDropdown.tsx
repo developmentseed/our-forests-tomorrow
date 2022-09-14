@@ -34,7 +34,7 @@ function StatsDropdown({
             }}
           >
             {d.label}
-            <SimpleTimeseries data={d.data} color={color} />
+            <SimpleTimeseries data={d.data} />
           </li>
         ))}
       </StatsDropdownWrapper>

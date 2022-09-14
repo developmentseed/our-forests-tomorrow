@@ -50,6 +50,7 @@ export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> & {
   '2005': number
   species?: string
   region?: Region
+  label?: string
 }
 export type ValuesByRegionGID = Record<string, ValuesByYear> & {
   global?: ValuesByYear

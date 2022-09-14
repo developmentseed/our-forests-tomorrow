@@ -4,14 +4,13 @@ import Timeseries from './Timeseries'
 
 type SimpleTimeseriesProps = {
   data: ValuesByYear
-  color: number[]
   labelKey?: string
 }
 
 const W = 130
 const H = 34
 
-function SimpleTimeseries({ data, color }: SimpleTimeseriesProps) {
+function SimpleTimeseries({ data }: SimpleTimeseriesProps) {
   const layoutData = useTimeseriesLayout(data, {
     width: W,
     height: H,
