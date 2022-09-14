@@ -4,12 +4,19 @@ import { CellTypeEnum } from '../constants'
 import { getStats, useStats } from '../hooks/useStats'
 import { Locale, SpeciesData, StatsBySpecies, ValuesByYear } from '../types'
 import { deckColorToCss } from '../utils'
-import { Page, Title, PageContents } from './Page.styled'
+import {
+  Page,
+  Title,
+  PageContents,
+  PageTimeseriesWraper,
+  ChartTypeButton,
+} from './Page.styled'
 import { currentRegionAtom, currentSpeciesAtom } from '../atoms'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
+import PageParagraph from './PageParagraph'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
@@ -83,60 +90,58 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           />
         </aside>
         <article>
-          <h3>Today</h3>
-          <p>
-            {currentSpeciesData.latin} is naturally present in{' '}
-            {data.naturallyPresent
-              .slice(0, 5)
-              .map((d) => d[1].label)
-              .join(', ')}
-            and{' '}
-            <button onClick={() => onMoreClick('naturallyPresent')}>
-              {data.naturallyPresent.length} more regions
-            </button>
-            .
-          </p>
+          <h3>{t('speciesPage.today')}</h3>
+          <PageParagraph
+            data={data.naturallyPresent}
+            type={CellTypeEnum.Stable}
+            species={currentSpeciesData.latin}
+            transKey="speciesPage.naturallyPresent"
+            onMoreClick={() => onMoreClick('naturallyPresent')}
+          />
 
-          <h3>Tomorrow</h3>
+          <h3>{t('speciesPage.tomorrow')}</h3>
 
-          <p>
-            {currentSpeciesData.latin} is likely to disappear from{' '}
-            {data.willDisappear
-              .slice(0, 5)
-              .map((d) => d[1].label)
-              .join(', ')}
-            and{' '}
-            <button onClick={() => onMoreClick('willDisappear')}>
-              {data.willDisappear.length} more regions
-            </button>
-            .
-          </p>
-          <p>
-            {currentSpeciesData.latin}However, by 2095 it could thrive in{' '}
-            {data.couldThrive
-              .slice(0, 5)
-              .map((d) => d[1].label)
-              .join(', ')}
-            and{' '}
-            <button onClick={() => onMoreClick('couldThrive')}>
-              {data.couldThrive.length} more regions
-            </button>
-            .
-          </p>
+          <PageParagraph
+            data={data.willDisappear}
+            type={CellTypeEnum.Decolonized}
+            species={currentSpeciesData.latin}
+            transKey="speciesPage.willDisappear"
+            onMoreClick={() => onMoreClick('willDisappear')}
+          />
 
-          <div ref={chartsRef}>
-            <h3>Evolution of this species across European regions</h3>
+          <PageParagraph
+            data={data.couldThrive}
+            type={CellTypeEnum.Suitable}
+            species={currentSpeciesData.latin}
+            transKey="speciesPage.couldThrive"
+            onMoreClick={() => onMoreClick('couldThrive')}
+          />
+
+          <PageTimeseriesWraper ref={chartsRef}>
+            <h3>{t('speciesPage.chartsTitle')}</h3>
 
             <div>
-              <button onClick={() => setChartType('naturallyPresent')}>
-                Present today
-              </button>
-              <button onClick={() => setChartType('willDisappear')}>
-                Decolonization in 2095
-              </button>
-              <button onClick={() => setChartType('couldThrive')}>
-                Suitability in 2095
-              </button>
+              <ChartTypeButton
+                selected={chartType === 'naturallyPresent'}
+                onClick={() => setChartType('naturallyPresent')}
+              >
+                <Hexagon type={CellTypeEnum.Stable} />
+                <span>{t('speciesPage.chartTypeNaturallyPresent')}</span>
+              </ChartTypeButton>
+              <ChartTypeButton
+                selected={chartType === 'willDisappear'}
+                onClick={() => setChartType('willDisappear')}
+              >
+                <Hexagon type={CellTypeEnum.Decolonized} />
+                <span>{t('speciesPage.chartTypeWillDisappear')}</span>
+              </ChartTypeButton>
+              <ChartTypeButton
+                selected={chartType === 'couldThrive'}
+                onClick={() => setChartType('couldThrive')}
+              >
+                <Hexagon type={CellTypeEnum.Suitable} />
+                <span>{t('speciesPage.chartTypeCouldThrive')}</span>
+              </ChartTypeButton>
             </div>
 
             {data && (
@@ -145,7 +150,7 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
                 onItemClick={onRegionClick}
               />
             )}
-          </div>
+          </PageTimeseriesWraper>
         </article>
       </PageContents>
     </Page>

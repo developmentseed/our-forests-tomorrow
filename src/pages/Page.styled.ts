@@ -46,4 +46,29 @@ export const PageContents = styled.div`
       object-fit: contain;
     }
   }
+
+  & h3 {
+    font-family: ${({ theme }) => theme.fonts.serif};
+    font-size: ${({ theme }) => theme.fontSizes.subtitle};
+    margin: 3rem 0 0.6rem;
+  }
+
+  & > article > h3:first-child {
+    margin-top: 0;
+  }
+`
+
+export const PageTimeseriesWraper = styled.div``
+
+export const ChartTypeButton = styled.button<{ selected: boolean }>`
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.darkFaded};
+  border-radius: 99px;
+  color: ${({ theme }) => theme.colors.dark};
+  opacity: ${({ selected }) => (selected ? 1 : 0.6)};
+
+  & > svg {
+    margin-right: 0.3rem;
+  }
 `

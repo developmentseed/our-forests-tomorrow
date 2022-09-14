@@ -62,8 +62,9 @@ export const THEME = {
   colors: {
     white: '#FFF',
     light: 'rgb(255,251,237)',
-    lightFaded: 'rgb(255,251,237, .1)',
+    lightFaded: 'rgba(255,251,237, .1)',
     dark: '#04232F',
+    darkFaded: 'rgba(4,35,47,.5)',
     background: '#B0D7C1',
     darkgreen: '#0E817A',
     decolonized: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]),
@@ -80,7 +81,8 @@ export const THEME = {
   },
   fontSizes: {
     small: '0.7rem',
-    normal: '1rem',
+    normal: '.9rem',
+    normalLineHeight: '1.8rem',
     subtitle: '1.6rem',
     subtitleLineHeight: '2rem',
     title: '2.4rem',

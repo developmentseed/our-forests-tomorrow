@@ -50,7 +50,7 @@ const GlobalStyles = styled.createGlobalStyle`
 
   body {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: ${({ theme }) => theme.fontSizes.normal};
     line-height: 1.6rem;
     font-family: ${({ theme }) => theme.fonts.sans};
     color: ${({ theme }) => theme.colors.dark};
@@ -61,7 +61,7 @@ const GlobalStyles = styled.createGlobalStyle`
   }
 
   p {
-    line-height: 1.5;
+    line-height: ${({ theme }) => theme.fontSizes.normalLineHeight};
   }
   img {
     max-width: 100%;
@@ -70,7 +70,9 @@ const GlobalStyles = styled.createGlobalStyle`
   button {
     background: none;
     border: none;
+    padding: 0;
     font-family: ${({ theme }) => theme.fonts.sans};
+    font-size: ${({ theme }) => theme.fontSizes.normal};
     cursor: pointer;
   }
 

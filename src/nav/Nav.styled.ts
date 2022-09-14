@@ -48,4 +48,5 @@ export const NavButton = styled.button<{ visible?: boolean }>`
   opacity: ${({ visible }) =>
     visible === true || visible === undefined ? 1 : 0};
   transition: opacity 300ms;
+  padding: 0 0.3rem;
 `
