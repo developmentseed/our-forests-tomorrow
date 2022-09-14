@@ -87,5 +87,6 @@ export const THEME = {
   },
   breakpoints: {
     mobile: '768px',
+    laptop: '1024px',
   },
 }

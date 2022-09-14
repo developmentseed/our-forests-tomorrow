@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MapLegendsWrapper = styled.ul<{ visible: boolean }>`
-  margin: 4px 0 0;
+  margin: 0.5rem 0 0;
   background: ${({ theme }) => theme.colors.light};
   font-size: ${({ theme }) => theme.fontSizes.small};
   transform: ${({ visible }) =>

@@ -41,6 +41,7 @@ export const TimestepButton = styled.button<{ selected: boolean }>`
 `
 
 export const WithTooltip = styled.u`
+  text-decoration: underline dotted;
   &::before {
     border-radius: 2px;
     font-size: 0.8rem;

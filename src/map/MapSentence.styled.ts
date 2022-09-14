@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MapSentenceWrapper = styled.div<{ visible: boolean }>`
-  padding: 0 0 1rem;
+  padding: 0 0 1rem !important;
   color: ${({ theme }) => theme.colors.light};
   font-family: ${({ theme }) => theme.fonts.serif};
   font-size: ${({ theme }) => theme.fontSizes.subtitle};

@@ -50,8 +50,8 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
   return (
     <Page>
       <Title /*color={deckColorToCss(currentSpeciesData.color)}*/>
-        <b>{currentSpeciesData.labels[locale].name}</b>
-        {currentSpeciesData.latin}
+        {currentSpeciesData.labels[locale].name}
+        <p>{currentSpeciesData.latin}</p>
       </Title>
 
       <PageContents>

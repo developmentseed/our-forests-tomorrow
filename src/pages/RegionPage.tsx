@@ -7,7 +7,7 @@ import {
   ValuesBySpeciesID,
   ValuesByYear,
 } from '../types'
-import { Title } from './Page.styled'
+import { Page, PageContents, Title } from './Page.styled'
 import { CloseButton } from '../components/Button.styled'
 import { useSetAtom } from 'jotai'
 import { currentSpeciesAtom } from '../atoms'
@@ -43,11 +43,12 @@ function RegionPage({
   // console.log('region stats:', currentStats, region.properties)
   // console.log(naturallyPresent)
   return (
-    <header>
+    <Page>
       <Title>
-        {currentRegionData.NAME_1} <CloseButton onClick={onRegionClose} />
+        {currentRegionData.NAME_1}
+        <CloseButton onClick={onRegionClose} />
       </Title>
-      <div>
+      <PageContents>
         In {currentRegionData.NAME_1},{' '}
         <StatsDropdown
           data={naturallyPresent}
@@ -55,8 +56,8 @@ function RegionPage({
           labelKey="species"
           onItemClick={onSpeciesClick}
         />
-      </div>
-    </header>
+      </PageContents>
+    </Page>
   )
 }
 

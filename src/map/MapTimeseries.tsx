@@ -12,7 +12,7 @@ import { ValuesByYear } from '../types'
 import { IntroStepEnum } from '../intro/Intro'
 import { TimestepButton } from '../components/Button.styled'
 
-const W = 250
+const W = 290
 const H = 70
 
 export type MapTimeseriesProps = {

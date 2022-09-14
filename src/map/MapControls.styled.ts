@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MapControlsWrapper = styled.div`
   position: absolute;
-  width: 280px;
+  width: 320px;
   bottom: 20px;
   right: 20px;
   display: flex;
