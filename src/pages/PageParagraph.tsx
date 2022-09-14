@@ -12,6 +12,8 @@ type PageParagraphProps = {
   onMoreClick: () => void
 }
 
+const NUM_TOP_REGIONS = 5
+
 function PageParagraph({
   data,
   type,
@@ -20,10 +22,10 @@ function PageParagraph({
   onMoreClick,
 }: PageParagraphProps) {
   const regions = data
-    .slice(0, 5)
+    .slice(0, NUM_TOP_REGIONS)
     .map((d) => d[1].label)
     .join(', ')
-  const numRegions = data.length
+  const numRegions = data.length - NUM_TOP_REGIONS
   return (
     <PageParagraphWrapper>
       <Hexagon type={type} />

@@ -50,7 +50,7 @@ export const PageContents = styled.div`
   & h3 {
     font-family: ${({ theme }) => theme.fonts.serif};
     font-size: ${({ theme }) => theme.fontSizes.subtitle};
-    margin: 3rem 0 0.6rem;
+    margin: 3.5rem 0 0.6rem;
   }
 
   & > article > h3:first-child {
@@ -58,7 +58,11 @@ export const PageContents = styled.div`
   }
 `
 
-export const PageTimeseriesWraper = styled.div``
+export const PageTimeseriesWraper = styled.div`
+  & > nav {
+    margin: 1.5rem 0 2rem;
+  }
+`
 
 export const ChartTypeButton = styled.button<{ selected: boolean }>`
   margin-right: 0.5rem;

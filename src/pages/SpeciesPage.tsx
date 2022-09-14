@@ -120,7 +120,7 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           <PageTimeseriesWraper ref={chartsRef}>
             <h3>{t('speciesPage.chartsTitle')}</h3>
 
-            <div>
+            <nav>
               <ChartTypeButton
                 selected={chartType === 'naturallyPresent'}
                 onClick={() => setChartType('naturallyPresent')}
@@ -142,7 +142,7 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
                 <Hexagon type={CellTypeEnum.Suitable} />
                 <span>{t('speciesPage.chartTypeCouldThrive')}</span>
               </ChartTypeButton>
-            </div>
+            </nav>
 
             {data && (
               <PageTimeseries

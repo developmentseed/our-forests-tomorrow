@@ -1,5 +1,6 @@
 import SimpleTimeseries from '../components/SimpleTimeseries'
 import { ValuesByYear } from '../types'
+import { PageTimeseriesItem } from './PageTimeseries.styled'
 
 type StatsDropdownProps = {
   data: [string, ValuesByYear][]
@@ -7,20 +8,21 @@ type StatsDropdownProps = {
 }
 
 function PageTimeseries({ data, onItemClick }: StatsDropdownProps) {
+  const items = data.slice(0, 20)
   return (
-    <div>
-      {data.slice(0, 10).map((d, i) => (
-        <li
+    <ul>
+      {items.map((d, i) => (
+        <PageTimeseriesItem
           key={i}
           onClick={() => {
             if (onItemClick) onItemClick(d[1])
           }}
         >
-          {d[1].label}
-          <SimpleTimeseries data={d[1]} />
-        </li>
+          <label>{d[1].label}</label>
+          <SimpleTimeseries data={d[1]} showYears={i === items.length - 1} />
+        </PageTimeseriesItem>
       ))}
-    </div>
+    </ul>
   )
 }
 

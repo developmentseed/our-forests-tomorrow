@@ -3,14 +3,11 @@ import Timeseries from '../components/Timeseries'
 import { useAtom, useAtomValue } from 'jotai'
 import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
-import {
-  MapTimeseriesWrapper,
-  TimestepButtonWrapper,
-  TimestepNav,
-} from './MapTimeseries.styled'
+import { MapTimeseriesWrapper, TimestepNav } from './MapTimeseries.styled'
 import { ValuesByYear } from '../types'
 import { IntroStepEnum } from '../intro/Intro'
 import { TimestepButton } from '../components/Button.styled'
+import { TimestepColumn } from '../components/TimestepColumn.styled'
 
 const W = 290
 const H = 70
@@ -45,7 +42,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
 
       <TimestepNav>
         {TIME_STEPS.map((year, yi) => (
-          <TimestepButtonWrapper
+          <TimestepColumn
             key={yi}
             onMouseEnter={() => setTimeStep(year)}
             style={{
@@ -58,7 +55,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
             }}
           >
             <TimestepButton selected={year === timeStep}>{year}</TimestepButton>
-          </TimestepButtonWrapper>
+          </TimestepColumn>
         ))}
       </TimestepNav>
     </MapTimeseriesWrapper>

@@ -35,6 +35,7 @@ interface SpeciesButtonProps {
 
 export const SpeciesButton = styled.button<SpeciesButtonProps>`
   display: block;
+  padding: 0 0 0 0.4rem;
   border-left: 4px solid ${({ color }) => color};
   color: ${({ theme }) => theme.colors.light};
   text-align: left;
