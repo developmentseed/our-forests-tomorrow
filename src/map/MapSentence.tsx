@@ -55,7 +55,6 @@ function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
       }
 
       const transKey = `mapLegend.${key}`
-      console.log(transKey)
 
       const area = currentRegionData
         ? t('mapLegend.inRegion', undefined, {

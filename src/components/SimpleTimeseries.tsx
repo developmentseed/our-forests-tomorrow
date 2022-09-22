@@ -16,8 +16,8 @@ function SimpleTimeseries({ data, showYears }: SimpleTimeseriesProps) {
   const layoutData = useTimeseriesLayout(data, {
     width: W,
     height: H,
-    nodeWidth: 50,
-    nodeMaxHeight: 8,
+    nodeWidth: 42,
+    nodeMaxHeight: 12,
   })
 
   const { xs, nodeWidth } = layoutData
@@ -30,13 +30,15 @@ function SimpleTimeseries({ data, showYears }: SimpleTimeseriesProps) {
           style={{
             left: xs?.[yi],
             width: `${nodeWidth}px`,
-            height: showYears ? '90px' : '50px',
+            height: showYears ? '90px' : '100%',
           }}
         >
           {showYears ? <span>{year}</span> : ''}
         </TimestepColumn>
       ))}
-      <Timeseries layoutData={layoutData} width={W} height={H} />
+      <div style={{ padding: '10px 0' }}>
+        <Timeseries layoutData={layoutData} width={W} height={H} />
+      </div>
     </div>
   )
 }

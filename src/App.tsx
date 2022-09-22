@@ -104,6 +104,20 @@ function App() {
             color={deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable])}
             hatchWidth={1.5}
           />
+          <linearGradient id="gradStableToDecolonized">
+            <stop
+              offset="0%"
+              stop-color={deckColorToCss(
+                COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]
+              )}
+            />
+            <stop
+              offset="100%"
+              stop-color={deckColorToCss(
+                COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]
+              )}
+            />
+          </linearGradient>
         </defs>
       </svg>
     </Fragment>
