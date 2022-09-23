@@ -18,6 +18,7 @@ function SimpleTimeseries({ data, showYears }: SimpleTimeseriesProps) {
     height: H,
     nodeWidth: 42,
     nodeMaxHeight: 12,
+    nodeMinHeightToBeVisible: 0,
   })
 
   const { xs, nodeWidth } = layoutData

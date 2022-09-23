@@ -8,7 +8,7 @@ type StatsDropdownProps = {
 }
 
 function PageTimeseries({ data, onItemClick }: StatsDropdownProps) {
-  const items = data.slice(0, 20)
+  const items = data.slice(0, 999)
   return (
     <ul>
       {items.map((d, i) => (

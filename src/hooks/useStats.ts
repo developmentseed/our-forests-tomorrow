@@ -43,22 +43,38 @@ export function getStats(
     if (!valueB) return 1
     return valueA - valueB
   })
-  let filtered: [string, ValuesByYear][] = ordered
+
+  console.log(ordered)
+  // Filter out elements with no regions
+  const filteredRealRegions = ordered.filter(
+    (d) => d[1] && (d[1] as any).region
+  )
+
+  // Filter out countries with regions
+  let filteredStandloneRegions: [string, ValuesByYear][] = filteredRealRegions
   if (keyType === 'byRegion') {
-    filtered = ordered.filter(
+    filteredStandloneRegions = filteredRealRegions.filter(
       ([GID]: [string, ValuesByYear]) =>
         !COUNTRIES_WITH_REGIONS_GIDS.includes(GID)
     )
   }
-  return filtered
-    .map((entry) => [
-      entry[0],
-      {
-        ...entry[1],
-        label: keyType === 'bySpecies' ? entry[0] : entry[1].region?.label, // TODO this is species id, grab name?,
-      },
-    ])
-    .filter((d) => (d[1] as any).region)
+  // FIlter out zero values
+  const filteredHasValueForType = filteredStandloneRegions.filter(
+    ([key, value]) => {
+      if (year === 2005) return value[2005] && value[2005] > 0
+      const valueForYear = value[year.toString() as TimeStepFuture][type]
+      return valueForYear && valueForYear > 0
+    }
+  )
+
+  const withLabels = filteredHasValueForType.map((entry) => [
+    entry[0],
+    {
+      ...entry[1],
+      label: keyType === 'bySpecies' ? entry[0] : entry[1].region?.label, // TODO this is species id, grab name?,
+    },
+  ])
+  return withLabels
 }
 
 export function useAllSpeciesStatsForRegion(

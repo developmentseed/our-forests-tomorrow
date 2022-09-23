@@ -23,6 +23,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
   const layoutData = useTimeseriesLayout(timeseriesData, {
     width: W,
     height: H,
+    nodeMinHeightToBeVisible: 0,
   })
   const introStep = useAtomValue(introStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
