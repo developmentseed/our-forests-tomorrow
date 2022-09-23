@@ -1,18 +1,11 @@
 {
   "files": {
-    "main.css": "/eu-trees4f-viz/build/static/css/main.f0317a2f.css",
-    "main.js": "/eu-trees4f-viz/build/static/js/main.8fc1759d.js",
-    "static/js/787.d84c2e37.chunk.js": "/eu-trees4f-viz/build/static/js/787.d84c2e37.chunk.js",
-    "static/media/CheltenhamStdBookCond.woff": "/eu-trees4f-viz/build/static/media/CheltenhamStdBookCond.6e0e28d9e4489cedc8cb.woff",
-    "static/media/CheltenhamStdLightCond.woff": "/eu-trees4f-viz/build/static/media/CheltenhamStdLightCond.d5b52851a589de30a5e4.woff",
+    "main.js": "/eu-trees4f-viz/build/static/js/main.29f92762.js",
     "index.html": "/eu-trees4f-viz/build/index.html",
     "static/media/getFetch.cjs": "/eu-trees4f-viz/build/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.f0317a2f.css.map": "/eu-trees4f-viz/build/static/css/main.f0317a2f.css.map",
-    "main.8fc1759d.js.map": "/eu-trees4f-viz/build/static/js/main.8fc1759d.js.map",
-    "787.d84c2e37.chunk.js.map": "/eu-trees4f-viz/build/static/js/787.d84c2e37.chunk.js.map"
+    "main.29f92762.js.map": "/eu-trees4f-viz/build/static/js/main.29f92762.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0317a2f.css",
-    "static/js/main.8fc1759d.js"
+    "static/js/main.29f92762.js"
   ]
 }
