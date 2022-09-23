@@ -15,3 +15,13 @@ export const getCellTypeAtTimeStep = (
 }
 
 export const deckColorToCss = (rgb: number[]) => `rgb(${rgb.join(', ')})`
+
+export const formatLatin = (speciesId: string) => speciesId.replace('_', ' ')
+
+export const lerp = (start: number, end: number, amt: number) => {
+  return (1 - amt) * start + amt * end
+}
+
+export const easeOutCubic = (x: number): number => {
+  return 1 - Math.pow(1 - x, 3)
+}

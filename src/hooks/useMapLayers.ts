@@ -1,5 +1,6 @@
 import { PickingInfo } from '@deck.gl/core/typed'
 import { BitmapLayer } from '@deck.gl/layers/typed'
+import { useAtom, useAtomValue } from 'jotai'
 import {
   TileLayer,
   TileLayerProps,
@@ -8,14 +9,14 @@ import {
 } from '@deck.gl/geo-layers/typed'
 import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from '../constants_common'
 import { useMemo, useState } from 'react'
-import { Cell, LayerGenerator, RegionFeature, TimeStep } from '../types'
+import { Cell, LayerGenerator, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
 import {
   CellTypeEnum,
   COLOR_BY_CELL_TYPE,
   COUNTRIES_WITH_REGIONS_GIDS,
-  SPECIES_COLORS,
 } from '../constants'
+import { currentRegionAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
@@ -106,37 +107,33 @@ const GRID: LayerGenerator = {
     getFillColor: (
       d: Cell,
       timeStep: TimeStep,
-      species: string,
-      region: RegionFeature | null
+      speciesColor: number[],
+      region?: string
     ) => {
-      const type = getCellTypeAtTimeStep(d, timeStep)
-      const baseColor =
-        type === CellTypeEnum.Stable
-          ? SPECIES_COLORS[species]
-          : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
-      if (!region) return baseColor
+      const baseColor = COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      return baseColor
+      // type === CellTypeEnum.Stable
+      //   ? speciesColor
+      //   : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
       // TODO filter by region
-      const alpha = false ? 255 : 50
-      return [...baseColor, alpha]
+      // if (!region) return baseColor
+      // const alpha = false ? 255 : 50
+      // return [...baseColor, alpha]
     },
   },
 }
 
 type UseMapLayerProps = {
-  timeStep: TimeStep
-  species: string
-  region: RegionFeature | null
-  onRegionChange: (region: RegionFeature | null) => void
+  mainColor: number[]
+  onGridLoaded: (grid: any) => void
 }
 
-function useMapLayers({
-  timeStep,
-  species,
-  region,
-  onRegionChange,
-}: UseMapLayerProps) {
+function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
   const [tilesZoom, setTilesZoom] = useState(3)
-  const [hoveredRegionId, setHoveredRegionId] = useState<number | null>(null)
+  const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null)
+  const currentSpecies = useAtomValue(currentSpeciesAtom)
+  const timeStep = useAtomValue(timeStepAtom)
+  const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
 
   return useMemo(() => {
     const labels = new TileLayer(LABELS.config)
@@ -144,19 +141,13 @@ function useMapLayers({
     const countries = new MVTLayer({
       ...COUNTRIES.config,
       getLineWidth: (d: any) => {
-        return d.properties?.fid === hoveredRegionId
+        return d.properties?.GID_0 === hoveredRegionId
           ? COUNTRIES.overrides.getLineWidth[1]
           : COUNTRIES.overrides.getLineWidth[0]
       },
       onClick: (o: PickingInfo) => {
         if (!COUNTRIES_WITH_REGIONS_GIDS.includes(o.object.properties.GID_0)) {
-          onRegionChange({
-            ...o.object,
-            properties: {
-              ...o.object.properties,
-              name_en: o.object.properties.COUNTRY,
-            },
-          })
+          setCurrentRegion(o.object.properties.GID_0)
         }
       },
       onHover: (o: PickingInfo) => {
@@ -172,19 +163,12 @@ function useMapLayers({
     const regions = new MVTLayer({
       ...REGIONS.config,
       getLineWidth: (d: any) => {
-        return d.properties?.fid === hoveredRegionId
+        return d.properties?.GID_1 === hoveredRegionId
           ? REGIONS.overrides.getLineWidth[1]
           : REGIONS.overrides.getLineWidth[0]
       },
       onClick: (o: PickingInfo) => {
-        onRegionChange({
-          ...o.object,
-          properties: {
-            ...o.object.properties,
-            name_en: o.object.properties.NAME_1,
-            name_fr: o.object.properties.NAME_1,
-          },
-        })
+        setCurrentRegion(o.object.properties.GID_1)
       },
       onHover: (o: PickingInfo) => {
         if (o.object?.properties.fid) {
@@ -198,17 +182,20 @@ function useMapLayers({
 
     const grid = new MVTLayer({
       ...GRID.config,
-      data: GRID.overrides.data(species),
+      data: GRID.overrides.data(currentSpecies),
       getPointRadius: GRID.overrides.getPointRadiusByZoom(tilesZoom),
       getFillColor: (d) =>
-        GRID.overrides.getFillColor(d, timeStep, species, region),
+        GRID.overrides.getFillColor(d, timeStep, mainColor, currentRegion),
       updateTriggers: {
         getPointRadius: tilesZoom,
-        getFillColor: [timeStep, species, region],
+        getFillColor: [timeStep, mainColor, currentRegion],
       },
       onViewportLoad: (tiles) => {
         if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
           setTilesZoom(tiles[0].zoom)
+        }
+        if (onGridLoaded) {
+          onGridLoaded(grid)
         }
       },
     } as Omit<MVTLayerProps, 'TilesetClass'>)
@@ -220,13 +207,15 @@ function useMapLayers({
       grid,
     }
   }, [
-    species,
+    currentSpecies,
+    mainColor,
     timeStep,
     tilesZoom,
-    region,
-    onRegionChange,
+    currentRegion,
+    setCurrentRegion,
     hoveredRegionId,
     setHoveredRegionId,
+    onGridLoaded,
   ])
 }
 

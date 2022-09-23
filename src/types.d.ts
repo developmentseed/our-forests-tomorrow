@@ -4,8 +4,6 @@ import { MVTLayerProps, TileLayerProps } from '@deck.gl/layers/typed'
 
 export type TimeStep = '2005' | '2035' | '2065' | '2095'
 export type TimeStepFuture = '2035' | '2065' | '2095'
-// TODO always index by int
-export type TimeStepFuturNum = 2035 | 2065 | 2095
 export type Cell = Feature<Point, CellProps>
 
 export type CellProps = {
@@ -21,6 +19,18 @@ export type CellProps = {
   status_2095: number
 }
 
+export type Region = {
+  GID_0: string
+  COUNTRY: string
+  GID_1?: string
+  NAME_1?: string
+  TYPE_1?: string
+  ENGTYPE_1?: string
+  label: string
+  regions?: Region[]
+  bbox: number[]
+}
+
 export type RegionProps = {
   name_en: string
   name_fr: string
@@ -30,31 +40,25 @@ export type RegionProps = {
   // NAME_1: string
 } & Region
 
-export type RegionFeature = Feature<Geometry, RegionProps>
-
 export type LayerGenerator = {
   config: LayerProps
   overrides?: any
 }
 
 export type ValuesByCellType = [number, number, number, number?]
-export type ValuesByYear = Record<TimeStepFutureNum, ValuesByCellType> &
-  Record<'2005', number> & { region?: Region } & {
-    speciesDetail?: { name: string }
-  }
-export type ValuesByRegionGID = Record<string, ValuesByYear>
+export type ValuesByYear = Record<TimeStepFuture, ValuesByCellType> & {
+  '2005': number
+  species?: string
+  region?: Region
+  label?: string
+}
+export type ValuesByRegionGID = Record<string, ValuesByYear> & {
+  global?: ValuesByYear
+}
 export type ValuesBySpeciesID = Record<string, ValuesByYear>
 export type ValuesBySpeciesIDOrValuesByRegionGID = Record<string, ValuesByYear>
-export type StatsBySpecies = Record<string, ValuesByRegionGID>
-export type Region = {
-  fid: number
-  GID_0: string
-  COUNTRY: string
-  GID_1?: string
-  NAME_1?: string
-  TYPE_1?: string
-  ENGTYPE_1?: string
-  label: string
+export type StatsBySpecies = Record<string, ValuesByRegionGID> & {
+  speciesCount?: Record<string, ValuesByYear>
 }
 
 export type TimeseriesData = {
@@ -63,3 +67,30 @@ export type TimeseriesData = {
   1: number
   2: number
 }
+
+export type Locale = 'en' | 'fr'
+
+export type SpeciesLabels = {
+  name: string
+  aliases: string[]
+  extract: string
+}
+
+export type WikiImage = {
+  source: string
+  width: string
+  height: string
+}
+
+export type SpeciesData = {
+  labels: Record<Locale, SpeciesLabels>
+  thumbnail: WikiImage
+  originalimage: WikiImage
+  color: number[]
+  latin: string
+}
+export type AllSpeciesData = Record<string, SpeciesData>
+
+export type SpeciesSortBy = 'latin' | 'vernacular' | 'area'
+
+export type ChartType = 'naturallyPresent' | 'willDisappear' | 'couldThrive'
