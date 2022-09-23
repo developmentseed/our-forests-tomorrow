@@ -61,18 +61,6 @@ export function getStats(
     .filter((d) => (d[1] as any).region)
 }
 
-export function useStats(
-  currentStats: ValuesBySpeciesIDOrValuesByRegionGID,
-  keyType: 'byRegion' | 'bySpecies',
-  year: number = 2005,
-  order: 'asc' | 'desc' = 'desc',
-  type: CellTypeEnum = CellTypeEnum.Stable
-) {
-  return useMemo(() => {
-    return getStats(currentStats, keyType, year, order, type)
-  }, [currentStats, keyType, order, type, year])
-}
-
 export function useAllSpeciesStatsForRegion(
   region: Region,
   stats: StatsBySpecies

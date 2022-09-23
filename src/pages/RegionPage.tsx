@@ -6,12 +6,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import StatsDropdown from './StatsDropdown'
-import {
-  getStats,
-  useAllSpeciesStatsForRegion,
-  useStats,
-} from '../hooks/useStats'
+import { getStats, useAllSpeciesStatsForRegion } from '../hooks/useStats'
 import {
   ChartType,
   Region,
