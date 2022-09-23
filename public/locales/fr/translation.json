@@ -21,6 +21,25 @@
     "searchPlaceholder": "ex.: Chêne rouvre, méditerranéen...",
     "exploreSpecies": "<p>explorez les futurs possibles de</p><b>67</b><p>espèces d'arbres</p>"
   },
+  "page": {
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "chartTypeNaturallyPresent": "Présent aujourd'hui",
+    "chartTypeWillDisappear": "Decolonisation en 2095",
+    "chartTypeCouldThrive": "Adaptabilité en 2095"
+  },
+  "speciesPage": {
+    "naturallyPresent": "{{species}} est naturellement présent dans les régions: {{regions}} et <3>{{numRegions}} autres régions</3>.",
+    "willDisappear": "{{species}} va probablement disparaître de: {{regions}} et <3>{{numRegions}} autres régions</3>.",
+    "couldThrive": "Cependant, d'ici 2095 il pourrait prospérer dans: {{regions}} et <3>{{numRegions}} régions supplémentaires</3>.",
+    "chartsTitle": "Évolution dans les régions européennes"
+  },
+  "regionPage": {
+    "naturallyPresent": "{{species}} et <2>{{numSpecies}} espèces supplémentaires</2> sont naturellement présentes dans: {{region}}.",
+    "willDisappear": "{{species}} et <2>{{numSpecies}} espèces supplémentaires</2> risquent de disparaître de: {{region}} d'ici 2095.",
+    "couldThrive": "Cependant, d'ici 2095 {{species}} et <2>{{numSpecies}} espèces supplémentaires</2> pourraient prospérer dans: {{region}}.",
+    "chartsTitle": "Évolution des espèces dans cette région"
+  },
   "mapLegend": {
     "stable": "stable en {{year}}",
     "decolonization": "décolonisation en {{year}}",
