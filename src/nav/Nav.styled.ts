@@ -20,17 +20,7 @@ export const NavWrapper = styled.header<{
 export const NavHeader = styled.div`
   display: flex;
   align-items: center;
-  & > h1 {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    font-weight: normal;
-    line-height: 1.3rem;
-    margin-right: 2rem;
 
-    & > b {
-      display: block;
-    }
-  }
   & > nav {
     margin-left: 1rem;
   }

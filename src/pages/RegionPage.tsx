@@ -82,7 +82,7 @@ function RegionPage({
   const onMoreClick = useCallback(
     (type: ChartType) => {
       setChartType(type)
-      ;(chartsRef?.current as any).scrollIntoView()
+      ;(chartsRef?.current as any).scrollIntoView({ behavior: 'smooth' })
     },
     [setChartType]
   )

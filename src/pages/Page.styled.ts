@@ -60,17 +60,20 @@ export const PageContents = styled.div`
 
 export const PageTimeseriesWraper = styled.div`
   & > nav {
+    display: flex;
     margin: 1.5rem 0 2rem;
   }
 `
 
 export const ChartTypeButton = styled.button<{ selected: boolean }>`
   margin-right: 0.5rem;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 0.6rem;
   border: 1px solid ${({ theme }) => theme.colors.darkFaded};
   border-radius: 99px;
   color: ${({ theme }) => theme.colors.dark};
   opacity: ${({ selected }) => (selected ? 1 : 0.6)};
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  display: flex;
 
   & > svg {
     margin-right: 0.3rem;

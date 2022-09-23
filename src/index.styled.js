@@ -44,10 +44,6 @@ const GlobalStyles = styled.createGlobalStyle`
     font-display: swap;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     margin: 0;
     font-size: ${({ theme }) => theme.fontSizes.normal};

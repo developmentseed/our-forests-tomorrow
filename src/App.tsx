@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     if (introCompleted) {
-      window.scrollTo({ top: 0 })
+      window.scrollTo({ top: 0, behavior: 'auto' })
     }
   }, [introCompleted])
 
@@ -107,13 +107,13 @@ function App() {
           <linearGradient id="gradStableToDecolonized">
             <stop
               offset="0%"
-              stop-color={deckColorToCss(
+              stopColor={deckColorToCss(
                 COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]
               )}
             />
             <stop
               offset="100%"
-              stop-color={deckColorToCss(
+              stopColor={deckColorToCss(
                 COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]
               )}
             />

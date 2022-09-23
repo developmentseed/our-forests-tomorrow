@@ -1,11 +1,13 @@
-import { useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { ReactNode, useCallback, useEffect } from 'react'
+import { Trans } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import {
   introCompletedAtom,
   introIntersectionRatioAtom,
   introStepAtom,
 } from '../atoms'
+import { Logo } from '../components/Logo.styled'
 import SpeciesMenuContent from '../nav/SpeciesMenuContent'
 import { AllSpeciesData } from '../types'
 import {
@@ -45,25 +47,46 @@ export enum IntroStepEnum {
 type IntroSectionProps = {
   id: IntroStepEnum
   children: ReactNode
+  height?: string
   threshold?: number | number[]
 }
 
-function IntroSection({ id, children, threshold = 0.5 }: IntroSectionProps) {
+function IntroSection({
+  id,
+  children,
+  threshold = 0.5,
+  height,
+}: IntroSectionProps) {
   const setIntroStep = useSetAtom(introStepAtom)
-  const setIntroIntersectionRatio = useSetAtom(introIntersectionRatioAtom)
+  const [introIntersectionRatio, setIntroIntersectionRatio] = useAtom(
+    introIntersectionRatioAtom
+  )
 
   const { ref, inView, entry } = useInView({
     threshold,
   })
 
-  if (entry) {
-    setIntroIntersectionRatio(entry?.intersectionRatio)
-  }
+  useEffect(() => {
+    if (entry) {
+      // if (id === IntroStepEnum.Title) {
+      //   console.log(entry.boundingClientRect.top)
+      // }
+      setIntroIntersectionRatio({
+        ...introIntersectionRatio,
+        [id]: entry.intersectionRatio,
+      })
+      // {...entry.intersectionRatio)
+    }
+  }, [entry?.intersectionRatio, setIntroIntersectionRatio])
 
   useEffect(() => {
     if (inView) setIntroStep(id)
   }, [id, setIntroStep, inView])
-  return <IntroSectionWrapper ref={ref}>{children}</IntroSectionWrapper>
+  return (
+    <IntroSectionWrapper ref={ref} height={height}>
+      {children}
+    </IntroSectionWrapper>
+  )
 }
 
 type IntroProps = {
@@ -79,11 +102,20 @@ function Intro({ species }: IntroProps) {
   const onDismissClicked = useCallback(() => {
     setIntroCompleted(true)
   }, [setIntroCompleted])
+  const introIntersectionRatio = useAtomValue(introIntersectionRatioAtom)
+  // console.log(introIntersectionRatio)
+
   return (
     <IntroWrapper>
-      <IntroSection id={IntroStepEnum.Title}>
+      <IntroSection
+        id={IntroStepEnum.Title}
+        threshold={CONTINUOUS_THRESHOLDS}
+        height="200vh"
+      >
         <IntroTitle>
-          <h1>Our Forests Tomorrow</h1>
+          <Logo>
+            <Trans i18nKey="nav.title" components={{ b: <b /> }} />
+          </Logo>
         </IntroTitle>
       </IntroSection>
       <IntroSection id={IntroStepEnum.Forests}>

@@ -44,7 +44,6 @@ export function getStats(
     return valueA - valueB
   })
 
-  console.log(ordered)
   // Filter out elements with no regions
   const filteredRealRegions = ordered.filter(
     (d) => d[1] && (d[1] as any).region

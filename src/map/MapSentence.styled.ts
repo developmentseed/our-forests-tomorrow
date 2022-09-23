@@ -8,6 +8,6 @@ export const MapSentenceWrapper = styled.div<{ visible: boolean }>`
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
   text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
   transform: ${({ visible }) =>
-    visible ? 'translateX(0px)' : 'translateX(300px)'};
+    visible ? 'translateX(0px)' : 'translateX(340px)'};
   transition: transform 300ms;
 `
