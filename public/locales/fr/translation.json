@@ -22,23 +22,23 @@
     "exploreSpecies": "<p>explorez les futurs possibles de</p><b>67</b><p>espèces d'arbres</p>"
   },
   "page": {
-    "today": "Today",
-    "tomorrow": "Tomorrow",
-    "chartTypeNaturallyPresent": "Present today",
-    "chartTypeWillDisappear": "Decolonization in 2095",
-    "chartTypeCouldThrive": "Suitability in 2095"
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "chartTypeNaturallyPresent": "Présent aujourd'hui",
+    "chartTypeWillDisappear": "Decolonisation en 2095",
+    "chartTypeCouldThrive": "Adaptabilité en 2095"
   },
   "speciesPage": {
-    "naturallyPresent": "{{species}} is naturally present in {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "willDisappear": "{{species}} is likely to disappear from {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "couldThrive": "However, by 2095 it could thrive in {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "chartsTitle": "Evolution across European regions"
+    "naturallyPresent": "{{species}} est naturellement présent dans les régions: {{regions}} et <3>{{numRegions}} autres régions</3>.",
+    "willDisappear": "{{species}} va probablement disparaître de: {{regions}} et <3>{{numRegions}} autres régions</3>.",
+    "couldThrive": "Cependant, d'ici 2095 il pourrait prospérer dans: {{regions}} et <3>{{numRegions}} régions supplémentaires</3>.",
+    "chartsTitle": "Évolution dans les régions européennes"
   },
   "regionPage": {
-    "naturallyPresent": "{{species}} and <2>{{numSpecies}} more species</2> are naturally present in {{region}}.",
-    "willDisappear": "{{species}} and <2>{{numSpecies}} more species</2> are likely to disappear from {{region}} by 2095.",
-    "couldThrive": "However, by 2095 {{species}} and <2>{{numSpecies}} more species</2> could thrive in {{region}}.",
-    "chartsTitle": "Evolution of species in this region"
+    "naturallyPresent": "{{species}} et <2>{{numSpecies}} espèces supplémentaires</2> sont naturellement présentes dans: {{region}}.",
+    "willDisappear": "{{species}} et <2>{{numSpecies}} espèces supplémentaires</2> risquent de disparaître de: {{region}} d'ici 2095.",
+    "couldThrive": "Cependant, d'ici 2095 {{species}} et <2>{{numSpecies}} espèces supplémentaires</2> pourraient prospérer dans: {{region}}.",
+    "chartsTitle": "Évolution des espèces dans cette région"
   },
   "mapLegend": {
     "stable": "stable en {{year}}",
