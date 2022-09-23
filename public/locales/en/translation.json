@@ -21,16 +21,24 @@
     "searchPlaceholder": "e.g. Irish oak, mediterranean...",
     "exploreSpecies": "<p>explore the possible future of</p><b>67</b><p>tree species</p>"
   },
-  "speciesPage": {
+  "page": {
     "today": "Today",
     "tomorrow": "Tomorrow",
-    "naturallyPresent": "{{species}} is naturally present in {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "willDisappear": "{{species}} is likely to disappear from {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "couldThrive": "However, by 2095 it could thrive in {{regions}} and <3>{{numRegions}} more regions</3>.",
-    "chartsTitle": "Evolution across European regions",
     "chartTypeNaturallyPresent": "Present today",
     "chartTypeWillDisappear": "Decolonization in 2095",
     "chartTypeCouldThrive": "Suitability in 2095"
+  },
+  "speciesPage": {
+    "naturallyPresent": "{{species}} is naturally present in {{regions}} and <3>{{numRegions}} more regions</3>.",
+    "willDisappear": "{{species}} is likely to disappear from {{regions}} and <3>{{numRegions}} more regions</3>.",
+    "couldThrive": "However, by 2095 it could thrive in {{regions}} and <3>{{numRegions}} more regions</3>.",
+    "chartsTitle": "Evolution across European regions"
+  },
+  "regionPage": {
+    "naturallyPresent": "{{species}} and <2>{{numSpecies}} more species</2> are naturally present in {{region}}.",
+    "willDisappear": "{{species}} and <2>{{numSpecies}} more species</2> are likely to disappear from {{region}} by 2095.",
+    "couldThrive": "However, by 2095 {{species}} and <2>{{numSpecies}} more species</2> could thrive in {{region}}.",
+    "chartsTitle": "Evolution of species in this region"
   },
   "mapLegend": {
     "stable": "Stable in {{year}}",

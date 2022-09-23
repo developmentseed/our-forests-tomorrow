@@ -4,41 +4,40 @@ import { CellTypeEnum } from '../constants'
 import { ValuesByYear } from '../types'
 import PageParagraphWrapper from './PageParagraph.styled'
 
-type PageParagraphProps = {
+type RegionPageParagraphProps = {
   data: [string, ValuesByYear][]
   type: CellTypeEnum
-  species: string
+  region: string
   transKey: string
   onMoreClick: () => void
 }
 
-const NUM_TOP_REGIONS = 5
+const NUM_TOP_SPECIES = 5
 
-function PageParagraph({
+function RegionPageParagraph({
   data,
   type,
-  species,
+  region,
   transKey,
   onMoreClick,
-}: PageParagraphProps) {
-  const regions = data
-    .slice(0, NUM_TOP_REGIONS)
+}: RegionPageParagraphProps) {
+  const species = data
+    .slice(0, NUM_TOP_SPECIES)
     .map((d) => d[1].label)
     .join(', ')
-  const numRegions = data.length - NUM_TOP_REGIONS
+  const numSpecies = data.length - NUM_TOP_SPECIES
   return (
     <PageParagraphWrapper>
       <Hexagon type={type} />
       <span>
         <Trans i18nKey={transKey}>
-          {{ species }} is naturally present in {{ regions }}
-          <button onClick={onMoreClick}>
-            and {{ numRegions }} more regions
-          </button>
+          {{ species }} and
+          <button onClick={onMoreClick}>{{ numSpecies }} more species</button>
+          are naturally present in {{ region }}.
         </Trans>
       </span>
     </PageParagraphWrapper>
   )
 }
 
-export default PageParagraph
+export default RegionPageParagraph

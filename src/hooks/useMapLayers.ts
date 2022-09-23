@@ -111,13 +111,14 @@ const GRID: LayerGenerator = {
       region?: string
     ) => {
       const baseColor = COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      return baseColor
       // type === CellTypeEnum.Stable
       //   ? speciesColor
       //   : COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
-      if (!region) return baseColor
       // TODO filter by region
-      const alpha = false ? 255 : 50
-      return [...baseColor, alpha]
+      // if (!region) return baseColor
+      // const alpha = false ? 255 : 50
+      // return [...baseColor, alpha]
     },
   },
 }

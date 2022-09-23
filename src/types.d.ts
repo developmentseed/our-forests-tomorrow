@@ -92,3 +92,5 @@ export type SpeciesData = {
 export type AllSpeciesData = Record<string, SpeciesData>
 
 export type SpeciesSortBy = 'latin' | 'vernacular' | 'area'
+
+export type ChartType = 'naturallyPresent' | 'willDisappear' | 'couldThrive'

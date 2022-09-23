@@ -1,9 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import StatsDropdown from './StatsDropdown'
 import { CellTypeEnum } from '../constants'
-import { getStats, useStats } from '../hooks/useStats'
-import { Locale, SpeciesData, StatsBySpecies, ValuesByYear } from '../types'
-import { deckColorToCss } from '../utils'
+import { getStats } from '../hooks/useStats'
+import {
+  ChartType,
+  Locale,
+  SpeciesData,
+  StatsBySpecies,
+  ValuesByYear,
+} from '../types'
 import {
   Page,
   Title,
@@ -16,19 +20,18 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
-import PageParagraph from './PageParagraph'
+import SpeciesPageParagraph from './SpeciesPageParagraph'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
   stats: StatsBySpecies
 }
 
-type ChartType = 'naturallyPresent' | 'willDisappear' | 'couldThrive'
-
 function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
   const { t, i18n } = useTranslation()
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const setCurrentRegion = useSetAtom(currentRegionAtom)
+  const chartsRef = useRef(null)
   const [chartType, setChartType] = useState<ChartType>('naturallyPresent')
 
   const locale = i18n.language as Locale
@@ -63,7 +66,6 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
     [setCurrentRegion]
   )
 
-  const chartsRef = useRef(null)
   const onMoreClick = useCallback(
     (type: ChartType) => {
       setChartType(type)
@@ -90,8 +92,8 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           />
         </aside>
         <article>
-          <h3>{t('speciesPage.today')}</h3>
-          <PageParagraph
+          <h3>{t('page.today')}</h3>
+          <SpeciesPageParagraph
             data={data.naturallyPresent}
             type={CellTypeEnum.Stable}
             species={currentSpeciesData.latin}
@@ -99,9 +101,9 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
             onMoreClick={() => onMoreClick('naturallyPresent')}
           />
 
-          <h3>{t('speciesPage.tomorrow')}</h3>
+          <h3>{t('page.tomorrow')}</h3>
 
-          <PageParagraph
+          <SpeciesPageParagraph
             data={data.willDisappear}
             type={CellTypeEnum.Decolonized}
             species={currentSpeciesData.latin}
@@ -109,7 +111,7 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
             onMoreClick={() => onMoreClick('willDisappear')}
           />
 
-          <PageParagraph
+          <SpeciesPageParagraph
             data={data.couldThrive}
             type={CellTypeEnum.Suitable}
             species={currentSpeciesData.latin}
@@ -126,21 +128,21 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
                 onClick={() => setChartType('naturallyPresent')}
               >
                 <Hexagon type={CellTypeEnum.Stable} />
-                <span>{t('speciesPage.chartTypeNaturallyPresent')}</span>
+                <span>{t('page.chartTypeNaturallyPresent')}</span>
               </ChartTypeButton>
               <ChartTypeButton
                 selected={chartType === 'willDisappear'}
                 onClick={() => setChartType('willDisappear')}
               >
                 <Hexagon type={CellTypeEnum.Decolonized} />
-                <span>{t('speciesPage.chartTypeWillDisappear')}</span>
+                <span>{t('page.chartTypeWillDisappear')}</span>
               </ChartTypeButton>
               <ChartTypeButton
                 selected={chartType === 'couldThrive'}
                 onClick={() => setChartType('couldThrive')}
               >
                 <Hexagon type={CellTypeEnum.Suitable} />
-                <span>{t('speciesPage.chartTypeCouldThrive')}</span>
+                <span>{t('page.chartTypeCouldThrive')}</span>
               </ChartTypeButton>
             </nav>
 
