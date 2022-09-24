@@ -43,7 +43,9 @@ function SpeciesMenuContent({
             disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
           >
             <b>
-              {showLatin ? speciesData.latin : speciesData.labels[locale].name}
+              {showLatin
+                ? speciesData.latin
+                : speciesData.labels?.[locale]?.name}
             </b>
             {/* <i>
         {showLatin

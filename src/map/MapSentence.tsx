@@ -3,7 +3,7 @@ import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { TimestepButton, WithTooltip } from '../components/Button.styled'
-import { CellTypesString } from '../constants'
+import { CellTypeEnum } from '../constants'
 import { Region, ValuesByYear } from '../types'
 import { formatLatin } from '../utils'
 import { MapSentenceWrapper } from './MapSentence.styled'
@@ -95,11 +95,11 @@ function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
 
       let key: string | null = null
       if (dominant.length) {
-        key = `overwhelmingly${CellTypesString[dominant[0]]}`
+        key = `overwhelmingly${CellTypeEnum[dominant[0]]}`
       } else {
         if (secondary.length === 2) {
-          key = `both${CellTypesString[secondary[0]]}And${
-            CellTypesString[secondary[1]]
+          key = `both${CellTypeEnum[secondary[0]]}And${
+            CellTypeEnum[secondary[1]]
           }`
         } else if (majority.length) {
           let biggestTertiaryValue = Number.NEGATIVE_INFINITY
@@ -110,8 +110,8 @@ function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
               biggestTertiaryIndex = i
             }
           })
-          key = `mostly${CellTypesString[majority[0]]}Somewhat${
-            CellTypesString[biggestTertiaryIndex]
+          key = `mostly${CellTypeEnum[majority[0]]}Somewhat${
+            CellTypeEnum[biggestTertiaryIndex]
           }`
         } else {
           sentence = getSentence('equal')
