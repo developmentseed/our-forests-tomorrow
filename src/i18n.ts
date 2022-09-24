@@ -10,7 +10,7 @@ i18n
   // want your translations to be loaded from a professional CDN? => https://github.com/locize/react-tutorial#step-2---use-the-locize-cdn
   .use(
     new Backend(null, {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: './locales/{{lng}}/{{ns}}.json',
     })
   )
   // detect user language
