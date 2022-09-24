@@ -13,7 +13,7 @@ i18n
       loadPath:
         process.env.NODE_ENV === 'development'
           ? '/locales/{{lng}}/{{ns}}.json'
-          : 'eu-trees4f-viz/build//locales/{{lng}}/{{ns}}.json',
+          : 'eu-trees4f-viz/build/locales/{{lng}}/{{ns}}.json',
     })
   )
   // detect user language
