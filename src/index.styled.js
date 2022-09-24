@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 const styled = { createGlobalStyle }
 
 const GlobalStyles = styled.createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,600&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
   @font-face {
     font-family: 'ITC Cheltenham Std Book Condensed';
     font-style: normal;

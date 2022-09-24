@@ -5,7 +5,7 @@ export const MapTimeseriesWrapper = styled.nav<{ visible: boolean }>`
   position: relative;
   padding-bottom: 50px;
   transform: ${({ visible }) =>
-    visible ? 'translateX(0px)' : 'translateX(300px)'};
+    visible ? 'translateX(0px)' : 'translateX(340px)'};
   transition: transform 300ms;
 `
 
