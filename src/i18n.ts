@@ -8,7 +8,14 @@ i18n
   // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
   // learn more: https://github.com/i18next/i18next-http-backend
   // want your translations to be loaded from a professional CDN? => https://github.com/locize/react-tutorial#step-2---use-the-locize-cdn
-  .use(Backend)
+  .use(
+    new Backend(null, {
+      loadPath:
+        process.env.NODE_ENV === 'development'
+          ? '/locales/{{lng}}/{{ns}}.json'
+          : 'eu-trees4f-viz/build//locales/{{lng}}/{{ns}}.json',
+    })
+  )
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
@@ -20,6 +27,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
     supportedLngs: ['en', 'fr'],
+    load: 'languageOnly',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
