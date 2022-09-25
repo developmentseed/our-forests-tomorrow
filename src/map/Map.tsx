@@ -43,19 +43,21 @@ function Map({
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
-    (grid: any) => {
+    (grid_: any) => {
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
-        onRenderedFeaturesChange(grid.getRenderedFeatures())
+        // console.log(grid_, grid_.getRenderedFeatures())
+        onRenderedFeaturesChange(grid_.getRenderedFeatures())
       }, 1)
     },
     [onRenderedFeaturesChange]
   )
 
-  const { layers, grid } = useMapLayers({
+  const { layers, hexGrid } = useMapLayers({
     mainColor,
     onGridLoaded,
   })
+
   useIntroMapTransitions(viewState, setViewState)
 
   const onViewStateChange = useCallback(
@@ -64,13 +66,13 @@ function Map({
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
         try {
-          onRenderedFeaturesChange(grid.getRenderedFeatures())
+          onRenderedFeaturesChange(hexGrid.getRenderedFeatures())
         } catch (e) {
           console.log(e)
         }
-      }, 1000)
+      }, 300)
     },
-    [grid, onRenderedFeaturesChange]
+    [hexGrid, onRenderedFeaturesChange]
   )
 
   const [mapSize, setMapSize] = useState<null | {

@@ -1,5 +1,11 @@
-import { PickingInfo } from '@deck.gl/core/typed'
-import { BitmapLayer } from '@deck.gl/layers/typed'
+import { PickingInfo, COORDINATE_SYSTEM } from '@deck.gl/core/typed'
+import {
+  BitmapLayer,
+  ScatterplotLayer,
+  ColumnLayer,
+} from '@deck.gl/layers/typed'
+import { ClipExtension } from '@deck.gl/extensions/typed'
+import { Matrix4 } from '@math.gl/core'
 import { useAtom, useAtomValue } from 'jotai'
 import {
   TileLayer,
@@ -11,12 +17,9 @@ import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from '../constants_common'
 import { useMemo, useState } from 'react'
 import { Cell, LayerGenerator, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
-import {
-  CellTypeEnum,
-  COLOR_BY_CELL_TYPE,
-  COUNTRIES_WITH_REGIONS_GIDS,
-} from '../constants'
+import { COLOR_BY_CELL_TYPE, COUNTRIES_WITH_REGIONS_GIDS } from '../constants'
 import { currentRegionAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
+import { Feature } from 'geojson'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
@@ -82,26 +85,25 @@ const REGIONS: LayerGenerator = {
   },
 }
 
-const GRID: LayerGenerator = {
+const HEX_GRID: LayerGenerator = {
   config: {
     ...BASE_TILED_LAYER_CONFIG,
-    id: 'grid',
+    id: 'hexgrid',
     pickable: true,
     binary: false,
-    pointType: 'circle',
   } as MVTLayerProps,
   overrides: {
     data: (species: string) =>
       `${baseTilesURL}/species/${species}/{z}/{x}/{y}.pbf`,
     getPointRadiusByZoom: (zoom: number) => {
       if (zoom <= 1) {
-        return 20000
+        return 33600
       } else if (zoom >= 2 && zoom <= 3) {
-        return 10000
+        return 16800
       } else if (zoom >= 4 && zoom <= 5) {
-        return 5000
+        return 8400
       } else if (zoom >= 6) {
-        return 2500
+        return 4200
       }
     },
     getFillColor: (
@@ -110,7 +112,9 @@ const GRID: LayerGenerator = {
       speciesColor: number[],
       region?: string
     ) => {
-      const baseColor = COLOR_BY_CELL_TYPE[getCellTypeAtTimeStep(d, timeStep)]
+      const baseColor = COLOR_BY_CELL_TYPE[
+        getCellTypeAtTimeStep(d, timeStep)
+      ] || [0, 0, 0, 0]
       return baseColor
       // type === CellTypeEnum.Stable
       //   ? speciesColor
@@ -180,31 +184,81 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
       },
     } as Omit<MVTLayerProps, 'TilesetClass'>)
 
-    const grid = new MVTLayer({
-      ...GRID.config,
-      data: GRID.overrides.data(currentSpecies),
-      getPointRadius: GRID.overrides.getPointRadiusByZoom(tilesZoom),
-      getFillColor: (d) =>
-        GRID.overrides.getFillColor(d, timeStep, mainColor, currentRegion),
+    const hexGrid = new MVTLayer({
+      ...HEX_GRID.config,
+      data: HEX_GRID.overrides.data(currentSpecies),
       updateTriggers: {
         getPointRadius: tilesZoom,
         getFillColor: [timeStep, mainColor, currentRegion],
       },
-      onViewportLoad: (tiles) => {
+      onViewportLoad: (tiles: any) => {
         if (tiles && tiles[0] && tiles[0].zoom !== tilesZoom) {
           setTilesZoom(tiles[0].zoom)
         }
         if (onGridLoaded) {
-          onGridLoaded(grid)
+          onGridLoaded(hexGrid)
         }
       },
-    } as Omit<MVTLayerProps, 'TilesetClass'>)
+      renderSubLayers: ((
+        props: TileLayer['props'] & {
+          id: string
+          data: Feature[]
+          _offset: number
+          // tile: Tile2DHeader<ParsedMvtTile>;
+          tile: any
+        }
+      ) => {
+        // const { x, y, z } = props.tile.index
+        // const worldScale = Math.pow(2, z)
+        // const WORLD_SIZE = 512
+        // const xScale = WORLD_SIZE / worldScale
+        // const yScale = -xScale
+
+        // const xOffset = (WORLD_SIZE * x) / worldScale
+        // const yOffset = WORLD_SIZE * (1 - y / worldScale)
+
+        // const modelMatrix = new Matrix4().scale([xScale, yScale, 1])
+
+        // props.autoHighlight = false
+
+        // // if (!this.context.viewport.resolution) {
+        // props.modelMatrix = modelMatrix
+        // props.coordinateOrigin = [xOffset, yOffset, 0]
+        // props.coordinateSystem = COORDINATE_SYSTEM.CARTESIAN
+        // props.extensions = [...(props.extensions || []), new ClipExtension()]
+        // // }
+
+        return new ColumnLayer({
+          ...props,
+          diskResolution: 6,
+          radius: HEX_GRID.overrides.getPointRadiusByZoom(tilesZoom),
+          // getRadius: () => GRID.overrides.getPointRadiusByZoom(tilesZoom),
+          getPosition: (d: any) => {
+            // const coords = d.geometry.coordinates
+            // const projCoords = [coords[0] * xScale, coords[1] * yScale]
+            // console.log(coords, projCoords)
+            return d.geometry.coordinates
+          },
+          updateTriggers: {
+            getPointRadius: tilesZoom,
+            getFillColor: [timeStep, mainColor, currentRegion],
+          },
+          getFillColor: (d) =>
+            HEX_GRID.overrides.getFillColor(
+              d,
+              timeStep,
+              mainColor,
+              currentRegion
+            ),
+        })
+      }) as any,
+    } as any)
 
     return {
-      layers: [countries, regions, grid, labels],
+      layers: [countries, regions, labels, hexGrid],
       countries,
       regions,
-      grid,
+      hexGrid,
     }
   }, [
     currentSpecies,
