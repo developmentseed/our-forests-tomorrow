@@ -127,6 +127,23 @@ const HEX_GRID: LayerGenerator = {
   },
 }
 
+class HexagonCellsLayer extends ColumnLayer {
+  getShaders() {
+    const shaders = super.getShaders()
+    // shaders.inject = {
+    //   'fs:DECKGL_FILTER_COLOR': `\
+    //     float interval = 16.0;
+    //     float x = float(geometry.worldPosition.x);
+    //     float y = float(geometry.worldPosition.y);
+    //     float a = step(mod(x + y, interval) / (interval - 1.0), 0.5);
+    //     color.rgba = vec4(color.rgb * a,1.0);
+    //   `,
+    // }
+    return shaders
+  }
+}
+HexagonCellsLayer.layerName = 'HexagonCellsLayer'
+
 type UseMapLayerProps = {
   mainColor: number[]
   onGridLoaded: (grid: any) => void
@@ -228,7 +245,7 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
         // props.extensions = [...(props.extensions || []), new ClipExtension()]
         // // }
 
-        return new ColumnLayer({
+        return new HexagonCellsLayer({
           ...props,
           diskResolution: 6,
           radius: HEX_GRID.overrides.getPointRadiusByZoom(tilesZoom),
