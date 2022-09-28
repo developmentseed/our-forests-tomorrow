@@ -29,10 +29,11 @@ const baseTilesURL = isLocal
 const LABELS: LayerGenerator = {
   config: {
     id: 'labels',
-    data: 'https://a.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}@2x.png ',
+    data: `https://api.mapbox.com/styles/v1/nerik8000/cl8lnhc15002b14pfbqev2wmn/tiles/512/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`,
     minZoom: 0,
-    maxZoom: 19,
-    tileSize: 256,
+
+    maxZoom: 10,
+    tileSize: 512,
 
     renderSubLayers: (props) => {
       const {
@@ -272,7 +273,7 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
     } as any)
 
     return {
-      layers: [countries, regions, labels, hexGrid],
+      layers: [hexGrid, countries, regions, labels],
       countries,
       regions,
       hexGrid,

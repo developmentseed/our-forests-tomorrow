@@ -5,7 +5,8 @@ export const MapWrapper = styled.div<{ fixed: boolean }>`
   top: ${({ fixed, theme }) => (fixed ? theme.layout.navHeight : 0)};
   height: ${({ fixed }) => (fixed ? 'calc(100vh - 70px)' : '70vh')};
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.dark};
+  /* background-color: ${({ theme }) => theme.colors.dark}; */
+  background-color: pink;
   transition: height 300ms;
 `
 
