@@ -39,7 +39,8 @@ function App() {
     setCurrentRegion(null)
   }, [setCurrentRegion])
 
-  const { stats, speciesData, regions } = useCoreData()
+  const { stats, speciesData, regions, regionsGeoJson, countriesGeoJson } =
+    useCoreData()
 
   useEffect(() => {
     if (introCompleted) {
@@ -58,7 +59,12 @@ function App() {
 
   const timeseriesData = useTimeseriesData(renderedFeatures)
 
-  return !stats || !speciesData || !currentSpeciesData || !regions ? (
+  return !stats ||
+    !speciesData ||
+    !currentSpeciesData ||
+    !regions ||
+    !regionsGeoJson ||
+    !countriesGeoJson ? (
     <div>loading</div>
   ) : (
     <Fragment>
@@ -69,6 +75,8 @@ function App() {
         mainColor={currentSpeciesData.color}
         currentRegionData={currentRegionData}
         onRenderedFeaturesChange={setRenderedFeatures}
+        regionsGeoJson={regionsGeoJson}
+        countriesGeoJson={countriesGeoJson}
       >
         <MapControls
           currentRegionData={currentRegionData}

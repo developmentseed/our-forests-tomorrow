@@ -20,6 +20,7 @@ export const MAP_DEFAULT_VIEWPORT = {
   zoom: 3,
   pitch: 0,
   bearing: 0,
+  maxZoom: 7,
 }
 
 export const MAX_ZOOM = 8

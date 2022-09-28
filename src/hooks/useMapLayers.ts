@@ -1,9 +1,5 @@
 import { PickingInfo, COORDINATE_SYSTEM } from '@deck.gl/core/typed'
-import {
-  BitmapLayer,
-  ScatterplotLayer,
-  ColumnLayer,
-} from '@deck.gl/layers/typed'
+import { BitmapLayer, ColumnLayer, GeoJsonLayer } from '@deck.gl/layers/typed'
 import { ClipExtension } from '@deck.gl/extensions/typed'
 import { Matrix4 } from '@math.gl/core'
 import { useAtom, useAtomValue } from 'jotai'
@@ -13,13 +9,12 @@ import {
   MVTLayer,
   MVTLayerProps,
 } from '@deck.gl/geo-layers/typed'
-import { BASEMAP_COUNTRIES, BASEMAP_REGIONS } from '../constants_common'
 import { useMemo, useState } from 'react'
 import { Cell, LayerGenerator, TimeStep } from '../types'
 import { getCellTypeAtTimeStep } from '../utils'
 import { COLOR_BY_CELL_TYPE, COUNTRIES_WITH_REGIONS_GIDS } from '../constants'
 import { currentRegionAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
-import { Feature } from 'geojson'
+import { Feature, FeatureCollection } from 'geojson'
 
 const isLocal = window.location.hostname === 'localhost'
 const baseTilesURL = isLocal
@@ -31,8 +26,7 @@ const LABELS: LayerGenerator = {
     id: 'labels',
     data: `https://api.mapbox.com/styles/v1/nerik8000/cl8lnhc15002b14pfbqev2wmn/tiles/512/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`,
     minZoom: 0,
-
-    maxZoom: 10,
+    maxZoom: 7,
     tileSize: 512,
 
     renderSubLayers: (props) => {
@@ -51,38 +45,47 @@ const LABELS: LayerGenerator = {
 
 const BASE_TILED_LAYER_CONFIG = {
   minZoom: 0,
-  maxZoom: 8,
+  maxZoom: 7,
   // noop on tile errors
   onTileError: (err: any) => {},
 }
 
-const BASE_REGIONS_CONFIG = {
-  ...BASE_TILED_LAYER_CONFIG,
-  getLineColor: [192, 192, 192],
-  pickable: true,
-}
-
-const COUNTRIES: LayerGenerator = {
+const COUNTRIES_BG_GEOJSON = {
   config: {
-    ...BASE_REGIONS_CONFIG,
-    id: 'countries',
-    data: `${baseTilesURL}/${BASEMAP_COUNTRIES}/{z}/{x}/{y}.pbf`,
-    getFillColor: [0, 30, 0],
-  } as MVTLayerProps,
-  overrides: {
-    getLineWidth: [1000, 2000],
+    ...BASE_TILED_LAYER_CONFIG,
+    id: 'countries-geojson-bg',
+    pickable: false,
+    // getFillColor: [255, 251, 237],
+    // getFillColor: [95, 207, 82],
+    getFillColor: [10, 84, 113],
   },
 }
 
-const REGIONS: LayerGenerator = {
+const COUNTRIES_GEOJSON = {
   config: {
-    ...BASE_REGIONS_CONFIG,
-    id: 'regions',
-    data: `${baseTilesURL}/${BASEMAP_REGIONS}/{z}/{x}/{y}.pbf`,
+    ...BASE_TILED_LAYER_CONFIG,
+    id: 'countries-geojson',
+    pickable: true,
     getFillColor: [0, 0, 0, 0],
-  } as MVTLayerProps,
+    // getLineColor: [255, 255, 255],
+    getLineColor: [4, 35, 47],
+  },
   overrides: {
-    getLineWidth: [500, 2000],
+    getLineWidth: [5000, 10000],
+  },
+}
+
+const REGIONS_GEOJSON = {
+  config: {
+    ...BASE_TILED_LAYER_CONFIG,
+    id: 'regions-geojson',
+    pickable: true,
+    getFillColor: [0, 0, 0, 0],
+    // getLineColor: [255, 255, 255],
+    getLineColor: [4, 35, 47],
+  },
+  overrides: {
+    getLineWidth: [2000, 4000],
   },
 }
 
@@ -92,6 +95,7 @@ const HEX_GRID: LayerGenerator = {
     id: 'hexgrid',
     pickable: true,
     binary: false,
+    extruded: false,
   } as MVTLayerProps,
   overrides: {
     data: (species: string) =>
@@ -148,9 +152,16 @@ HexagonCellsLayer.layerName = 'HexagonCellsLayer'
 type UseMapLayerProps = {
   mainColor: number[]
   onGridLoaded: (grid: any) => void
+  regionsGeoJson: FeatureCollection
+  countriesGeoJson: FeatureCollection
 }
 
-function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
+function useMapLayers({
+  mainColor,
+  onGridLoaded,
+  regionsGeoJson,
+  countriesGeoJson,
+}: UseMapLayerProps) {
   const [tilesZoom, setTilesZoom] = useState(3)
   const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -160,12 +171,39 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
   return useMemo(() => {
     const labels = new TileLayer(LABELS.config)
 
-    const countries = new MVTLayer({
-      ...COUNTRIES.config,
+    const regions = new GeoJsonLayer({
+      ...REGIONS_GEOJSON.config,
+      data: regionsGeoJson,
+      getLineWidth: (d: any) => {
+        return d.properties?.GID_1 === hoveredRegionId
+          ? REGIONS_GEOJSON.overrides.getLineWidth[1]
+          : REGIONS_GEOJSON.overrides.getLineWidth[0]
+      },
+      onClick: (o: PickingInfo) => {
+        setCurrentRegion(o.object.properties.GID_1)
+      },
+      onHover: (o: PickingInfo) => {
+        if (o.object?.properties.GID_1) {
+          setHoveredRegionId(o.object?.properties.GID_1)
+        }
+      },
+      updateTriggers: {
+        getLineWidth: hoveredRegionId,
+      },
+    } as any)
+
+    const countriesBg = new GeoJsonLayer({
+      ...COUNTRIES_BG_GEOJSON.config,
+      data: countriesGeoJson,
+    } as any)
+
+    const countries = new GeoJsonLayer({
+      ...COUNTRIES_GEOJSON.config,
+      data: countriesGeoJson,
       getLineWidth: (d: any) => {
         return d.properties?.GID_0 === hoveredRegionId
-          ? COUNTRIES.overrides.getLineWidth[1]
-          : COUNTRIES.overrides.getLineWidth[0]
+          ? COUNTRIES_GEOJSON.overrides.getLineWidth[1]
+          : COUNTRIES_GEOJSON.overrides.getLineWidth[0]
       },
       onClick: (o: PickingInfo) => {
         if (!COUNTRIES_WITH_REGIONS_GIDS.includes(o.object.properties.GID_0)) {
@@ -173,34 +211,14 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
         }
       },
       onHover: (o: PickingInfo) => {
-        if (o.object?.properties.fid) {
-          setHoveredRegionId(o.object?.properties.fid)
+        if (o.object?.properties.GID_0) {
+          setHoveredRegionId(o.object?.properties.GID_0)
         }
       },
       updateTriggers: {
         getLineWidth: hoveredRegionId,
       },
-    } as Omit<MVTLayerProps, 'TilesetClass'>)
-
-    const regions = new MVTLayer({
-      ...REGIONS.config,
-      getLineWidth: (d: any) => {
-        return d.properties?.GID_1 === hoveredRegionId
-          ? REGIONS.overrides.getLineWidth[1]
-          : REGIONS.overrides.getLineWidth[0]
-      },
-      onClick: (o: PickingInfo) => {
-        setCurrentRegion(o.object.properties.GID_1)
-      },
-      onHover: (o: PickingInfo) => {
-        if (o.object?.properties.fid) {
-          setHoveredRegionId(o.object?.properties.fid)
-        }
-      },
-      updateTriggers: {
-        getLineWidth: hoveredRegionId,
-      },
-    } as Omit<MVTLayerProps, 'TilesetClass'>)
+    } as any)
 
     const hexGrid = new MVTLayer({
       ...HEX_GRID.config,
@@ -273,9 +291,7 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
     } as any)
 
     return {
-      layers: [hexGrid, countries, regions, labels],
-      countries,
-      regions,
+      layers: [countriesBg, hexGrid, countries, regions, labels],
       hexGrid,
     }
   }, [
@@ -288,6 +304,8 @@ function useMapLayers({ mainColor, onGridLoaded }: UseMapLayerProps) {
     hoveredRegionId,
     setHoveredRegionId,
     onGridLoaded,
+    countriesGeoJson,
+    regionsGeoJson,
   ])
 }
 
