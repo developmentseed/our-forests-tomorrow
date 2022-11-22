@@ -13,7 +13,7 @@ import DeckGL, { DeckGLRef } from '@deck.gl/react/typed'
 import { MapViewState, WebMercatorViewport } from '@deck.gl/core/typed'
 import { MAP_DEFAULT_VIEWPORT } from '../constants'
 import { CellProps, Region } from '../types'
-import type { Feature } from 'geojson'
+import type { Feature, FeatureCollection } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
 import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
@@ -26,6 +26,8 @@ export type MapProps = {
   onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
   children: ReactNode
   currentRegionData?: Region
+  regionsGeoJson: FeatureCollection
+  countriesGeoJson: FeatureCollection
 }
 
 function Map({
@@ -33,6 +35,8 @@ function Map({
   onRenderedFeaturesChange,
   children,
   currentRegionData,
+  regionsGeoJson,
+  countriesGeoJson,
 }: MapProps) {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
@@ -43,19 +47,23 @@ function Map({
 
   const timeoutId = useRef<undefined | ReturnType<typeof setTimeout>>(undefined)
   const onGridLoaded = useCallback(
-    (grid: any) => {
+    (grid_: any) => {
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
-        onRenderedFeaturesChange(grid.getRenderedFeatures())
+        // console.log(grid_, grid_.getRenderedFeatures())
+        onRenderedFeaturesChange(grid_.getRenderedFeatures())
       }, 1)
     },
     [onRenderedFeaturesChange]
   )
 
-  const { layers, grid } = useMapLayers({
+  const { layers, hexGrid } = useMapLayers({
     mainColor,
     onGridLoaded,
+    regionsGeoJson,
+    countriesGeoJson,
   })
+
   useIntroMapTransitions(viewState, setViewState)
 
   const onViewStateChange = useCallback(
@@ -64,13 +72,13 @@ function Map({
       if (timeoutId.current) clearTimeout(timeoutId.current)
       timeoutId.current = setTimeout(() => {
         try {
-          onRenderedFeaturesChange(grid.getRenderedFeatures())
+          onRenderedFeaturesChange(hexGrid.getRenderedFeatures())
         } catch (e) {
           console.log(e)
         }
-      }, 1000)
+      }, 300)
     },
-    [grid, onRenderedFeaturesChange]
+    [hexGrid, onRenderedFeaturesChange]
   )
 
   const [mapSize, setMapSize] = useState<null | {

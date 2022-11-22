@@ -1,3 +1,4 @@
+import { Feature, FeatureCollection } from 'geojson'
 import { t } from 'i18next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -14,15 +15,22 @@ function useCoreData() {
   const [stats, setStats] = useState<StatsBySpecies | null>(null)
   const [speciesData, setSpeciesData] = useState<AllSpeciesData | null>(null)
   const [regions, setRegions] = useState<Region[]>([])
+  const [regionsGeoJson, setRegionsGeoJson] = useState<FeatureCollection>()
+  const [countriesGeoJson, setCountriesGeoJson] = useState<FeatureCollection>()
   const { i18n } = useTranslation()
   useEffect(() => {
     if (stats) return
     Promise.all(
-      ['./stats.json', './regions.json', './species_data.json'].map((url) =>
-        fetch(url).then((resp) => resp.json())
-      )
+      [
+        './stats.json',
+        './regions.json',
+        './species_data.json',
+        './regions.geojson',
+        './countries.geojson',
+      ].map((url) => fetch(url).then((resp) => resp.json()))
     ).then((data) => {
-      const [stats, regions, allSpeciesData] = data
+      const [stats, regions, allSpeciesData, regionsGeoJson, countriesGeoJson] =
+        data
 
       const allSpeciesDataWithLabels: AllSpeciesData = Object.fromEntries(
         Object.entries(allSpeciesData).map(([speciesKey, speciesData]) => {
@@ -150,9 +158,17 @@ function useCoreData() {
 
       setStats(statsWithSpeciesCountForRegions as StatsBySpecies)
       setRegions(regionsWithLabels)
+      setRegionsGeoJson({
+        ...regionsGeoJson,
+        features: regionsGeoJson.features.filter((g: Feature) => g.geometry),
+      })
+      setCountriesGeoJson({
+        ...countriesGeoJson,
+        features: countriesGeoJson.features.filter((g: Feature) => g.geometry),
+      })
     })
   }, [stats, i18n])
-  return { stats, speciesData, regions }
+  return { stats, speciesData, regions, regionsGeoJson, countriesGeoJson }
 }
 
 export default useCoreData
