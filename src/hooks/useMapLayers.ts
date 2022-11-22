@@ -16,10 +16,7 @@ import { COLOR_BY_CELL_TYPE, COUNTRIES_WITH_REGIONS_GIDS } from '../constants'
 import { currentRegionAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
 import { Feature, FeatureCollection } from 'geojson'
 
-const isLocal = window.location.hostname === 'localhost'
-const baseTilesURL = isLocal
-  ? '//localhost:9090'
-  : '//storage.googleapis.com/eu-trees4f-tiles/pbf'
+const baseTilesURL = process.env.REACT_APP_TILES_URL || '//storage.googleapis.com/eu-trees4f-tiles/pbf'
 
 const LABELS: LayerGenerator = {
   config: {
