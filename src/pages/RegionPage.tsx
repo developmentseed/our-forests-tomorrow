@@ -29,6 +29,7 @@ import Hexagon from '../components/Hexagon'
 import { CellTypeEnum } from '../constants'
 import PageTimeseries from './PageTimeseries'
 import RegionPageParagraph from './RegionPageParagraph'
+import BubbleChart from './BeeSwarm'
 
 export type RegionPageProps = {
   currentRegionData: Region
@@ -48,6 +49,8 @@ function RegionPage({
     currentRegionData,
     stats
   )
+
+  console.log(currentStats)
 
   const data = useMemo(() => {
     return {
@@ -159,6 +162,8 @@ function RegionPage({
                 onItemClick={onSpeciesClick}
               />
             )}
+
+            {currentStats && <BubbleChart data={currentStats} />}
           </PageTimeseriesWraper>
         </article>
       </PageContents>
