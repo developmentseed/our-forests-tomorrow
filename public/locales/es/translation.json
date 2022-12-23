@@ -1,20 +1,20 @@
 {
   "general": {
-    "currentDistribution": "Current distribution",
+    "currentDistribution": "Distribución actual",
     "decolonization": "decolonization",
     "suitability": "suitability",
-    "close": "close",
+    "close": "cerrar",
     "entireCountry": "entire country"
   },
   "nav": {
-    "title": "<b>Our Forests</b> tomorrow",
-    "about": "about",
-    "regions": "regions",
-    "species": "species",
-    "sortBy": "sort by",
+    "title": "<b>Nuestros Bosques</b> mañana",
+    "about": "acerca de",
+    "regions": "regiones",
+    "species": "especies",
+    "sortBy": "ordenar por",
     "sortByOptions": {
-      "vernacular": "vernacular name",
-      "latin": "latin name",
+      "vernacular": "nombre común",
+      "latin": "nombre científico",
       "area": "distribution area (descending)"
     },
     "search": "search for a species name, description...",
@@ -22,8 +22,8 @@
     "exploreSpecies": "<p>explore the possible future of</p><b>67</b><p>tree species</p>"
   },
   "page": {
-    "today": "Today",
-    "tomorrow": "Tomorrow",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
     "chartTypeNaturallyPresent": "Present today",
     "chartTypeWillDisappear": "Decolonization in 2095",
     "chartTypeCouldThrive": "Suitability in 2095"
