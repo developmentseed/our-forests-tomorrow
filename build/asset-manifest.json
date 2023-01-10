@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/eu-trees4f-viz/build/static/js/main.74206691.js",
+    "main.js": "/eu-trees4f-viz/build/static/js/main.655dbd2f.js",
     "index.html": "/eu-trees4f-viz/build/index.html",
     "static/media/getFetch.cjs": "/eu-trees4f-viz/build/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.74206691.js.map": "/eu-trees4f-viz/build/static/js/main.74206691.js.map"
+    "main.655dbd2f.js.map": "/eu-trees4f-viz/build/static/js/main.655dbd2f.js.map"
   },
   "entrypoints": [
-    "static/js/main.74206691.js"
+    "static/js/main.655dbd2f.js"
   ]
 }
