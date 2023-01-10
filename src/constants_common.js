@@ -1,8 +1,8 @@
 // Constants shared by node scripts and frontend
-export const GEOJSON_ABS_PATH = '/Users/erik/Work/eu-trees4f/out/geojson'
-export const STATS_ABS_PATH = '/Users/erik/Work/eu-trees4f/out/stats'
-export const EUTREES4F_DATASET_ABS_PATH =
-  '/Users/erik/Work/eu-trees4f/in/EU-Trees4F_dataset/ens_sdms'
+const BASE_ABS_PATH = '/Users/erik/Work/eu-trees4f-viz'
+export const GEOJSON_ABS_PATH = `${BASE_ABS_PATH}/out/geojson`
+export const STATS_ABS_PATH = `${BASE_ABS_PATH}/out/stats`
+export const EUTREES4F_DATASET_ABS_PATH = `${BASE_ABS_PATH}/in/EU-Trees4F_dataset/ens_sdms`
 export const SPECIES_META_MANUAL = './in/species_meta_manual.json'
 export const SPECIES = './out/species.json'
 export const SPECIES_DATA = './public/species_data.json'
@@ -20,6 +20,7 @@ export const BASEMAP_REGIONS = 'basemap_regions'
 export const BASEMAP_REGIONS_SRC = 'gadm_regions_custom.geojson'
 export const STATS_FINAL = './public/stats.json'
 export const RCP = '85'
+export const RCPS = ['45', '85']
 export const SPECIES_WHITELIST = [
   'Abies_alba',
   'Acer_campestre',
