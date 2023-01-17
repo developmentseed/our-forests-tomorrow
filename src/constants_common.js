@@ -96,3 +96,5 @@ export const GRIDS = [
   { res: 20, minZoom: 4, maxZoom: 5 },
   { res: 10, minZoom: 6, maxZoom: 8 },
 ]
+
+export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es']

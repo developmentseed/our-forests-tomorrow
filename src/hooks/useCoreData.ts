@@ -1,8 +1,7 @@
 import { Feature, FeatureCollection } from 'geojson'
-import { t } from 'i18next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SUPPORTED_LANGUAGES } from '../constants'
+import { SUPPORTED_LANGUAGES } from '../constants_common'
 import {
   AllSpeciesData,
   Region,
