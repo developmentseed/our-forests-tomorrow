@@ -5,6 +5,7 @@ import {
   SPECIES_DATA,
   SPECIES_META_MANUAL,
   SPECIES_MEDIA,
+  SUPPORTED_LANGUAGES
 } from '../src/constants_common.js'
 import fs from 'fs'
 const speciesList = JSON.parse(fs.readFileSync(SPECIES, 'utf-8'))
@@ -34,40 +35,33 @@ speciesList.forEach((currentSpeciesId) => {
       const wdId = mainResult.id
       console.log(currentSpeciesId, id)
 
+      const summariesUrls = SUPPORTED_LANGUAGES.map(lang => `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${id}`)
+
       Promise.all(
         [
           `https://www.wikidata.org/wiki/Special:EntityData/${wdId}.json`,
-          `https://en.wikipedia.org/api/rest_v1/page/summary/${id}`,
-          `https://fr.wikipedia.org/api/rest_v1/page/summary/${id}`,
           `https://en.wikipedia.org/api/rest_v1/page/media-list/${id}`,
+          ...summariesUrls
         ].map((url) => fetch(url).then((resp) => resp.json()))
-      ).then(([wd, wikiEn, wikiFr, wikiMedia]) => {
+      ).then(([wd, wikiMedia, ...summaries]) => {
         allSpeciesData[currentSpeciesId] = {
-          labels: {
-            en: {},
-            fr: {},
-          },
+          labels: Object.fromEntries(SUPPORTED_LANGUAGES.map((lang) => [lang, {}]))
         }
 
         allSpeciesMedia[currentSpeciesId] = wikiMedia
 
         const wdData = wd.entities[wdId]
-        // allSpeciesLabels.en[currentSpeciesId].name = wdData.labels.en.value
-        if (wdData.aliases.en) {
-          allSpeciesData[currentSpeciesId].labels.en.aliases =
-            wdData.aliases.en.map((a) => a.value)
-        }
-        // allSpeciesLabels.fr[currentSpeciesId].name = wdData.labels.en.value
-        if (wdData.aliases.fr) {
-          allSpeciesData[currentSpeciesId].labels.fr.aliases =
-            wdData.aliases.fr.map((a) => a.value)
-        }
 
-        allSpeciesData[currentSpeciesId].labels.en.extract = wikiEn.extract
-        allSpeciesData[currentSpeciesId].labels.fr.extract = wikiFr.extract
+        SUPPORTED_LANGUAGES.forEach((lang, langIndex) => {
+          if (wdData.aliases[lang]) {
+            allSpeciesData[currentSpeciesId].labels[lang].aliases =
+              wdData.aliases[lang].map((a) => a.value)
+          }
+          allSpeciesData[currentSpeciesId].labels[lang].extract = summaries[langIndex].extract
+        })
 
-        allSpeciesData[currentSpeciesId].thumbnail = wikiEn.thumbnail
-        allSpeciesData[currentSpeciesId].originalimage = wikiEn.originalimage
+        allSpeciesData[currentSpeciesId].thumbnail = summaries[0].thumbnail
+        allSpeciesData[currentSpeciesId].originalimage = summaries[0].originalimage
         // currentSpeciesDetail.media = wikiMedia.items
 
         if (
@@ -102,5 +96,6 @@ speciesList.forEach((currentSpeciesId) => {
           JSON.stringify(Object.fromEntries(sortedMedia))
         )
       })
+      .catch(err => console.log(err))
     })
 })

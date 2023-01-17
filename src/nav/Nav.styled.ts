@@ -39,4 +39,11 @@ export const NavButton = styled.button<{ visible?: boolean }>`
     visible === true || visible === undefined ? 1 : 0};
   transition: opacity 300ms;
   padding: 0 0.3rem;
+  border-bottom-color: ${({ theme }) => theme.colors.dark};
+  border-bottom-style: solid;
+  border-bottom-width: 0;
+  
+  &:hover {
+    border-bottom-width: 1px;
+  }
 `

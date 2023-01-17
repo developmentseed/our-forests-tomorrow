@@ -2,7 +2,7 @@
   "Abies_alba": {
     "labels": {
       "en": {
-        "aliases": ["Abies pectinata"],
+        "aliases": ["Abies pectinata", "European silver fir", "silver fir"],
         "extract": "Abies alba, the European silver fir or silver fir, is a fir native to the mountains of Europe, from the Pyrenees north to Normandy, east to the Alps and the Carpathians, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Serbia, and south to Italy, Bulgaria, Kosovo, Albania and northern Greece; it is also commonly grown on Christmas tree plantations in the North East region of North America spanning New England in the US to the Maritime provinces of Canada."
       },
       "fr": {
@@ -11,22 +11,45 @@
           "Sapin blanc",
           "Sapin pectiné",
           "Abiès alba",
-          "Sapin noir"
+          "Sapin noir",
+          "Sapin commun"
         ],
         "extract": "Le Sapin blanc, Sapin commun, Sapin pectiné ou plus simplement Sapin est un conifère de la famille des Pinacées. Il est localement appelé Sapin de Normandie ou Sapin de l'Aigle (Normandie), Sapin de croix (Bretagne), Sapin des Vosges, Sapin noir, Sapin à feuilles d’if, ainsi que Vuargne, Ouargne ou Warne, Sap, Avet ou Aveth, Ghjàllicu (Corse) et plus rarement Sapin argenté. C'est une essence importante pour la foresterie en Europe."
+      },
+      "es": {
+        "aliases": [
+          "Abeto pectinado",
+          "Abeto blanco",
+          "Abeto branco",
+          "Abies alba var podolica",
+          "Pinus abies var. pectinata",
+          "Abies alba var pardei",
+          "Pinus baldensis",
+          "Pino abeto",
+          "Pinus abies var leioclada",
+          "Pinus abies var. leioclada",
+          "Pinus lucida",
+          "Abies pardei",
+          "Abeto comun",
+          "Abies chlorocarpa",
+          "Pinabete común",
+          "Abies taxifolia",
+          "Pinabete comun"
+        ],
+        "extract": "Abies alba, el abeto común o abeto blanco es una especie arbórea de la familia de las pináceas, originaria de las regiones montañosas de Europa. De porte piramidal, tamaño medio o elevado, entre 20 y 50 metros, puede alcanzar los 60 metros de altura, su tronco es derecho y columnar, desprovisto de ramas en su parte inferior, de hasta 6 metros de circunferencia, con corteza cenicienta a blanquecina, lisa y con vesículas resinosas; se oscurece y resquebraja en los ejemplares viejos."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Abies_alba_Wis%C5%82a_1.jpg/204px-Abies_alba_Wis%C5%82a_1.jpg",
-      "width": 204,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Abies_alba_Wis%C5%82a_1.jpg/320px-Abies_alba_Wis%C5%82a_1.jpg",
+      "width": 320,
+      "height": 501
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Abies_alba_Wis%C5%82a_1.jpg",
       "width": 2748,
       "height": 4305
     },
-    "color": [13, 243, 82]
+    "color": [146, 220, 134]
   },
   "Acer_campestre": {
     "labels": {
@@ -35,21 +58,50 @@
         "extract": "Acer campestre, known as the field maple, is a flowering plant species in the family Sapindaceae. It is native to much of continental Europe, Britain, southwest Asia from Turkey to the Caucasus, and north Africa in the Atlas Mountains. It has been widely planted, and is introduced outside its native range in Europe and areas of USA and Western Australia with suitable climate."
       },
       "fr": {
-        "aliases": ["Erable champetre", "Acer campestre", "Acer campestris"],
-        "extract": "L'Érable champêtre (Acer campestre) est un arbre du genre Acer appartenant à la famille des Acéracées. Il est classé dans la section Platanoidea de la classification des érables."
+        "aliases": [
+          "Erable champetre",
+          "Acer campestre",
+          "Acer campestris",
+          "érable champêtre"
+        ],
+        "extract": "L'Érable champêtre est une espèce d'arbres du genre Acer appartenant à la famille des Acéracées. Il est classé dans la section Platanoidea de la classification des érables."
+      },
+      "es": {
+        "aliases": [
+          "Acer marsicum",
+          "Acer marsicum f vichodcevskyi",
+          "Arce campestre",
+          "Quejigo arce",
+          "Arcero",
+          "Acer marsicum f trifidum",
+          "Moscon común",
+          "Acer polycarpon",
+          "Acer heterotomum",
+          "Acer trifolium",
+          "Malbillo",
+          "Acer praecox",
+          "Escarro",
+          "Acer leiocarpum",
+          "Arce moscon",
+          "Acer microcarpon",
+          "Acer campestris",
+          "Moscon comun",
+          "Arce común"
+        ],
+        "extract": "Acer campestre, el arce menor, arce campestre o arce silvestre es una especie perteneciente a la familia de las sapindáceas. Muy extendida por Europa y oeste de Asia; también en algunas zonas del norte de África."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Acer_campestre_in_Appennino2.jpg/240px-Acer_campestre_in_Appennino2.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Acer_campestre_in_Appennino2.jpg/320px-Acer_campestre_in_Appennino2.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/a/af/Acer_campestre_in_Appennino2.jpg",
       "width": 1944,
       "height": 2592
     },
-    "color": [125, 240, 34]
+    "color": [141, 208, 73]
   },
   "Acer_opalus": {
     "labels": {
@@ -66,6 +118,29 @@
           "Acer opalus"
         ],
         "extract": "L'érable à feuilles d'obier, Acer opalus Mill. est un arbre généralement de taille moyenne, mais pouvant approcher 30 m de hauteur en futaie, comme dans la forêt de la Sainte-Baume. Il appartient à la famille des Acéracées selon la classification classique, ou de la famille des Sapindacées selon la classification phylogénétique)."
+      },
+      "es": {
+        "aliases": [
+          "Acer opalus var. brachypterum",
+          "Acer opalus subsp variabile",
+          "Acer pseudoplatanus var. opulifolium",
+          "Acer hispanicum f. montsiccianum",
+          "Acer opalus var. montsiccianum",
+          "Acer opalus subsp. italum",
+          "Acer leptopterum",
+          "Acer italum subsp. variabile",
+          "Acer opulifolium",
+          "Acer sabaudum",
+          "Acer italum var. opulifolium",
+          "Ásar",
+          "Arce morisco",
+          "Oró",
+          "Acer opalus f. microphyllum",
+          "Acer hispanicum",
+          "Asar",
+          "Oro"
+        ],
+        "extract": "El orón, o asar es una especie botánica perteneciente a la familia de las sapindáceas."
       }
     },
     "thumbnail": {
@@ -78,7 +153,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [28, 224, 16]
+    "color": [82, 220, 139]
   },
   "Acer_platanoides": {
     "labels": {
@@ -97,6 +172,51 @@
           "Main-découpée"
         ],
         "extract": "L'Érable plane est un arbre de grande taille de la famille des Aceraceae (Cronquist) ou des Sapindacées (APGIII) fréquent dans les régions collinéennes et montagneuses d'Europe. Il est parfois appelé Érable de Norvège, Iseron, Plane, Main-découpée, Plaine ou Faux Sycomore."
+      },
+      "es": {
+        "aliases": [
+          "Auderon",
+          "Acer rotundum",
+          "Acer fallax",
+          "Arce real",
+          "Acer platanoides f. erectum",
+          "Acer platanoides f erectum",
+          "Coladena",
+          "Acer regelii",
+          "Acer lobelii",
+          "Moscón real",
+          "Arce plátano",
+          "Acer platanifolium",
+          "Acer cappadocicum subsp. turkestanicum",
+          "Acer platanoides f drummondii",
+          "Acer acutifolium",
+          "Acer turkestanicum",
+          "Acer platanoides f. drummondii",
+          "Acer dobrudschae",
+          "Arce de Noruega",
+          "Acer laetum var cordifolium",
+          "Acer platanoides var. drummondii",
+          "Euacer platanoides",
+          "Acer platanoides var drummondii",
+          "Acer platanoides f meyeringii",
+          "Acer platanoides var laciniatum",
+          "Acer cappadocicum subsp turkestanicum",
+          "Acer laetum var regelii",
+          "Plantanero de Espana",
+          "Plantanero de España",
+          "Arce platanoide",
+          "Moscon real",
+          "Acer laetum var. regelii",
+          "Acer dasyphillum",
+          "Arce platano",
+          "Arce aplatanado",
+          "Acer platanoides var. laciniatum",
+          "Acer lactescens",
+          "Arce noruego",
+          "Acer laetum var. cordifolium",
+          "Acer platanoides f. meyeringii"
+        ],
+        "extract": "Acer platanoides, el arce real, arce de Noruega, arce noruego o arce platanoide es una especie arbórea perteneciente a la familia de las sapindáceas."
       }
     },
     "thumbnail": {
@@ -122,9 +242,35 @@
           "Érable de montagne",
           "Acer pseudoplatanus",
           "Faux Platane",
-          "Erable sycomore"
+          "Erable sycomore",
+          "Érable sycomore"
         ],
-        "extract": "L’érable sycomore est une espèce d'arbres de grande taille de la famille des acéracées fréquent en Europe.\nIl appartient à la section Acer de la classification des érables selon de Jong (1976)."
+        "extract": "L’érable sycomore est une espèce d'arbres de grande taille de la famille des acéracées fréquente en Europe.\nIl appartient à la section Acer de la classification des érables selon de Jong (1976)."
+      },
+      "es": {
+        "aliases": [
+          "Planago",
+          "Arce sicomoro",
+          "Pladano",
+          "Arce plátano falso",
+          "Acer villosum",
+          "Acer latifolium",
+          "Acer procerum",
+          "Platano silvestre",
+          "Pradano",
+          "Falso-platano",
+          "Arce-sicomoro",
+          "Falso sicómoro",
+          "Plátano silvestre",
+          "Acer montanum",
+          "Plagano",
+          "Acer sericeum",
+          "Arce platano falso",
+          "Falso sicomoro",
+          "Acer pseudo-platanus",
+          "Arce blanco"
+        ],
+        "extract": "El Acer pseudoplatanus es una especie arbórea caducifolia perteneciente a la familia de las sapindáceas."
       }
     },
     "thumbnail": {
@@ -137,7 +283,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [64, 201, 22]
+    "color": [4, 215, 37]
   },
   "Alnus_glutinosa": {
     "labels": {
@@ -155,19 +301,41 @@
           "Aune"
         ],
         "extract": "L’aulne glutineux, l’aulne noir, l’aulne poisseux, est un arbre feuillu de la famille des bétulacées, très présent dans la flore indigène de l'Europe. Il est parfois appelé vergne ou verne."
+      },
+      "es": {
+        "aliases": [
+          "Pantierno",
+          "Homeiro",
+          "Alno",
+          "Alberniz",
+          "Alyso",
+          "Auno",
+          "Humeiru",
+          "Humiro",
+          "Alisio",
+          "Humeiro",
+          "Leña floja",
+          "Aleso",
+          "Bernazo",
+          "Avellano moral",
+          "Alisu",
+          "Chopo mulato",
+          "Aliso común"
+        ],
+        "extract": "Alnus glutinosa, el aliso común o alno; también llamado, aliso negro, alisa o aliso, es un árbol de la familia de las betuláceas extendido por Europa y el suroeste de Asia. Su hábitat natural son los lugares húmedos y bosques de ribera. Habita por ejemplo en gran parte de la península ibérica."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/20120904Alnus_glutinosa01.jpg/240px-20120904Alnus_glutinosa01.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/20120904Alnus_glutinosa01.jpg/320px-20120904Alnus_glutinosa01.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/2/2c/20120904Alnus_glutinosa01.jpg",
       "width": 1500,
       "height": 2000
     },
-    "color": [95, 207, 82]
+    "color": [102, 225, 89]
   },
   "Alnus_incana": {
     "labels": {
@@ -176,8 +344,26 @@
         "extract": "Alnus incana, the grey alder or speckled alder, is a species of multi-stemmed, shrubby tree in the birch family, with a wide range across the cooler parts of the Northern Hemisphere. Tolerant of wetter soils, it can slowly spread with runners and is a common sight in swamps and wetlands. It is easily distinguished by its small cones, speckled bark and broad leaves."
       },
       "fr": {
-        "aliases": ["Alnus incana", "Aulne de montagne", "Aulne rugueux"],
+        "aliases": [
+          "Alnus incana",
+          "Aulne de montagne",
+          "Aulne rugueux",
+          "aulne blanc"
+        ],
         "extract": "L'aulne blanc, aulne rugueux, aulne de montagne, arcoce ou varne est un arbre, de la famille des bétulacées, originaire des régions tempérées de l'hémisphère nord."
+      },
+      "es": {
+        "aliases": [
+          "Alnus februaria var incana",
+          "Betula incana",
+          "Aliso gris",
+          "Betula alnus var. incana",
+          "Aliso dorado",
+          "Aliso cano",
+          "Alnus februaria var. incana",
+          "Betula alnus var incana"
+        ],
+        "extract": "Alnus incana, el aliso gris o aliso cano, es una especie de árbol perteneciente a la familia de las betuláceas."
       }
     },
     "thumbnail": {
@@ -190,13 +376,13 @@
       "width": 650,
       "height": 428
     },
-    "color": [73, 222, 72]
+    "color": [129, 204, 58]
   },
   "Arbutus_unedo": {
     "labels": {
       "en": {
         "aliases": ["Mamkamla", "Irish strawberry tree", "strawberry tree"],
-        "extract": "Arbutus unedo is an evergreen shrub or small tree in the flowering plant family Ericaceae native to the Mediterranean region and western Europe. The tree is well known for its fruit, which bear some resemblance to the strawberry—hence the common name \"strawberry tree\". However, it is not closely related to the Fragaria plant."
+        "extract": "Arbutus unedo is an evergreen shrub or small tree in the family Ericaceae, native to the Mediterranean region and western Europe. The tree is well known for its fruit, the arbutus berry, which bear some resemblance to the strawberry — hence the common name \"strawberry tree\". However, it is not closely related to true strawberries of the genus Fragaria."
       },
       "fr": {
         "aliases": [
@@ -205,7 +391,30 @@
           "Arbre aux fraises",
           "Arbre à fraises"
         ],
-        "extract": "L'Arbousier ou Arbousier commun (Arbutus unedo), parfois appelé Arbre à fraises, est une espèce d'arbustes ou de petits arbres de la famille des Ericaceae, qui pousse sur l'ensemble du pourtour méditerranéen occidental mais aussi dans le nord du pourtour oriental. Son fruit est appelé Arbouse."
+        "extract": "L'Arbousier ou Arbousier commun (Arbutus unedo), parfois appelé Arbre à fraises, est une espèce d'arbustes ou de petits arbres de la famille des Ericaceae, qui pousse sur l'ensemble du pourtour méditerranéen occidental mais aussi dans le nord du pourtour oriental. Son fruit est appelé arbouse."
+      },
+      "es": {
+        "aliases": [
+          "Albornio",
+          "Árbol del azucar",
+          "Borto",
+          "Modrono",
+          "Alborozas",
+          "Arbutus croomii",
+          "Árbol del azúcar",
+          "Arbutus cassinifolia",
+          "Arbutus unedo f. subcrenata",
+          "Arbutus salicifolia",
+          "Madrono comun",
+          "Arbutus intermedia",
+          "Alborecera",
+          "Borrubiete",
+          "Arbutus nothocomaros",
+          "Arbutus laurifolia",
+          "Arbol del azucar",
+          "Madroño"
+        ],
+        "extract": "El madroño es una especie de arbusto perteneciente al género Arbustus en la familia Ericaceae."
       }
     },
     "thumbnail": {
@@ -218,7 +427,7 @@
       "width": 1089,
       "height": 1069
     },
-    "color": [11, 245, 74]
+    "color": [12, 243, 9]
   },
   "Aria_edulis": {
     "labels": {
@@ -229,19 +438,42 @@
       "fr": {
         "aliases": ["Alisier Blanc", "Alouchier"],
         "extract": "L'Alisier blanc, Alisier de Bourgogne, Alouchier ou Sorbier des Alpes est un arbre de la famille des Rosacées originaire du sud de l'Europe."
+      },
+      "es": {
+        "aliases": [
+          "Sorbus chlorocarpa",
+          "Serbal morisco",
+          "Manzurbio",
+          "Moixsero",
+          "Mochera",
+          "Gustay",
+          "Crataegus pallida",
+          "Cimaya",
+          "Sorbus graeca",
+          "Cimaja",
+          "Avedillo",
+          "Aria vulgaris",
+          "Crataegus umbellata",
+          "Pyrus meridionalis",
+          "Pespejón",
+          "Crataegus corymbosa",
+          "Pespejon",
+          "Mostajo"
+        ],
+        "extract": "Sorbus aria, mostajo, serbal blanco, mostellar, mostajo común o blanco es un árbol de hasta 15 m de alto, de la familia de las rosáceas, propio de casi toda Europa, norte de África y Asia Menor."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Weilburg_-_Tiergarten_-_Mehlbeere.jpg/240px-Weilburg_-_Tiergarten_-_Mehlbeere.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Weilburg_-_Tiergarten_-_Mehlbeere.jpg/320px-Weilburg_-_Tiergarten_-_Mehlbeere.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/4/45/Weilburg_-_Tiergarten_-_Mehlbeere.jpg",
       "width": 1500,
       "height": 2000
     },
-    "color": [56, 200, 139]
+    "color": [84, 216, 67]
   },
   "Betula_pendula": {
     "labels": {
@@ -255,8 +487,33 @@
         "extract": "Betula pendula, commonly known as silver birch, warty birch, European white birch, or East Asian white birch, is a species of tree in the family Betulaceae, native to Europe and parts of Asia, though in southern Europe, it is only found at higher altitudes. Its range extends into Siberia, China, and southwest Asia in the mountains of northern Turkey, the Caucasus, and northern Iran. It has been introduced into North America, where it is known as the European white birch or weeping birch and is considered invasive in some states in the United States and parts of Canada. The tree can also be found in more temperate regions of Australia."
       },
       "fr": {
-        "aliases": ["Betula pendula"],
+        "aliases": ["Betula pendula", "Bouleau Pleureur", "bouleau verruqueux"],
         "extract": "Le bouleau verruqueux ou bouleau blanc, ou encore bouleau d'Europe, mais aussi bouleau blanc d'Europe est un arbre à feuilles caduques pouvant atteindre 25 mètres de hauteur. Originaire d'Europe et d'Asie, c'est un arbre très rustique et qui a besoin de lumière. Il aime les sols secs à frais, siliceux de préférence. Les sols acides à alcalins ne le dérangent pas outre mesure. C'est une essence pionnière, colonisatrice et très adaptable. Il résiste parfaitement aux embruns. Il peut être isolé, en alignement, bosquet, etc."
+      },
+      "es": {
+        "aliases": [
+          "Betula pendula subsp. fontqueri",
+          "Betula pendula Roth subsp pendula",
+          "Abedul comun",
+          "Abedul verrugoso",
+          "Albaren",
+          "Betula pendula subsp fontqueri",
+          "Bieso",
+          "Barrazera",
+          "Betula pendula var parvibracteata",
+          "Bidueiro",
+          "Abedul péndulo",
+          "Betula verrucosa",
+          "Betula alba var. fontqueri",
+          "Abedul verrucoso",
+          "Betula alba ssp verrucosa",
+          "Albá",
+          "Abedul pendulo",
+          "Alba",
+          "Abedul",
+          "Abedul común"
+        ],
+        "extract": "Betula pendula, el abedul común, abedul europeo, abedul verrugoso, abedul llorón o abedul péndulo es un árbol caducifolio del género Betula. Es originario de Eurasia."
       }
     },
     "thumbnail": {
@@ -269,7 +526,7 @@
       "width": 2272,
       "height": 1704
     },
-    "color": [145, 219, 55]
+    "color": [77, 231, 81]
   },
   "Betula_pubescens": {
     "labels": {
@@ -286,19 +543,37 @@
       "fr": {
         "aliases": ["Bouleau pubescent", "Bouleau de marais"],
         "extract": "Betula pubescens, connu sous le nom de Bouleau pubescent, est une espèce de Bouleau largement répandu en Eurasie."
+      },
+      "es": {
+        "aliases": [
+          "Abedul pubescente",
+          "Betula callosa",
+          "Betula tortuosa",
+          "Betula concinna",
+          "Betula pubescens ssp suecica",
+          "Betula pubescens ssp. suecica",
+          "Betula carpatica",
+          "Betula czerepanovii",
+          "Betula coriacea",
+          "Betula glutinosa",
+          "Betula alba",
+          "Betula odorata",
+          "abedul blanco"
+        ],
+        "extract": "El abedul pubescente es una especie de abedul propio del norte de Europa, Islandia y el norte de Asia. Esta preferencia por el norte es tal que, de hecho, una de sus subespecies, Betula pubescens subsp. tortuosa, recibe el nombre de abedul blanco del Ártico o Abedul Boreal."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Betula_pubescens_-_Burgwald_002.jpg/240px-Betula_pubescens_-_Burgwald_002.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Betula_pubescens_-_Burgwald_002.jpg/320px-Betula_pubescens_-_Burgwald_002.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/7/71/Betula_pubescens_-_Burgwald_002.jpg",
       "width": 1944,
       "height": 2592
     },
-    "color": [67, 248, 49]
+    "color": [59, 214, 15]
   },
   "Borkhausenia_intermedia": {
     "labels": {
@@ -313,6 +588,15 @@
           "Sorbier de Scandinavie"
         ],
         "extract": "Sorbus intermedia, aussi appelé Alisier de Suède, Sorbier intermédiaire ou Sorbier de Scandinavie, est un arbre appartenant au genre des sorbiers de la famille des Rosaceae, sous-famille des Maloideae."
+      },
+      "es": {
+        "aliases": [
+          "Crataegus aria var. scandica",
+          "Sorbus scandica",
+          "Serbal de Suecia",
+          "Pyrus intermedia"
+        ],
+        "extract": "Sorbus intermedia es una especie de serbal de Suecia meridional, con algunas manchas en el extremo oriental de Dinamarca (Bornholm), el extremo suroeste de Finlandia), los estados bálticos y el norte de Polonia."
       }
     },
     "thumbnail": {
@@ -325,7 +609,7 @@
       "width": 2048,
       "height": 1536
     },
-    "color": [69, 221, 114]
+    "color": [6, 248, 145]
   },
   "Carpinus_betulus": {
     "labels": {
@@ -337,9 +621,31 @@
           "Carpinus fastigiata",
           "Carpinus betulus fastigiata",
           "Charme fastigié",
-          "Carpinus betulus"
+          "Carpinus betulus",
+          "Charme commun"
         ],
         "extract": "Le Charme, ou Charme commun, Carpinus betulus, parfois appelé charmille, est un arbre de taille moyenne, à feuilles caduques et appartenant à la famille des Bétulacées. Il est assez répandu dans les forêts d'Europe centrale. C'est une essence forestière secondaire présente en taillis sous futaie."
+      },
+      "es": {
+        "aliases": [
+          "Carpinus betulus forma obtusifolia",
+          "Carpinus intermedia",
+          "Carpinus ulmoides",
+          "Carpinus betulus var. typica",
+          "Carpinus vulgaris",
+          "Carpinus ulmifolia",
+          "Carpinus betulus var typica",
+          "Carpinus caucasica",
+          "Carpe blanco",
+          "Carpinus betulus forma pendula",
+          "Carpinus betulus var quercifolia",
+          "Carpinus betulus var carpinizza",
+          "Carpinus betulus forma incisa",
+          "Haya de espalleres",
+          "Carpinus betulus forma cucullata",
+          "Carpinus betulus forma variegata"
+        ],
+        "extract": "Carpinus betulus, el carpe blanco o carpe europeo, también conocido simplemente como carpe, abedulillo, hojaranzo, charmilla u ojaranzo es un Carpinus nativo del oeste, centro y sur de Europa, extendiéndose tan al oriente como el oeste de Rusia y Ucrania. Requiere un clima templado para buen crecimiento, solo a elevaciones por encima de los 600 m s. n. m.. Crece entremezclado con Quercus, y en algunas áreas con Fagus, y es un árbol común en bosques degradados."
       }
     },
     "thumbnail": {
@@ -352,7 +658,7 @@
       "width": 1944,
       "height": 1756
     },
-    "color": [77, 221, 12]
+    "color": [102, 229, 14]
   },
   "Carpinus_orientalis": {
     "labels": {
@@ -362,6 +668,10 @@
       "fr": {
         "aliases": ["Charme d'Orient"],
         "extract": "Carpinus orientalis est une espèce de charme originaire d'Asie mineure."
+      },
+      "es": {
+        "aliases": ["Carpe oriental"],
+        "extract": "Carpinus orientalis, el carpe oriental, es un carpe nativo del sureste de Europa,"
       }
     },
     "thumbnail": {
@@ -374,7 +684,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [95, 237, 77]
+    "color": [27, 222, 103]
   },
   "Castanea_sativa": {
     "labels": {
@@ -391,9 +701,42 @@
         "aliases": [
           "Châtaignier européen",
           "Châtaignier commun",
-          "Castanea sativa"
+          "Castanea sativa",
+          "châtaignier"
         ],
         "extract": "Le châtaignier commun est un arbre à feuillage caduc, de la famille des fagacées, qui produit des fruits largement consommés par l'homme : les châtaignes. Lorsqu'il est en nombre sur un territoire délimité, il forme une châtaigneraie."
+      },
+      "es": {
+        "aliases": [
+          "Castano silvestre",
+          "Castanea vulgaris",
+          "Morso",
+          "Castano bravo",
+          "Regoldana",
+          "Castaño salvaje",
+          "Regoldonas",
+          "castaño regoldano",
+          "castaño común",
+          "concho",
+          "molso",
+          "castañar",
+          "castaño regueldo",
+          "castaño europeo",
+          "castaño silvestre",
+          "castaño molar",
+          "castaño bravo",
+          "castaño regoldo",
+          "castaño macho",
+          "castaño real",
+          "castañal bravo",
+          "castañu",
+          "castañeiro",
+          "castañal",
+          "morso",
+          "castaño salvaje",
+          "Castanea sativa"
+        ],
+        "extract": "El castaño es un árbol que pertenece a la familia de las fagáceas, cuyo fruto, la castaña, es comestible y fue una importante fuente alimenticia, en particular en algunas regiones del sur de Europa."
       }
     },
     "thumbnail": {
@@ -406,34 +749,37 @@
       "width": 1600,
       "height": 1303
     },
-    "color": [34, 243, 115]
+    "color": [71, 213, 77]
   },
   "Celtis_australis": {
     "labels": {
       "en": {
-        "extract": "Celtis australis, commonly known as the European nettle tree, Mediterranean hackberry, lote tree, lodogno or boboler, or honeyberry, is a deciduous tree native to Southern Europe, North Africa, and Asia Minor. The tree was introduced to England in 1796."
+        "extract": "Celtis australis, the European nettle tree, Mediterranean hackberry, lote tree, or honeyberry, is a deciduous tree native to Southern Europe, North Africa, and Asia Minor. The tree was introduced to England in 1796."
       },
       "fr": {
         "extract": "Le Micocoulier de Provence ou Micocoulier du Midi est une essence subtropicale et de climat tempéré doux. Il appartient à la famille des Cannabaceae. Son fruit est comestible et son bois était réputé pour de nombreux usages. C'est une espèce en déclin en Europe."
+      },
+      "es": {
+        "extract": "Celtis australis, conocido como lodón, almez, aligonero, ledonero, lodoño, quicavero o latonero es una especie de árbol tradicionalmente incluida en la familia de las ulmáceas (Ulmaceae), aunque en la actualidad se incluye dentro de las cannabáceas, una familia próxima. Lodón proviene del cruce del latín lotus y unĕdo con -ōnis (mirra). Nombre que recibía el loto. Es por ello, que posiblemente se trate del árbol al que los clásicos llamaron Loto."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Illustration_Celtis_australis0.jpg/196px-Illustration_Celtis_australis0.jpg",
-      "width": 196,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Illustration_Celtis_australis0.jpg/320px-Illustration_Celtis_australis0.jpg",
+      "width": 320,
+      "height": 521
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/4/45/Illustration_Celtis_australis0.jpg",
       "width": 1406,
       "height": 2291
     },
-    "color": [13, 223, 22]
+    "color": [31, 242, 84]
   },
   "Ceratonia_siliqua": {
     "labels": {
       "en": {
-        "aliases": ["locust bean", "carob tree"],
-        "extract": "The carob is a flowering evergreen tree or shrub in the Caesalpinioideae sub-family of the legume family, Fabaceae. It is widely cultivated for its edible pods, and as an ornamental tree in gardens and landscapes. The carob tree is native to the Mediterranean region and the Middle East. Portugal is the largest producer of carob, followed by Italy and Morocco."
+        "aliases": ["locust bean", "carob tree", "St John's-bread"],
+        "extract": "The carob is a flowering evergreen tree or shrub in the Caesalpinioideae sub-family of the legume family, Fabaceae. It is widely cultivated for its edible fruit pods, and as an ornamental tree in gardens and landscapes. The carob tree is native to the Mediterranean region and the Middle East. Portugal is the largest producer of carob, followed by Italy and Morocco."
       },
       "fr": {
         "aliases": [
@@ -445,20 +791,81 @@
           "Caroube",
           "Caroubes"
         ],
-        "extract": "Le caroubier\n(Ceratonia siliqua L.) est un arbre fruitier méditerranéen de la famille des Légumineuses."
+        "extract": "Le caroubier\n(Ceratonia siliqua L.) est un arbre fruitier méditerranéen trioïque et sempervirent de la famille des Légumineuses."
+      },
+      "es": {
+        "aliases": [
+          "Garrofera",
+          "Algarrofín",
+          "Algarrobera",
+          "Algarroba blanca",
+          "Algarroba roja",
+          "Garrubia",
+          "Algarroba ley de Ferrandi",
+          "Algarroba asilvestrada",
+          "Algarroba menuda",
+          "Algarroba monollera",
+          "Pan de San Juan Bautista",
+          "Algarrobas",
+          "Garrofero",
+          "Garrobas",
+          "Algarroba vaina de puñal",
+          "Algarroba de Ayelo",
+          "Algarroba melar",
+          "Algarroba chopa",
+          "Algarroba de vara larga",
+          "Algarroba negra",
+          "Algarroba común",
+          "Algarroba costillar",
+          "Algarroberal",
+          "Algarroba",
+          "Algarroba costilla de asno",
+          "Algarrobero",
+          "Algarrobo de puercos",
+          "De ramillete",
+          "Algarrobo judio",
+          "Algarroba negral",
+          "Algarrofin",
+          "Algarroba dulce",
+          "Garrofin",
+          "Algarroba silvestre",
+          "Algarroba comun",
+          "Garofas",
+          "Pan de San Juan",
+          "Algarroba lindar",
+          "Garroba",
+          "Garrover",
+          "Algarrobos judíos",
+          "Garrofa",
+          "Algarrobal",
+          "Algarroba casura",
+          "Algarrobo judío",
+          "Garrofín",
+          "Algarroba chopeta",
+          "Algarrobos judios",
+          "Garrofo",
+          "Algarrofal",
+          "Algarroba mollar",
+          "Algarroba lisa",
+          "Algarroba cultivada",
+          "Algarroba de Almoina",
+          "Mascara de Algarroba",
+          "Cacha de Algarroba"
+        ],
+        "extract": "El algarrobo europeo es una especie arbórea de la familia de las fabáceas originaria de la Cuenca del Mediterráneo."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Ceratonia_siliqua_Keciboynuzu_1370984_Nevit.jpg/240px-Ceratonia_siliqua_Keciboynuzu_1370984_Nevit.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Ceratonia_siliqua_Keciboynuzu_1370984_Nevit.jpg/320px-Ceratonia_siliqua_Keciboynuzu_1370984_Nevit.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Ceratonia_siliqua_Keciboynuzu_1370984_Nevit.jpg",
       "width": 3240,
       "height": 4320
     },
-    "color": [96, 215, 143]
+    "color": [85, 240, 14]
   },
   "Cormus_domestica": {
     "labels": {
@@ -472,8 +879,23 @@
         "extract": "Sorbus domestica, with the common name service tree or sorb tree, is a species of Sorbus native to western, central and southern Europe, northwest Africa, and southwest Asia. It may be called true service tree, to distinguish it from wild service tree Sorbus torminalis."
       },
       "fr": {
-        "aliases": ["Sorbier domestique", "Corme", "Sorbus domestica"],
+        "aliases": [
+          "Sorbier domestique",
+          "Corme",
+          "Sorbus domestica",
+          "Cormier"
+        ],
         "extract": "Le Cormier ou Sorbier domestique est un arbre de la famille des Rosacées. Il donne des fruits appelés « cormes » ressemblant à des petites pommes ou poires, d'où leur surnom de poirillons."
+      },
+      "es": {
+        "aliases": [
+          "Serbal común",
+          "Cormus domestica",
+          "Pyrus domestica",
+          "Serba",
+          "Serbal comun"
+        ],
+        "extract": "Sorbus domestica, el serbal común, azarollo, sorbo, sorbeira, zurbal, la silba, jerbo o jerbal es un árbol de hoja caduca que produce un fruto comestible llamado serba, zurba o jerba."
       }
     },
     "thumbnail": {
@@ -486,7 +908,7 @@
       "width": 2048,
       "height": 1536
     },
-    "color": [25, 249, 106]
+    "color": [105, 209, 27]
   },
   "Corylus_avellana": {
     "labels": {
@@ -495,8 +917,32 @@
         "extract": "Corylus avellana, the common hazel, is a species of flowering plant in the birch family Betulaceae. It is native to Europe and western Asia. It is an important component of the hedgerows that were the traditional field boundaries in lowland England. The wood was traditionally grown as coppice, the poles cut being used for wattle-and-daub building and agricultural fencing."
       },
       "fr": {
-        "aliases": ["Noisetier", "Coudrier", "Avelinier", "Avellinier"],
+        "aliases": [
+          "Noisetier",
+          "Coudrier",
+          "Avelinier",
+          "Avellinier",
+          "Avelline",
+          "noisetier commun"
+        ],
         "extract": "Corylus avellana, communément appelé le Noisetier ou le Coudrier, est une espèce d'arbustes de 5 à 8 mètres de hauteur et appartenant au genre Corylus et à la famille des Bétulacées."
+      },
+      "es": {
+        "aliases": [
+          "ablano",
+          "ablanu",
+          "gambote",
+          "avellanera",
+          "matu",
+          "avellano",
+          "aurán",
+          "alvellano",
+          "Corylus avellana",
+          "C. avellana",
+          "avellano comun",
+          "auran"
+        ],
+        "extract": "El avellano, avellano común o avellano europeo es un árbol o arbusto caducifolio oriundo de Europa y Asia."
       }
     },
     "thumbnail": {
@@ -509,13 +955,13 @@
       "width": 830,
       "height": 611
     },
-    "color": [14, 239, 82]
+    "color": [16, 245, 78]
   },
   "Cupressus_sempervirens": {
     "labels": {
       "en": {
         "aliases": ["Mediterranean Cypress"],
-        "extract": "Cupressus sempervirens, the Mediterranean cypress, is a species of cypress native to the eastern Mediterranean region, in northeast Libya, southern Albania, southern and coastal Bulgaria, southern coastal Croatia and Slovenia, southern Montenegro, southern Bosnia and Herzegovina, southwestern North Macedonia, southern Greece, southern Turkey, Cyprus, northern Egypt, western Syria, Lebanon, Malta, Italy, Palestine, Israel, western Jordan, South Caucasus, and also a disjunct population in Iran."
+        "extract": "Cupressus sempervirens, the Mediterranean cypress, is a species of cypress native to the eastern Mediterranean region, in northeast Libya, southern Albania, southern and coastal Bulgaria, southern coastal Croatia and Slovenia, southern Montenegro, southern Bosnia and Herzegovina, southwestern North Macedonia, southern Greece, southern Turkey, Cyprus, northern Egypt, western Syria, Lebanon, Malta, Italy, southern France, Spain, Palestine, Israel, western Jordan, South Caucasus, and also a disjunct population in Iran."
       },
       "fr": {
         "aliases": [
@@ -529,19 +975,32 @@
           "Cyprès pyramidal"
         ],
         "extract": "Cupressus sempervirens, encore appelé cyprès commun, cyprès sempervirent, cyprès toujours vert, cyprès d'Italie, cyprès de Provence, ou encore cyprès méditerranéen est un arbre de la famille des Cupressaceae."
+      },
+      "es": {
+        "aliases": [
+          "Cipres del Mediterráneo",
+          "Ciprés del Mediterráneo",
+          "Ciprés del Mediterraneo",
+          "Ciprés mediterráneo",
+          "Cipres comun",
+          "Cipres mediterraneo",
+          "Cipres del Mediterraneo",
+          "Ciprés común"
+        ],
+        "extract": "Cupressus sempervirens, el ciprés común o ciprés mediterráneo, es una especie arbórea de hoja perenne de la familia de las Cupresáceas. Puede llegar a ser muy longevo, existiendo ejemplares con más de 1000 años. En algunas áreas, particularmente de los Estados Unidos, se conoce con el nombre de \"ciprés italiano\"; ya que la especie es muy común en Italia, aunque no es originario de allí."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Med_Cypress.jpg/212px-Med_Cypress.jpg",
-      "width": 212,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Med_Cypress.jpg/320px-Med_Cypress.jpg",
+      "width": 320,
+      "height": 482
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Med_Cypress.jpg",
       "width": 418,
       "height": 630
     },
-    "color": [101, 235, 83]
+    "color": [61, 217, 129]
   },
   "Fagus_sylvatica": {
     "labels": {
@@ -561,29 +1020,54 @@
           "hêtre"
         ],
         "extract": "Le Hêtre commun, Fagus sylvatica, couramment désigné simplement comme le hêtre est une espèce d'arbres à feuilles caduques, indigène d'Europe, appartenant à la famille des Fagaceae, tout comme le chêne et le châtaignier."
+      },
+      "es": {
+        "aliases": [
+          "Caxiga",
+          "Haya de hoja purpurea",
+          "Zaya",
+          "Fagus echinata",
+          "Urnija",
+          "Jayuco",
+          "Fagus pendula",
+          "Hagüey",
+          "Ayolín",
+          "Hayuca",
+          "Fagus quercoides",
+          "Haya común",
+          "Fava",
+          "Fagus purpurea var. roseomarginata",
+          "Fagus salicifolia",
+          "Ayolin",
+          "Haya comun"
+        ],
+        "extract": "Fagus sylvatica, el haya común, es un árbol caducifolio de la familia de las fagáceas. A los bosques de hayas se les llama hayedos o hayales."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg/240px-Fagus-sylvatica-cansiglio-forest-italy.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg/320px-Fagus-sylvatica-cansiglio-forest-italy.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Fagus-sylvatica-cansiglio-forest-italy.jpg/3024px-Fagus-sylvatica-cansiglio-forest-italy.jpg",
       "width": 3024,
       "height": 4032
     },
-    "color": [67, 203, 62]
+    "color": [67, 221, 68]
   },
   "Fraxinus_angustifolia": {
     "labels": {
       "en": {
-        "aliases": ["Fraxinus oxycarpa"],
+        "aliases": ["Fraxinus oxycarpa", "narrow-leafed ash"],
         "extract": "Fraxinus angustifolia, the narrow-leaved ash, is a species of Fraxinus native to central and southern Europe, northwest Africa, and southwest Asia."
       },
       "fr": {
         "aliases": ["Frêne à feuilles étroites", "Frêne du midi"],
         "extract": "Le Frêne à feuilles étroites, Frêne du Midi ou Frêne oxyphylle (Fraxinus angustifolia) est un arbre de la famille des Oléacées."
+      },
+      "es": {
+        "extract": "Fraxinus angustifolia, el fresno sureño, fresno de hoja estrecha o fresno de hojas estrechas, es un árbol de la familia de las oleáceas. Es el fresno más común en la península ibérica."
       }
     },
     "thumbnail": {
@@ -596,7 +1080,7 @@
       "width": 2848,
       "height": 2136
     },
-    "color": [109, 249, 99]
+    "color": [25, 239, 29]
   },
   "Fraxinus_excelsior": {
     "labels": {
@@ -613,6 +1097,29 @@
           "Langue d'oiseau"
         ],
         "extract": "Le frêne commun ou frêne élevé (Fraxinus excelsior L., 1753) est une espèce d'arbre commune des forêts d'Europe, à bois clair, dur et élastique, de la famille des Oléacées."
+      },
+      "es": {
+        "aliases": [
+          "Freju",
+          "Fresno de hoja ancha",
+          "Fresno comun",
+          "Frejú",
+          "Fresno común verdadero",
+          "Frágino",
+          "Fresno grande",
+          "Fresno de Vizcaya",
+          "Frexo",
+          "Fraxinus coriariifolia",
+          "Fresno norteno",
+          "Fresno norteño",
+          "Frexno",
+          "Fresno europeo",
+          "Fragino",
+          "Fresno elevado",
+          "Fresno comun verdadero",
+          "Fresno"
+        ],
+        "extract": "Fraxinus excelsior, el fresno norteño, fresno de hoja ancha o fresno común, es una especie perteneciente a la familia de las oleáceas. Es un árbol nativo de la mayor parte de Europa; desde España, principalmente el norte, hasta Rusia. Su hábitat natural más septentrional se encuentra en Trondheim, Noruega, y el meridional, en el norte de Grecia."
       }
     },
     "thumbnail": {
@@ -625,29 +1132,39 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [16, 201, 28]
+    "color": [42, 245, 137]
   },
   "Fraxinus_ornus": {
     "labels": {
       "en": {
+        "aliases": ["manna ash"],
         "extract": "Fraxinus ornus, the manna ash or South European flowering ash, is a species of Fraxinus native to southern Europe and southwestern Asia, from Spain and Italy north to Austria and the Czech Republic, and east through the Balkans, Turkey, and western Syria to Lebanon and Armenia."
       },
       "fr": {
         "aliases": ["Orne", "Frêne à fleurs", "Ornier"],
         "extract": "Le Frêne à fleurs ou Orne (Fraxinus ornus), parfois appelé Frêne à manne, ou Frêne orne, plus rarement Orne d'Europe, est un arbre de la famille des Oléacées."
+      },
+      "es": {
+        "aliases": [
+          "Fresno florido",
+          "Fresno del maná",
+          "Fresno del mana",
+          "Fresno de flor"
+        ],
+        "extract": "Fraxinus ornus, el fresno de flor, orno, fresno del maná o fresno florido, es una especie de árbol perteneciente a la familia Oleaceae."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Fraxinus_ornus_JPG2.jpg/213px-Fraxinus_ornus_JPG2.jpg",
-      "width": 213,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Fraxinus_ornus_JPG2.jpg/320px-Fraxinus_ornus_JPG2.jpg",
+      "width": 320,
+      "height": 481
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/1/11/Fraxinus_ornus_JPG2.jpg",
       "width": 1288,
       "height": 1936
     },
-    "color": [12, 243, 137]
+    "color": [106, 225, 23]
   },
   "Juglans_regia": {
     "labels": {
@@ -662,8 +1179,31 @@
         "extract": "Juglans regia, the Persian walnut, English walnut, Carpathian walnut, Madeira walnut, or especially in Great Britain, common walnut, is an Old World walnut tree species native to the region stretching from the Balkans eastward to the Himalayas and southwest China. It is widely cultivated across Europe."
       },
       "fr": {
-        "aliases": ["noyer"],
+        "aliases": [
+          "noyer",
+          "noyer royal",
+          "calottier",
+          "écalonnier",
+          "gojeutier",
+          "noyer commun, noyer royal"
+        ],
         "extract": "Le noyer commun ou noyer, est un arbre assez commun, originaire d'Eurasie, cultivé pour son bois recherché en ébénisterie et ses fruits, les noix, riches en huile."
+      },
+      "es": {
+        "aliases": [
+          "nogal común",
+          "nogal del Viejo Mundo",
+          "nogal",
+          "nogal persa",
+          "Juglans fallax",
+          "noguer",
+          "nogueira",
+          "nou",
+          "nogal de Castilla",
+          "nogal europeo",
+          "nogal español"
+        ],
+        "extract": "El nogal común, nogal europeo o nogal español, y, en México, nuez de Castilla, es un árbol monoico y caducifolio de la familia de las Juglandaceae en el orden de las Fagales. Es la especie del género más difundida en Europa, extendiéndose por todo el suroeste y centro de Asia, hasta el Himalaya y sudoeste de China."
       }
     },
     "thumbnail": {
@@ -676,7 +1216,7 @@
       "width": 2592,
       "height": 1944
     },
-    "color": [64, 237, 97]
+    "color": [11, 236, 94]
   },
   "Juniperus_thurifera": {
     "labels": {
@@ -691,19 +1231,31 @@
           "Genévrier thurifère"
         ],
         "extract": "Le Genévrier thurifère ou Genévrier à encens est une espèce d'arbres de la famille des Cupressacées. C'est une espèce très menacée de genévrier. Il est parfois appelé Cèdre d'Espagne, Genévrier à résine odorante, Genévrier d'Espagne ou Genévrier de France."
+      },
+      "es": {
+        "aliases": [
+          "Trabina",
+          "Sabina albar",
+          "Tarabina",
+          "enebro español",
+          "Enebro",
+          "Cedro de España",
+          "Sabina Blanca"
+        ],
+        "extract": "Juniperus thurifera, la sabina albar, enebra, trabina, tarabina o trabino es una especie de la familia Cupresáceas. Crece en un área disjunta en el Mediterráneo occidental, que abarca la parte más continental de los Alpes franceses e italianos, comarcas interiores del centro y el este de la península ibérica, algunas montañas de Córcega y el norte de África. Además de estas áreas mayores, está presente en localidades aisladas, como en las cabeceras de los ríos Garona y Arieja en la vertiente norte de Pirineos, en la cabecera del valle del río Noguera Pallaresa y sus afluentes al sur, en la comarca de La Litera en la provincia de Huesca y en el límite entre las provincias de León y Asturias. Esta distribución sugiere un carácter relíctico, restos de una distribución más amplia en tiempos geológicos pasados."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Juniperus-thurifera-01.jpg/240px-Juniperus-thurifera-01.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Juniperus-thurifera-01.jpg/320px-Juniperus-thurifera-01.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Juniperus-thurifera-01.jpg",
       "width": 900,
       "height": 1200
     },
-    "color": [22, 213, 47]
+    "color": [74, 244, 116]
   },
   "Larix_decidua": {
     "labels": {
@@ -712,8 +1264,26 @@
         "extract": "Larix decidua, the European larch, is a species of larch native to the mountains of central Europe, in the Alps and Carpathian Mountains as well as the Pyrenees, with disjunct lowland populations in northern Poland and southern Lithuania. It is widely naturalized in Scandinavia. Its life span has been confirmed to be close to 1000 years but is more often around 200 years. It is claimed that one of the larches planted by the second Duke of Atholl at Dunkeld in 1738 is still standing."
       },
       "fr": {
-        "aliases": ["Meleze d'Europe", "Larix decidua", "mélèze commun"],
+        "aliases": [
+          "Meleze d'Europe",
+          "Larix decidua",
+          "mélèze commun",
+          "Mélèze d'Europe"
+        ],
         "extract": "Le Mélèze d'Europe, ou Mélèze commun est une espèce d'arbre du genre Larix et de la famille des Pinaceae. Il est parfois appelé Pin de Briançon."
+      },
+      "es": {
+        "aliases": [
+          "Alerce comun",
+          "Alerce europeo",
+          "Lárice",
+          "Alerce común",
+          "Alerce de los Alpes",
+          "Larice",
+          "Alerce deciduo",
+          "Alerce de Europa"
+        ],
+        "extract": "Larix decidua, el alerce europeo o lárice, es una especie del género Larix, de la familia de las pináceas nativa de las montañas de Europa Central, en los Alpes y Cárpatos, con poblaciones disjuntas en las tierras bajas del norte de Polonia y sur de Lituania. El alerce es la única conífera europea que pierde sus agujas, mientras que las piceas, los pinos y abetos las conservan en invierno."
       }
     },
     "thumbnail": {
@@ -726,7 +1296,7 @@
       "width": 4231,
       "height": 2821
     },
-    "color": [75, 221, 4]
+    "color": [119, 209, 61]
   },
   "Laurus_nobilis": {
     "labels": {
@@ -742,19 +1312,50 @@
           "Laurier noble"
         ],
         "extract": "Laurus nobilis, le Laurier vrai, Laurier-sauce ou simplement Laurier, est une espèce d'arbustes à feuillage persistant de la famille des Lauracées. Il est originaire du bassin méditerranéen. Il est parfois appelé Laurier d'Apollon ou Laurier noble."
+      },
+      "es": {
+        "aliases": [
+          "Laurel europeo",
+          "Laurel",
+          "Loreda",
+          "Llorea",
+          "Laurel del Mediterraneo",
+          "Árbol de Apolo",
+          "Laurel de Apolo",
+          "Laurel de cocina",
+          "Los Laureles",
+          "Choriu",
+          "Laurel macho",
+          "Laurel noble",
+          "Lorel",
+          "Lauredo",
+          "Laurus vulgaris",
+          "Laurel hembra",
+          "Llorel",
+          "Lloreo",
+          "Laurus undulata",
+          "Laurel del Mediterráneo",
+          "Laurelal",
+          "Llaurer",
+          "Lloreolo",
+          "Laurel común",
+          "Laurel comun",
+          "Arbol de Apolo"
+        ],
+        "extract": "Laurus nobilis, llamado comúnmente laurel o lauro, es un arbusto o árbol perenne perteneciente a la familia de las lauráceas, a la que da nombre. Es originario de la región del Mar Mediterráneo y sus hojas son utilizadas para remedios y en la cocina."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg/240px-Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg/320px-Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Starr-071024-0195-Laurus_nobilis-leaves-Enchanting_Floral_Gardens_of_Kula-Maui_%2824867859296%29.jpg",
       "width": 2112,
       "height": 2816
     },
-    "color": [25, 224, 83]
+    "color": [125, 224, 94]
   },
   "Malus_sylvestris": {
     "labels": {
@@ -767,9 +1368,27 @@
           "Pommier des bois",
           "Malus mitis",
           "Boquettier",
-          "Pommier sauvage"
+          "Pommier sauvage",
+          "pommier"
         ],
-        "extract": "Le Boquettier, le Pommier sauvage ou Pommier des bois est une espèce d'arbres de la famille des Rosacées, spontanée dans toute l'Europe et parfois cultivé."
+        "extract": "Malus sylvestris, le Boquettier, le Pommier sauvage ou Pommier des bois, est une espèce d'arbres de la famille des Rosacées, spontanée dans toute l'Europe et parfois cultivé."
+      },
+      "es": {
+        "aliases": [
+          "Malus praecox",
+          "Manzanoñeras",
+          "Manzano silvestre",
+          "Manzaneira",
+          "Chimino",
+          "Gurrufito",
+          "Manzano montés",
+          "Manzano acerbo",
+          "Malus sylvestris subsp. praecox",
+          "Currubita",
+          "Manzano silvestre europeo",
+          "Manzano montes"
+        ],
+        "extract": "Malus sylvestris, el manzano silvestre o manzano silvestre europeo, es una de las especies del género Malus originario de la Europa central. Su nombre científico significa \"manzana del bosque\". En el pasado se pensó que pudiera ser un antepasado importante del manzano de cultivo, sin embargo ahora se sabe que proviene principalmente de la especie Malus sieversii de Asia central. Por otra parte, estudios genéticos recientes confirman que M. sylvestris ha contribuido de manera secundaria, pero significativa, al genoma del manzano de cultivo."
       }
     },
     "thumbnail": {
@@ -782,7 +1401,7 @@
       "width": 2074,
       "height": 1556
     },
-    "color": [29, 202, 32]
+    "color": [32, 216, 147]
   },
   "Olea_europaea": {
     "labels": {
@@ -793,19 +1412,31 @@
       "fr": {
         "aliases": ["Olea europaea", "Olivier", "Bois d'olive noir", "olivier"],
         "extract": "Olea europaea est une espèce d’arbres ou d'arbustes de la famille des Oleaceae répandue à travers l'Afrique, l'Asie et l'Europe méditerranéenne et dont une variété a été domestiquée et cultivée pour devenir l'olivier. Au cours de l'histoire de la botanique, de nombreuses sous-espèces ont été décrites."
+      },
+      "es": {
+        "aliases": [
+          "Olea europea",
+          "Jocote de mico",
+          "olivo",
+          "aceituno",
+          "acebuche",
+          "empeltre",
+          "olivera"
+        ],
+        "extract": "Olea europaea, llamado comúnmente olivo y olivera, es un árbol pequeño perennifolio, longevo, que puede alcanzar hasta 15 m de altura, con copa ancha y tronco grueso, de aspecto retorcido. Su corteza es finamente fisurada, de color gris o plateado. Tiene las hojas opuestas, de 2 a 8 cm de largo, lanceoladas con el ápice ligeramente puntiagudo, enteras, coriáceas, glabras y verdes grises oscuras por el haz, más pálidas y densamente escamosas por el envés, más o menos sésiles o con un peciolo muy corto."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Olivesfromjordan.jpg/316px-Olivesfromjordan.jpg",
-      "width": 316,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Olivesfromjordan.jpg/320px-Olivesfromjordan.jpg",
+      "width": 320,
+      "height": 324
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/8/84/Olivesfromjordan.jpg",
       "width": 494,
       "height": 500
     },
-    "color": [125, 212, 147]
+    "color": [66, 231, 91]
   },
   "Ostrya_carpinifolia": {
     "labels": {
@@ -816,6 +1447,10 @@
       "fr": {
         "aliases": ["Ostryer", "Ostrya carpinifolia"],
         "extract": "Le charme-houblon, Ostrya carpinifolia, ou ostryer à feuilles de charme, parfois aussi appelé bois-de-fer, est un arbre indigène des montagnes d'Europe centrale et méditerranéenne, de la famille des Betulaceae, comme le charme."
+      },
+      "es": {
+        "aliases": ["Ostria", "Falso carpe", "Carpe negro"],
+        "extract": "Ostrya carpinifolia, la ostria, carpe negro o falso carpe es un árbol frondoso que puede alcanzar los 20 m de alto. Pertenece a la familia de las betuláceas."
       }
     },
     "thumbnail": {
@@ -828,7 +1463,7 @@
       "width": 1638,
       "height": 1229
     },
-    "color": [133, 209, 22]
+    "color": [111, 218, 133]
   },
   "Picea_abies": {
     "labels": {
@@ -848,22 +1483,35 @@
           "Gentil sapin",
           "Épicea commun",
           "Épicéa à poix",
-          "Pesse"
+          "Pesse",
+          "Épicéa commun"
         ],
         "extract": "L’Épicéa commun (Picea abies H. Karst, 1881), est une espèce d’arbres résineux de la famille des Pinacées et du genre Picea originaire d'Europe."
+      },
+      "es": {
+        "aliases": [
+          "Pícea común",
+          "Picea abies var europaea",
+          "Picea abies var. europaea",
+          "Abies picea",
+          "Falso abeto",
+          "Pícea de Noruega",
+          "Picea de Noruega"
+        ],
+        "extract": "La pícea común, pícea de Noruega o pícea europea, es una conífera de la familia de las pináceas. Aunque en ocasiones se le identifica popularmente como una especie de abeto y más concretamente como abeto rojo. Estrictamente hablando no es un abeto, por no pertenecer al género Abies, el de los abetos, razón por la que también se le conoce como falso abeto."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg/213px-Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
-      "width": 213,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg/320px-Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
+      "width": 320,
+      "height": 480
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
       "width": 2400,
       "height": 3600
     },
-    "color": [113, 200, 88]
+    "color": [27, 227, 5]
   },
   "Pinus_brutia": {
     "labels": {
@@ -873,19 +1521,22 @@
       },
       "fr": {
         "extract": "Le Pin de Calabre ou Pin de Turquie est une espèce d'arbres du genre Pinus et de la famille des Pinaceae, endémique d'Asie Mineure, d'où elle s'est répandue sporadiquement vers certaines régions de la Méditerranée orientale et de la Mer Noire."
+      },
+      "es": {
+        "extract": "Pinus brutia, el pino de Chipre, es una especie de árbol de unos 20 m de altura con acículas agrupadas por parejas, muy afín a Pinus halepensis, del que a veces se considera una variedad, diferenciándose de este por la presencia de acículas más largas y gruesas, y porque la piña está sentada."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pinus_brutia%2803%29.jpg/240px-Pinus_brutia%2803%29.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pinus_brutia%2803%29.jpg/320px-Pinus_brutia%2803%29.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Pinus_brutia%2803%29.jpg",
       "width": 480,
       "height": 640
     },
-    "color": [88, 234, 73]
+    "color": [74, 239, 116]
   },
   "Pinus_cembra": {
     "labels": {
@@ -895,7 +1546,8 @@
           "Arolla pine",
           "Austrian stone pine",
           "stone pine",
-          "borovice limba"
+          "borovice limba",
+          "Swiss pine"
         ],
         "extract": "Pinus cembra, also known as Swiss pine, Swiss stone pine or Arolla pine or Austrian stone pine or just stone pine, is a species of a pine tree in the subgenus Strobus."
       },
@@ -911,22 +1563,27 @@
           "Arolle",
           "Pin cembro",
           "Pin des Alpes",
-          "Arole"
+          "Arole",
+          "Pin arole"
         ],
         "extract": "Le pin cembro ou pin des Alpes (Pinus cembra) est une espèce d'arbres de la famille des Pinaceae. C'est un arbre caractéristique de la haute montagne, car il se développe entre 1 700 et 2 400 mètres d'altitude, là où les hivers sont très longs et les températures rigoureuses. Il est parfois appelé arol, arole, arolle, arve, auvier, pin arolle ou tinier."
+      },
+      "es": {
+        "aliases": ["Pino cembro", "Cembro", "Pino cembra"],
+        "extract": "El pino cembro, pino cembra o cembro es un árbol de hasta 25 m de altura que se caracteriza por presentar las acículas agrupadas por 5 en su correspondiente braquiblasto."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Zirbe01.jpg/240px-Zirbe01.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Zirbe01.jpg/320px-Zirbe01.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Zirbe01.jpg",
       "width": 1024,
       "height": 1365
     },
-    "color": [120, 244, 34]
+    "color": [131, 247, 102]
   },
   "Pinus_halepensis": {
     "labels": {
@@ -935,8 +1592,36 @@
         "extract": "Pinus halepensis, commonly known as the Aleppo pine, also known as the Jerusalem pine, is a pine native to the Mediterranean region."
       },
       "fr": {
-        "aliases": ["Pin d’Alep", "Pin d'Alep", "Pins d'Alep"],
+        "aliases": [
+          "Pin d’Alep",
+          "Pin d'Alep",
+          "Pins d'Alep",
+          "Pin blanc de Provence"
+        ],
         "extract": "Le pin blanc de Provence ou pin d'Alep est un conifère de la famille des Pinacées. C'est le botaniste écossais Philip Miller qui lui donna abusivement ce nom scientifique, en 1768. En effet, c'est le Pinus brutia qui pousse principalement dans la région d'Alep. Sa répartition géographique est essentiellement autour des côtes méditerranéennes, et plus particulièrement en Afrique du Nord et en Espagne. Il est parfois appelé pin de Jérusalem."
+      },
+      "es": {
+        "aliases": [
+          "Pinus halepensis var minor",
+          "Pinus carica",
+          "Pincarrasco",
+          "Pinus alepensis",
+          "Pino blanco",
+          "Pinus halepensis var. carica",
+          "Pinus ceciliae",
+          "Pinus halepensis var carica",
+          "Pino de Jerusalén",
+          "Pinos carrascos",
+          "Pinus halepensis var genuensis",
+          "Pinus abasica",
+          "Pinus pityusa",
+          "Pinus loiseleuriana",
+          "Pino de Jerusalen",
+          "Pinus halepensis var abasica",
+          "Pino Carrasco",
+          "Pino de Alepo"
+        ],
+        "extract": "Pinus halepensis es una especie arbórea del género Pinus en la familia Pinaceae. Es un árbol originario de la región mediterránea, tanto norteña como del sur."
       }
     },
     "thumbnail": {
@@ -949,7 +1634,7 @@
       "width": 4632,
       "height": 3464
     },
-    "color": [142, 245, 135]
+    "color": [108, 208, 145]
   },
   "Pinus_nigra": {
     "labels": {
@@ -966,6 +1651,20 @@
           "pin noir d'Autriche"
         ],
         "extract": "Le Pin noir est une espèce de pin présentant de nombreuses variétés et que l'on trouve en Europe méridionale, de l'Espagne à la Crimée, en Asie Mineure, à Chypre et, localement, dans les montagnes de l'Atlas en Afrique du Nord-Ouest."
+      },
+      "es": {
+        "aliases": [
+          "pino salgareno",
+          "pino negral de Crimea",
+          "pino negral de Austria",
+          "pino salgareño",
+          "pino negral",
+          "pino negral de Córcega",
+          "pino laricio",
+          "pino negral de Corcega",
+          "Pino Nigro"
+        ],
+        "extract": "El pino salgareño es una especie arbórea de la familia de las pináceas. También se conoce como pino laricio y pino negral, aunque este nombre lo comparte con otras especies como el Pinus pinaster."
       }
     },
     "thumbnail": {
@@ -978,13 +1677,13 @@
       "width": 2712,
       "height": 2304
     },
-    "color": [132, 206, 75]
+    "color": [2, 216, 32]
   },
   "Pinus_pinaster": {
     "labels": {
       "en": {
         "aliases": ["Maritime Pine"],
-        "extract": "Pinus pinaster, the maritime pine or cluster pine, is a pine native to the south Atlantic Europe region and parts of the western Mediterranean. It is a hard, fast growing pine containing small seeds with large wings."
+        "extract": "Pinus pinaster, the maritime pine or cluster pine, is a pine native to the south Atlantic Europe region and parts of the western Mediterranean. It is a hard, fast growing pine bearing small seeds with large wings."
       },
       "fr": {
         "aliases": [
@@ -992,22 +1691,36 @@
           "Pin maritime",
           "Pins maritimes",
           "Pin des Landes",
-          "Pinus maritima"
+          "Pinus maritima",
+          "Pinastre"
         ],
         "extract": "Le Pin maritime, Pin des Landes, pin de Bordeaux, pin de Corte ou pin mésogéen, est une espèce de conifères de la famille des pinacées. Il est parfois confondu avec le pin d'Alep ou le pin de Calabre."
+      },
+      "es": {
+        "aliases": [
+          "Pino rodeno",
+          "Pino pináster",
+          "Pino resinero",
+          "Pino Maritimo",
+          "Pino Marítimo",
+          "Pino rubial",
+          "Pino pinaster",
+          "Pino Gallego"
+        ],
+        "extract": "Pinus pinaster, el pino rodeno, pino marítimo, pino rubial o pino negral es una especie arbórea de la familia de las pináceas que se extiende por España, Portugal, sur de Francia, Italia, Marruecos y pequeñas poblaciones en Argelia y Malta, aunque posiblemente introducidas por el hombre. Generalmente entre el nivel del mar y unos 800 metros, aunque en el sur de Marruecos se puede encontrar hasta los 2000 m. En algunos lugares se le conoce también como pino negral, aunque no se debe confundir con el Pinus nigra. Por la facilidad que tiene para colonizar nuevos espacios, donde no es nativo está incluido en la lista 100 de las especies exóticas invasoras más dañinas del mundo de la Unión Internacional para la Conservación de la Naturaleza."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Pinus_pinaster.jpg/214px-Pinus_pinaster.jpg",
-      "width": 214,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Pinus_pinaster.jpg/320px-Pinus_pinaster.jpg",
+      "width": 320,
+      "height": 478
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Pinus_pinaster.jpg",
       "width": 536,
       "height": 800
     },
-    "color": [51, 209, 133]
+    "color": [65, 221, 142]
   },
   "Pinus_pinea": {
     "labels": {
@@ -1016,8 +1729,24 @@
         "extract": "The stone pine, botanical name Pinus pinea, also known as the Italian stone pine, umbrella pine and parasol pine, is a tree from the pine family (Pinaceae). The tree is native to the Mediterranean region, occurring in Southern Europe and the Levant. The species was introduced into North Africa millennia ago, and is also naturalized in the Canary Islands, South Africa and New South Wales."
       },
       "fr": {
-        "aliases": ["Pin franc", "Pin pignon", "Pins parasols", "Pinus pinea"],
+        "aliases": [
+          "Pin franc",
+          "Pin pignon",
+          "Pins parasols",
+          "Pinus pinea",
+          "Pin parasol"
+        ],
         "extract": "Le pin parasol ou pin pignon est une espèce d'arbres conifères de la famille des Pinaceae. Présent dans le bassin méditerranéen, l'arbre, quand il est à maturité, est reconnaissable à son port caractéristique évoquant un parasol déployé. Sa graine, le pignon de pin, est souvent utilisée en pâtisserie. L'arbre est parfois appelé pin d'Italie, ainsi que pin franc essentiellement en Gironde et Charente-Maritime."
+      },
+      "es": {
+        "aliases": [
+          "Pino albar",
+          "Pino pinea",
+          "Pino piñonero",
+          "Pino manso",
+          "Pino doncel"
+        ],
+        "extract": "Pinus pinea, el pino piñonero, pino manso, pino doncel o pino albar es una especie arbórea de la familia de las pináceas. Su nombre \"pino piñonero\", proviene del hecho de que produce como semilla grandes piñones consumidos por la humanidad desde tiempos inmemoriales, puesto que si bien los piñones de otras especies europeas de pino también se pueden comer, son mucho más pequeños. Es originario de la región mediterránea."
       }
     },
     "thumbnail": {
@@ -1030,7 +1759,7 @@
       "width": 3872,
       "height": 2592
     },
-    "color": [68, 217, 82]
+    "color": [46, 231, 16]
   },
   "Pinus_sylvestris": {
     "labels": {
@@ -1043,22 +1772,37 @@
           "Pin d'Écosse",
           "Pin du Nord",
           "Pin de Riga",
-          "Pinus sylvestris"
+          "Pinus sylvestris",
+          "pin sylvestre"
         ],
         "extract": "Le Pin sylvestre est une espèce d'arbres de la famille des Pinaceae originaire d'Europe moyenne et septentrionale, d'Asie du Nord jusqu'en Sibérie orientale, ainsi que des montagnes du nord du Moyen-Orient. C'est une espèce à grande amplitude écologique et climatique, notamment l'une des plus importantes de la forêt boréale d'Eurasie."
+      },
+      "es": {
+        "aliases": [
+          "Pino serrano",
+          "Pino de Escocia",
+          "Pino bermejo",
+          "Pino royo",
+          "Pino rojo",
+          "Pino de Valsain",
+          "Pino de Valsaín",
+          "Pino del Norte",
+          "Pino silvestre"
+        ],
+        "extract": "El pino silvestre, también conocido como pino de Valsaín, pino serrano, pino albar, pino del Norte, pino rojo o pino bermejo, es una especie arbórea que pertenece a la familia Pinaceae, género Pinus. Esta conífera, que puede alcanzar los 30 metros de altura, crece ampliamente por toda Eurasia. Las referencias al color rojo o bermejo se debe a su corteza, de un rojo subido en la parte alta del tronco, y pardorrojiza en la parte inferior."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Skuleskogen_pine.jpg/213px-Skuleskogen_pine.jpg",
-      "width": 213,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Skuleskogen_pine.jpg/320px-Skuleskogen_pine.jpg",
+      "width": 320,
+      "height": 480
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/9/91/Skuleskogen_pine.jpg",
       "width": 2592,
       "height": 3888
     },
-    "color": [23, 214, 119]
+    "color": [24, 226, 132]
   },
   "Pistacia_lentiscus": {
     "labels": {
@@ -1067,19 +1811,43 @@
       },
       "fr": {
         "extract": "L’Arbre au mastic, ou Pistachier lentisque est un arbuste poussant dans les garrigues et les maquis des climats méditerranéens. Plante de la familles des Anacardiaceae, à feuillage persistant, elle donne des fruits, d'abord rouges, puis noirs."
+      },
+      "es": {
+        "aliases": [
+          "Lantisquina",
+          "Lentisco",
+          "Lentisco verdadero",
+          "Lentisquina",
+          "Almarciga",
+          "Lentisquín",
+          "Lentisca",
+          "Masta",
+          "Pistacia chia",
+          "Almárciga",
+          "Mata charneca",
+          "Arbol de la almaciga",
+          "Lentisco real",
+          "Lentisco macho",
+          "Almàciga",
+          "Lantisco",
+          "Lentisquin",
+          "Almaciga",
+          "entina"
+        ],
+        "extract": "El lentisco, entina o mata charneca, o dentisque, es una especie de fanerógama del género Pistacia, perteneciente a la familia Anacardiaceae."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pistacia_lentiscus.jpg/240px-Pistacia_lentiscus.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pistacia_lentiscus.jpg/320px-Pistacia_lentiscus.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Pistacia_lentiscus.jpg",
       "width": 1200,
       "height": 1600
     },
-    "color": [7, 242, 37]
+    "color": [140, 236, 68]
   },
   "Pistacia_terebinthus": {
     "labels": {
@@ -1094,6 +1862,43 @@
           "Pistachier terebinthe"
         ],
         "extract": "Le Pistachier térébinthe ou Térébinthe, est une plante à feuillage caduc de la famille des Anacardiacées poussant dans la garrigue et le maquis, commune dans tout le bassin méditerranéen."
+      },
+      "es": {
+        "aliases": [
+          "Albotín",
+          "Higuera silvestre",
+          "Trementina de Kios",
+          "Cabricuerno",
+          "Charneta",
+          "Noguerola",
+          "Charnera",
+          "Cornicabre",
+          "Granillo cornicabra",
+          "Árbol de Nuestra Señora",
+          "Cornicabro",
+          "Albotin",
+          "Valvarija",
+          "Arbol trementino",
+          "Lentisco albar",
+          "Quemaculo",
+          "Tornalobo",
+          "Escuernicabra",
+          "Colneta",
+          "Cabracoja",
+          "Cabra coja",
+          "Arbol de Nuestra Senora",
+          "Cornita",
+          "Caricuerno",
+          "Arbol de Nuestra Señora",
+          "Jedisco",
+          "Árbol de Nuestra Senora",
+          "Descornacabras",
+          "Árbol trementino",
+          "Cabracorna",
+          "terebinto",
+          "Cornicabra"
+        ],
+        "extract": "Pistacia terebinthus, también conocido como cornicabra, es un árbol pequeño de hasta 6 m de alto o arbusto, de la familia de las anacardiáceas, del género pistacia, nativo del Mediterráneo occidental y que se extiende desde las islas Canarias, Marruecos y la península ibérica, hasta Grecia y el oeste de Turquía."
       }
     },
     "thumbnail": {
@@ -1106,17 +1911,38 @@
       "width": 3800,
       "height": 2718
     },
-    "color": [119, 248, 96]
+    "color": [134, 206, 67]
   },
   "Populus_alba": {
     "labels": {
       "en": {
         "aliases": ["silver poplar", "silverleaf poplar", "white poplar"],
-        "extract": "Populus alba, commonly called silver poplar, silverleaf poplar, or white poplar, is a species of poplar, most closely related to the aspens. It is native to Morocco and then Portugal through central Europe to central Asia. It grows in moist sites, often by watersides, in regions with hot summers and cold to mild winters."
+        "extract": "Populus alba, commonly called silver poplar, silverleaf poplar, or white poplar, is a species of poplar, most closely related to the aspens. It is native to a region spanning from the Atlas Mountains of Africa, through most of South and Central Europe, into Central Asia; it has been introduced to many temperate, moist regions worldwide. It grows in moist sites, often by watersides, in regions with hot summers and cold to mild winters."
       },
       "fr": {
         "aliases": ["Peuplier de Hollande", "Ypréau", "Peuplier blanc"],
         "extract": "Le Peuplier blanc ou Peuplier de Hollande (Populus alba), aussi appelé, Abèle, Peuplier à feuille d'érable, Peuplier argenté, Blanc de Hollande, Aube, Ypréau ou Piboule, est un arbre à feuilles caduques de la famille des Salicacées. Ce peuplier est originaire d'Europe centrale et méridionale et d'Asie occidentale et centrale."
+      },
+      "es": {
+        "aliases": [
+          "Populus alba var pyramidalis",
+          "Populus alba var subintegerrima",
+          "Populus hopeiensis",
+          "Populus alba var. denudata",
+          "Populus nivea",
+          "Populus megaleuce",
+          "Populus globosa",
+          "Populus alba var. hickeliana",
+          "Populus denudata",
+          "álamo alvar",
+          "álamo plateado",
+          "árbol blanco",
+          "chopo blanco",
+          "No es el alamo común",
+          "blancon",
+          "Álamo blanco"
+        ],
+        "extract": "Populus alba, el álamo blanco, álamo común o chopo blanco es un árbol de fronda perteneciente a las salicáceas. Otros nombres comunes o vulgares de esta especie son: álamo plateado o álamo afgano."
       }
     },
     "thumbnail": {
@@ -1129,7 +1955,7 @@
       "width": 1559,
       "height": 850
     },
-    "color": [122, 214, 73]
+    "color": [115, 216, 127]
   },
   "Populus_nigra": {
     "labels": {
@@ -1138,8 +1964,32 @@
         "extract": "Populus nigra, the black poplar, is a species of cottonwood poplar, the type species of section Aigeiros of the genus Populus, native to Europe, southwest and central Asia, and northwest Africa."
       },
       "fr": {
-        "aliases": ["Populus nigra"],
+        "aliases": ["Populus nigra", "peuplier noir"],
         "extract": "Le Peuplier noir est une espèce d'arbres de la famille des Salicacées. Ce peuplier de grande taille colonise de préférence les sols riches et dénués de végétation, tels que les grèves et bancs de sable ou de graviers humides. Il en existe de nombreux hybrides et variétés."
+      },
+      "es": {
+        "aliases": [
+          "Choupo",
+          "Álamo negro",
+          "Chopo piramidal",
+          "Chopo de Lombardía",
+          "Álamo de Italia",
+          "Chopo comun",
+          "Populus nigra var. pyramidalis",
+          "Alamo negrillo",
+          "Populus betulifolia",
+          "Álamo lombardo",
+          "Alamo lombardo",
+          "Populus nigra var italica",
+          "Populus nigra var elegans",
+          "Populus pannonica",
+          "Chopo mosquitero",
+          "Populus nigra var thevestina",
+          "Alamo negro",
+          "Chopo de Lombardia",
+          "Alamo de Italia"
+        ],
+        "extract": "El álamo negro o chopo negro es una especie de árbol perteneciente a la familia de las salicáceas común en Europa."
       }
     },
     "thumbnail": {
@@ -1152,7 +2002,7 @@
       "width": 1946,
       "height": 992
     },
-    "color": [78, 235, 37]
+    "color": [21, 211, 67]
   },
   "Populus_tremula": {
     "labels": {
@@ -1164,11 +2014,34 @@
           "European aspen",
           "quaking aspen"
         ],
-        "extract": "Populus tremula, commonly called aspen, common aspen, Eurasian aspen, European aspen, or quaking aspen, is a species of poplar native to cool temperate regions of Europe and Asia, from Iceland and the British Isles east to Kamchatka, north to inside the Arctic Circle in Scandinavia and northern Russia, and south to central Spain, Turkey, the Tian Shan, North Korea, and northern Japan. It also occurs at one site in northwest Africa in Algeria. In the south of its range, it occurs at high altitudes in mountains."
+        "extract": "Populus tremula is a species of poplar native to cool temperate regions of Europe and Asia, from Iceland and the British Isles east to Kamchatka, north to inside the Arctic Circle in Scandinavia and northern Russia, and south to central Spain, Turkey, the Tian Shan, North Korea, and northern Japan. It also occurs at one site in northwest Africa in Algeria. In the south of its range, it occurs at high altitudes in mountains."
       },
       "fr": {
         "aliases": ["Populus tremula", "Peuplier tremble"],
         "extract": "Le Tremble, Tremble d'Europe ou Peuplier tremble est une espèce d'arbres du genre Populus et de la famille des Salicaceae. Il est de taille moyenne à feuilles caduques. Seule variété de peuplier forestier, il est répandu dans l'ensemble de l'Eurasie."
+      },
+      "es": {
+        "aliases": [
+          "Populus tremula var villosa",
+          "Chopo canariense",
+          "Chopo temblon",
+          "Chopo temblón",
+          "Tremolín",
+          "Tremol",
+          "Tremoleta",
+          "Tremolin",
+          "Chopo falso",
+          "Alamo libico",
+          "Alamo líbico",
+          "Álamo libico",
+          "Álamo líbico",
+          "Álamo bastardo",
+          "Populus villosa",
+          "Tremolina",
+          "Alamo bastardo",
+          "Álamo temblón"
+        ],
+        "extract": "Populus tremula, el álamo temblón, chopo temblón o lamparilla es un árbol de fronda perteneciente a la familia de las salicáceas, que se distingue de otras especies emparentadas por los largos pedúnculos que se mueven con el viento y le dan su nombre."
       }
     },
     "thumbnail": {
@@ -1181,7 +2054,7 @@
       "width": 2816,
       "height": 2112
     },
-    "color": [7, 212, 23]
+    "color": [122, 249, 34]
   },
   "Prunus_avium": {
     "labels": {
@@ -1202,19 +2075,40 @@
           "Prunus avium"
         ],
         "extract": "Le merisier ou cerisier des oiseaux (Prunus avium) est un arbre originaire d'Europe, d'Asie de l'ouest et d'Afrique du nord appartenant au genre Prunus de la famille des Rosaceae. Il est parfois appelé cerisier sauvage ou cerisier des bois."
+      },
+      "es": {
+        "aliases": [
+          "Cerezas adonas",
+          "Guereciga",
+          "Prunus cerasus ι avium",
+          "Cereza gallega",
+          "Druparia avium",
+          "Cerasus duracina",
+          "Cerexo",
+          "Ceresera",
+          "Cerezas corazon de cabrito",
+          "Seresero",
+          "Cerasus dulcis",
+          "Zrisal",
+          "Cerezas corazón de cabrito",
+          "Guindo morrino",
+          "Cereza blanca",
+          "Creisal"
+        ],
+        "extract": "Prunus avium, llamado comúnmente cerezo silvestre, cerezo dulce o cerezo de monte, es una especie de cerezo nativo de Europa y el occidente asiático, del cual se derivan la gran mayoría de los cultivares comerciales de cereza. Es un frutal apreciado en la cuenca mediterránea desde la Edad Antigua; griegos y romanos lo difundieron extensamente. Hoy se cultiva en buena parte de las regiones templadas del mundo."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Prunus_avium_fruit.jpg/318px-Prunus_avium_fruit.jpg",
-      "width": 318,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Prunus_avium_fruit.jpg/320px-Prunus_avium_fruit.jpg",
+      "width": 320,
+      "height": 322
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/4/49/Prunus_avium_fruit.jpg",
       "width": 2126,
       "height": 2136
     },
-    "color": [97, 205, 138]
+    "color": [82, 222, 134]
   },
   "Prunus_padus": {
     "labels": {
@@ -1236,6 +2130,19 @@
           "Cerisier putiet"
         ],
         "extract": "Le Cerisier à grappes ou Merisier à grappes, parfois nommé amaruvier, bois-puant, putier, putiet, putet ou pétafouère, est un arbre de la famille des Rosaceae."
+      },
+      "es": {
+        "aliases": [
+          "Druparia padus",
+          "Cerezo aliso",
+          "Cerezo pado",
+          "Padus avium",
+          "Cerezo de racimos",
+          "Prunus fauriei",
+          "Cerezo de racimo",
+          "Padus vulgaris"
+        ],
+        "extract": "El cerezo de racimos, o cerezo aliso, es una especie de árbol natural de Europa y que pertenece a la familia de las rosáceas. Crece en terrenos ácidos en los bosques húmedos. Otros nombres comunes son árbol de santa Lucía, cerisuela y cerezo pado."
       }
     },
     "thumbnail": {
@@ -1248,7 +2155,7 @@
       "width": 837,
       "height": 682
     },
-    "color": [145, 200, 126]
+    "color": [2, 247, 147]
   },
   "Pyrus_communis": {
     "labels": {
@@ -1257,21 +2164,48 @@
         "extract": "Pyrus communis, the common pear, is a species of pear native to central and eastern Europe, and western Asia."
       },
       "fr": {
-        "aliases": ["poirier", "Pyrus communis"],
+        "aliases": [
+          "poirier",
+          "Pyrus communis",
+          "Poirier commun",
+          "poirier cultivé"
+        ],
         "extract": "Le Poirier commun est un arbre fruitier de la famille des Rosacées, cultivé pour son fruit, la poire."
+      },
+      "es": {
+        "aliases": [
+          "Pyrus balansae",
+          "Pyrus pyraster var. tomentosa",
+          "Peral comun",
+          "Pyrus achras",
+          "Peral",
+          "Pyrus pyraster f. achras",
+          "Pyrus pyraster var. achras",
+          "Pyrus amphigenea",
+          "Pyrus sylvestris",
+          "Pyrus caucasica",
+          "Pera Europea",
+          "Crataegus excelsa",
+          "Sorbus pyrus",
+          "Pyrus sativa",
+          "Pyrus cultrensis",
+          "Pyrus sylvester",
+          "Peral europeo"
+        ],
+        "extract": "Pyrus communis, el peral europeo o peral común, es una especie de árbol caducifolio de la familia de las rosáceas."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pears.jpg/210px-Pears.jpg",
-      "width": 210,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pears.jpg/320px-Pears.jpg",
+      "width": 320,
+      "height": 488
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg",
       "width": 640,
       "height": 975
     },
-    "color": [127, 226, 101]
+    "color": [132, 220, 116]
   },
   "Quercus_cerris": {
     "labels": {
@@ -1289,6 +2223,28 @@
           "Doucier"
         ],
         "extract": "Le Chêne chevelu ou Chêne lombard ou Chêne cerris, est une espèce d'arbres monoïques de la famille des Fagacées originaire du sud de l'Europe et d'Asie Mineure.\nIl est parfois appelé Chêne de Bourgogne, Chêne de Turquie ou Doucier."
+      },
+      "es": {
+        "aliases": [
+          "Quercus recurvisquamosa",
+          "Quercus × ambrozyana",
+          "Cerris austriaca",
+          "Quercus heterophylla",
+          "Quercus crinita",
+          "Quercus variegata",
+          "Roble de Turquía",
+          "Quercus pseudocerris",
+          "Quercus tukhtensis",
+          "Quercus nicotrae",
+          "Cerris crinita",
+          "Quercus secondatii",
+          "Quercus thracica",
+          "Quercus haliphlaeos",
+          "Quercus raynal",
+          "Quercus ragnal",
+          "Roble de Turquia"
+        ],
+        "extract": "Quercus cerris, el roble cabelludo, roble cerris o roble de Turquía, es un árbol que pertenece a la familia de las fagáceas, se distribuye por el Sur y el Sureste de Europa y Asia Menor."
       }
     },
     "thumbnail": {
@@ -1301,13 +2257,13 @@
       "width": 981,
       "height": 718
     },
-    "color": [62, 237, 37]
+    "color": [86, 238, 38]
   },
   "Quercus_coccifera": {
     "labels": {
       "en": {
         "aliases": ["Kermes Oak"],
-        "extract": "Quercus coccifera, the kermes oak, is an oak bush in the Quercus section Cerris. It is native to the Mediterranean region and Northern African Maghreb, south to north from Morocco to France and west to east from Portugal to Cyprus and Turkey, crossing Spain, Italy, Libya, Balkans, and Greece, including Crete. The Kermes Oak was historically important as the food plant of the Kermes scale insect, from which a red dye called crimson was obtained. The etymology of the specific name coccifera is related to the production of red cochineal (crimson) dye and derived from Latin coccum which was from Greek κόκκος, the kermes insect. The Latin -fera means 'bearer'."
+        "extract": "Quercus coccifera, the kermes oak, is an oak bush in the Ilex section of the genus. It is native to the Mediterranean region and Northern African Maghreb, south to north from Morocco to France and west to east from Portugal to Cyprus and Turkey, crossing Spain, Italy, Libya, Balkans, and Greece, including Crete. The Kermes Oak was historically important as the food plant of the Kermes scale insect, from which a red dye called crimson was obtained. The etymology of the specific name coccifera is related to the production of red cochineal (crimson) dye and derived from Latin coccum which was from Greek κόκκος, the kermes insect. The Latin -fera means 'bearer'."
       },
       "fr": {
         "aliases": [
@@ -1318,6 +2274,28 @@
           "Chênes kermès"
         ],
         "extract": "Le Chêne des garrigues, Chêne kermès ou Quercus coccifera est une espèce d'arbustes à feuilles persistantes de la famille des Fagacées et de la sous-famille des Fagoideae, spontané dans les terrains pierreux calcaires de la région méditerranéenne, en particulier dans la garrigue."
+      },
+      "es": {
+        "aliases": [
+          "Quercus aquifolia",
+          "Quercus brachybalanos",
+          "Coscoja borde",
+          "Cuzcochu",
+          "Chapina",
+          "Quercus pseudorigida",
+          "Quercus valida",
+          "Quercus consobrina",
+          "Quercus dispar",
+          "Carcoja",
+          "Cusculla",
+          "Coscoja morisquilla",
+          "Quercus calliprinos",
+          "Mesto menor",
+          "Quercus chainolepis",
+          "Quercus cretica",
+          "Coscoja"
+        ],
+        "extract": "Quercus coccifera es una especie de arbusto, a veces un árbol de hasta 6 metros, perteneciente a la familia de las fagáceas originaria de la región del Mediterráneo. Tiene muchos nombres vernáculos, los más empleados son: chaparro, chaparra, coscoja, carrasca, carrasco, carrasquilla o carrasquizo."
       }
     },
     "thumbnail": {
@@ -1330,7 +2308,7 @@
       "width": 468,
       "height": 291
     },
-    "color": [62, 233, 140]
+    "color": [8, 206, 81]
   },
   "Quercus_faginea": {
     "labels": {
@@ -1340,6 +2318,27 @@
       "fr": {
         "aliases": ["Chêne Du Portugal", "Chene du Portugal"],
         "extract": "Le Chêne faginé, Chêne portugais, Chêne du Portugal ou plus rarement Chêne à feuilles de hêtre, Quejigo en espagnol, est un arbre à feuillage caduc de la famille des Fagacées, typique du climat méditerranéen."
+      },
+      "es": {
+        "aliases": [
+          "Gállara",
+          "Macharu",
+          "Gaña",
+          "Quercus lusitanica f. salicifolia",
+          "Quercus lusitanica ssp. faginea",
+          "Cascabillo",
+          "Enciniego",
+          "Quercus lusitanica",
+          "Gallara",
+          "Quercus lusitanica var. alpestris",
+          "Quejio",
+          "Quercus alpestris",
+          "Roble encimego",
+          "Cajigu",
+          "Matoju",
+          "Quejiga"
+        ],
+        "extract": "El quejigo, roble carrasqueño o roble valenciano es una especie de árbol marcescente de tamaño medio de hasta 20 m de altura, típico de las zonas de clima mediterráneo del norte de África y la península ibérica. Especie autóctona del bosque mediterráneo. Florece entre abril y mayo, casi siempre antes que la encina; las bellotas maduran y se diseminan hacia septiembre u octubre."
       }
     },
     "thumbnail": {
@@ -1352,7 +2351,7 @@
       "width": 845,
       "height": 634
     },
-    "color": [73, 204, 77]
+    "color": [46, 213, 27]
   },
   "Quercus_frainetto": {
     "labels": {
@@ -1363,6 +2362,27 @@
       "fr": {
         "aliases": ["Quercus frainetto"],
         "extract": "Le Chêne de Hongrie, Quercus frainetto, est une espèce d'arbres à feuilles caduques, originaire du sud-est de l'Europe, appartenant à la famille des Fagaceae."
+      },
+      "es": {
+        "aliases": [
+          "Quercus strigosa",
+          "Quercus spectabilis",
+          "Quercus slavonica",
+          "Roble de Hungria",
+          "Quercus farnetto subsp conferta",
+          "Quercus esculus",
+          "Quercus esculus var. velutina",
+          "Quercus byzantina",
+          "Quercus esculus var velutina",
+          "Quercus pyrenaica var macrophyllos",
+          "Quercus sessiliflora f conferta",
+          "Quercus farnetto",
+          "Quercus conferta",
+          "Quercus conferta var racemosa",
+          "Quercus pyrenaica var. macrophyllos",
+          "Quercus apennina"
+        ],
+        "extract": "Quercus frainetto, el roble de Hungría, es una especie del género Quercus, nativa de Europa sudoriental y Turquía. Está clasificada en la sección Mesobalanus, el roble húngaro y sus parientes de Europa y Asia."
       }
     },
     "thumbnail": {
@@ -1375,13 +2395,13 @@
       "width": 1418,
       "height": 886
     },
-    "color": [132, 226, 135]
+    "color": [131, 201, 112]
   },
   "Quercus_ilex": {
     "labels": {
       "en": {
         "aliases": ["Holm Oak"],
-        "extract": "Quercus ilex, the evergreen oak, holly oak or holm oak is a large evergreen oak native to the Mediterranean region. It is a member of the Cerris section of the genus, with acorns that mature in a single summer."
+        "extract": "Quercus ilex, the evergreen oak, holly oak or holm oak is a large evergreen oak native to the Mediterranean region. It is a member of the Ilex section of the genus, with acorns that mature in a single summer."
       },
       "fr": {
         "aliases": [
@@ -1396,6 +2416,32 @@
           "Yeuse"
         ],
         "extract": "Le Chêne vert ou Yeuse est une espèce d'arbres à feuillage persistant de la famille des Fagacées, présent sous forme de bois clairs et garrigues. Il est parfois appelé Chêne faux houx, allusion au fait que ses feuilles ressemblent à celles du houx."
+      },
+      "es": {
+        "aliases": [
+          "Quercus ilex subsp. ballota",
+          "Charrasco",
+          "Encinares",
+          "Quercus laurei",
+          "Quercus smilax",
+          "Quercus pseudoilex",
+          "Quercus ballota var. grandifolia",
+          "Mataparda",
+          "Quercus marcetii",
+          "Quercus sinuata",
+          "Encina con hojas de acebo",
+          "Quercus ilex subsp ballota",
+          "Marrasca",
+          "Quercus expansa",
+          "Quercus rotundifolia f expansa",
+          "Quercus ballota var. obovatifolia",
+          "Carrasca",
+          "Chaparro",
+          "Chaparra",
+          "encina",
+          "Alsina"
+        ],
+        "extract": "La encina es un árbol de la familia de las fagáceas. Otros nombres comunes con los que se conoce a la encina son encino, carrasca, chaparra o chaparro. Es un árbol perennifolio nativo de la región mediterránea de talla mediana, aunque puede aparecer en forma arbustiva, condicionado por las características pluviométricas o por el terreno en el que se encuentre."
       }
     },
     "thumbnail": {
@@ -1408,7 +2454,7 @@
       "width": 1936,
       "height": 1288
     },
-    "color": [11, 232, 129]
+    "color": [8, 204, 20]
   },
   "Quercus_petraea": {
     "labels": {
@@ -1425,6 +2471,29 @@
           "Quercus sessiliflora"
         ],
         "extract": "Le Chêne rouvre ou Chêne sessile, parfois appelé Chêne à trochets, Chêne des pierriers, Chêne mâle ou Chêne noir est une espèce d'arbres des forêts des régions tempérées de l'hémisphère nord de la famille des Fagacées. On le connaît sous différentes appellations : drille, drillar, durelin."
+      },
+      "es": {
+        "aliases": [
+          "Roble montano",
+          "Quercus sessiliflora var parvifolia",
+          "Quercus petraea subsp huguetiana",
+          "Quercus petraea subsp. huguetiana",
+          "Quercus auzin",
+          "Quercus robur var. sessiliflora",
+          "Quercus sessilis var. ruscinonensis",
+          "Quercus robur subsp. sessiliflora",
+          "Veceña",
+          "Marfueyo",
+          "Quercus sessilis var ruscinonensis",
+          "Roble comun",
+          "Quercus sessiliflora var. parvifolia",
+          "Vecena",
+          "Quercus robur var petraea",
+          "Roble de fruto sentado y axilar",
+          "Roble",
+          "Roble albar"
+        ],
+        "extract": "Quercus petraea, el roble albar o roble del invierno, es un árbol de fronda perteneciente a la familia de las fagáceas. Es muy parecido al Quercus robur, que recibe muchas veces el mismo nombre, aunque suele ser menos robusto que este, alcanza más altura en bosque denso creciendo más recto. Está clasificada en la Sección Quercus, que son los robles blancos de Europa, Asia y América del Norte. Tienen los estilos cortos; las bellotas maduran en 6 meses y tienen un sabor dulce y ligeramente amargo, el interior de la bellota tiene pelo. Las hojas carecen de una mayoría de cerdas en sus lóbulos, que suelen ser redondeados."
       }
     },
     "thumbnail": {
@@ -1437,7 +2506,7 @@
       "width": 1944,
       "height": 1917
     },
-    "color": [1, 216, 59]
+    "color": [1, 212, 78]
   },
   "Quercus_pubescens": {
     "labels": {
@@ -1447,19 +2516,30 @@
       "fr": {
         "aliases": ["Chene pubescent", "Quercus humilis", "Chêne pubescent"],
         "extract": "Le chêne pubescent (Quercus pubescens) est une espèce d'arbres à feuillage caduc des régions tempérées de l'hémisphère nord, appartenant à la famille des Fagaceae. Son nom vient du latin pubescens : à poils courts et mous. C'est une adaptation de l'arbre à la sécheresse. Il est parfois appelé chêne blanc, chêne blanc de Provence et dans le bassin aquitain chêne noir. Il ne faut pas le confondre avec le chêne blanc d'Amérique, Quercus alba. En Provence en Lozère et en Ardèche, il a donné nombre de toponymes et patronymes : Blachère, Blanquere, etc."
+      },
+      "es": {
+        "aliases": [
+          "Quejiguera",
+          "Roble enano",
+          "Quercus lanuginosa",
+          "Quercus pubescens",
+          "Robledilla",
+          "Roble pubescente"
+        ],
+        "extract": "Quercus humilis, el roble pubescente, es un árbol de fronda, de tamaño medio, pudiendo llegar a los 25 m, que pertenece a la familia de las fagáceas. Se distribuye por el centro y sur de Europa, Turquía y Crimea. Está catalogado como especie vulnerable por pérdida de hábitat. Este roble muestra una enorme tendencia a hibridarse con otros congéneres, lo que hace difícil reconocer, en determinadas regiones, sus rasgos morfológicos más típicos. Prueba de ello es que se han descrito cruces en el cuadrante nororiental ibérico con muy diversas especies del género. En general, en el eje pirenaico se encuentran las poblaciones más puras, mientras en el Prepirineo dominan los mestos o híbridos, siendo particularmente abundante Quercus x cerrioides."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Quercus_pubescens_Tuscany.jpg/240px-Quercus_pubescens_Tuscany.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Quercus_pubescens_Tuscany.jpg/320px-Quercus_pubescens_Tuscany.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/9/96/Quercus_pubescens_Tuscany.jpg",
       "width": 675,
       "height": 900
     },
-    "color": [92, 202, 85]
+    "color": [52, 237, 59]
   },
   "Quercus_pyrenaica": {
     "labels": {
@@ -1475,19 +2555,40 @@
           "Chêne brosse"
         ],
         "extract": "Le Chêne des Pyrénées ou chêne tauzin, chêne angoumois, appelé simplement angoumois ou tauzin (Gascogne), ou encore chêne brosse (Anjou), ou chêne noir, est une espèce d'arbre monoïque à feuillage caduc de la famille des fagacées."
+      },
+      "es": {
+        "aliases": [
+          "Rebollo gordo",
+          "Quercus toza var pyrenaica",
+          "Agallarones",
+          "Quercus toza",
+          "Roble comun de Castilla",
+          "Agallones",
+          "Quercus toza proles pyrenaica",
+          "Rebolleta",
+          "Quercus subandegavensis",
+          "Quercus tavaresii",
+          "Quercus stolonifera",
+          "Carvallo negro",
+          "Rebotsu",
+          "Roble dulce",
+          "Cerqueiro",
+          "Rachizo"
+        ],
+        "extract": "Quercus pyrenaica, llamado vernacularmente melojo en algunas partes de España, o rebollo,. Se lo conoce asimismo como marojo, roble negro y tozo. En Galicia cerquiño o cerqueiro, en Asturias corcu o corcoxu, en Cantabria tocio, y en el País Vasco ametza"
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Quercus_pyrenaica_20190708a.jpg/268px-Quercus_pyrenaica_20190708a.jpg",
-      "width": 268,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Quercus_pyrenaica_20190708a.jpg/320px-Quercus_pyrenaica_20190708a.jpg",
+      "width": 320,
+      "height": 382
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Quercus_pyrenaica_20190708a.jpg",
       "width": 2800,
       "height": 3346
     },
-    "color": [80, 240, 136]
+    "color": [95, 210, 21]
   },
   "Quercus_robur": {
     "labels": {
@@ -1498,7 +2599,7 @@
           "common oak",
           "truffle oak"
         ],
-        "extract": "Quercus robur, commonly known as common oak, pedunculate oak, European oak or English oak, is a species of flowering plant in the beech and oak family, Fagaceae. It is native to most of Europe west of the Caucasus. The tree is widely cultivated in temperate regions and has escaped into the wild in scattered parts of China and North America."
+        "extract": "Quercus robur, commonly known as common oak, pedunculate oak, European oak or English oak, is a species of flowering plant in the beech and oak family, Fagaceae. It is a large tree, native to most of Europe west of the Caucasus. It is widely cultivated in temperate regions elsewhere and has escaped into the wild in scattered parts of China and North America."
       },
       "fr": {
         "aliases": [
@@ -1507,22 +2608,45 @@
           "Chene pedoncule",
           "Quercus pedunculata",
           "Chênes pédonculés",
-          "chêne"
+          "chêne",
+          "Chêne Pédonculé"
         ],
         "extract": "Le chêne pédonculé (Quercus robur L., 1753) est une espèce d'arbres à feuillage caduc originaire des régions tempérées d'Europe, appartenant à la famille des Fagacées. Son fruit est porté par un long pédoncule."
+      },
+      "es": {
+        "aliases": [
+          "Quercus brutia var. thomasii",
+          "Quercus brutia subsp pedunculiflora",
+          "Quercus robur var brutia",
+          "Quercus erucifolia var. imeretina",
+          "Quercus pedunculata subsp pedunculiflora",
+          "Quercus pedunculata var. pedunculiflora",
+          "Quercus robur var. brutia",
+          "Quercus pedunculata",
+          "Quercus brutia subsp. pedunculiflora",
+          "Quercus imeretina",
+          "Quercus robur var thomasii",
+          "Quercus pedunculata var. brevipetiolata",
+          "Quercus racemosa",
+          "cajiga",
+          "roble común",
+          "roble carballo",
+          "roble fresnal"
+        ],
+        "extract": "El roble común, roble albar, roble carballo, carballo, roble carvallo, carvallo, cajiga o roble fresnal es un árbol robusto, de porte majestuoso, que puede superar los 40 m de altura. Está clasificado en la Sección Quercus, que son los robles blancos de Europa, Asia y América del Norte. Tienen los estilos cortos; las bellotas maduran en seis meses y tienen un sabor dulce y ligeramente amargo. Las hojas carecen de una mayoría de cerdas en sus lóbulos, que suelen ser redondeados."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quercus_robur.jpg/236px-Quercus_robur.jpg",
-      "width": 236,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quercus_robur.jpg/320px-Quercus_robur.jpg",
+      "width": 320,
+      "height": 433
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/a/af/Quercus_robur.jpg",
       "width": 701,
       "height": 948
     },
-    "color": [36, 238, 81]
+    "color": [15, 220, 4]
   },
   "Quercus_suber": {
     "labels": {
@@ -1537,9 +2661,33 @@
           "Sûrier",
           "Suberaie",
           "Chene-liege",
-          "Chênes-lièges"
+          "Chênes-lièges",
+          "Chêne-liège"
         ],
-        "extract": "Le chêne-liège, est un arbre à feuilles persistantes du genre Quercus, famille des Fagacées. Il est exploité pour son écorce qui fournit le liège. Il est parfois appelé le corcier, le surier ou suve."
+        "extract": "Le chêne-liège, est un arbre à feuilles persistantes du genre Quercus, famille des Fagacées. Il est exploité pour son écorce qui fournit le liège. Il est parfois appelé le corsier, le surier ou suve."
+      },
+      "es": {
+        "aliases": [
+          "Quercus occidentalis f heterocarpa",
+          "Alcornoque morisco",
+          "Quercus mitis",
+          "Bellotas primerizas",
+          "Quercus occidentalis",
+          "Corchero",
+          "Alsina surera",
+          "Roble sobrero",
+          "Quercus cintrana",
+          "Árbol del corcho",
+          "Corcheo",
+          "Bellotas segunderas",
+          "Corcha casquiza",
+          "Quercus corticosa",
+          "Alcornoques",
+          "Alcornoque extremeño",
+          "Arbol del corcho",
+          "Alcornoque"
+        ],
+        "extract": "El alcornoque es un árbol de porte medio, de hoja perenne, originario de Europa y del norte de África. Muy extendido antrópicamente por la explotación de su corteza de la que se obtiene el corcho. El alcornoque se conoce también en algunas comarcas, especialmente los ejemplares jóvenes, como chaparro o roble sobrero."
       }
     },
     "thumbnail": {
@@ -1552,12 +2700,12 @@
       "width": 5472,
       "height": 3648
     },
-    "color": [98, 227, 0]
+    "color": [34, 241, 76]
   },
   "Robinia_pseudoacacia": {
     "labels": {
       "en": {
-        "aliases": ["Robinia pseudoacacia"],
+        "aliases": ["Robinia pseudoacacia", "false acacia"],
         "extract": "Robinia pseudoacacia, commonly known in its native territory as black locust, is a medium-sized hardwood deciduous tree, belonging to the tribe Robinieae of the legume family Fabaceae. It is endemic to a few small areas of the United States, but it has been widely planted and naturalized elsewhere in temperate North America, Europe, Southern Africa and Asia and is considered an invasive species in some areas. Another common name is false acacia, a literal translation of the specific name."
       },
       "fr": {
@@ -1567,19 +2715,55 @@
           "Robinier faux-acacia"
         ],
         "extract": "Le robinier faux-acacia ou robinier est une espèce de la famille des Fabacées. Cet arbre présente des fleurs zygomorphes caractéristiques chez les Fabacées. Ses fruits sont des gousses ressemblant à un haricot plat avec des graines à l'intérieur."
+      },
+      "es": {
+        "aliases": [
+          "Robinia negra",
+          "Acacia de flor blanca",
+          "Falsa acacia",
+          "Acacia blanca",
+          "Robinia pringlei",
+          "Robinia pseudacacia",
+          "Acacia falsa",
+          "pan y quesito",
+          "pampanitos",
+          "pan y quesico",
+          "pan y quesillo",
+          "pan y quesillos",
+          "pan y queso",
+          "siete sayos",
+          "sopitas",
+          "alcacias",
+          "alcasia",
+          "acacia bastarda",
+          "acacia blanquera",
+          "acacia de bola",
+          "acacia de dos púas",
+          "acacia de flor",
+          "acacia espinosa",
+          "alcacia",
+          "alcazia",
+          "arcacia",
+          "arcazia",
+          "escasia",
+          "llorones",
+          "mamachocho",
+          "algarrobo"
+        ],
+        "extract": "Robinia pseudoacacia, la falsa acacia, es una especie del género Robinia en la familia Fabaceae. Es nativa del este de Estados Unidos, aunque se ha introducido en otros países. Es, con Sophora japonica y Gleditsia triacanthos, uno de las tres «falsas acacias» plantadas en tantas ciudades del mundo para adornar calles y parques."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Robina9146.JPG/239px-Robina9146.JPG",
-      "width": 239,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/8/86/Robina9146.JPG",
+      "width": 300,
+      "height": 401
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/8/86/Robina9146.JPG",
       "width": 300,
       "height": 401
     },
-    "color": [70, 233, 37]
+    "color": [140, 247, 93]
   },
   "Salix_alba": {
     "labels": {
@@ -1590,6 +2774,29 @@
       "fr": {
         "aliases": ["saule blanc"],
         "extract": "Le Saule blanc, Saule commun, Saule argenté, Osier blanc, ou Saule Vivier, est un arbre de la famille des Salicacées. Cet arbre commun dans les régions tempérées est souvent cultivé en forme de « têtard » pour la production d'osier."
+      },
+      "es": {
+        "aliases": [
+          "Salix fausta",
+          "Salix leucophora",
+          "Salix sepicola",
+          "Salix vitellina",
+          "salzo",
+          "sauce relucinete",
+          "sauce blanco salado",
+          "sauce real",
+          "blina",
+          "salguero blanco",
+          "sandisa",
+          "azaoz",
+          "sarache",
+          "balaquera",
+          "sauce triste",
+          "arcazón",
+          "arcazon",
+          "Sauce blanco"
+        ],
+        "extract": "El salguero o sauce blanco es un árbol caducifolio de rápido crecimiento de la familia de las salicáceas."
       }
     },
     "thumbnail": {
@@ -1602,7 +2809,7 @@
       "width": 1296,
       "height": 972
     },
-    "color": [12, 212, 68]
+    "color": [104, 212, 115]
   },
   "Sorbus_aucuparia": {
     "labels": {
@@ -1613,6 +2820,30 @@
       "fr": {
         "aliases": ["Sorbier des oiseleurs"],
         "extract": "Le Sorbier des oiseleurs ou Sorbier des oiseaux est un petit arbre qui peut atteindre les 15 mètres de haut. Il vit principalement en lisière de forêts d'épicéas. Le sorbier est cousin avec le cormier. Ses feuilles sont composées de 17 ou 15 folioles lancéolées doublement dentées reliées au pétiole."
+      },
+      "es": {
+        "aliases": [
+          "Capurrio",
+          "Pyrus aucuparia var typica",
+          "Cerolera de puerto",
+          "Buxarolera",
+          "Mespilus aucuparia",
+          "Pyrus aucuparia var. typica",
+          "Serbal de los cazadores",
+          "Argomeno",
+          "Sorbus aucuparia var. typica",
+          "Caputrio",
+          "Sorbus caucasigena",
+          "Serbellón",
+          "Zerollera borde",
+          "Pyrus aucuparia",
+          "Sorbellano",
+          "Buzadero",
+          "Serbellon",
+          "Azarollo",
+          "Serbal de cazadores"
+        ],
+        "extract": "Sorbus aucuparia, comúnmente llamado serbal de los cazadores, o azarollo, es un árbol de tamaño mediano, perteneciente a la familia de las rosáceas. Se distribuye por toda Europa, de Islandia a Rusia y por la península ibérica. Es tolerante al frío y se puede encontrar en altitudes elevadas."
       }
     },
     "thumbnail": {
@@ -1625,7 +2856,7 @@
       "width": 1600,
       "height": 1200
     },
-    "color": [128, 213, 75]
+    "color": [105, 207, 80]
   },
   "Taxus_baccata": {
     "labels": {
@@ -1634,8 +2865,12 @@
         "extract": "Taxus baccata is a species of evergreen tree in the family Taxaceae, native to western, central and southern Europe, northwest Africa, northern Iran, and southwest Asia. It is the tree originally known as yew, though with other related trees becoming known, it may now be known as common yew, English yew, or European yew. It is primarily grown as an ornamental. Most parts of the plant are poisonous, with toxins that can be absorbed through inhalation and through the skin; consumption of even a small amount of the foliage can result in death."
       },
       "fr": {
-        "aliases": ["If européen", "If à baies", "If commun"],
+        "aliases": ["If européen", "If à baies", "If commun", "if"],
         "extract": "L’If commun, (Taxus baccata), est une espèce de conifères non résineux de la famille des Taxaceae. Très longévif, poussant lentement, c’est un arbre qui se prête bien à la taille. Il est parfois appelé if à baies. Il fait partie des plantes toxiques."
+      },
+      "es": {
+        "aliases": ["tejo europeo", "tejo comun", "tejo negro", "tejo común"],
+        "extract": "Taxus baccata, el tejo común o tejo negro, es una especie del género Taxus originaria de Europa occidental, central y meridional. Es una gimnosperma de la familia de las Taxáceas, grupo primitivo ampliamente difundido ya desde el Jurásico y del que actualmente el tejo es el único representante europeo."
       }
     },
     "thumbnail": {
@@ -1648,7 +2883,7 @@
       "width": 4480,
       "height": 3906
     },
-    "color": [129, 230, 137]
+    "color": [77, 213, 54]
   },
   "Tilia_cordata": {
     "labels": {
@@ -1667,9 +2902,14 @@
         "aliases": [
           "Tilleul a petites feuilles",
           "Tilia sylvestris",
-          "Tilia cordata"
+          "Tilia cordata",
+          "tilleul à peties feuilles"
         ],
         "extract": "Le Tilleul à petites feuilles est un arbre du genre Tilia et de la famille des Tiliaceae, ou des Malvaceae selon la classification phylogénétique."
+      },
+      "es": {
+        "aliases": ["Tilo norteño"],
+        "extract": "Tilia cordata, conocida popularmente como tilo norteño, tilo silvestre o tilo de hoja pequeña, es una especie arbórea originaria de Europa, que vive desde España hasta los Montes Urales y las montañas de Líbano, Siria y Turquía."
       }
     },
     "thumbnail": {
@@ -1682,7 +2922,7 @@
       "width": 533,
       "height": 430
     },
-    "color": [90, 229, 20]
+    "color": [53, 247, 12]
   },
   "Tilia_platyphyllos": {
     "labels": {
@@ -1698,22 +2938,34 @@
         "aliases": [
           "Tilleul a grandes feuilles",
           "Tilia platiphyllos",
-          "Tilia platyphyllos"
+          "Tilia platyphyllos",
+          "Tilleul à feuilles larges",
+          "Tilleul à grandes feuilles",
+          "tilleul à larges feuilles"
         ],
         "extract": "Le tilleul à grandes feuilles est un arbre de la famille des  Tiliaceae, ou des Malvaceae, sous-famille des Tilioideae, selon la classification phylogénétique. C'est une espèce des régions tempérées d'Europe, souvent plantée comme arbre d'alignement."
+      },
+      "es": {
+        "aliases": [
+          "tilo comun",
+          "tilo de hoja grande",
+          "tilo de hoja ancha",
+          "aveneiro blanco"
+        ],
+        "extract": "Tilia platyphyllos, tilo de hoja ancha, tilo común o tilo de hoja grande, es una especie arbórea perteneciente a la familia de las Malvaceae, muy habitual en los bosques de Europa. Se distingue fácilmente del tilo de hoja estrecha o silvestre, Tilia cordata."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tilia_platyphyllos%2801%29.jpg/240px-Tilia_platyphyllos%2801%29.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tilia_platyphyllos%2801%29.jpg/320px-Tilia_platyphyllos%2801%29.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Tilia_platyphyllos%2801%29.jpg",
       "width": 960,
       "height": 1280
     },
-    "color": [34, 214, 102]
+    "color": [58, 248, 138]
   },
   "Torminalis_glaberrima": {
     "labels": {
@@ -1729,19 +2981,23 @@
       "fr": {
         "aliases": ["Sorbier torminal", "Alisier torminal"],
         "extract": "L'Alisier torminal, Alisier des bois ou Sorbier torminal est un arbre originaire d'Europe, d'Afrique du Nord et d'Asie Mineure, appartenant au genre des sorbiers, dans la sous-famille des Maloideae de la famille des Rosacées."
+      },
+      "es": {
+        "aliases": ["Sorbo silvestre", "Mostajo de perucos"],
+        "extract": "Sorbus torminalis, sorbo silvestre, serbal silvestre o mostajo de perucos es un árbol de la familia de las rosáceas, distribuido por el oeste, centro y sur de Europa, norte de África y oeste de Asia."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sorbus_torminalis_Full_tree.jpg/237px-Sorbus_torminalis_Full_tree.jpg",
-      "width": 237,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sorbus_torminalis_Full_tree.jpg/320px-Sorbus_torminalis_Full_tree.jpg",
+      "width": 320,
+      "height": 432
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/2/24/Sorbus_torminalis_Full_tree.jpg",
       "width": 918,
       "height": 1240
     },
-    "color": [140, 203, 6]
+    "color": [106, 220, 107]
   },
   "Ulmus_glabra": {
     "labels": {
@@ -1754,7 +3010,7 @@
           "Scotch elm",
           "Scot's elm"
         ],
-        "extract": "Ulmus glabra, the wych elm or Scots elm, has the widest range of the European elm species, from Ireland eastwards to the Urals, and from the Arctic Circle south to the mountains of the Peloponnese in Greece; it is also found in Iran. A large deciduous tree, it is essentially a montane species, growing at elevations up to 1,500 m (4,900 ft), preferring sites with moist soils and high humidity. The tree can form pure forests in Scandinavia and occurs as far north as latitude 67°N at Beiarn in Norway. It has been successfully introduced as far north as Tromsø, Norway and Alta, Norway (70°N). It has also been successfully introduced to Narsarsuaq, near the southern tip of Greenland (61°N)."
+        "extract": "Ulmus glabra Hudson, the wych elm or Scots elm, has the widest range of the European elm species, from Ireland eastwards to the Ural Mountains, and from the Arctic Circle south to the mountains of the Peloponnese and Sicily, where the species reaches its southern limit in Europe; it is also found in Iran. A large deciduous tree, it is essentially a montane species, growing at elevations up to 1,500 m (4,900 ft), preferring sites with moist soils and high humidity. The tree can form pure forests in Scandinavia and occurs as far north as latitude 67°N at Beiarn in Norway. It has been successfully introduced as far north as Tromsø and Alta in northern Norway (70°N). It has also been successfully introduced to Narsarsuaq, near the southern tip of Greenland (61°N)."
       },
       "fr": {
         "aliases": [
@@ -1762,22 +3018,35 @@
           "Orme blanc",
           "Orme des montagne",
           "Ulmus montanus",
-          "Ulmus glabra"
+          "Ulmus glabra",
+          "orme des montagnes"
         ],
         "extract": "L'Orme de montagne, Orme blanc ou Orme glabre est une des espèces d'ormes de taille moyenne à grande, à feuillage caduc."
+      },
+      "es": {
+        "aliases": [
+          "Olmo montano",
+          "Olmo de monte",
+          "Ulmus montana",
+          "Olmo de montaña",
+          "Olmo de montana",
+          "Ulmus scabra",
+          "olmo escocés"
+        ],
+        "extract": "Ulmus glabra, olmo montano u olmo de monte/olmo de montaña, entre otros, es un árbol de la familia de las ulmáceas, típico de las montañas de toda Europa."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/RN_Ulmus_glabra_%28alnarp_sweden%29.jpg/240px-RN_Ulmus_glabra_%28alnarp_sweden%29.jpg",
-      "width": 240,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/RN_Ulmus_glabra_%28alnarp_sweden%29.jpg/320px-RN_Ulmus_glabra_%28alnarp_sweden%29.jpg",
+      "width": 320,
+      "height": 427
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/e/e4/RN_Ulmus_glabra_%28alnarp_sweden%29.jpg",
       "width": 480,
       "height": 640
     },
-    "color": [34, 213, 23]
+    "color": [1, 219, 12]
   },
   "Ulmus_laevis": {
     "labels": {
@@ -1785,7 +3054,17 @@
         "extract": "Ulmus laevis Pall., variously known as the European white elm, fluttering elm, spreading elm, stately elm and, in the United States, the Russian elm, is a large deciduous tree native to Europe, from France northeast to southern Finland, east beyond the Urals into Kyrgyzstan and Kazakhstan, and southeast to Bulgaria and the Crimea; there are also disjunct populations in the Caucasus and Spain, the latter now considered a relict population rather than an introduction by man, and possibly the origin of the European population. U. laevis is rare in the UK, although its random distribution, together with the absence of any record of its introduction, has led at least one British authority to consider it native. NB: The epithet 'white' elm commonly used by British foresters alluded to the timber of the wych elm."
       },
       "fr": {
+        "aliases": ["Orme lisse", "orme lisse, orme pédonculé"],
         "extract": "L'Orme lisse, orme blanc ou orme pédonculé est une espèce d'arbres de la famille des Ulmacées."
+      },
+      "es": {
+        "aliases": [
+          "Olmo temblón",
+          "Olmo temblon",
+          "Olmo pedunculado",
+          "Olmo blanco europeo"
+        ],
+        "extract": "Ulmus laevis, el olmo blanco europeo, olmo temblón u olmo pedunculado es un gran árbol de hoja caduca, perteneciente a la familia de las ulmáceas, cuya área de distribución es el Centro, Este y Sureste de Europa, así como Asia Menor; va desde el noreste de Francia al sur de Finlandia, y por el este llega hasta los Urales y por el sureste hasta Bulgaria y Crimea; hay también una población separada en el Cáucaso. Además, un pequeño número de árboles de esta especie que se han encontrado en España son considerados actualmente una población relicta más que una introducción de la mano del hombre, y posiblemente el origen de la población europea."
       }
     },
     "thumbnail": {
@@ -1798,7 +3077,7 @@
       "width": 2500,
       "height": 1600
     },
-    "color": [80, 231, 5]
+    "color": [72, 221, 83]
   },
   "Ulmus_minor": {
     "labels": {
@@ -1809,18 +3088,30 @@
       "fr": {
         "aliases": ["Ormeau", "Orme champêtre", "Petit Orme"],
         "extract": "L’orme champêtre, l’ormeau ou le petit orme est une espèce d'arbres à feuilles caduques de la famille des Ulmaceae. Il est aussi parfois appelé ipréau, orme cilié ou yvet."
+      },
+      "es": {
+        "aliases": [
+          "Olmo de Cornualles",
+          "Olmo comun",
+          "Olmo campestre",
+          "Olmo de Lock",
+          "Olmo común",
+          "Olmo común nominal",
+          "Olmo comun nominal"
+        ],
+        "extract": "Ulmus minor, el olmo común o negrillo, es una especie de árbol perteneciente a la familia Ulmaceae."
       }
     },
     "thumbnail": {
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Blismes_elm_2007.jpg/256px-Blismes_elm_2007.jpg",
-      "width": 256,
-      "height": 320
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Blismes_elm_2007.jpg/320px-Blismes_elm_2007.jpg",
+      "width": 320,
+      "height": 400
     },
     "originalimage": {
       "source": "https://upload.wikimedia.org/wikipedia/commons/4/43/Blismes_elm_2007.jpg",
       "width": 1018,
       "height": 1272
     },
-    "color": [77, 215, 88]
+    "color": [145, 214, 55]
   }
 }
