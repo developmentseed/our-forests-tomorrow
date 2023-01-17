@@ -2,6 +2,7 @@ import { Feature, FeatureCollection } from 'geojson'
 import { t } from 'i18next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SUPPORTED_LANGUAGES } from '../constants'
 import {
   AllSpeciesData,
   Region,
@@ -34,24 +35,21 @@ function useCoreData() {
 
       const allSpeciesDataWithLabels: AllSpeciesData = Object.fromEntries(
         Object.entries(allSpeciesData).map(([speciesKey, speciesData]) => {
-          // console.log(
-          //   i18n.t(`species.${speciesKey}`, { lng: 'fr' }),
-          //   i18n.t(`species.${speciesKey}`, { lng: 'en' })
-          // )
           const data = {
             ...(speciesData as any),
             latin: formatLatin(speciesKey),
-            labels: {
-              fr: {
-                ...(speciesData as any).labels.fr,
-                name: i18n.t(`species.${speciesKey}`, { lng: 'fr' }),
-              },
-              en: {
-                ...(speciesData as any).labels.en,
-                name: i18n.t(`species.${speciesKey}`, { lng: 'en' }),
-              },
-            },
           }
+          data.labels = Object.fromEntries(
+            SUPPORTED_LANGUAGES.map((lang) => {
+              const speciesLangData = (speciesData as any).labels[lang] || {}
+              const langData = {
+                ...speciesLangData,
+                // TODO we shouldn't use that anymore, fails on lng switching
+                name: i18n.t(`species.${speciesKey}`, { lng: lang }),
+              }
+              return [lang, langData]
+            })
+          )
           return [speciesKey, data]
         })
       )

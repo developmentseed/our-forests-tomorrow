@@ -93,3 +93,5 @@ export const THEME = {
     laptop: '1024px',
   },
 }
+
+export const SUPPORTED_LANGUAGES = ['en', 'fr', 'es']
