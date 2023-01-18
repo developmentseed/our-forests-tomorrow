@@ -1,10 +1,10 @@
 {
   "general": {
     "currentDistribution": "Distribución actual",
-    "decolonization": "decolonization",
+    "decolonization": "descolonización",
     "suitability": "suitability",
     "close": "cerrar",
-    "entireCountry": "entire country"
+    "entireCountry": "todo el país"
   },
   "nav": {
     "title": "<b>Nuestros Bosques</b> mañana",
@@ -15,11 +15,11 @@
     "sortByOptions": {
       "vernacular": "nombre común",
       "latin": "nombre científico",
-      "area": "distribution area (descending)"
+      "area": "área de distribución (descendente)"
     },
     "search": "search for a species name, description...",
     "searchPlaceholder": "e.g. Irish oak, mediterranean...",
-    "exploreSpecies": "<p>explore the possible future of</p><b>67</b><p>tree species</p>"
+    "exploreSpecies": "<p>explora el posible futuro de</p><b>67</b><p>especies de árboles</p>"
   },
   "page": {
     "today": "Hoy",
