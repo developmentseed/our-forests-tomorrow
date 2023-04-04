@@ -8,18 +8,7 @@ const regions = JSON.parse(readFileSync(SIMPLIFIED_REGIONS, 'utf-8'))
 const gdData = {}
 
 for (let i = 0; i < regions.features.length; i++) {
-  // if (i > 3 ) continue
   const feature = regions.features[i]
-  // const gdUrl =
-  //   'https://www.globalforestwatch.org/api/gfw/geodescriber/geom/?template=true&app=gfw'
-  // const gdRaw = await fetch(gdUrl, {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     geojson: feature
-  //   })
-  // })
-  // const gd = await gdRaw.json()
-  // console.log(gd)
   const curl = `curl 'https://www.globalforestwatch.org/api/gfw/geodescriber/geom/?template=true&app=gfw' \
   -H 'Accept: application/json, text/plain, */*' \
   -H 'Accept-Language: en-GB,en;q=0.7' \
@@ -51,9 +40,6 @@ for (let i = 0; i < regions.features.length; i++) {
 
     console.log(key)
 
-    // console.log(feature)
-    // console.log(r.toString())
-    // gdData[]
   } catch (e) {
     console.log('err', key, e)
   }
