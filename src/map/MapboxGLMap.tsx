@@ -6,15 +6,15 @@ import React, {
   SetStateAction,
   ReactNode,
 } from 'react'
-import 'mapbox-gl/dist/mapbox-gl.css';
+import 'mapbox-gl/dist/mapbox-gl.css'
+import { Map, ViewState } from 'react-map-gl'
+import { useAtomValue } from 'jotai'
 import { MAP_DEFAULT_VIEWPORT } from '../constants'
 import { Region } from '../types'
 import type { Feature, FeatureCollection } from 'geojson'
-import { MapWrapper } from './Map.styled'
+import { MapWrapper, MapZoom } from './Map.styled'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
-import { useAtomValue } from 'jotai'
-import style from './style.json'
-import { Map, ViewState } from 'react-map-gl'
+import useMapStyle from '../hooks/useMapStyle'
 
 export type MapboxGLMapProps = {
   mainColor: number[]
@@ -44,17 +44,43 @@ function MapboxGLMap({
     },
     []
   )
+
+  const onZoomIn = useCallback(() => {
+    setViewState({
+      ...viewState,
+      zoom: viewState.zoom + 1,
+    })
+  }, [setViewState, viewState])
+
+  const onZoomOut = useCallback(() => {
+    setViewState({
+      ...viewState,
+      zoom: viewState.zoom - 1,
+    })
+  }, [setViewState, viewState])
+
+
+  const onIdle = useCallback(() => {
+
+  }, [])
+
+
+  const style = useMapStyle()
+
   return (
     <Fragment>
-      <MapWrapper
-        fixed={!introCompleted}
-      >
+      <MapWrapper fixed={!introCompleted}>
         <Map
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           {...viewState}
           onMove={onViewStateChange}
-          mapStyle="mapbox://styles/mapbox/streets-v9"
+          onIdle={onIdle}
+          mapStyle={style as any}
         />
+        <MapZoom visible={introCompleted}>
+          <button onClick={onZoomIn}>+</button>
+          <button onClick={onZoomOut}>-</button>
+        </MapZoom>
         {children}
       </MapWrapper>
     </Fragment>
