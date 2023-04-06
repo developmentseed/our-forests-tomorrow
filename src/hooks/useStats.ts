@@ -81,10 +81,10 @@ export function useAllSpeciesStatsForRegion(
   stats: StatsBySpecies | null
 ) {
   return useMemo(() => {
-    if (!stats || !region) return null
+    if (!stats) return null
     return Object.fromEntries(
       Object.entries(stats).map(([spc, spcStats]) => {
-        const id = region.GID_1 || region.GID_0
+        const id = region ? region.GID_1 || region.GID_0 : 'global'
         const spcStatsForRegion = spcStats[id]
         return [spc, spcStatsForRegion]
       })

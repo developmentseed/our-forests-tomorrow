@@ -1,20 +1,15 @@
 import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
-import { currentSpeciesAtom, introCompletedAtom, timeStepAtom,currentRegionAtom } from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { TimestepButton, WithTooltip } from '../components/Button.styled'
 import { CellTypeEnum } from '../constants'
 import useRegionData from '../hooks/useRegionData'
 import useRegionStats from '../hooks/useRegionStats'
-import { Region, ValuesByYear } from '../types'
 import { formatLatin } from '../utils'
 import { MapSentenceWrapper } from './MapSentence.styled'
 
-type MapSentenceProps = {
-  timeseriesData: ValuesByYear | null
-}
-
-function MapSentence({ timeseriesData }: MapSentenceProps) {
+function MapSentence() {
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -23,7 +18,7 @@ function MapSentence({ timeseriesData }: MapSentenceProps) {
   const currentRegionData = useRegionData()
   const currentRegionStats = useRegionStats()
 
-  const usingTimeseriesData = timeseriesData ? timeseriesData : currentRegionStats?.[currentSpecies]
+  const usingTimeseriesData = currentRegionStats?.[currentSpecies]
 
   if (!usingTimeseriesData) return null
 

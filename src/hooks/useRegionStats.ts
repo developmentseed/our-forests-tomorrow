@@ -6,10 +6,8 @@ import { useAllSpeciesStatsForRegion } from './useStats'
 function useRegionStats() {
   const currentRegionData = useRegionData()
   const { stats } = useCoreData()
-  const currentRegionStats: ValuesBySpeciesID | null = useAllSpeciesStatsForRegion(
-    currentRegionData,
-    stats
-  )
+  const currentRegionStats: ValuesBySpeciesID | null =
+    useAllSpeciesStatsForRegion(currentRegionData, stats)
 
   return currentRegionStats
 }

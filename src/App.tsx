@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  Fragment,
-  useCallback,
-  useEffect,
-} from 'react'
+import React, { useState, Fragment, useCallback, useEffect } from 'react'
 import { Feature } from 'geojson'
 
 import MapControls from './map/MapControls'
@@ -17,7 +12,6 @@ import {
   introCompletedAtom,
 } from './atoms'
 import { useAtom, useAtomValue } from 'jotai'
-import useTimeseriesData from './hooks/useTimeseriesData'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
 import { deckColorToCss } from './utils'
@@ -27,9 +21,6 @@ import MapboxGLMap from './map/MapboxGLMap'
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
-  const [renderedFeatures, setRenderedFeatures] = useState<
-    undefined | Feature[]
-  >(undefined)
   const introCompleted = useAtomValue(introCompletedAtom)
 
   // TODO move to reg page
@@ -47,7 +38,6 @@ function App() {
   }, [introCompleted])
 
   const currentSpeciesData = speciesData?.[currentSpecies]
-  const timeseriesData = useTimeseriesData(renderedFeatures)
 
   return !stats ||
     !speciesData ||
@@ -63,14 +53,10 @@ function App() {
       {!introCompleted && <Intro species={speciesData} />}
       <MapboxGLMap
         mainColor={currentSpeciesData.color}
-        onRenderedFeaturesChange={setRenderedFeatures}
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
-        <MapControls
-          timeseriesData={timeseriesData}
-          mainColor={currentSpeciesData.color}
-        />
+        <MapControls mainColor={currentSpeciesData.color} />
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>

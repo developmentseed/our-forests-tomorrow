@@ -1,10 +1,14 @@
 import { TIME_STEPS } from '../constants'
 import Timeseries from '../components/Timeseries'
 import { useAtom, useAtomValue } from 'jotai'
-import { currentSpeciesAtom, introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
+import {
+  currentSpeciesAtom,
+  introCompletedAtom,
+  introStepAtom,
+  timeStepAtom,
+} from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import { MapTimeseriesWrapper, TimestepNav } from './MapTimeseries.styled'
-import { ValuesByYear } from '../types'
 import { IntroStepEnum } from '../intro/Intro'
 import { TimestepButton } from '../components/Button.styled'
 import { TimestepColumn } from '../components/TimestepColumn.styled'
@@ -14,18 +18,15 @@ const W = 290
 const H = 70
 
 export type MapTimeseriesProps = {
-  timeseriesData: ValuesByYear | null
   mainColor: number[]
 }
 
-function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
+function MapTimeseries({ mainColor }: MapTimeseriesProps) {
   const [timeStep, setTimeStep] = useAtom(timeStepAtom)
 
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const currentRegionStats = useRegionStats()
-  const usingTimeseriesData = timeseriesData ? timeseriesData : currentRegionStats?.[currentSpecies]
-
-  // if (!usingTimeseriesData) return null
+  const usingTimeseriesData = currentRegionStats?.[currentSpecies]
 
   // const numFeatures = features?.length || 0
   const layoutData = useTimeseriesLayout(usingTimeseriesData, {

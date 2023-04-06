@@ -2,8 +2,6 @@ import React, {
   useCallback,
   useState,
   Fragment,
-  Dispatch,
-  SetStateAction,
   ReactNode,
   useRef,
 } from 'react'
@@ -11,14 +9,13 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { Map, ViewState, MapRef } from 'react-map-gl'
 import { useAtomValue } from 'jotai'
 import { MAP_DEFAULT_VIEWPORT } from '../constants'
-import type { Feature, FeatureCollection } from 'geojson'
+import type { FeatureCollection } from 'geojson'
 import { MapWrapper, MapZoom } from './Map.styled'
 import { introCompletedAtom } from '../atoms'
 import useMapStyle from '../hooks/useMapStyle'
 
 export type MapboxGLMapProps = {
   mainColor: number[]
-  onRenderedFeaturesChange: Dispatch<SetStateAction<Feature[] | undefined>>
   children: ReactNode
   regionsGeoJson: FeatureCollection
   countriesGeoJson: FeatureCollection
@@ -26,13 +23,10 @@ export type MapboxGLMapProps = {
 
 function MapboxGLMap({
   mainColor,
-  onRenderedFeaturesChange,
   children,
   regionsGeoJson,
   countriesGeoJson,
 }: MapboxGLMapProps) {
-  // const currentSpecies = useAtomValue(currentSpeciesAtom)
-  // const timeStep = useAtomValue(timeStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
 
   const [viewState, setViewState] = useState<ViewState>(MAP_DEFAULT_VIEWPORT)
@@ -57,12 +51,10 @@ function MapboxGLMap({
     })
   }, [setViewState, viewState])
 
-
   const mapRef = useRef<MapRef>(null)
   const onIdle = useCallback(() => {
     mapRef.current?.queryRenderedFeatures()
   }, [])
-
 
   const style = useMapStyle()
 
