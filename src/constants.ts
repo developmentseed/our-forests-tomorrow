@@ -1,5 +1,6 @@
 import { TimeStep } from './types'
 import { deckColorToCss } from './utils'
+import { ViewState } from 'react-map-gl'
 
 export const GEOTIFF_BBOX = [
   -18.9166666670000012, 27.0833333330000059, 49.9999999989999964,
@@ -14,13 +15,18 @@ export const CENTER = [
 ]
 // export const CENTER = [-20, 50]
 
-export const MAP_DEFAULT_VIEWPORT = {
+export const MAP_DEFAULT_VIEWPORT: ViewState = {
   longitude: CENTER[0],
   latitude: CENTER[1],
   zoom: 3,
   pitch: 0,
   bearing: 0,
-  maxZoom: 7,
+  padding: {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
 }
 
 export const MAX_ZOOM = 8

@@ -1,0 +1,818 @@
+{
+    "version": 8,
+    "name": "Our Forests Tomorrow",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:sdk-support": {
+            "android": "latest",
+            "ios": "latest",
+            "js": "latest"
+        },
+        "mapbox:groups": {
+            "e9909be99c739276457dde68d0014bd6": {
+                "name": "tests",
+                "collapsed": false
+            },
+            "Land, water, & sky, water": {
+                "collapsed": false,
+                "name": "Land, water, & sky, water"
+            },
+            "17068468195bbd88caa4c2e87eb9d6ac": {
+                "name": "Contour layers",
+                "collapsed": true
+            },
+            "35bc27c7d9145fa64d72a483ebd1d675": {
+                "name": "old",
+                "collapsed": true
+            },
+            "Land, water, & sky, built": {
+                "collapsed": false,
+                "name": "Land, water, & sky, built"
+            },
+            "4c1e8cc4e70788766d2e42df30812884": {
+                "name": "fagus_rcp85_proportional",
+                "collapsed": true
+            },
+            "abf599b333c4277060e8703ef2c386b5": {
+                "name": "abies_rcp45",
+                "collapsed": true
+            },
+            "29e33fc12630c7e75533dccad1e11fd3": {
+                "name": "fagus_rcp45",
+                "collapsed": true
+            },
+            "c3e4fe37c403f30086f5676d0b0f2bde": {
+                "name": "fagus_rcp85",
+                "collapsed": true
+            },
+            "ad87c6b5ff9121e396fa6acc9e735644": {
+                "name": "old",
+                "collapsed": true
+            },
+            "Land, water, & sky, land": {
+                "collapsed": false,
+                "name": "Land, water, & sky, land"
+            },
+            "76981f0503c0e24f314fcb036e01d314": {
+                "name": "Graticules",
+                "collapsed": true
+            }
+        },
+        "mapbox:uiParadigm": "layers",
+        "mapbox:trackposition": false
+    },
+    "center": [28.875053298872672, 39.71083850642151],
+    "zoom": 1.281551453483512,
+    "bearing": 0,
+    "pitch": 0,
+    "fog": {
+        "color": "hsl(62, 0%, 100%)",
+        "star-intensity": 0,
+        "horizon-blend": 0.1,
+        "space-color": "hsl(199, 44%, 59%)",
+        "high-color": "hsl(179, 2%, 100%)",
+        "range": [0.5, 10]
+    },
+    "sources": {
+        "mapbox://mapbox.mapbox-terrain-dem-v1": {
+            "url": "mapbox://mapbox.mapbox-terrain-dem-v1",
+            "type": "raster-dem",
+            "tileSize": 512
+        },
+        "composite": {
+            "url": "mapbox://mapbox.mapbox-bathymetry-v2,fausto-perez.1vldzy66,mapbox-map-design.graticules,mapbox.mapbox-streets-v8,fausto-perez.29fbsksw,fausto-perez.5uoywgeo,fausto-perez.8tu22fzr,fausto-perez.dhafvlze,mapbox.country-boundaries-v1,fausto-perez.9qigbisf,fausto-perez.b9gq5bvx,fausto-perez.15or7kxq,mapbox.mapbox-terrain-v2",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/fausto-perez/clbb2eulp000u14phb02xh6tk/bs4yt2li59biui1irk9i8ierm",
+    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+    "projection": {"name": "globe"},
+    "layers": [
+        {
+            "id": "land",
+            "type": "background",
+            "layout": {},
+            "paint": {"background-color": "#f7f7f0"}
+        },
+        {
+            "id": "mapbox-mapbox-terrain-dem-v1_5",
+            "type": "hillshade",
+            "source": "mapbox://mapbox.mapbox-terrain-dem-v1",
+            "layout": {},
+            "paint": {
+                "hillshade-shadow-color": "#cbcba4",
+                "hillshade-highlight-color": "#ededde",
+                "hillshade-exaggeration": 1,
+                "hillshade-accent-color": "hsl(199, 78%, 60%)"
+            }
+        },
+        {
+            "id": "hillshade",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "hillshade",
+            "layout": {"visibility": "none"},
+            "paint": {"fill-opacity": 0.05, "fill-color": "hsl(60, 27%, 47%)"}
+        },
+        {
+            "id": "land-outline",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "water",
+            "layout": {"line-cap": "round"},
+            "paint": {"line-color": "hsl(60, 31%, 61%)", "line-width": 0.5}
+        },
+        {
+            "id": "contour lines",
+            "type": "line",
+            "metadata": {"mapbox:group": "17068468195bbd88caa4c2e87eb9d6ac"},
+            "source": "composite",
+            "source-layer": "contour",
+            "minzoom": 9,
+            "filter": ["match", ["get", "index"], [10, 5], false, true],
+            "layout": {"visibility": "none"},
+            "paint": {
+                "line-color": "#324b26",
+                "line-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    9,
+                    0.05,
+                    12,
+                    0.15
+                ]
+            }
+        },
+        {
+            "id": "contour lines index",
+            "type": "line",
+            "metadata": {"mapbox:group": "17068468195bbd88caa4c2e87eb9d6ac"},
+            "source": "composite",
+            "source-layer": "contour",
+            "minzoom": 9,
+            "filter": ["match", ["get", "index"], [10, 5], true, false],
+            "layout": {"visibility": "none"},
+            "paint": {
+                "line-color": "#324b26",
+                "line-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    9,
+                    0.05,
+                    12,
+                    0.15
+                ]
+            }
+        },
+        {
+            "id": "contour labels",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "17068468195bbd88caa4c2e87eb9d6ac"},
+            "source": "composite",
+            "source-layer": "contour",
+            "minzoom": 9,
+            "filter": ["match", ["get", "index"], [10, 5], true, false],
+            "layout": {
+                "text-field": ["to-string", ["concat", ["get", "ele"], " m"]],
+                "text-font": [
+                    "League Mono Regular",
+                    "Arial Unicode MS Regular"
+                ],
+                "text-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    15,
+                    9.5,
+                    20,
+                    12
+                ],
+                "symbol-placement": "line",
+                "text-max-angle": 25,
+                "text-padding": 5,
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "hsla(101, 33%, 22%, 0.75)",
+                "text-halo-color": "hsla(0, 0%, 95%, 0.5)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "country-boundaries",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "country_boundaries",
+            "layout": {"line-join": "round", "line-cap": "round"},
+            "paint": {
+                "line-opacity": [
+                    "interpolate",
+                    ["exponential", 1.06],
+                    ["zoom"],
+                    0,
+                    0.05,
+                    22,
+                    0.9
+                ],
+                "line-width": 0.75,
+                "line-dasharray": [
+                    "step",
+                    ["zoom"],
+                    ["literal", [2, 4]],
+                    4,
+                    ["literal", [4, 6]],
+                    8,
+                    ["literal", [6, 8]],
+                    12,
+                    ["literal", [8, 10]],
+                    16,
+                    ["literal", [10, 12]],
+                    20,
+                    ["literal", [12, 14]]
+                ]
+            }
+        },
+        {
+            "id": "waterway",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "waterway",
+            "minzoom": 8,
+            "layout": {
+                "line-cap": ["step", ["zoom"], "butt", 11, "round"],
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#b6d4e2",
+                "line-width": [
+                    "interpolate",
+                    ["exponential", 1.3],
+                    ["zoom"],
+                    9,
+                    ["match", ["get", "class"], ["canal", "river"], 0.1, 0],
+                    20,
+                    ["match", ["get", "class"], ["canal", "river"], 8, 3]
+                ],
+                "line-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    8,
+                    0,
+                    8.5,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "water",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "water",
+            "layout": {},
+            "paint": {"fill-color": "#b6d4e2"}
+        },
+        {
+            "id": "water-depth",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "depth",
+            "maxzoom": 12,
+            "layout": {},
+            "paint": {
+                "fill-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "min_depth"],
+                    0,
+                    "#b6d4e2",
+                    7000,
+                    "hsl(199, 47%, 60%)"
+                ],
+                "fill-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    8,
+                    1,
+                    9,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "graticules",
+            "type": "line",
+            "metadata": {"mapbox:group": "76981f0503c0e24f314fcb036e01d314"},
+            "source": "composite",
+            "source-layer": "graticules",
+            "filter": [
+                "case",
+                ["==", ["%", ["get", "degrees"], 5], 0],
+                true,
+                false
+            ],
+            "paint": {
+                "line-opacity": [
+                    "interpolate",
+                    ["exponential", 1.1],
+                    ["zoom"],
+                    0,
+                    0,
+                    22,
+                    1
+                ],
+                "line-color": "hsl(219, 0%, 100%)"
+            }
+        },
+        {
+            "id": "graticules labels",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "76981f0503c0e24f314fcb036e01d314"},
+            "source": "composite",
+            "source-layer": "graticules",
+            "filter": [
+                "all",
+                [
+                    "match",
+                    ["get", "degrees"],
+                    [
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80,
+                        0,
+                        100,
+                        90,
+                        110,
+                        120,
+                        130,
+                        140,
+                        150,
+                        160,
+                        170,
+                        180,
+                        -10,
+                        -20,
+                        -30,
+                        -40,
+                        -50,
+                        -60,
+                        -70,
+                        -80,
+                        -90,
+                        -100,
+                        -110,
+                        -120,
+                        -130,
+                        -140,
+                        -150,
+                        -160,
+                        -170,
+                        35,
+                        45,
+                        55,
+                        65,
+                        75
+                    ],
+                    true,
+                    false
+                ],
+                ["match", ["get", "type"], ["parallel"], true, false]
+            ],
+            "layout": {
+                "text-font": [
+                    "League Mono Regular",
+                    "Arial Unicode MS Regular"
+                ],
+                "text-size": ["interpolate", ["linear"], ["zoom"], 3, 7, 7, 12],
+                "text-letter-spacing": 0.2,
+                "symbol-placement": "line",
+                "symbol-spacing": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    3,
+                    500,
+                    8,
+                    1000
+                ],
+                "text-field": [
+                    "to-string",
+                    ["concat", ["get", "degrees"], " º"]
+                ],
+                "text-allow-overlap": true
+            },
+            "paint": {
+                "text-color": "#ffffff",
+                "text-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    1,
+                    8,
+                    1,
+                    9,
+                    0
+                ],
+                "text-halo-color": "hsla(0, 24%, 2%, 0.05)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "fagus_hex_rcp85_10",
+            "type": "fill",
+            "metadata": {"mapbox:group": "c3e4fe37c403f30086f5676d0b0f2bde"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp85_10_hex-2h2so9",
+            "minzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hsl(0, 48%, 65%)",
+                    [1],
+                    "hsl(104, 62%, 64%)",
+                    [2],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-opacity": 0.35,
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)"
+            }
+        },
+        {
+            "id": "fagus_hex_rcp85_10_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "c3e4fe37c403f30086f5676d0b0f2bde"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp85_10_hex-2h2so9",
+            "minzoom": 5,
+            "maxzoom": 8,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "deciduous_decolonized",
+                    [1],
+                    "deciduous_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "fagus_hex_rcp85_20",
+            "type": "fill",
+            "metadata": {"mapbox:group": "c3e4fe37c403f30086f5676d0b0f2bde"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp85_20_hex-46fj15",
+            "maxzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "#c87474",
+                    [1],
+                    "hsl(104, 62%, 64%)",
+                    [2],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)",
+                "fill-opacity": 0.35
+            }
+        },
+        {
+            "id": "fagus_hex_rcp85_20_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "c3e4fe37c403f30086f5676d0b0f2bde"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp85_20_hex-46fj15",
+            "maxzoom": 5,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "deciduous_decolonized",
+                    [1],
+                    "deciduous_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "fagus_hex_rcp45_10",
+            "type": "fill",
+            "metadata": {"mapbox:group": "29e33fc12630c7e75533dccad1e11fd3"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp45_10_hex-blmxew",
+            "minzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "case",
+                    ["==", ["get", "status_2095"], 0],
+                    "hsl(0, 48%, 65%)",
+                    ["match", ["get", "status_2095"], [1], true, false],
+                    "#89dc6a",
+                    ["match", ["get", "status_2095"], [2], true, false],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-opacity": 0.35,
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)"
+            }
+        },
+        {
+            "id": "fagus_hex_rcp45_10_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "29e33fc12630c7e75533dccad1e11fd3"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp45_10_hex-blmxew",
+            "minzoom": 5,
+            "maxzoom": 8,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "deciduous_decolonized",
+                    [1],
+                    "deciduous_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "fagus_hex_rcp45_20",
+            "type": "fill",
+            "metadata": {"mapbox:group": "29e33fc12630c7e75533dccad1e11fd3"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp45_20_hex-4jl696",
+            "maxzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hsl(0, 43%, 62%)",
+                    [1],
+                    "hsl(104, 62%, 64%)",
+                    [2],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)",
+                "fill-opacity": 0.35
+            }
+        },
+        {
+            "id": "fagus_hex_rcp45_20_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "29e33fc12630c7e75533dccad1e11fd3"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_rcp45_20_hex-4jl696",
+            "maxzoom": 5,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "deciduous_decolonized",
+                    [1],
+                    "deciduous_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "fagus_hex_rcp85_10_sized",
+            "type": "circle",
+            "metadata": {"mapbox:group": "4c1e8cc4e70788766d2e42df30812884"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_10-5nbg0p",
+            "minzoom": 5,
+            "maxzoom": 8,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "circle-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hsl(0, 53%, 41%)",
+                    [1],
+                    "hsl(104, 68%, 38%)",
+                    [2],
+                    "hsl(72, 65%, 47%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "circle-radius": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "prob_2095"],
+                    10,
+                    1,
+                    974,
+                    5
+                ]
+            }
+        },
+        {
+            "id": "abies_hex_rcp45_10",
+            "type": "fill",
+            "metadata": {"mapbox:group": "abf599b333c4277060e8703ef2c386b5"},
+            "source": "composite",
+            "source-layer": "Abies_alba_rcp45_10_hex-aw92y5",
+            "minzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hsl(0, 48%, 65%)",
+                    [1],
+                    "hsl(104, 62%, 64%)",
+                    [2],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-opacity": 0.35,
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)"
+            }
+        },
+        {
+            "id": "abies_hex_rcp45_10_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "abf599b333c4277060e8703ef2c386b5"},
+            "source": "composite",
+            "source-layer": "Abies_alba_rcp45_10_hex-aw92y5",
+            "minzoom": 5,
+            "maxzoom": 8,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "conifer_decolonized",
+                    [1],
+                    "conifer_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "abies_hex_rcp45_20",
+            "type": "fill",
+            "metadata": {"mapbox:group": "abf599b333c4277060e8703ef2c386b5"},
+            "source": "composite",
+            "source-layer": "Abies_alba_rcp45_20_hex-4wx5hz",
+            "maxzoom": 5,
+            "layout": {"visibility": "none"},
+            "paint": {
+                "fill-color": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hsl(0, 43%, 62%)",
+                    [1],
+                    "hsl(104, 62%, 64%)",
+                    [2],
+                    "hsl(79, 90%, 71%)",
+                    "hsla(255, 62%, 64%, 0)"
+                ],
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)",
+                "fill-opacity": 0.35
+            }
+        },
+        {
+            "id": "abies_hex_rcp45_20_icons",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "abf599b333c4277060e8703ef2c386b5"},
+            "source": "composite",
+            "source-layer": "Abies_alba_rcp45_20_hex-4wx5hz",
+            "maxzoom": 5,
+            "layout": {
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "conifer_decolonized",
+                    [1],
+                    "conifer_stable",
+                    "seedling"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.5, 0]}
+        },
+        {
+            "id": "fagus10 - hex",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "35bc27c7d9145fa64d72a483ebd1d675"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_10-5nbg0p",
+            "minzoom": 5,
+            "maxzoom": 8,
+            "layout": {
+                "icon-allow-overlap": true,
+                "icon-padding": 0,
+                "icon-offset": [0, 0],
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    5,
+                    0.32,
+                    6,
+                    0.58,
+                    7,
+                    1.1,
+                    8,
+                    2.2
+                ],
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hex-decolonized",
+                    [1],
+                    "hex-stable",
+                    [2],
+                    "hex-suitable",
+                    "water"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.33, 0]}
+        },
+        {
+            "id": "fagus20 - hex",
+            "type": "symbol",
+            "metadata": {"mapbox:group": "35bc27c7d9145fa64d72a483ebd1d675"},
+            "source": "composite",
+            "source-layer": "Fagus_sylvatica_20-8i2rl1",
+            "minzoom": 3,
+            "maxzoom": 5,
+            "layout": {
+                "icon-allow-overlap": true,
+                "icon-padding": 0,
+                "icon-offset": [0, 0],
+                "icon-size": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    3,
+                    0.15,
+                    5,
+                    0.58
+                ],
+                "icon-image": [
+                    "match",
+                    ["get", "status_2095"],
+                    0,
+                    "hex-decolonized",
+                    [1],
+                    "hex-stable",
+                    [2],
+                    "hex-suitable",
+                    "water"
+                ],
+                "visibility": "none"
+            },
+            "paint": {"icon-opacity": ["case", ["has", "status_2095"], 0.33, 0]}
+        }
+    ],
+    "created": "2022-12-05T17:27:11.743Z",
+    "modified": "2023-03-07T12:11:50.136Z",
+    "id": "clbb2eulp000u14phb02xh6tk",
+    "owner": "fausto-perez",
+    "visibility": "public",
+    "protected": false,
+    "draft": false
+}

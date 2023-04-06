@@ -25,6 +25,7 @@ import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
 import { deckColorToCss } from './utils'
 import { CellTypeEnum, COLOR_BY_CELL_TYPE } from './constants'
+import MapboxGLMap from './map/MapboxGLMap'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -71,7 +72,7 @@ function App() {
       <Nav species={speciesData} regions={regions} stats={stats} />
 
       {!introCompleted && <Intro species={speciesData} />}
-      <Map
+      <MapboxGLMap
         mainColor={currentSpeciesData.color}
         currentRegionData={currentRegionData}
         onRenderedFeaturesChange={setRenderedFeatures}
@@ -83,7 +84,7 @@ function App() {
           timeseriesData={timeseriesData}
           mainColor={currentSpeciesData.color}
         />
-      </Map>
+      </MapboxGLMap>
       {introCompleted && (
         <Fragment>
           {currentRegionData ? (
