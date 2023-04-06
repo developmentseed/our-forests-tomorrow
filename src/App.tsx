@@ -3,13 +3,10 @@ import React, {
   Fragment,
   useCallback,
   useEffect,
-  useMemo,
 } from 'react'
 import { Feature } from 'geojson'
 
-import Map from './map/Map'
 import MapControls from './map/MapControls'
-import { Region } from './types'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
@@ -50,14 +47,6 @@ function App() {
   }, [introCompleted])
 
   const currentSpeciesData = speciesData?.[currentSpecies]
-  const currentRegionData = useMemo(
-    () =>
-      regions?.find(
-        (r) => r.GID_0 === currentRegion || r.GID_1 === currentRegion
-      ),
-    [currentRegion, regions]
-  )
-
   const timeseriesData = useTimeseriesData(renderedFeatures)
 
   return !stats ||
@@ -74,25 +63,19 @@ function App() {
       {!introCompleted && <Intro species={speciesData} />}
       <MapboxGLMap
         mainColor={currentSpeciesData.color}
-        currentRegionData={currentRegionData}
         onRenderedFeaturesChange={setRenderedFeatures}
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
         <MapControls
-          currentRegionData={currentRegionData}
           timeseriesData={timeseriesData}
           mainColor={currentSpeciesData.color}
         />
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>
-          {currentRegionData ? (
-            <RegionPage
-              stats={stats}
-              currentRegionData={currentRegionData as Region}
-              onRegionClose={closeRegion}
-            />
+          {currentRegion ? (
+            <RegionPage onRegionClose={closeRegion} />
           ) : (
             <SpeciesPage
               stats={stats}

@@ -1,35 +1,40 @@
 import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
-import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, timeStepAtom,currentRegionAtom } from '../atoms'
 import { TimestepButton, WithTooltip } from '../components/Button.styled'
 import { CellTypeEnum } from '../constants'
+import useRegionData from '../hooks/useRegionData'
+import useRegionStats from '../hooks/useRegionStats'
 import { Region, ValuesByYear } from '../types'
 import { formatLatin } from '../utils'
 import { MapSentenceWrapper } from './MapSentence.styled'
 
 type MapSentenceProps = {
   timeseriesData: ValuesByYear | null
-  currentRegionData?: Region
 }
 
-function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
+function MapSentence({ timeseriesData }: MapSentenceProps) {
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
 
-  if (!timeseriesData || !timeseriesData[year]) return null
+  const currentRegionData = useRegionData()
+  const currentRegionStats = useRegionStats()
+
+  const usingTimeseriesData = timeseriesData ? timeseriesData : currentRegionStats?.[currentSpecies]
+
+  if (!usingTimeseriesData) return null
 
   const species = formatLatin(currentSpecies)
-  // const context = t('mapLegend.context', undefined, { year })
 
   let sentence
   if (year === '2005') {
     sentence = t('mapLegend.current', undefined, { species })
   } else {
-    const yearData = timeseriesData[year] as number[]
-    const reference = timeseriesData[2005] as number
+    const yearData = usingTimeseriesData[year] as number[]
+    const reference = usingTimeseriesData[2005] as number
     const total = sum(yearData)
 
     const pcts = {

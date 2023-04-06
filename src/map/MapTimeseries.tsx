@@ -1,13 +1,14 @@
 import { TIME_STEPS } from '../constants'
 import Timeseries from '../components/Timeseries'
 import { useAtom, useAtomValue } from 'jotai'
-import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
+import { currentSpeciesAtom, introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
 import { MapTimeseriesWrapper, TimestepNav } from './MapTimeseries.styled'
 import { ValuesByYear } from '../types'
 import { IntroStepEnum } from '../intro/Intro'
 import { TimestepButton } from '../components/Button.styled'
 import { TimestepColumn } from '../components/TimestepColumn.styled'
+import useRegionStats from '../hooks/useRegionStats'
 
 const W = 290
 const H = 70
@@ -19,8 +20,15 @@ export type MapTimeseriesProps = {
 
 function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
   const [timeStep, setTimeStep] = useAtom(timeStepAtom)
+
+  const currentSpecies = useAtomValue(currentSpeciesAtom)
+  const currentRegionStats = useRegionStats()
+  const usingTimeseriesData = timeseriesData ? timeseriesData : currentRegionStats?.[currentSpecies]
+
+  // if (!usingTimeseriesData) return null
+
   // const numFeatures = features?.length || 0
-  const layoutData = useTimeseriesLayout(timeseriesData, {
+  const layoutData = useTimeseriesLayout(usingTimeseriesData, {
     width: W,
     height: H,
     nodeMinHeightToBeVisible: 0,
@@ -28,7 +36,7 @@ function MapTimeseries({ timeseriesData, mainColor }: MapTimeseriesProps) {
   const introStep = useAtomValue(introStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
 
-  if (!timeseriesData) return null
+  if (!usingTimeseriesData) return null
 
   const { xs, nodeWidth } = layoutData
   const showTimeseries = introCompleted || introStep >= IntroStepEnum.Chart

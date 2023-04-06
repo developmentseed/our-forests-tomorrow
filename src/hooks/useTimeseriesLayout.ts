@@ -46,7 +46,7 @@ export type TimeseriesLayoutData = {
 }
 
 function useTimeseriesLayout(
-  data: ValuesByYear | null,
+  data?: ValuesByYear | null,
   params?: TimeseriesLayoutParams
 ): TimeseriesLayoutData {
   const {

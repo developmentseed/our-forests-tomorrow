@@ -77,10 +77,11 @@ export function getStats(
 }
 
 export function useAllSpeciesStatsForRegion(
-  region: Region,
-  stats: StatsBySpecies
+  region: Region | null,
+  stats: StatsBySpecies | null
 ) {
   return useMemo(() => {
+    if (!stats || !region) return null
     return Object.fromEntries(
       Object.entries(stats).map(([spc, spcStats]) => {
         const id = region.GID_1 || region.GID_0
