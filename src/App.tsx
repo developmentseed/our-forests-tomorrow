@@ -1,5 +1,4 @@
-import React, { useState, Fragment, useCallback, useEffect } from 'react'
-import { Feature } from 'geojson'
+import React, { Fragment, useCallback, useEffect } from 'react'
 
 import MapControls from './map/MapControls'
 import RegionPage from './pages/RegionPage'
@@ -14,7 +13,6 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { deckColorToCss } from './utils'
 import { CellTypeEnum, COLOR_BY_CELL_TYPE } from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
 
@@ -79,21 +77,17 @@ function App() {
       >
         <defs>
           <SVGHatchPattern
-            color={deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable])}
+            color={COLOR_BY_CELL_TYPE[CellTypeEnum.Suitable]}
             hatchWidth={1.5}
           />
           <linearGradient id="gradStableToDecolonized">
             <stop
               offset="0%"
-              stopColor={deckColorToCss(
-                COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]
-              )}
+              stopColor={COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]}
             />
             <stop
               offset="100%"
-              stopColor={deckColorToCss(
-                COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]
-              )}
+              stopColor={COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]}
             />
           </linearGradient>
         </defs>

@@ -3,9 +3,8 @@ import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { introCompletedAtom, introStepAtom, timeStepAtom } from '../atoms'
 import Hexagon from '../components/Hexagon'
-import { CellTypeEnum, THEME } from '../constants'
+import { CellTypeEnum } from '../constants'
 import { IntroStepEnum } from '../intro/Intro'
-import { deckColorToCss } from '../utils'
 import { LegendItem, MapLegendsWrapper } from './MapLegend.styled'
 
 export type MapLegendProps = {

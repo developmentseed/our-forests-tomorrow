@@ -68,6 +68,8 @@ function MapboxGLMap({
           onMove={onViewStateChange}
           onIdle={onIdle}
           mapStyle={style as any}
+          projection='globe'
+          scrollZoom={false}
         />
         <MapZoom visible={introCompleted}>
           <button onClick={onZoomIn}>+</button>

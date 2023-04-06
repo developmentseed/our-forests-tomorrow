@@ -1,5 +1,4 @@
 import { CellTypeEnum, COLOR_BY_CELL_TYPE } from '../constants'
-import { deckColorToCss } from '../utils'
 
 type HexagonProps = {
   type: CellTypeEnum
@@ -9,7 +8,7 @@ function Hexagon({ type }: HexagonProps) {
   const color =
     type === CellTypeEnum.Suitable
       ? 'url(#hatch)'
-      : deckColorToCss(COLOR_BY_CELL_TYPE[type])
+      : COLOR_BY_CELL_TYPE[type]
   return (
     <svg
       version="1.1"
