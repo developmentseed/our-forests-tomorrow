@@ -1,118 +1,113 @@
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useEffect } from 'react'
+import { MapRef } from 'react-map-gl'
 import {
   currentSpeciesAtom,
-  introCompletedAtom,
-  introIntersectionRatioAtom,
+  // introIntersectionRatioAtom,
   introStepAtom,
   timeStepAtom,
 } from '../atoms'
 import { MAP_DEFAULT_VIEWPORT } from '../constants'
 import { IntroStepEnum } from '../intro/Intro'
-import { easeOutCubic } from '../utils'
 
 export function useIntroMapTransitions(
   viewState: any,
-  setViewState: (args: any) => void
+  setViewState: (args: any) => void,
+  mapRef: MapRef | null
 ) {
-  const introCompleted = useAtomValue(introCompletedAtom)
   const introStep = useAtomValue(introStepAtom)
-  const introIntersectionRatio = useAtomValue(introIntersectionRatioAtom)
+  // const introIntersectionRatio = useAtomValue(introIntersectionRatioAtom)
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
   const setTimeStep = useSetAtom(timeStepAtom)
   useEffect(() => {
-    if (introCompleted) {
-      setViewState({
-        ...viewState,
-        ...MAP_DEFAULT_VIEWPORT,
-        transitionDuration: 1000,
-      })
-    } else {
-      if (introStep < IntroStepEnum.Map) {
+    switch (introStep) {
+      case IntroStepEnum.Title:
+      case IntroStepEnum.Forests:
+      case IntroStepEnum.Species:
         setCurrentSpecies('Fagus_sylvatica')
         setTimeStep('2095')
-        setViewState({
-          ...viewState,
-          zoom: 3,
-          pitch: 80,
-          latitude: 80,
-          longitude: 30,
-          bearing: 10,
-          transitionDuration: 300,
+        mapRef?.flyTo({
+          center: [
+            MAP_DEFAULT_VIEWPORT.longitude,
+            MAP_DEFAULT_VIEWPORT.latitude,
+          ],
+          ...MAP_DEFAULT_VIEWPORT,
+          duration: 0,
         })
-      } else if (introStep === IntroStepEnum.Map) {
-        setViewState({
-          ...viewState,
+        break
+      case IntroStepEnum.Map:
+        mapRef?.flyTo({
+          center: [0, 45],
           pitch: 80,
           bearing: 50,
-          transitionDuration: 15000,
-          transitionEasing: easeOutCubic,
-          zoom: 6,
-          latitude: 45,
-          longitude: 0,
+          zoom: 5,
+          duration: 15000,
         })
-      } else if (introStep === IntroStepEnum.SpeciesExampleMap) {
+        break
+      case IntroStepEnum.SpeciesExampleMap:
         setCurrentSpecies('Quercus_ilex')
         setTimeStep('2005')
-        setViewState({
-          ...viewState,
+        mapRef?.flyTo({
+          center: [5, 40],
           pitch: 20,
           bearing: 0,
-          transitionDuration: 5000,
-          transitionEasing: easeOutCubic,
           zoom: 4,
-          latitude: 40,
-          longitude: 5,
+          duration: 5000,
         })
-      } else if (introStep === IntroStepEnum.Timesteps) {
+        break
+      case IntroStepEnum.Timesteps:
         setTimeStep('2095')
         // TODO
-        console.log(introIntersectionRatio)
-      } else if (introStep === IntroStepEnum.Decolonization) {
-        setViewState({
-          ...viewState,
+        break
+      case IntroStepEnum.Decolonization:
+        mapRef?.flyTo({
+          center: [-5, 40],
           pitch: 20,
           bearing: 0,
-          transitionDuration: 5000,
-          transitionEasing: easeOutCubic,
           zoom: 5,
-          latitude: 40,
-          longitude: -5,
+          duration: 5000,
         })
-      } else if (introStep === IntroStepEnum.Suitable) {
-        setViewState({
-          ...viewState,
+        break
+      case IntroStepEnum.Suitable:
+        mapRef?.flyTo({
+          center: [0, 48],
           pitch: 60,
-          bearing: -15,
-          transitionDuration: 5000,
-          transitionEasing: easeOutCubic,
+          bearing: 0,
           zoom: 5,
-          latitude: 48,
-          longitude: 0,
+          duration: 5000,
         })
-      } else if (introStep === IntroStepEnum.Chart) {
-        setViewState({
-          ...viewState,
+        break
+      case IntroStepEnum.Chart:
+        mapRef?.flyTo({
+          center: [5, 40],
           pitch: 20,
           bearing: 0,
-          transitionDuration: 5000,
-          transitionEasing: easeOutCubic,
           zoom: 4,
-          latitude: 40,
-          longitude: 5,
+          duration: 5000,
         })
-      } else if (introStep === IntroStepEnum.RegionMap) {
-        setViewState({
-          ...viewState,
+        break
+      case IntroStepEnum.RegionMap:
+        mapRef?.flyTo({
+          center: [-5, 40],
           pitch: 20,
           bearing: 0,
-          transitionDuration: 5000,
-          transitionEasing: easeOutCubic,
           zoom: 5,
-          latitude: 40,
-          longitude: -5,
+          duration: 5000,
         })
-      }
+        break
+
+      case IntroStepEnum.UIExplanation:
+        mapRef?.flyTo({
+          center: [
+            MAP_DEFAULT_VIEWPORT.longitude,
+            MAP_DEFAULT_VIEWPORT.latitude,
+          ],
+          ...MAP_DEFAULT_VIEWPORT,
+          duration: 1000,
+        })
+        break
+      default:
+        break
     }
-  }, [introCompleted, introStep, introIntersectionRatio, setViewState])
+  }, [introStep])
 }

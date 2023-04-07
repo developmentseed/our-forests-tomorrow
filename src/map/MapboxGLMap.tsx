@@ -13,6 +13,7 @@ import type { FeatureCollection } from 'geojson'
 import { MapWrapper, MapZoom } from './Map.styled'
 import { introCompletedAtom } from '../atoms'
 import useMapStyle from '../hooks/useMapStyle'
+import { useIntroMapTransitions } from '../hooks/useIntroMapTransitions'
 
 export type MapboxGLMapProps = {
   mainColor: number[]
@@ -27,25 +28,26 @@ function MapboxGLMap({
   regionsGeoJson,
   countriesGeoJson,
 }: MapboxGLMapProps) {
-  const introCompleted = useAtomValue(introCompletedAtom)
-
+  const mapRef = useRef<MapRef | null>(null)
+  
   const [viewState, setViewState] = useState<ViewState>(MAP_DEFAULT_VIEWPORT)
   const onViewStateChange = useCallback(
     ({ viewState: vs }: { viewState: ViewState }) => {
       setViewState(vs)
     },
     []
-  )
-
-  const onZoomIn = useCallback(() => {
-    mapRef.current?.zoomIn()
-  }, [])
-
-  const onZoomOut = useCallback(() => {
-    mapRef.current?.zoomOut()
-  }, [])
-
-  const mapRef = useRef<MapRef>(null)
+    )
+    
+    const onZoomIn = useCallback(() => {
+      mapRef.current?.zoomIn()
+    }, [])
+    
+    const onZoomOut = useCallback(() => {
+      mapRef.current?.zoomOut()
+    }, [])
+    
+  const introCompleted = useAtomValue(introCompletedAtom)
+  useIntroMapTransitions(viewState, setViewState, mapRef.current)
 
   const style = useMapStyle()
 

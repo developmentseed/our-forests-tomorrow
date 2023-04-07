@@ -15,7 +15,6 @@ import { MAP_DEFAULT_VIEWPORT } from '../constants'
 import { CellProps, Region } from '../types'
 import type { Feature, FeatureCollection } from 'geojson'
 import useMapLayers from '../hooks/useMapLayers'
-import { PickingInfo } from '@deck.gl/core/typed'
 import { MapWrapper, MapZoom } from './Map.styled'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
 import { useAtomValue } from 'jotai'
@@ -64,7 +63,7 @@ function Map({
     countriesGeoJson,
   })
 
-  useIntroMapTransitions(viewState, setViewState)
+  // useIntroMapTransitions(viewState, setViewState)
 
   const onViewStateChange = useCallback(
     ({ viewState }: { viewState: MapViewState }) => {
