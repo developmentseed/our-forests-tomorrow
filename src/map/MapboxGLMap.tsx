@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { Map, ViewState, MapRef } from 'react-map-gl'
+import { Map, ViewState, MapRef, AttributionControl } from 'react-map-gl'
 import { useAtomValue } from 'jotai'
 import { MAP_DEFAULT_VIEWPORT } from '../constants'
 import type { FeatureCollection } from 'geojson'
@@ -38,23 +38,14 @@ function MapboxGLMap({
   )
 
   const onZoomIn = useCallback(() => {
-    setViewState({
-      ...viewState,
-      zoom: viewState.zoom + 1,
-    })
-  }, [setViewState, viewState])
+    mapRef.current?.zoomIn()
+  }, [])
 
   const onZoomOut = useCallback(() => {
-    setViewState({
-      ...viewState,
-      zoom: viewState.zoom - 1,
-    })
-  }, [setViewState, viewState])
+    mapRef.current?.zoomOut()
+  }, [])
 
   const mapRef = useRef<MapRef>(null)
-  const onIdle = useCallback(() => {
-    mapRef.current?.queryRenderedFeatures()
-  }, [])
 
   const style = useMapStyle()
 
@@ -66,11 +57,16 @@ function MapboxGLMap({
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           {...viewState}
           onMove={onViewStateChange}
-          onIdle={onIdle}
           mapStyle={style as any}
-          projection='globe'
+          projection="globe"
           scrollZoom={false}
-        />
+          attributionControl={false}
+        >
+          <AttributionControl
+            customAttribution="Map design by me"
+            compact={true}
+          />
+        </Map>
         <MapZoom visible={introCompleted}>
           <button onClick={onZoomIn}>+</button>
           <button onClick={onZoomOut}>-</button>
