@@ -2,7 +2,7 @@ import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
-import { TimestepButton, WithTooltip } from '../components/Button.styled'
+import { TimestepButton } from '../components/Button.styled'
 import { CellTypeEnum } from '../constants'
 import useRegionData from '../hooks/useRegionData'
 import useRegionStats from '../hooks/useRegionStats'
@@ -64,14 +64,7 @@ function MapSentence() {
 
       return (
         <Trans i18nKey={transKey}>
-          {!currentRegionData ? (
-            <WithTooltip title={t('mapLegend.hereExplanation')}>
-              {{ area }}
-            </WithTooltip>
-          ) : (
-            <span>{{ area }}</span>
-          )}
-          , by
+          {!currentRegionData ? area : <span>{{ area }}</span>}, by
           <TimestepButton selected={true}>{{ year }}</TimestepButton>
           {{ species }} is likely to disappear {{ pctDecolonized }}, while in
           some areas it might become suitable {{ pctSuitable }} {{ pctStable }}
