@@ -65,7 +65,7 @@ function MapboxGLMap({
           attributionControl={false}
         >
           <AttributionControl
-            customAttribution="Map design by me"
+            customAttribution=""
             compact={true}
           />
         </Map>
