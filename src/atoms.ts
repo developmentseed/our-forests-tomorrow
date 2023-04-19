@@ -1,14 +1,15 @@
 import { atom } from 'jotai'
 import { atomWithHash } from 'jotai/utils'
-import { SPECIES_WHITELIST } from './constants_common'
 import { IntroStepEnum } from './intro/Intro'
 import { SpeciesSortBy, TimeStep } from './types'
+import { GLOBAL_REGION_GID } from './constants'
+
 export const currentSpeciesAtom = atomWithHash<string>(
   'species',
   // SPECIES_WHITELIST[Math.floor(SPECIES_WHITELIST.length * Math.random())]
   'Quercus_ilex'
 )
-export const currentRegionAtom = atomWithHash<string | null>('region', null)
+export const currentRegionAtom = atomWithHash<string>('region', GLOBAL_REGION_GID)
 export const timeStepAtom = atomWithHash<TimeStep>('timeStep', '2095', {
   replaceState: true,
 })

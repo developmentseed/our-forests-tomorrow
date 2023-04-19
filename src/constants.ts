@@ -98,3 +98,5 @@ export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, string> = {
   [CellTypeEnum.Suitable]: THEME.colors.suitable,
   [CellTypeEnum.Unknown]: '#ff00ff',
 }
+
+export const GLOBAL_REGION_GID = 'global'

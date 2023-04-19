@@ -75,19 +75,3 @@ export function getStats(
   ])
   return withLabels
 }
-
-export function useAllSpeciesStatsForRegion(
-  region: Region | null,
-  stats: StatsBySpecies | null
-) {
-  return useMemo(() => {
-    if (!stats) return null
-    return Object.fromEntries(
-      Object.entries(stats).map(([spc, spcStats]) => {
-        const id = region ? region.GID_1 || region.GID_0 : 'global'
-        const spcStatsForRegion = spcStats[id]
-        return [spc, spcStatsForRegion]
-      })
-    )
-  }, [region, stats])
-}

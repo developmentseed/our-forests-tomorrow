@@ -6,14 +6,8 @@ import {
   useRef,
   useState,
 } from 'react'
-import { getStats, useAllSpeciesStatsForRegion } from '../hooks/useStats'
-import {
-  ChartType,
-  Region,
-  StatsBySpecies,
-  ValuesBySpeciesID,
-  ValuesByYear,
-} from '../types'
+import { getStats } from '../hooks/useStats'
+import { ChartType, ValuesByYear } from '../types'
 import {
   ChartTypeButton,
   Page,
@@ -37,9 +31,7 @@ export type RegionPageProps = {
   onRegionClose: Dispatch<SetStateAction<any>>
 }
 
-function RegionPage({
-  onRegionClose,
-}: RegionPageProps) {
+function RegionPage({ onRegionClose }: RegionPageProps) {
   const { t } = useTranslation()
   const chartsRef = useRef(null)
   const [chartType, setChartType] = useState<ChartType>('naturallyPresent')
@@ -90,13 +82,10 @@ function RegionPage({
 
   const region = currentRegionData.label
 
-
-  // console.log('region stats:', currentStats, region.properties)
-  // console.log(naturallyPresent)
   return (
     <Page>
       <Title>
-        {currentRegionData.NAME_1}
+        {currentRegionData.label}
         <CloseButton onClick={onRegionClose} />
       </Title>
       <PageContents>

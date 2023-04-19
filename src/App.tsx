@@ -13,17 +13,17 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { CellTypeEnum, COLOR_BY_CELL_TYPE } from './constants'
+import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID } from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
-
+  
   // TODO move to reg page
   const closeRegion = useCallback(() => {
-    setCurrentRegion(null)
+    setCurrentRegion(GLOBAL_REGION_GID)
   }, [setCurrentRegion])
 
   const { stats, speciesData, regions, regionsGeoJson, countriesGeoJson } =
@@ -58,7 +58,7 @@ function App() {
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>
-          {currentRegion ? (
+          {currentRegion !== GLOBAL_REGION_GID ? (
             <RegionPage onRegionClose={closeRegion} />
           ) : (
             <SpeciesPage
