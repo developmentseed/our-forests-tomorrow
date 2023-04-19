@@ -1,5 +1,6 @@
 import { TimeStep } from './types'
-import { deckColorToCss } from './utils'
+
+import { ViewState } from 'react-map-gl'
 
 export const GEOTIFF_BBOX = [
   -18.9166666670000012, 27.0833333330000059, 49.9999999989999964,
@@ -14,13 +15,18 @@ export const CENTER = [
 ]
 // export const CENTER = [-20, 50]
 
-export const MAP_DEFAULT_VIEWPORT = {
+export const MAP_DEFAULT_VIEWPORT: ViewState = {
   longitude: CENTER[0],
   latitude: CENTER[1],
   zoom: 3,
   pitch: 0,
   bearing: 0,
-  maxZoom: 7,
+  padding: {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
 }
 
 export const MAX_ZOOM = 8
@@ -34,14 +40,6 @@ export enum CellTypeEnum {
   Suitable,
   Unknown,
 }
-
-export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, number[]> = {
-  [CellTypeEnum.Stable]: [14, 129, 122],
-  [CellTypeEnum.Decolonized]: [226, 46, 49],
-  [CellTypeEnum.Suitable]: [176, 215, 193],
-  [CellTypeEnum.Unknown]: [0, 0, 0, 0],
-}
-
 // > 100 000km2
 export const COUNTRIES_WITH_REGIONS_GIDS = [
   'BEL',
@@ -66,11 +64,11 @@ export const THEME = {
     lightFaded: 'rgba(255,251,237, .1)',
     dark: '#04232F',
     darkFaded: 'rgba(4,35,47,.5)',
-    background: '#B0D7C1',
+    background: '#EBF9E6',
     darkgreen: '#0E817A',
-    decolonized: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]),
-    stable: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]),
-    suitable: deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Suitable]),
+    decolonized: '#c87474',
+    stable: '#89dc6a',
+    suitable: '#cdf872',
   },
   layout: {
     navHeight: '70px',
@@ -93,3 +91,12 @@ export const THEME = {
     laptop: '1024px',
   },
 }
+
+export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, string> = {
+  [CellTypeEnum.Stable]: THEME.colors.stable,
+  [CellTypeEnum.Decolonized]: THEME.colors.decolonized,
+  [CellTypeEnum.Suitable]: THEME.colors.suitable,
+  [CellTypeEnum.Unknown]: '#ff00ff',
+}
+
+export const GLOBAL_REGION_GID = 'global'

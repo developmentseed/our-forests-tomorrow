@@ -62,6 +62,14 @@ function useCoreData() {
         }
       })
 
+      // Add global region
+      regionsWithLabels.push({
+        GID_0: 'global',
+        COUNTRY: 'Global',
+        label: 'Europe',
+        bbox: [],
+      })
+
       // attach regions and species meta to stats
       const statsWithRegions = Object.fromEntries(
         Object.entries(stats as StatsBySpecies).map(

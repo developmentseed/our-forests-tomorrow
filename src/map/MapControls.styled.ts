@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const MapControlsWrapper = styled.div`
   position: absolute;
   width: 320px;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 10px;
   display: flex;
   flex-direction: column;
 

@@ -7,6 +7,7 @@ import {
   introIntersectionRatioAtom,
   introStepAtom,
 } from '../atoms'
+import { TimestepButton } from '../components/Button.styled'
 import { Logo } from '../components/Logo.styled'
 import SpeciesMenuContent from '../nav/SpeciesMenuContent'
 import { AllSpeciesData } from '../types'
@@ -249,8 +250,7 @@ function Intro({ species }: IntroProps) {
       </IntroSection>
       <IntroSection id={IntroStepEnum.UIExplanation}>
         <IntroUIExplanation>
-          UIExplanation
-          <button onClick={onDismissClicked}>dismiss</button>
+          <TimestepButton selected={true} onClick={onDismissClicked}>Continue</TimestepButton>
         </IntroUIExplanation>
       </IntroSection>
     </IntroWrapper>

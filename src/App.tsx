@@ -1,15 +1,6 @@
-import React, {
-  useState,
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-} from 'react'
-import { Feature } from 'geojson'
+import React, { Fragment, useCallback, useEffect } from 'react'
 
-import Map from './map/Map'
 import MapControls from './map/MapControls'
-import { Region } from './types'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
 import useCoreData from './hooks/useCoreData'
@@ -20,23 +11,19 @@ import {
   introCompletedAtom,
 } from './atoms'
 import { useAtom, useAtomValue } from 'jotai'
-import useTimeseriesData from './hooks/useTimeseriesData'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { deckColorToCss } from './utils'
-import { CellTypeEnum, COLOR_BY_CELL_TYPE } from './constants'
+import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID } from './constants'
+import MapboxGLMap from './map/MapboxGLMap'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
-  const [renderedFeatures, setRenderedFeatures] = useState<
-    undefined | Feature[]
-  >(undefined)
   const introCompleted = useAtomValue(introCompletedAtom)
-
+  
   // TODO move to reg page
   const closeRegion = useCallback(() => {
-    setCurrentRegion(null)
+    setCurrentRegion(GLOBAL_REGION_GID)
   }, [setCurrentRegion])
 
   const { stats, speciesData, regions, regionsGeoJson, countriesGeoJson } =
@@ -49,15 +36,6 @@ function App() {
   }, [introCompleted])
 
   const currentSpeciesData = speciesData?.[currentSpecies]
-  const currentRegionData = useMemo(
-    () =>
-      regions?.find(
-        (r) => r.GID_0 === currentRegion || r.GID_1 === currentRegion
-      ),
-    [currentRegion, regions]
-  )
-
-  const timeseriesData = useTimeseriesData(renderedFeatures)
 
   return !stats ||
     !speciesData ||
@@ -71,27 +49,17 @@ function App() {
       <Nav species={speciesData} regions={regions} stats={stats} />
 
       {!introCompleted && <Intro species={speciesData} />}
-      <Map
+      <MapboxGLMap
         mainColor={currentSpeciesData.color}
-        currentRegionData={currentRegionData}
-        onRenderedFeaturesChange={setRenderedFeatures}
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
-        <MapControls
-          currentRegionData={currentRegionData}
-          timeseriesData={timeseriesData}
-          mainColor={currentSpeciesData.color}
-        />
-      </Map>
+        <MapControls mainColor={currentSpeciesData.color} />
+      </MapboxGLMap>
       {introCompleted && (
         <Fragment>
-          {currentRegionData ? (
-            <RegionPage
-              stats={stats}
-              currentRegionData={currentRegionData as Region}
-              onRegionClose={closeRegion}
-            />
+          {currentRegion !== GLOBAL_REGION_GID ? (
+            <RegionPage onRegionClose={closeRegion} />
           ) : (
             <SpeciesPage
               stats={stats}
@@ -109,21 +77,17 @@ function App() {
       >
         <defs>
           <SVGHatchPattern
-            color={deckColorToCss(COLOR_BY_CELL_TYPE[CellTypeEnum.Stable])}
+            color={COLOR_BY_CELL_TYPE[CellTypeEnum.Suitable]}
             hatchWidth={1.5}
           />
           <linearGradient id="gradStableToDecolonized">
             <stop
               offset="0%"
-              stopColor={deckColorToCss(
-                COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]
-              )}
+              stopColor={COLOR_BY_CELL_TYPE[CellTypeEnum.Stable]}
             />
             <stop
               offset="100%"
-              stopColor={deckColorToCss(
-                COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]
-              )}
+              stopColor={COLOR_BY_CELL_TYPE[CellTypeEnum.Decolonized]}
             />
           </linearGradient>
         </defs>

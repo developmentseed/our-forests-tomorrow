@@ -39,25 +39,3 @@ export const TimestepButton = styled.button<{ selected: boolean }>`
   color: ${({ theme }) => theme.colors.darkgreen};
   font-weight: bold;
 `
-
-export const WithTooltip = styled.u`
-  text-decoration: underline dotted;
-  &::before {
-    border-radius: 2px;
-    font-size: 0.8rem;
-    font-family: ${({ theme }) => theme.fonts.sans};
-    position: absolute;
-    padding: 0 0.5rem;
-    content: attr(title);
-    background: ${({ theme }) => theme.colors.light};
-    color: ${({ theme }) => theme.colors.dark};
-    opacity: 0;
-    top: 30px;
-    transform: translateX(-50%);
-    text-shadow: none;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-`

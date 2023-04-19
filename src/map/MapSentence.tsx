@@ -2,34 +2,34 @@ import { sum } from 'd3-array'
 import { useAtomValue } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
 import { currentSpeciesAtom, introCompletedAtom, timeStepAtom } from '../atoms'
-import { TimestepButton, WithTooltip } from '../components/Button.styled'
+import { TimestepButton } from '../components/Button.styled'
 import { CellTypeEnum } from '../constants'
-import { Region, ValuesByYear } from '../types'
+import useRegionData from '../hooks/useRegionData'
+import useRegionStats from '../hooks/useRegionStats'
 import { formatLatin } from '../utils'
 import { MapSentenceWrapper } from './MapSentence.styled'
 
-type MapSentenceProps = {
-  timeseriesData: ValuesByYear | null
-  currentRegionData?: Region
-}
-
-function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
+function MapSentence() {
   const { t } = useTranslation()
   const year = useAtomValue(timeStepAtom)
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
 
-  if (!timeseriesData || !timeseriesData[year]) return null
+  const currentRegionData = useRegionData()
+  const currentRegionStats = useRegionStats()
+
+  const usingTimeseriesData = currentRegionStats?.[currentSpecies]
+
+  if (!usingTimeseriesData) return null
 
   const species = formatLatin(currentSpecies)
-  // const context = t('mapLegend.context', undefined, { year })
 
   let sentence
   if (year === '2005') {
     sentence = t('mapLegend.current', undefined, { species })
   } else {
-    const yearData = timeseriesData[year] as number[]
-    const reference = timeseriesData[2005] as number
+    const yearData = usingTimeseriesData[year] as number[]
+    const reference = usingTimeseriesData[2005] as number
     const total = sum(yearData)
 
     const pcts = {
@@ -64,14 +64,7 @@ function MapSentence({ timeseriesData, currentRegionData }: MapSentenceProps) {
 
       return (
         <Trans i18nKey={transKey}>
-          {!currentRegionData ? (
-            <WithTooltip title={t('mapLegend.hereExplanation')}>
-              {{ area }}
-            </WithTooltip>
-          ) : (
-            <span>{{ area }}</span>
-          )}
-          , by
+          {!currentRegionData ? area : <span>{{ area }}</span>}, by
           <TimestepButton selected={true}>{{ year }}</TimestepButton>
           {{ species }} is likely to disappear {{ pctDecolonized }}, while in
           some areas it might become suitable {{ pctSuitable }} {{ pctStable }}
