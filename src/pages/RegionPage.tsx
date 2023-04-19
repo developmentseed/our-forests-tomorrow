@@ -6,14 +6,8 @@ import {
   useRef,
   useState,
 } from 'react'
-import { getStats, useAllSpeciesStatsForRegion } from '../hooks/useStats'
-import {
-  ChartType,
-  Region,
-  StatsBySpecies,
-  ValuesBySpeciesID,
-  ValuesByYear,
-} from '../types'
+import { getStats } from '../hooks/useStats'
+import { ChartType, ValuesByYear } from '../types'
 import {
   ChartTypeButton,
   Page,
@@ -30,29 +24,24 @@ import { CellTypeEnum } from '../constants'
 import PageTimeseries from './PageTimeseries'
 import RegionPageParagraph from './RegionPageParagraph'
 import BubbleChart from './BeeSwarm'
+import useRegionStats from '../hooks/useRegionStats'
+import useRegionData from '../hooks/useRegionData'
 
 export type RegionPageProps = {
-  currentRegionData: Region
-  stats: StatsBySpecies
   onRegionClose: Dispatch<SetStateAction<any>>
 }
 
-function RegionPage({
-  currentRegionData,
-  stats,
-  onRegionClose,
-}: RegionPageProps) {
+function RegionPage({ onRegionClose }: RegionPageProps) {
   const { t } = useTranslation()
   const chartsRef = useRef(null)
   const [chartType, setChartType] = useState<ChartType>('naturallyPresent')
-  const currentStats: ValuesBySpeciesID = useAllSpeciesStatsForRegion(
-    currentRegionData,
-    stats
-  )
+  const currentRegionData = useRegionData()
+  const currentStats = useRegionStats()
 
-  console.log(currentStats)
+  // console.log(currentStats)
 
   const data = useMemo(() => {
+    if (!currentStats) return null
     return {
       naturallyPresent: getStats(currentStats, 'bySpecies'),
       willDisappear: getStats(
@@ -89,15 +78,14 @@ function RegionPage({
     },
     [setChartType]
   )
+  if (!currentRegionData || !data) return null
 
   const region = currentRegionData.label
 
-  // console.log('region stats:', currentStats, region.properties)
-  // console.log(naturallyPresent)
   return (
     <Page>
       <Title>
-        {currentRegionData.NAME_1}
+        {currentRegionData.label}
         <CloseButton onClick={onRegionClose} />
       </Title>
       <PageContents>

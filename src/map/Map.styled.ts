@@ -12,8 +12,8 @@ export const MapWrapper = styled.div<{ fixed: boolean }>`
 export const MapZoom = styled.div<{ visible: boolean }>`
   position: absolute;
   z-index: 1;
-  bottom: 20px;
-  left: 20px;
+  bottom: 40px;
+  left: 8px;
   display: flex;
   flex-direction: column;
   transform: ${({ visible }) =>
@@ -21,13 +21,13 @@ export const MapZoom = styled.div<{ visible: boolean }>`
   transition: transform 300ms;
 
   & > button {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 99px;
     background: ${({ theme }) => theme.colors.light};
     color: ${({ theme }) => theme.colors.dark};
     border: 1px solid ${({ theme }) => theme.colors.dark};
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 

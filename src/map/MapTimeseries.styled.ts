@@ -11,5 +11,5 @@ export const MapTimeseriesWrapper = styled.nav<{ visible: boolean }>`
 
 export const TimestepNav = styled.nav`
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
 `

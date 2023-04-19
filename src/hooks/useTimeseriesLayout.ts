@@ -2,7 +2,6 @@ import { TimeStep, ValuesByCellType, ValuesByYear } from '../types'
 import { CellTypeEnum, COLOR_BY_CELL_TYPE, TIME_STEPS } from '../constants'
 import { scaleLinear } from 'd3-scale'
 import { max } from 'd3-array'
-import { deckColorToCss } from '../utils'
 
 type TimeseriesLayoutParams = {
   width: number
@@ -46,7 +45,7 @@ export type TimeseriesLayoutData = {
 }
 
 function useTimeseriesLayout(
-  data: ValuesByYear | null,
+  data?: ValuesByYear | null,
   params?: TimeseriesLayoutParams
 ): TimeseriesLayoutData {
   const {
@@ -71,9 +70,9 @@ function useTimeseriesLayout(
     if (prevType === CellTypeEnum.Stable && type === CellTypeEnum.Decolonized)
       return 'url(#gradStableToDecolonized)'
     else if (step === '2005' || type === CellTypeEnum.Stable)
-      return deckColorToCss(COLOR_BY_CELL_TYPE[type])
+      return COLOR_BY_CELL_TYPE[type]
     else if (type === CellTypeEnum.Suitable) return 'url(#hatch)'
-    else return deckColorToCss(COLOR_BY_CELL_TYPE[type])
+    else return COLOR_BY_CELL_TYPE[type]
   }
 
   // Compute scales

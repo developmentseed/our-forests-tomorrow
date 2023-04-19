@@ -9,13 +9,13 @@ export const IntroSectionWrapper = styled.div<{ height?: string }>`
   width: 100%;
   height: ${({ height }) => height || '100vh'};
   /* background: ${({ theme }) => theme.colors.dark}; */
-  border: 1px solid red;
   color: ${({ theme }) => theme.colors.light};
   display: flex;
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.serif};
   font-size: ${({ theme }) => theme.fontSizes.subtitle};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
+  text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
 
   & > * {
     display: flex;
@@ -67,8 +67,4 @@ export const IntroSuitable = styled.div``
 export const IntroChart = styled.div``
 export const IntroRegionMap = styled.div``
 export const IntroRegionPage = styled.div``
-export const IntroUIExplanation = styled.div`
-  & > button {
-    background: red;
-  }
-`
+export const IntroUIExplanation = styled.div``
