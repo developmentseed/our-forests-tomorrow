@@ -10,7 +10,7 @@ The goal of that project is to bring those findings to a large audience, buildin
 
 ## What are we up to?
 
-- The mini site prototype: [Our Forests Tomorrow](https://devseed.com/our-forests-tomorrow/build/)
+- The mini site prototype: [Our Forests Tomorrow](https://devseed.com/our-forests-tomorrow/)
 
 ![205045050-fa1d002e-dc6e-452c-9da2-d2ee16570722](https://user-images.githubusercontent.com/1583415/229806619-7c63049e-74c3-402a-81eb-ef6e1295d806.png)
 
