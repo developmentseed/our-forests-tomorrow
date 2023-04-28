@@ -5,8 +5,8 @@ export const NavWrapper = styled.header<{
 }>`
   position: ${({ visible }) => (visible ? 'sticky' : 'absolute')};
   top: ${({ visible }) => (visible ? 0 : '-70px')};
-  background-color: ${({ theme }) => theme.colors.light};
-  color: ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.forestDark};
+  color: ${({ theme }) => theme.colors.pebbleLight};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -31,7 +31,7 @@ export const NavButtons = styled.div`
 `
 
 export const NavButton = styled.button<{ visible?: boolean }>`
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.pebbleLight};
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: bold;
@@ -39,7 +39,7 @@ export const NavButton = styled.button<{ visible?: boolean }>`
     visible === true || visible === undefined ? 1 : 0};
   transition: opacity 300ms;
   padding: 0 0.3rem;
-  border-bottom-color: ${({ theme }) => theme.colors.dark};
+  border-bottom-color: ${({ theme }) => theme.colors.pebbleLight};
   border-bottom-style: solid;
   border-bottom-width: 0;
   

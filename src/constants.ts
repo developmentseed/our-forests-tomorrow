@@ -59,13 +59,14 @@ export const COUNTRIES_WITH_REGIONS_GIDS = [
 
 export const THEME = {
   colors: {
-    white: '#FFF',
-    light: 'rgb(255,251,237)',
-    lightFaded: 'rgba(255,251,237, .1)',
-    dark: '#04232F',
-    darkFaded: 'rgba(4,35,47,.5)',
-    background: '#EBF9E6',
-    darkgreen: '#0E817A',
+    forestDark: '#1E2F2F',
+    forest: '#334F4F',
+    forestFaded: 'rgba(51,79,79,.5)',
+    pebbleDark: '#AB9D91',
+    pebble: '#E2DDD9',
+    pebbleLight: '#F7F7F3',
+    snow: '#FFF',
+    leaf: '49BE6E',
     decolonized: '#c87474',
     stable: '#89dc6a',
     suitable: '#cdf872',

@@ -81,8 +81,8 @@ const GlobalStyles = styled.createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSizes.normal};
     line-height: 1.6rem;
     font-family: ${({ theme }) => theme.font};
-    color: ${({ theme }) => theme.colors.dark};
-    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.forest};
+    background: ${({ theme }) => theme.colors.pebbleLight};
   }
   * {
     box-sizing: border-box;

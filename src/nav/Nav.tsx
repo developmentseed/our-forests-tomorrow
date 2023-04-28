@@ -24,7 +24,7 @@ function Nav({ species, regions, stats }: NavProps) {
   }
   const introStep = useAtomValue(introStepAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
-  console.log(t('nav.title'))
+
   return (
     <NavWrapper visible={introCompleted || introStep > IntroStepEnum.Title}>
       <NavHeader>

@@ -9,16 +9,16 @@ export const MenuContents = styled.div<MenuContentsProps>`
   top: ${({ theme }) => theme.layout.navHeight};
   left: 0;
   width: 100%;
-  background: ${({ theme }) => theme.colors.dark};
+  background: ${({ theme }) => theme.colors.pebbleLight};
   z-index: 99;
 `
 
 export const MenuTools = styled.div`
   height: ${({ theme }) => theme.layout.navHeight};
+  color: ${({ theme }) => theme.colors.forestDark};
   display: flex;
   justify-content: right;
   align-items: center;
-  background: ${({ theme }) => theme.colors.background};
   padding: 1rem;
 
   & > *:not(:last-child) {
@@ -34,8 +34,8 @@ export const MenuTools = styled.div`
 
 export const SortByButton = styled.button`
   width: 250px;
-  background: ${({ theme }) => theme.colors.light};
-  color: ${({ theme }) => theme.colors.dark};
+  background: ${({ theme }) => theme.colors.snow};
+  color: ${({ theme }) => theme.colors.forestDark};
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSizes.small};
   padding: 0.6rem 2rem 0.6em 1rem;
@@ -53,17 +53,16 @@ export const SortByButton = styled.button`
 `
 
 export const SortByList = styled.ul`
-  /* position: absolute; */
   width: 230px;
-  background: ${({ theme }) => theme.colors.dark};
-  color: ${({ theme }) => theme.colors.light};
+  background: ${({ theme }) => theme.colors.snow};
+  color: ${({ theme }) => theme.colors.forestDark};
   font-size: ${({ theme }) => theme.fontSizes.small};
   text-align: center;
   z-index: 2;
   cursor: pointer;
 
-  & > li:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.lightFaded};
+  & > li {
+    border: 1px solid ${({ theme }) => theme.colors.forestDark};
   }
 `
 
@@ -71,13 +70,13 @@ export const Search = styled.input`
   width: 230px;
   border: 0;
   background: none;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
-  color: ${({ theme }) => theme.colors.dark};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.forestDark};
+  color: ${({ theme }) => theme.colors.forestDark};
   font-size: ${({ theme }) => theme.fontSizes.small};
 
   &::placeholder {
     font-style: italic;
-    color: ${({ theme }) => theme.colors.dark};
+    color: ${({ theme }) => theme.colors.forestDark};
     opacity: 0.5;
   }
 

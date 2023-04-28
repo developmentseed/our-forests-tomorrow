@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 export const MenuColumns = styled.div`
   padding: 2rem 1rem 3rem 1rem;
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.forestDark};
   display: flex;
 
   justify-content: space-between;
@@ -12,21 +12,17 @@ export const MenuColumns = styled.div`
 
 export const Aside = styled.aside`
   font-family: ${({ theme }) => theme.font};
-  font-size: 4rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
   max-width: 35%;
   margin-right: 2rem;
 
   & > p {
-    line-height: 4rem;
-    margin: 0;
+    display: inline;
+    font-variant-numeric: oldstyle-nums;
   }
 
-  & > b {
-    display: block;
-    font-family: ${({ theme }) => theme.font};
-    font-size: 8rem;
-    margin: 3.5rem 0 1.5rem 0;
-  }
+
 `
 
 interface SpeciesButtonProps {
@@ -37,7 +33,6 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
   display: block;
   padding: 0 0 0 0.4rem;
   border-left: 4px solid ${({ color }) => color};
-  color: ${({ theme }) => theme.colors.light};
   text-align: left;
   text-transform: capitalize;
   height: 34px;
@@ -53,10 +48,5 @@ export const SpeciesButton = styled.button<SpeciesButtonProps>`
     font-weight: normal;
     /* backdrop-filter: blur(10px); */
   }
-
-  /* & > i {
-  backdrop-filter: blur(10px);
-  display: block;
-  opacity: 0.7;
-} */
+}
 `

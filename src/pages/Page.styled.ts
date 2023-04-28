@@ -13,8 +13,6 @@ export const Page = styled.div`
 
 // TODO use theme color
 export const Title = styled.h1<TitleProps>`
-  /* color: ${({ color, theme }) => color || theme.colors.light}; */
-  color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.font};
   font-size: ${({ theme }) => theme.fontSizes.title};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
@@ -32,11 +30,9 @@ export const PageContents = styled.div`
   & > aside {
     min-width: 300px;
     max-width: 300px;
-    background: ${({ theme }) => theme.colors.light};
     margin-right: 2.4rem;
 
     & > p {
-      margin: 1rem;
       font-size: ${({ theme }) => theme.fontSizes.small};
       line-height: 1.4rem;
     }
@@ -68,9 +64,8 @@ export const PageTimeseriesWraper = styled.div`
 export const ChartTypeButton = styled.button<{ selected: boolean }>`
   margin-right: 0.5rem;
   padding: 0.3rem 0.6rem;
-  border: 1px solid ${({ theme }) => theme.colors.darkFaded};
+  border: 1px solid ${({ theme }) => theme.colors.forestFaded};
   border-radius: 99px;
-  color: ${({ theme }) => theme.colors.dark};
   opacity: ${({ selected }) => (selected ? 1 : 0.6)};
   font-size: ${({ theme }) => theme.fontSizes.small};
   display: flex;

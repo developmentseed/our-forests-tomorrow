@@ -4,22 +4,18 @@ export const CloseButtonWrapper = styled.div`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  & > button {
-    color: ${({ theme }) => theme.colors.white} !important;
-    border-color: ${({ theme }) => theme.colors.white};
-  }
 `
 
 export const MenuColumns = styled.div`
   padding: 2rem 1rem 3rem 1rem;
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.forestDark};
   columns: 8;
 `
 
 export const Country = styled.div`
   & > h3 {
     font-family: ${({ theme }) => theme.font};
-    color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.forestDark};
     margin: 1rem 0 0.3rem 0;
   }
   &:first-child > h3 {

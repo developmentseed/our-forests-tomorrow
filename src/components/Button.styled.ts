@@ -5,7 +5,7 @@ type ButtonProps = {
 }
 
 export const Button = styled.button<ButtonProps>`
-  border: 1px solid ${({ theme }) => theme.colors.dark};
+  border: 1px solid ${({ theme }) => theme.colors.forestDark};
   border-radius: 99px;
   width: 34px;
   height: 34px;
@@ -31,11 +31,11 @@ export const InfoButton = styled(Button)`
 export const TimestepButton = styled.button<{ selected: boolean }>`
   opacity: ${({ selected }) => (selected ? 1 : 0.4)};
   border-width: ${({ selected }) => (selected ? '1px' : 0)};
-  border-color: ${({ theme }) => theme.colors.darkgreen};
+  border-color: ${({ theme }) => theme.colors.forestDark};
   border-style: solid;
   border-radius: 5px;
   padding: 4px;
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.darkgreen};
+  background: ${({ theme }) => theme.colors.snow};
+  color: ${({ theme }) => theme.colors.forestDark};
   font-weight: bold;
 `
