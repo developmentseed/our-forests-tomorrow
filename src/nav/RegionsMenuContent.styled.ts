@@ -18,7 +18,7 @@ export const MenuColumns = styled.div`
 
 export const Country = styled.div`
   & > h3 {
-    font-family: ${({ theme }) => theme.fonts.serif};
+    font-family: ${({ theme }) => theme.font};
     color: ${({ theme }) => theme.colors.background};
     margin: 1rem 0 0.3rem 0;
   }

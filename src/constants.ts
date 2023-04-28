@@ -73,11 +73,7 @@ export const THEME = {
   layout: {
     navHeight: '70px',
   },
-  fonts: {
-    serif: 'ITC Cheltenham Std Light Condensed, serif',
-    serifBold: 'ITC Cheltenham Std Book Condensed, serif',
-    sans: 'Montserrat, sans-serif',
-  },
+  font: 'EB Garamond',
   fontSizes: {
     small: '0.7rem',
     normal: '.9rem',

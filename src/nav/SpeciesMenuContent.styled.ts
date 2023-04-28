@@ -11,7 +11,7 @@ export const MenuColumns = styled.div`
 `
 
 export const Aside = styled.aside`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.font};
   font-size: 4rem;
   max-width: 35%;
   margin-right: 2rem;
@@ -23,7 +23,7 @@ export const Aside = styled.aside`
 
   & > b {
     display: block;
-    font-family: ${({ theme }) => theme.fonts.serifBold};
+    font-family: ${({ theme }) => theme.font};
     font-size: 8rem;
     margin: 3.5rem 0 1.5rem 0;
   }

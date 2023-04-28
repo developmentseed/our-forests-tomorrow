@@ -15,7 +15,7 @@ export const Page = styled.div`
 export const Title = styled.h1<TitleProps>`
   /* color: ${({ color, theme }) => color || theme.colors.light}; */
   color: ${({ theme }) => theme.colors.dark};
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.font};
   font-size: ${({ theme }) => theme.fontSizes.title};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
 
@@ -48,7 +48,7 @@ export const PageContents = styled.div`
   }
 
   & h3 {
-    font-family: ${({ theme }) => theme.fonts.serif};
+    font-family: ${({ theme }) => theme.font};
     font-size: ${({ theme }) => theme.fontSizes.subtitle};
     margin: 3.5rem 0 0.6rem;
   }

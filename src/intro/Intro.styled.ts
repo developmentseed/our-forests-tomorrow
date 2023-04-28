@@ -12,7 +12,7 @@ export const IntroSectionWrapper = styled.div<{ height?: string }>`
   color: ${({ theme }) => theme.colors.light};
   display: flex;
   justify-content: center;
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts};
   font-size: ${({ theme }) => theme.fontSizes.subtitle};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
   text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
