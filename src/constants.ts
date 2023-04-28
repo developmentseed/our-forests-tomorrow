@@ -66,13 +66,13 @@ export const THEME = {
     pebble: '#E2DDD9',
     pebbleLight: '#F7F7F3',
     snow: '#FFF',
-    leaf: '49BE6E',
+    leaf: '#49BE6E',
     decolonized: '#c87474',
     stable: '#89dc6a',
     suitable: '#cdf872',
   },
   layout: {
-    navHeight: '70px',
+    navHeight: '48px',
   },
   font: 'EB Garamond',
   fontSizes: {

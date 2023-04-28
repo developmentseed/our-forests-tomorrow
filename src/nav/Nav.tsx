@@ -29,22 +29,8 @@ function Nav({ species, regions, stats }: NavProps) {
     <NavWrapper visible={introCompleted || introStep > IntroStepEnum.Title}>
       <NavHeader>
         <Logo>
-          <Trans i18nKey="nav.title" components={{ b: <b /> }} />
+          <Trans i18nKey="nav.title" components={{ b: <span /> }} />
         </Logo>
-        <nav>
-          <NavButton>{t('nav.about')}</NavButton>
-          {/* I'd rather use the i18n object as the source of truth but couldn't get this to work - see https://github.com/i18next/i18next/issues/1068  */}
-          {SUPPORTED_LANGUAGES.map((lang) => (
-            <NavButton
-              onClick={() => changeLanguage(lang)}
-              style={{ borderBottomWidth: i18n.language === lang ? '1px' : '0' }}
-            >
-              {lang}
-            </NavButton>
-          ))}
-        </nav>
-      </NavHeader>
-      <NavButtons>
         <Menu
           label={t('nav.species')}
           visible={introCompleted || introStep >= IntroStepEnum.Species}
@@ -68,6 +54,22 @@ function Nav({ species, regions, stats }: NavProps) {
             />
           )}
         </Menu>
+      </NavHeader>
+      <NavButtons>
+        <nav>
+          <NavButton>{t('nav.about')}</NavButton>
+          {/* I'd rather use the i18n object as the source of truth but couldn't get this to work - see https://github.com/i18next/i18next/issues/1068  */}
+          {SUPPORTED_LANGUAGES.map((lang) => (
+            <NavButton
+              onClick={() => changeLanguage(lang)}
+              style={{
+                borderBottomWidth: i18n.language === lang ? '1px' : '0',
+              }}
+            >
+              {lang}
+            </NavButton>
+          ))}
+        </nav>
       </NavButtons>
     </NavWrapper>
   )
