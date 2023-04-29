@@ -21,6 +21,12 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
 import SpeciesPageParagraph from './SpeciesPageParagraph'
+import MapSentence from '../map/MapSentence'
+import MapTimeseries from '../map/MapTimeseries'
+import MapLegend from '../map/MapLegend'
+import SummarySentence from '../components/SummarySentence'
+import InteractiveTimeseries from '../components/InteractiveTimeseries'
+import Legend from '../components/Legend'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
@@ -76,13 +82,12 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
 
   return (
     <Page>
-      <Title /*color={deckColorToCss(currentSpeciesData.color)}*/>
-        {currentSpeciesData.labels[locale].name}
-        <p>{currentSpeciesData.latin}</p>
-      </Title>
-
       <PageContents>
         <aside>
+          <Title>
+            {currentSpeciesData.labels[locale].name}
+            <p>{currentSpeciesData.latin}</p>
+          </Title>
           <p>{currentSpeciesData.labels[locale].extract}</p>
           <img
             src={currentSpeciesData.thumbnail.source}
@@ -92,6 +97,9 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           />
         </aside>
         <article>
+          <SummarySentence />
+          <InteractiveTimeseries />
+          <Legend />
           <h3>{t('page.today')}</h3>
           <SpeciesPageParagraph
             data={data.naturallyPresent}

@@ -77,11 +77,11 @@ export const THEME = {
   font: 'EB Garamond',
   fontSizes: {
     small: '0.7rem',
-    normal: '.9rem',
+    normal: '1rem',
     normalLineHeight: '1.8rem',
     subtitle: '1.6rem',
     subtitleLineHeight: '2rem',
-    title: '2.4rem',
+    title: '2.2rem',
   },
   breakpoints: {
     mobile: '768px',

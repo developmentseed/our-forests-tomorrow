@@ -9,7 +9,3 @@ export const MapTimeseriesWrapper = styled.nav<{ visible: boolean }>`
   transition: transform 300ms;
 `
 
-export const TimestepNav = styled.nav`
-  position: absolute;
-  top: 1.5rem;
-`

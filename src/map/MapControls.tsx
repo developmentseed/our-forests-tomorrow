@@ -12,8 +12,8 @@ function MapControls({ mainColor }: MapControlsProps) {
   return (
     <MapControlsWrapper>
       <MapSentence />
-      <MapTimeseries mainColor={mainColor} />
-      <MapLegend mainColor={mainColor} />
+      <MapTimeseries />
+      <MapLegend />
     </MapControlsWrapper>
   )
 }

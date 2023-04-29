@@ -11,7 +11,7 @@ export const NavWrapper = styled.header<{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 3;
+  z-index: 4;
   height: ${({ theme }) => theme.layout.navHeight};
   padding: 0 1rem;
   transition: top 300ms;

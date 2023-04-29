@@ -5,10 +5,18 @@ interface TitleProps {
 }
 
 export const Page = styled.div`
-  width: ${({ theme }) => theme.breakpoints.laptop};
+  max-width: ${({ theme }) => theme.breakpoints.laptop};
+  width: 70vw;
   max-width: 100%;
   padding: 1.2rem 2rem;
   margin: 0 auto 5rem;
+  z-index: 3;
+  position: relative;
+  top: 70vh;
+  background-color: ${({ theme }) => theme.colors.pebbleLight};
+  border: 8px solid ${({ theme }) => theme.colors.snow};
+  box-shadow: 0px -4px 20px rgba(30, 47, 47, 0.15);
+  border-radius: 6px 6px 0px 0px;
 `
 
 // TODO use theme color
@@ -16,6 +24,10 @@ export const Title = styled.h1<TitleProps>`
   font-family: ${({ theme }) => theme.font};
   font-size: ${({ theme }) => theme.fontSizes.title};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin: 0;
 
   & > p {
     font-size: ${({ theme }) => theme.fontSizes.subtitle};
