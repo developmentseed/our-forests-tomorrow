@@ -83,7 +83,7 @@ function RegionPage({ onRegionClose }: RegionPageProps) {
   const region = currentRegionData.label
 
   return (
-    <Page>
+    <Page full>
       <Title>
         {currentRegionData.label}
         <CloseButton onClick={onRegionClose} />

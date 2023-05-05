@@ -21,12 +21,10 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
 import SpeciesPageParagraph from './SpeciesPageParagraph'
-import MapSentence from '../map/MapSentence'
-import MapTimeseries from '../map/MapTimeseries'
-import MapLegend from '../map/MapLegend'
 import SummarySentence from '../components/SummarySentence'
 import InteractiveTimeseries from '../components/InteractiveTimeseries'
 import Legend from '../components/Legend'
+import StickyPage from '../components/StickyPage'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
@@ -81,89 +79,93 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
   )
 
   return (
-    <Page>
-      <PageContents>
-        <aside>
-          <Title>
-            {currentSpeciesData.labels[locale].name}
-            <p>{currentSpeciesData.latin}</p>
-          </Title>
-          <p>{currentSpeciesData.labels[locale].extract}</p>
-          <img
-            src={currentSpeciesData.thumbnail.source}
-            // width={currentSpeciesData.thumbnail.width}
-            // height={currentSpeciesData.thumbnail.height}
-            alt={currentSpeciesData.labels[locale].name}
-          />
-        </aside>
-        <article>
-          <SummarySentence />
-          <InteractiveTimeseries />
-          <Legend />
-          <h3>{t('page.today')}</h3>
-          <SpeciesPageParagraph
-            data={data.naturallyPresent}
-            type={CellTypeEnum.Stable}
-            species={currentSpeciesData.latin}
-            transKey="speciesPage.naturallyPresent"
-            onMoreClick={() => onMoreClick('naturallyPresent')}
-          />
-
-          <h3>{t('page.tomorrow')}</h3>
-
-          <SpeciesPageParagraph
-            data={data.willDisappear}
-            type={CellTypeEnum.Decolonized}
-            species={currentSpeciesData.latin}
-            transKey="speciesPage.willDisappear"
-            onMoreClick={() => onMoreClick('willDisappear')}
-          />
-
-          <SpeciesPageParagraph
-            data={data.couldThrive}
-            type={CellTypeEnum.Suitable}
-            species={currentSpeciesData.latin}
-            transKey="speciesPage.couldThrive"
-            onMoreClick={() => onMoreClick('couldThrive')}
-          />
-
-          <PageTimeseriesWraper ref={chartsRef}>
-            <h3>{t('speciesPage.chartsTitle')}</h3>
-
-            <nav>
-              <ChartTypeButton
-                selected={chartType === 'naturallyPresent'}
-                onClick={() => setChartType('naturallyPresent')}
-              >
-                <Hexagon type={CellTypeEnum.Stable} />
-                <span>{t('page.chartTypeNaturallyPresent')}</span>
-              </ChartTypeButton>
-              <ChartTypeButton
-                selected={chartType === 'willDisappear'}
-                onClick={() => setChartType('willDisappear')}
-              >
-                <Hexagon type={CellTypeEnum.Decolonized} />
-                <span>{t('page.chartTypeWillDisappear')}</span>
-              </ChartTypeButton>
-              <ChartTypeButton
-                selected={chartType === 'couldThrive'}
-                onClick={() => setChartType('couldThrive')}
-              >
-                <Hexagon type={CellTypeEnum.Suitable} />
-                <span>{t('page.chartTypeCouldThrive')}</span>
-              </ChartTypeButton>
-            </nav>
-
-            {data && (
-              <PageTimeseries
-                data={data[chartType]}
-                onItemClick={onRegionClick}
+    <StickyPage>
+      {(intersects: boolean) => (
+        <Page full={intersects}>
+          <PageContents>
+            <aside>
+              <Title>
+                {currentSpeciesData.labels[locale].name}
+                <p>{currentSpeciesData.latin}</p>
+              </Title>
+              <p>{currentSpeciesData.labels[locale].extract}</p>
+              <img
+                src={currentSpeciesData.thumbnail.source}
+                // width={currentSpeciesData.thumbnail.width}
+                // height={currentSpeciesData.thumbnail.height}
+                alt={currentSpeciesData.labels[locale].name}
               />
-            )}
-          </PageTimeseriesWraper>
-        </article>
-      </PageContents>
-    </Page>
+            </aside>
+            <article>
+              <SummarySentence />
+              <InteractiveTimeseries />
+              <Legend />
+              <h3>{t('page.today')}</h3>
+              <SpeciesPageParagraph
+                data={data.naturallyPresent}
+                type={CellTypeEnum.Stable}
+                species={currentSpeciesData.latin}
+                transKey="speciesPage.naturallyPresent"
+                onMoreClick={() => onMoreClick('naturallyPresent')}
+              />
+
+              <h3>{t('page.tomorrow')}</h3>
+
+              <SpeciesPageParagraph
+                data={data.willDisappear}
+                type={CellTypeEnum.Decolonized}
+                species={currentSpeciesData.latin}
+                transKey="speciesPage.willDisappear"
+                onMoreClick={() => onMoreClick('willDisappear')}
+              />
+
+              <SpeciesPageParagraph
+                data={data.couldThrive}
+                type={CellTypeEnum.Suitable}
+                species={currentSpeciesData.latin}
+                transKey="speciesPage.couldThrive"
+                onMoreClick={() => onMoreClick('couldThrive')}
+              />
+
+              <PageTimeseriesWraper ref={chartsRef}>
+                <h3>{t('speciesPage.chartsTitle')}</h3>
+
+                <nav>
+                  <ChartTypeButton
+                    selected={chartType === 'naturallyPresent'}
+                    onClick={() => setChartType('naturallyPresent')}
+                  >
+                    <Hexagon type={CellTypeEnum.Stable} />
+                    <span>{t('page.chartTypeNaturallyPresent')}</span>
+                  </ChartTypeButton>
+                  <ChartTypeButton
+                    selected={chartType === 'willDisappear'}
+                    onClick={() => setChartType('willDisappear')}
+                  >
+                    <Hexagon type={CellTypeEnum.Decolonized} />
+                    <span>{t('page.chartTypeWillDisappear')}</span>
+                  </ChartTypeButton>
+                  <ChartTypeButton
+                    selected={chartType === 'couldThrive'}
+                    onClick={() => setChartType('couldThrive')}
+                  >
+                    <Hexagon type={CellTypeEnum.Suitable} />
+                    <span>{t('page.chartTypeCouldThrive')}</span>
+                  </ChartTypeButton>
+                </nav>
+
+                {data && (
+                  <PageTimeseries
+                    data={data[chartType]}
+                    onItemClick={onRegionClick}
+                  />
+                )}
+              </PageTimeseriesWraper>
+            </article>
+          </PageContents>
+        </Page>
+      )}
+    </StickyPage>
   )
 }
 

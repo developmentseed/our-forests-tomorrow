@@ -4,22 +4,25 @@ interface TitleProps {
   readonly color?: string
 }
 
-export const Page = styled.div`
-  max-width: ${({ theme }) => theme.breakpoints.laptop};
-  width: 70vw;
-  max-width: 100%;
-  padding: 1.2rem 2rem;
-  margin: 0 auto 5rem;
+export const Page = styled.div<{
+  full?: boolean
+}>`
   z-index: 3;
   position: relative;
-  top: 70vh;
+  max-width: ${({ theme, full }) => (full ? 'auto' : theme.breakpoints.laptop)};
+  width: ${({ full }) => (full ? '100%' : '70vw')};
+  margin: ${({ full }) => (full ? '0' : '0 auto 5rem')};
+  padding: 1.2rem 2rem;
   background-color: ${({ theme }) => theme.colors.pebbleLight};
-  border: 8px solid ${({ theme }) => theme.colors.snow};
+  border-color: ${({ theme }) => theme.colors.snow};
   box-shadow: 0px -4px 20px rgba(30, 47, 47, 0.15);
-  border-radius: 6px 6px 0px 0px;
+  border-style: solid;
+  border-width: ${({ full }) => (full ? '0' : '8px')};
+  border-top-width: 8px;
+  border-radius: 6px 6px 0px 0px ${({ full }) => (full ? '0' : '0 auto 5rem')};
+  transition: all 0.3s ease-in-out;
 `
 
-// TODO use theme color
 export const Title = styled.h1<TitleProps>`
   font-family: ${({ theme }) => theme.font};
   font-size: ${({ theme }) => theme.fontSizes.title};

@@ -61,6 +61,7 @@ function Nav({ species, regions, stats }: NavProps) {
           {/* I'd rather use the i18n object as the source of truth but couldn't get this to work - see https://github.com/i18next/i18next/issues/1068  */}
           {SUPPORTED_LANGUAGES.map((lang) => (
             <NavButton
+              key={lang}
               onClick={() => changeLanguage(lang)}
               style={{
                 borderBottomWidth: i18n.language === lang ? '1px' : '0',
