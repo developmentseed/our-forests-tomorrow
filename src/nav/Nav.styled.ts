@@ -4,7 +4,7 @@ export const NavWrapper = styled.header<{
   visible: boolean
 }>`
   position: ${({ visible }) => (visible ? 'sticky' : 'absolute')};
-  top: ${({ visible }) => (visible ? 0 : '-70px')};
+  top: ${({ visible, theme }) => (visible ? 0 : '-70px')};
   background-color: ${({ theme }) => theme.colors.forestDark};
   color: ${({ theme }) => theme.colors.pebbleLight};
   width: 100%;

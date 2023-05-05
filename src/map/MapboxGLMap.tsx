@@ -61,7 +61,7 @@ function MapboxGLMap({
 
   return (
     <Fragment>
-      <MapWrapper fixed={true}>
+      <MapWrapper>
         <Map
           ref={mapRef}
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-export const MapWrapper = styled.div<{ fixed: boolean }>`
-  position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
-  top: ${({ fixed, theme }) => (fixed ? theme.layout.navHeight : 0)};
-  height: ${({ fixed }) => (fixed ? 'calc(100vh - 70px)' : '70vh')};
+export const MapWrapper = styled.div`
+  position: fixed;
+  top: ${({ theme }) => theme.layout.navHeight};
+  height: calc(100vh - ${({ theme }) => theme.layout.navHeight})};
   width: 100%;
   transition: height 300ms;
 `
