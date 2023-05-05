@@ -21,6 +21,7 @@ function SpeciesMenuContent({
 }: SpeciesMenuContentProps) {
   const { i18n } = useTranslation()
   const locale = i18n.language as Locale
+  console.log(species)
   return (
     <Species>
       {Object.entries(species).map(([speciesKey, speciesData]) => (
@@ -33,6 +34,7 @@ function SpeciesMenuContent({
           color={deckColorToCss(speciesData.color)}
           disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
         >
+          <img src={`img/trees/${speciesData.labels?.en?.name.toLowerCase()}.webp`} />
           {showLatin ? speciesData.latin : speciesData.labels?.[locale]?.name}
 
           {/* <i>
