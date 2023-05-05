@@ -32,7 +32,12 @@ function Menu({ label, visible, children }: MenuProps) {
 
   return (
     <Fragment>
-      <NavButton visible={visible} ref={reference} {...getReferenceProps()}>
+      <NavButton
+        visible={visible}
+        selected={open}
+        ref={reference}
+        {...getReferenceProps()}
+      >
         {label}
       </NavButton>
       {open && (
