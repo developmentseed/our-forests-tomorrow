@@ -1,5 +1,5 @@
 import { TIME_STEPS } from '../constants'
-import Timeseries from '../components/Timeseries'
+import Timeseries from './Timeseries'
 import { useAtom, useAtomValue } from 'jotai'
 import {
   currentSpeciesAtom,
@@ -8,10 +8,10 @@ import {
   timeStepAtom,
 } from '../atoms'
 import useTimeseriesLayout from '../hooks/useTimeseriesLayout'
-import {  TimestepNav } from './InteractiveTimeseries.styled'
+import { TimestepNav } from './TimeseriesWithLegend.styled'
 import { IntroStepEnum } from '../intro/Intro'
-import { TimestepButton } from '../components/Button.styled'
-import { TimestepColumn } from '../components/TimestepColumn.styled'
+import { TimestepButton } from './Button.styled'
+import { TimestepColumn } from './TimestepColumn.styled'
 import useRegionStats from '../hooks/useRegionStats'
 import { Fragment } from 'react'
 
@@ -40,7 +40,7 @@ function InteractiveTimeseries() {
   const showTimeseries = introCompleted || introStep >= IntroStepEnum.Chart
 
   return (
-    <Fragment>
+    <div style={{ position: 'relative', marginBottom: '50px' }}>
       {showTimeseries && (
         <Timeseries layoutData={layoutData} width={W} height={H} />
       )}
@@ -63,7 +63,7 @@ function InteractiveTimeseries() {
           </TimestepColumn>
         ))}
       </TimestepNav>
-    </Fragment>
+    </div>
   )
 }
 

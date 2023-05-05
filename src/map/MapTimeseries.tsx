@@ -7,7 +7,7 @@ import {
 import { MapTimeseriesWrapper } from './MapTimeseries.styled'
 import { IntroStepEnum } from '../intro/Intro'
 import useRegionStats from '../hooks/useRegionStats'
-import InteractiveTimeseries from '../components/InteractiveTimeseries'
+import InteractiveTimeseries from '../components/TimeseriesWithLegend'
 
 function MapTimeseries() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)

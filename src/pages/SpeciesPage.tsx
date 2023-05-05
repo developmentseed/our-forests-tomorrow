@@ -23,7 +23,7 @@ import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
 import SpeciesPageParagraph from './SpeciesPageParagraph'
 import SummarySentence from '../components/SummarySentence'
-import InteractiveTimeseries from '../components/InteractiveTimeseries'
+import InteractiveTimeseries from '../components/TimeseriesWithLegend'
 import Legend from '../components/Legend'
 import StickyPage from '../components/StickyPage'
 
