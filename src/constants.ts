@@ -76,8 +76,8 @@ export const THEME = {
   },
   font: 'EB Garamond',
   fontSizes: {
-    small: '0.7rem',
-    normal: '1rem',
+    small: '0.75rem',
+    normal: '.95rem',
     normalLineHeight: '1.8rem',
     subtitle: '1.6rem',
     subtitleLineHeight: '2rem',

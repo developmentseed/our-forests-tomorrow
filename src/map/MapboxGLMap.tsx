@@ -24,14 +24,12 @@ mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default; /* eslint import/no-webpack-loader-syntax: off */
 
 export type MapboxGLMapProps = {
-  mainColor: number[]
   children: ReactNode
   regionsGeoJson: FeatureCollection
   countriesGeoJson: FeatureCollection
 }
 
 function MapboxGLMap({
-  mainColor,
   children,
   regionsGeoJson,
   countriesGeoJson,

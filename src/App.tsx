@@ -15,6 +15,7 @@ import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
 import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID } from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
+import MapTopControls from './map/MapTopControls'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
@@ -50,11 +51,11 @@ function App() {
 
       {!introCompleted && <Intro species={speciesData} />}
       <MapboxGLMap
-        mainColor={currentSpeciesData.color}
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
-        <MapControls mainColor={currentSpeciesData.color} />
+        <MapTopControls />
+        <MapControls />
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>
