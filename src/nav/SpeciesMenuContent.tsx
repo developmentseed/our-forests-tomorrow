@@ -23,30 +23,25 @@ function SpeciesMenuContent({
   const locale = i18n.language as Locale
   return (
     <Species>
+      {Object.entries(species).map(([speciesKey, speciesData]) => (
+        <SpeciesButton
+          key={speciesKey}
+          onClick={
+            onSpeciesClick ? () => onSpeciesClick(speciesKey) : undefined
+          }
+          // className={`sprite sprite-${speciesKey}`}
+          color={deckColorToCss(speciesData.color)}
+          disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
+        >
+          {showLatin ? speciesData.latin : speciesData.labels?.[locale]?.name}
 
-        {Object.entries(species).map(([speciesKey, speciesData]) => (
-          <SpeciesButton
-            key={speciesKey}
-            onClick={
-              onSpeciesClick ? () => onSpeciesClick(speciesKey) : undefined
-            }
-            // className={`sprite sprite-${speciesKey}`}
-            color={deckColorToCss(speciesData.color)}
-            disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
-          >
-
-              {showLatin
-                ? speciesData.latin
-                : speciesData.labels?.[locale]?.name}
-
-            {/* <i>
+          {/* <i>
         {showLatin
           ? speciesData.labels[locale].name
           : speciesData.latin}
       </i> */}
-          </SpeciesButton>
-        ))}
-
+        </SpeciesButton>
+      ))}
     </Species>
   )
 }

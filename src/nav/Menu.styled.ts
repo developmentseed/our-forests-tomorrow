@@ -6,7 +6,6 @@ interface MenuContentsProps {
 
 export const MenuContents = styled.div<MenuContentsProps>`
   position: ${({ strategy }) => strategy};
-
   left: 0;
   width: 100%;
   background: ${({ theme }) => theme.colors.pebbleLight};
@@ -24,6 +23,10 @@ export const MenuWrapper = styled.div`
   margin: 0 auto 5rem;
   display: flex;
   padding: 0 1rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `
 
 export const MenuTools = styled.div`
@@ -42,15 +45,17 @@ export const MenuTools = styled.div`
 `
 
 export const Aside = styled.aside`
-  font-family: ${({ theme }) => theme.font};
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.subtitle};
   text-transform: uppercase;
-  max-width: 35%;
   margin-right: 2rem;
 
   & > p {
     display: inline;
     font-variant-numeric: oldstyle-nums;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
   }
 `
 

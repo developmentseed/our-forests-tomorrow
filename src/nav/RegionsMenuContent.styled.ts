@@ -10,6 +10,11 @@ export const MenuColumns = styled.div`
   padding: 2rem 1rem 3rem 1rem;
   color: ${({ theme }) => theme.colors.forestDark};
   columns: 8;
+
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    columns: 1;
+  }
 `
 
 export const Country = styled.div`

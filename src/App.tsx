@@ -13,7 +13,12 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID, THEME } from './constants'
+import {
+  CellTypeEnum,
+  COLOR_BY_CELL_TYPE,
+  GLOBAL_REGION_GID,
+  THEME,
+} from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
 import MapTopControls from './map/MapTopControls'
 
@@ -21,7 +26,7 @@ function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
-  
+
   // TODO move to reg page
   const closeRegion = useCallback(() => {
     setCurrentRegion(GLOBAL_REGION_GID)
