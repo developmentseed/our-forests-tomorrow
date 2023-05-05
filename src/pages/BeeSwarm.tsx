@@ -50,7 +50,7 @@ function BeeSwarm({ data }: BeeSwarmProps) {
   }, [filteredData, year])
 
   const sim = useMemo(() => {
-    console.log(filteredData)
+    // console.log(filteredData)
     const simulation = forceSimulation(filteredData as any)
       .force('y', forceY(d => scaleY((d as any)[year][1])))
       .force('x', forceX(d => 0))
@@ -64,8 +64,8 @@ function BeeSwarm({ data }: BeeSwarmProps) {
       <div>{filteredData.length} species</div>
       <div><input type="range" min="0" max="2" onChange={onYearChange}/></div>
       <svg width={800} height={2000}>
-        {sim.map((spec: any) => (
-          <g transform={`translate(${spec.x + 400}, ${spec.y})`} style={{ transition: 'all 500ms' }}>
+        {sim.map((spec: any, i) => (
+          <g key={i} transform={`translate(${spec.x + 400}, ${spec.y})`} style={{ transition: 'all 500ms' }}>
             <circle fill={scaleColor(spec[year][1]) as any} stroke="black" r={scaleR(spec[year][0])} />
             <text textAnchor='middle'>{spec.species}</text>
           </g>

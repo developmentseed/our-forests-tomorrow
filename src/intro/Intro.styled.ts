@@ -8,11 +8,10 @@ export const IntroWrapper = styled.div`
 export const IntroSectionWrapper = styled.div<{ height?: string }>`
   width: 100%;
   height: ${({ height }) => height || '100vh'};
-  /* background: ${({ theme }) => theme.colors.dark}; */
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.pebbleLight};
   display: flex;
   justify-content: center;
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts};
   font-size: ${({ theme }) => theme.fontSizes.subtitle};
   line-height: ${({ theme }) => theme.fontSizes.subtitleLineHeight};
   text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
@@ -46,7 +45,7 @@ export const IntroForests = styled.div`
 `
 
 export const IntroSpecies = styled.div`
-  background: ${({ theme }) => theme.colors.dark};
+  background: ${({ theme }) => theme.colors.forest};
 
   & aside {
     font-size: ${({ theme }) => theme.fontSizes.subtitle} !important;

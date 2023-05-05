@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { Locale } from '../types'
 import { currentRegionAtom } from '../atoms'
 import RegionsMenuContent from './RegionsMenuContent'
-import { CloseButton } from '../components/Button.styled'
+
+import { CloseButtonWrapper } from './Menu.styled'
+import { CloseButton } from '../components/CloseButton.styled'
 
 type RegionsMenuProps = {
   regions: any
@@ -12,9 +14,7 @@ type RegionsMenuProps = {
 }
 
 function RegionsMenu({ regions, closeMenuCallback }: RegionsMenuProps) {
-  const { t, i18n } = useTranslation()
   const setCurrentRegion = useSetAtom(currentRegionAtom)
-  const locale = i18n.language as Locale
 
   const onRegionClick = useCallback(
     (speciesId: string) => {
@@ -26,11 +26,10 @@ function RegionsMenu({ regions, closeMenuCallback }: RegionsMenuProps) {
 
   return (
     <Fragment>
-      <RegionsMenuContent
-        regions={regions}
-        onRegionClick={onRegionClick}
-        closeBtn={<CloseButton onClick={closeMenuCallback}></CloseButton>}
-      />
+      <CloseButtonWrapper>
+        <CloseButton onClick={closeMenuCallback}>Close</CloseButton>
+      </CloseButtonWrapper>
+      <RegionsMenuContent regions={regions} onRegionClick={onRegionClick} />
     </Fragment>
   )
 }

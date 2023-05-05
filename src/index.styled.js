@@ -42,13 +42,47 @@ const GlobalStyles = styled.createGlobalStyle`
     font-display: swap;
   }
 
+
+
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('EBGaramond-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('EBGaramond-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('EBGaramond-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EB Garamond';
+    src: url('EBGaramond-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   body {
     margin: 0;
     font-size: ${({ theme }) => theme.fontSizes.normal};
     line-height: 1.6rem;
-    font-family: ${({ theme }) => theme.fonts.sans};
-    color: ${({ theme }) => theme.colors.dark};
-    background: ${({ theme }) => theme.colors.background};
+    font-family: ${({ theme }) => theme.font};
+    color: ${({ theme }) => theme.colors.forest};
+    background: ${({ theme }) => theme.colors.pebbleLight};
   }
   * {
     box-sizing: border-box;
@@ -65,7 +99,7 @@ const GlobalStyles = styled.createGlobalStyle`
     background: none;
     border: none;
     padding: 0;
-    font-family: ${({ theme }) => theme.fonts.sans};
+    font-family: ${({ theme }) => theme.font};
     font-size: ${({ theme }) => theme.fontSizes.normal};
     cursor: pointer;
   }
@@ -81,7 +115,7 @@ const GlobalStyles = styled.createGlobalStyle`
   }
 
   input {
-    font-family: ${({ theme }) => theme.fonts.sans};
+    font-family: ${({ theme }) => theme.font};
   }
 `
 

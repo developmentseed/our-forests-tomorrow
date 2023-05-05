@@ -7,13 +7,21 @@ import {
   useState,
 } from 'react'
 import { useAtom, useSetAtom } from 'jotai'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
 import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import Dropdown from '../components/Dropdown'
 import SpeciesMenuContent from './SpeciesMenuContent'
-import { Search, SortByButton, SortByList, MenuTools } from './Menu.styled'
-import { CloseButton } from '../components/Button.styled'
+import { CloseButton } from '../components/CloseButton.styled'
+import {
+  Search,
+  SortByButton,
+  SortByList,
+  MenuTools,
+  MenuWrapper,
+  CloseButtonWrapper,
+  Aside,
+} from './Menu.styled'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -88,41 +96,51 @@ function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
 
   return (
     <Fragment>
-      <MenuTools>
-        <div>
-          <label>{t('nav.sortBy')}</label>
-          <Dropdown
-            button={(reference: any, getReferenceProps: any) => (
-              <SortByButton ref={reference} {...getReferenceProps()}>
-                {t(`nav.sortByOptions.${sortBy}`)}
-              </SortByButton>
-            )}
-          >
-            <SortByList onClick={onSortClick}>
-              <li data-value="vernacular">
-                {t('nav.sortByOptions.vernacular')}
-              </li>
-              <li data-value="latin">{t('nav.sortByOptions.latin')}</li>
-              <li data-value="area">{t('nav.sortByOptions.area')}</li>
-            </SortByList>
-          </Dropdown>
-        </div>
-        <div>
-          <label>{t('nav.search')}</label>
-          <Search
-            type="text"
-            placeholder={t('nav.searchPlaceholder')}
-            onChange={onSearch}
-          ></Search>
-        </div>
-        <CloseButton onClick={closeMenuCallback}></CloseButton>
-      </MenuTools>
-      <SpeciesMenuContent
-        species={sorted}
-        showLatin={sortBy === 'latin'}
-        onSpeciesClick={onSpeciesClick}
-        highlightedIds={highlightedIds}
-      />
+      <CloseButtonWrapper>
+        <CloseButton onClick={closeMenuCallback}>Close</CloseButton>
+      </CloseButtonWrapper>
+      <MenuWrapper>
+        <MenuTools>
+          <Aside>
+            <Trans
+              i18nKey="nav.exploreSpecies"
+              components={{ b: <b />, p: <p /> }}
+            />
+          </Aside>
+          <div>
+            <label>{t('nav.search')}</label>
+            <Search
+              type="text"
+              placeholder={t('nav.searchPlaceholder')}
+              onChange={onSearch}
+            ></Search>
+          </div>
+          <div>
+            <label>{t('nav.sortBy')}</label>
+            <Dropdown
+              button={(reference: any, getReferenceProps: any) => (
+                <SortByButton ref={reference} {...getReferenceProps()}>
+                  {t(`nav.sortByOptions.${sortBy}`)}
+                </SortByButton>
+              )}
+            >
+              <SortByList onClick={onSortClick}>
+                <li data-value="vernacular">
+                  {t('nav.sortByOptions.vernacular')}
+                </li>
+                <li data-value="latin">{t('nav.sortByOptions.latin')}</li>
+                <li data-value="area">{t('nav.sortByOptions.area')}</li>
+              </SortByList>
+            </Dropdown>
+          </div>
+        </MenuTools>
+        <SpeciesMenuContent
+          species={sorted}
+          showLatin={sortBy === 'latin'}
+          onSpeciesClick={onSpeciesClick}
+          highlightedIds={highlightedIds}
+        />
+      </MenuWrapper>
     </Fragment>
   )
 }

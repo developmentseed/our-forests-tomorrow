@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { CellTypeEnum } from '../constants'
+import { useMediaQuery } from 'react-responsive'
+import { CellTypeEnum, THEME } from '../constants'
 import { getStats } from '../hooks/useStats'
 import {
   ChartType,
@@ -21,6 +22,10 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import Hexagon from '../components/Hexagon'
 import PageTimeseries from './PageTimeseries'
 import SpeciesPageParagraph from './SpeciesPageParagraph'
+import SummarySentence from '../components/SummarySentence'
+import InteractiveTimeseries from '../components/TimeseriesWithLegend'
+import Legend from '../components/Legend'
+import StickyPage from '../components/StickyPage'
 
 export type SpeciesPageProps = {
   currentSpeciesData: SpeciesData
@@ -28,6 +33,9 @@ export type SpeciesPageProps = {
 }
 
 function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${THEME.breakpoints.mobile})`,
+  })
   const { t, i18n } = useTranslation()
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const setCurrentRegion = useSetAtom(currentRegionAtom)
@@ -74,15 +82,16 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
     [setChartType]
   )
 
-  return (
-    <Page>
-      <Title /*color={deckColorToCss(currentSpeciesData.color)}*/>
-        {currentSpeciesData.labels[locale].name}
-        <p>{currentSpeciesData.latin}</p>
-      </Title>
+  const Wrapper = isMobile ? MobileWrapper : DesktopWrapper
 
+  return (
+    <Wrapper>
       <PageContents>
         <aside>
+          <Title>
+            {currentSpeciesData.labels[locale].name}
+            <p>{currentSpeciesData.latin}</p>
+          </Title>
           <p>{currentSpeciesData.labels[locale].extract}</p>
           <img
             src={currentSpeciesData.thumbnail.source}
@@ -92,6 +101,9 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           />
         </aside>
         <article>
+          <SummarySentence />
+          <InteractiveTimeseries />
+          <Legend />
           <h3>{t('page.today')}</h3>
           <SpeciesPageParagraph
             data={data.naturallyPresent}
@@ -155,7 +167,19 @@ function SpeciesPage({ currentSpeciesData, stats }: SpeciesPageProps) {
           </PageTimeseriesWraper>
         </article>
       </PageContents>
-    </Page>
+    </Wrapper>
+  )
+}
+
+const MobileWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <Page full revealMap>{children}</Page>
+}
+
+const DesktopWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <StickyPage>
+      {(intersects: boolean) => <Page full={intersects}>{children}</Page>}
+    </StickyPage>
   )
 }
 

@@ -1,62 +1,29 @@
 import styled from 'styled-components'
-export const MenuColumns = styled.div`
-  padding: 2rem 1rem 3rem 1rem;
-  color: ${({ theme }) => theme.colors.light};
+export const Species = styled.div`
+  padding: 0 0 0 3rem;
+  color: ${({ theme }) => theme.colors.forestDark};
   display: flex;
+  flex-wrap: wrap;
 
-  justify-content: space-between;
-  & > ul {
-    columns: 4;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    padding: 0;
   }
 `
 
-export const Aside = styled.aside`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 4rem;
-  max-width: 35%;
-  margin-right: 2rem;
-
-  & > p {
-    line-height: 4rem;
-    margin: 0;
-  }
-
-  & > b {
-    display: block;
-    font-family: ${({ theme }) => theme.fonts.serifBold};
-    font-size: 8rem;
-    margin: 3.5rem 0 1.5rem 0;
-  }
-`
-
-interface SpeciesButtonProps {
-  readonly color: string
-}
-
-export const SpeciesButton = styled.button<SpeciesButtonProps>`
-  display: block;
-  padding: 0 0 0 0.4rem;
-  border-left: 4px solid ${({ color }) => color};
-  color: ${({ theme }) => theme.colors.light};
-  text-align: left;
-  text-transform: capitalize;
-  height: 34px;
-  font-size: ${({ theme }) => theme.fontSizes.small};
-  line-height: 0.8rem;
+export const SpeciesButton = styled.button`
+  width: 80px;
+  font-variant: small-caps;
+  margin: 1.5rem;
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
-  & > b {
-    display: block;
-    font-weight: normal;
-    /* backdrop-filter: blur(10px); */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    text-align: left;
+    margin: 0;
+    width: auto;
   }
-
-  /* & > i {
-  backdrop-filter: blur(10px);
-  display: block;
-  opacity: 0.7;
-} */
+}
 `

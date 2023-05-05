@@ -13,6 +13,7 @@ export const currentRegionAtom = atomWithHash<string>('region', GLOBAL_REGION_GI
 export const timeStepAtom = atomWithHash<TimeStep>('timeStep', '2095', {
   replaceState: true,
 })
+export const currentRCPAtom = atomWithHash<string>('rcp', '85')
 
 export const navSpeciesSortByAtom = atom<SpeciesSortBy>('vernacular')
 

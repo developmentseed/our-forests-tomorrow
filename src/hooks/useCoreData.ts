@@ -65,7 +65,7 @@ function useCoreData() {
       // Add global region
       regionsWithLabels.push({
         GID_0: 'global',
-        COUNTRY: 'Global',
+        COUNTRY: 'Europe',
         label: 'Europe',
         bbox: [],
       })

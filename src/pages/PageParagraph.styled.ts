@@ -11,7 +11,7 @@ const PageParagraphWrapper = styled.p`
 
   & button {
     text-decoration: underline;
-    color: ${({ theme }) => theme.colors.dark};
+    color: ${({ theme }) => theme.colors.forest};
   }
 `
 

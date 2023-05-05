@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback, useEffect } from 'react'
-
+import { useMediaQuery } from 'react-responsive'
 import MapControls from './map/MapControls'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
@@ -13,14 +13,20 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID } from './constants'
+import {
+  CellTypeEnum,
+  COLOR_BY_CELL_TYPE,
+  GLOBAL_REGION_GID,
+  THEME,
+} from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
+import MapTopControls from './map/MapTopControls'
 
 function App() {
   const currentSpecies = useAtomValue(currentSpeciesAtom)
   const [currentRegion, setCurrentRegion] = useAtom(currentRegionAtom)
   const introCompleted = useAtomValue(introCompletedAtom)
-  
+
   // TODO move to reg page
   const closeRegion = useCallback(() => {
     setCurrentRegion(GLOBAL_REGION_GID)
@@ -35,6 +41,10 @@ function App() {
     }
   }, [introCompleted])
 
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${THEME.breakpoints.mobile})`,
+  })
+
   const currentSpeciesData = speciesData?.[currentSpecies]
 
   return !stats ||
@@ -47,14 +57,15 @@ function App() {
   ) : (
     <Fragment>
       <Nav species={speciesData} regions={regions} stats={stats} />
+      <div id="menuPortal" style={{ position: 'relative' }}></div>
 
       {!introCompleted && <Intro species={speciesData} />}
       <MapboxGLMap
-        mainColor={currentSpeciesData.color}
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
-        <MapControls mainColor={currentSpeciesData.color} />
+        <MapTopControls />
+        {isMobile && <MapControls />}
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>
