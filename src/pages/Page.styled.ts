@@ -9,7 +9,7 @@ export const Page = styled.div<{
 }>`
   z-index: 3;
   position: relative;
-  max-width: ${({ theme, full }) => (full ? 'auto' : theme.breakpoints.laptop)};
+  max-width: ${({ theme, full }) => (full ? '100%' : theme.breakpoints.laptop)};
   width: ${({ full }) => (full ? '100%' : '70vw')};
   margin: ${({ full }) => (full ? '0' : '0 auto 5rem')};
   padding: 1.2rem 2rem;
@@ -20,7 +20,7 @@ export const Page = styled.div<{
   border-width: ${({ full }) => (full ? '0' : '8px')};
   border-top-width: 8px;
   border-radius: 6px 6px 0px 0px ${({ full }) => (full ? '0' : '0 auto 5rem')};
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 `
 
 export const Title = styled.h1<TitleProps>`
@@ -39,6 +39,8 @@ export const Title = styled.h1<TitleProps>`
 `
 
 export const PageContents = styled.div`
+  max-width: ${({ theme }) => theme.breakpoints.laptop};
+  margin: 0 auto 5rem;
   display: flex;
   align-items: flex-start;
 
