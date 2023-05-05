@@ -5,8 +5,8 @@ interface TitleProps {
 }
 
 export const Page = styled.div<{
-  full?: boolean,
-  revealMap?: boolean,
+  full?: boolean
+  revealMap?: boolean
 }>`
   z-index: 3;
   position: relative;

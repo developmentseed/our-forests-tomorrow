@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai'
 import React from 'react'
-import { timeStepAtom } from '../atoms'
+import { currentRCPAtom, timeStepAtom } from '../atoms'
 import { ButtonBar, Button } from '../components/ButtonBar.styled'
 import { TIME_STEPS } from '../constants'
 import {
@@ -11,6 +11,7 @@ import {
 
 function MapTopControls() {
   const [currentTimestep, setCurrentTimestep] = useAtom(timeStepAtom)
+  const [currentRCP, setCurrentRCP] = useAtom(currentRCPAtom)
   return (
     <MapTopControlsWrapper>
       <MapTopControlsSection>
@@ -18,8 +19,18 @@ function MapTopControls() {
           Climate scenario
         </MapTopControlsSectionTitle>
         <ButtonBar>
-          <Button active>rcp4.5<em> · Emissions peak mid-century</em></Button>
-          <Button>rcp8.5<em> · Business as usual</em></Button>
+          <Button
+            active={currentRCP === '45'}
+            onMouseDown={() => setCurrentRCP('45')}
+          >
+            rcp4.5<em> · Emissions peak mid-century</em>
+          </Button>
+          <Button
+            active={currentRCP === '85'}
+            onMouseDown={() => setCurrentRCP('85')}
+          >
+            rcp8.5<em> · Business as usual</em>
+          </Button>
         </ButtonBar>
       </MapTopControlsSection>
       <MapTopControlsSection>

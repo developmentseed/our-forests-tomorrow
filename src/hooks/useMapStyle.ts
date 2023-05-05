@@ -1,20 +1,29 @@
-import { useAtomValue } from 'jotai';
-import { useMemo } from 'react';
-import { currentSpeciesAtom, timeStepAtom } from '../atoms';
+import { useAtomValue } from 'jotai'
+import { useMemo } from 'react'
+import { currentRCPAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
 import { THEME, TIME_STEPS } from '../constants'
 import basemap from './style.json'
 
 function useMapStyle() {
   const species = useAtomValue(currentSpeciesAtom)
   const timeStep = useAtomValue(timeStepAtom)
+  const rcp = useAtomValue(currentRCPAtom)
 
   return useMemo(() => {
-    const fut = TIME_STEPS.indexOf(timeStep);
-    return getMapStyle({ rcp: 85, fut, species })
-  }, [species, timeStep]);
+    const fut = TIME_STEPS.indexOf(timeStep)
+    return getMapStyle({ rcp, fut, species })
+  }, [species, timeStep, rcp])
 }
 
-function getMapStyle({ rcp, fut, species }: { rcp: number; fut: number; species: string }) {
+function getMapStyle({
+  rcp,
+  fut,
+  species,
+}: {
+  rcp: string
+  fut: number
+  species: string
+}) {
   const stable = [
     'all',
     ['==', ['get', 'nat_1'], 1],
