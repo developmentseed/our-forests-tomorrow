@@ -1,34 +1,56 @@
 import styled from 'styled-components'
 
 interface MenuContentsProps {
-  readonly strategy: string
+  readonly strategy?: string
 }
 
 export const MenuContents = styled.div<MenuContentsProps>`
   position: ${({ strategy }) => strategy};
-  top: ${({ theme }) => theme.layout.navHeight};
+
   left: 0;
   width: 100%;
   background: ${({ theme }) => theme.colors.pebbleLight};
   z-index: 99;
 `
 
-export const MenuTools = styled.div`
-  height: ${({ theme }) => theme.layout.navHeight};
-  color: ${({ theme }) => theme.colors.forestDark};
+export const CloseButtonWrapper = styled.div`
   display: flex;
-  justify-content: right;
-  align-items: center;
-  padding: 1rem;
+  justify-content: flex-end;
+  margin: 10px 18px;
+`
 
-  & > *:not(:last-child) {
-    padding-right: 4rem;
-  }
+export const MenuWrapper = styled.div`
+  max-width: ${({ theme }) => theme.breakpoints.laptop};
+  margin: 0 auto 5rem;
+  display: flex;
+  padding: 0 1rem;
+`
+
+export const MenuTools = styled.div`
+  color: ${({ theme }) => theme.colors.forestDark};
 
   & label {
+    display: block;
     font-weight: bold;
     font-size: ${({ theme }) => theme.fontSizes.small};
     margin-right: 1rem;
+  }
+
+  & > * {
+    margin-bottom: 2rem;
+  }
+`
+
+export const Aside = styled.aside`
+  font-family: ${({ theme }) => theme.font};
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  max-width: 35%;
+  margin-right: 2rem;
+
+  & > p {
+    display: inline;
+    font-variant-numeric: oldstyle-nums;
   }
 `
 

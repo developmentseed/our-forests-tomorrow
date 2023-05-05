@@ -52,6 +52,7 @@ function App() {
   ) : (
     <Fragment>
       <Nav species={speciesData} regions={regions} stats={stats} />
+      <div id="menuPortal" style={{ position: 'relative' }}></div>
 
       {!introCompleted && <Intro species={speciesData} />}
       <MapboxGLMap

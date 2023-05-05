@@ -5,6 +5,7 @@ import {
   useInteractions,
 } from '@floating-ui/react-dom-interactions'
 import { Fragment, ReactNode, useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { MenuContents } from './Menu.styled'
 import { NavButton } from './Nav.styled'
 
@@ -40,15 +41,17 @@ function Menu({ label, visible, children }: MenuProps) {
       >
         {label}
       </NavButton>
-      {open && (
-        <MenuContents
-          ref={floating}
-          strategy={strategy}
-          {...getFloatingProps()}
-        >
-          {children(closeMenuCallback)}
-        </MenuContents>
-      )}
+      {open &&
+        createPortal(
+          <MenuContents
+            ref={floating}
+            strategy={strategy}
+            {...getFloatingProps()}
+          >
+            {children(closeMenuCallback)}
+          </MenuContents>,
+          document.getElementById('menuPortal') as HTMLElement
+        )}
     </Fragment>
   )
 }
