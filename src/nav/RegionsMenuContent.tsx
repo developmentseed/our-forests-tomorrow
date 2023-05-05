@@ -1,33 +1,23 @@
-import { t } from 'i18next'
 import { Fragment, ReactNode } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import useRegionsByCountries from '../hooks/useRegionsByCountries'
-import { Locale, Region } from '../types'
-import {
-  CloseButtonWrapper,
-  Country,
-  MenuColumns,
-  RegionButton,
-} from './RegionsMenuContent.styled'
+import { Region } from '../types'
+import { Country, MenuColumns, RegionButton } from './RegionsMenuContent.styled'
 
 type RegionsMenuContentProps = {
   regions: Region[]
   onRegionClick: (gid: string) => void
   children?: ReactNode
-  closeBtn: ReactNode
 }
 
 function RegionsMenuContent({
   regions,
   onRegionClick,
-  closeBtn,
 }: RegionsMenuContentProps) {
-  const { t, i18n } = useTranslation()
-  const locale = i18n.language as Locale
+  const { t } = useTranslation()
   const regionsByCountries = useRegionsByCountries(regions)
   return (
     <Fragment>
-      <CloseButtonWrapper>{closeBtn}</CloseButtonWrapper>
       <MenuColumns>
         {regionsByCountries.map((country) => (
           <Country>

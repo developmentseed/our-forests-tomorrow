@@ -10,9 +10,9 @@ The goal of that project is to bring those findings to a large audience, buildin
 
 ## What are we up to?
 
-- The mini site prototype: [Our Forests Tomorrow](https://devseed.com/our-forests-tomorrow/build/)
+- The mini site prototype: [Our Forests Tomorrow](https://devseed.com/our-forests-tomorrow/)
 
-![205045050-fa1d002e-dc6e-452c-9da2-d2ee16570722](https://user-images.githubusercontent.com/1583415/229806619-7c63049e-74c3-402a-81eb-ef6e1295d806.png)
+![205045050-fa1d002e-dc6e-452c-9da2-d2ee16570722](https://user-images.githubusercontent.com/1583415/230595970-5febc948-5833-4910-ba57-67832e8ab39e.png)
 
 - Based on that initial work, we ran several [technical/design experiments](https://github.com/developmentseed/our-forests-tomorrow/issues/1)
 - Work on the way to develop a visual identity as well as high-fidelity designs for a final version of the minisite

@@ -6,6 +6,10 @@ export const PageTimeseriesItem = styled.div`
   padding: 0;
   align-items: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
+
   cursor: pointer;
   & > label {
     cursor: pointer;
@@ -14,5 +18,10 @@ export const PageTimeseriesItem = styled.div`
     max-width: 220px;
     text-align: right;
     margin-right: 1rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      text-align: left;
+      margin-top: 10px;
+    }
   }
 `

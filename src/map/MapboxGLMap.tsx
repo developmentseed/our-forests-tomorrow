@@ -14,6 +14,9 @@ import { MapWrapper, MapZoom } from './Map.styled'
 import { introCompletedAtom } from '../atoms'
 import useMapStyle from '../hooks/useMapStyle'
 import { useIntroMapTransitions } from '../hooks/useIntroMapTransitions'
+
+
+// https://github.com/visgl/react-map-gl/issues/1266#issuecomment-1270562441
 // @ts-ignore
 import mapboxgl from "mapbox-gl";
 // @ts-ignore
@@ -22,14 +25,12 @@ mapboxgl.workerClass =
   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default; /* eslint import/no-webpack-loader-syntax: off */
 
 export type MapboxGLMapProps = {
-  mainColor: number[]
   children: ReactNode
   regionsGeoJson: FeatureCollection
   countriesGeoJson: FeatureCollection
 }
 
 function MapboxGLMap({
-  mainColor,
   children,
   regionsGeoJson,
   countriesGeoJson,
@@ -59,7 +60,7 @@ function MapboxGLMap({
 
   return (
     <Fragment>
-      <MapWrapper fixed={!introCompleted}>
+      <MapWrapper>
         <Map
           ref={mapRef}
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
