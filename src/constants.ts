@@ -79,7 +79,7 @@ export const THEME = {
     small: '0.75rem',
     normal: '.95rem',
     normalLineHeight: '1.8rem',
-    subtitle: '1.6rem',
+    subtitle: '1.2rem',
     subtitleLineHeight: '2rem',
     title: '2.2rem',
   },
@@ -87,6 +87,7 @@ export const THEME = {
     mobile: '768px',
     laptop: '1024px',
   },
+  mapRevealHeight: '70vh',
 }
 
 export const COLOR_BY_CELL_TYPE: Record<CellTypeEnum, string> = {

@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback, useEffect } from 'react'
-
+import { useMediaQuery } from 'react-responsive'
 import MapControls from './map/MapControls'
 import RegionPage from './pages/RegionPage'
 import SpeciesPage from './pages/SpeciesPage'
@@ -13,7 +13,7 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Intro from './intro/Intro'
 import SVGHatchPattern from './components/SVGHatchPattern'
-import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID } from './constants'
+import { CellTypeEnum, COLOR_BY_CELL_TYPE, GLOBAL_REGION_GID, THEME } from './constants'
 import MapboxGLMap from './map/MapboxGLMap'
 import MapTopControls from './map/MapTopControls'
 
@@ -36,6 +36,10 @@ function App() {
     }
   }, [introCompleted])
 
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${THEME.breakpoints.mobile})`,
+  })
+
   const currentSpeciesData = speciesData?.[currentSpecies]
 
   return !stats ||
@@ -55,7 +59,7 @@ function App() {
         countriesGeoJson={countriesGeoJson}
       >
         <MapTopControls />
-        <MapControls />
+        {isMobile && <MapControls />}
       </MapboxGLMap>
       {introCompleted && (
         <Fragment>

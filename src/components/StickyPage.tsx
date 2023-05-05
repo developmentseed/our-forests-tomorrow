@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StickyPageWrapper = styled.div`
   position: relative;
-  top: 70vh;
+  top: ${({theme}) => theme.mapRevealHeight};
 `
 
 function StickyPage({ children }: { children: any }) {

@@ -6,6 +6,11 @@ export const MapWrapper = styled.div`
   height: calc(100vh - ${({ theme }) => theme.layout.navHeight})};
   width: 100%;
   transition: height 300ms;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    height: ${({theme}) => theme.mapRevealHeight};
+
+  }
 `
 
 export const MapZoom = styled.div<{ visible: boolean }>`

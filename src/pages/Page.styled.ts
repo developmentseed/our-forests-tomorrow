@@ -5,10 +5,12 @@ interface TitleProps {
 }
 
 export const Page = styled.div<{
-  full?: boolean
+  full?: boolean,
+  revealMap?: boolean,
 }>`
   z-index: 3;
   position: relative;
+  top: ${({ revealMap, theme }) => (revealMap ? theme.mapRevealHeight : '0')};
   max-width: ${({ theme, full }) => (full ? '100%' : theme.breakpoints.laptop)};
   width: ${({ full }) => (full ? '100%' : '70vw')};
   margin: ${({ full }) => (full ? '0' : '0 auto 5rem')};
@@ -69,6 +71,10 @@ export const PageContents = styled.div`
   & > article > h3:first-child {
     margin-top: 0;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `
 
 export const PageTimeseriesWraper = styled.div`
@@ -82,7 +88,7 @@ export const ChartTypeButton = styled.button<{ selected: boolean }>`
   margin-right: 0.5rem;
   padding: 0.3rem 0.6rem;
   border: 1px solid ${({ theme }) => theme.colors.forestFaded};
-  border-radius: 99px;
+  border-radius: 3px;
   opacity: ${({ selected }) => (selected ? 1 : 0.6)};
   font-size: ${({ theme }) => theme.fontSizes.small};
   display: flex;

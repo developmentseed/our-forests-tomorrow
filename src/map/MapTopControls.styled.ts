@@ -5,11 +5,19 @@ export const MapTopControlsWrapper = styled.div`
   top: 10px;
   left: 18px;
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    top: 2px;
+  }
+
   & button {
     font-variant: small-caps;
   }
   & button > em {
     font-variant: normal;
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      display: none;
+    }
   }
 `
 

@@ -63,7 +63,7 @@ function SummarySentence() {
       return (
         <Trans i18nKey={transKey}>
           {!currentRegionData ? area : <span>{{ area }}</span>}, by
-          <TimestepButton selected={true}>{{ year }}</TimestepButton>
+          <strong>{{ year }}</strong>
           {{ species }} is likely to disappear {{ pctDecolonized }}, while in
           some areas it might become suitable {{ pctSuitable }} {{ pctStable }}
         </Trans>

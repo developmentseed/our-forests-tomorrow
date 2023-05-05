@@ -10,6 +10,10 @@ export const ButtonBar = styled.div`
   color: ${({ theme, active }) => (active ? theme.colors.snow : theme.colors.forestDark)};
   border: 1px solid ${({ theme }) => theme.colors.forestDark};
   padding: 12px 16px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 6px 8px;
+  }
 
   &:first-child {
     border-radius: 3px 0px 0px 3px;
