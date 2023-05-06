@@ -1,8 +1,14 @@
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import React from 'react'
-import { currentRCPAtom, timeStepAtom } from '../atoms'
+import {
+  currentRCPAtom,
+  introCompletedAtom,
+  introStepAtom,
+  timeStepAtom,
+} from '../atoms'
 import { ButtonBar, Button } from '../components/ButtonBar.styled'
 import { TIME_STEPS } from '../constants'
+import { IntroStepEnum } from '../intro/Intro'
 import {
   MapTopControlsSection,
   MapTopControlsSectionTitle,
@@ -12,8 +18,26 @@ import {
 function MapTopControls() {
   const [currentTimestep, setCurrentTimestep] = useAtom(timeStepAtom)
   const [currentRCP, setCurrentRCP] = useAtom(currentRCPAtom)
+  const introStep = useAtomValue(introStepAtom)
+  const introCompleted = useAtomValue(introCompletedAtom)
   return (
-    <MapTopControlsWrapper>
+    <MapTopControlsWrapper
+      visible={introCompleted || introStep >= IntroStepEnum.Timesteps2}
+    >
+      <MapTopControlsSection>
+        <MapTopControlsSectionTitle>Year</MapTopControlsSectionTitle>
+        <ButtonBar>
+          {TIME_STEPS.map((timestep) => (
+            <Button
+              onMouseDown={() => setCurrentTimestep(timestep)}
+              active={currentTimestep === timestep}
+              key={timestep}
+            >
+              {timestep}
+            </Button>
+          ))}
+        </ButtonBar>
+      </MapTopControlsSection>
       <MapTopControlsSection>
         <MapTopControlsSectionTitle>
           Climate scenario
@@ -31,20 +55,6 @@ function MapTopControls() {
           >
             rcp8.5<em> · Business as usual</em>
           </Button>
-        </ButtonBar>
-      </MapTopControlsSection>
-      <MapTopControlsSection>
-        <MapTopControlsSectionTitle>Year</MapTopControlsSectionTitle>
-        <ButtonBar>
-          {TIME_STEPS.map((timestep) => (
-            <Button
-              onMouseDown={() => setCurrentTimestep(timestep)}
-              active={currentTimestep === timestep}
-              key={timestep}
-            >
-              {timestep}
-            </Button>
-          ))}
         </ButtonBar>
       </MapTopControlsSection>
     </MapTopControlsWrapper>

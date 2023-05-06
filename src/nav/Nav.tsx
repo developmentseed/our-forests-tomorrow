@@ -46,7 +46,7 @@ function Nav({ species, regions, stats }: NavProps) {
         </Logo>
         <Menu
           label={t('nav.species')}
-          visible={introCompleted || introStep >= IntroStepEnum.Species}
+          visible={introCompleted || introStep >= IntroStepEnum.UIExplanation}
         >
           {(closeMenuCallback: any) => (
             <SpeciesMenu
@@ -57,7 +57,7 @@ function Nav({ species, regions, stats }: NavProps) {
           )}
         </Menu>
         <Menu
-          visible={introCompleted || introStep >= IntroStepEnum.RegionMap}
+          visible={introCompleted || introStep >= IntroStepEnum.UIExplanation}
           label={t('nav.regions')}
         >
           {(closeMenuCallback: any) => (

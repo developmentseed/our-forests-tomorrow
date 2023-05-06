@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const MapTopControlsWrapper = styled.div`
+export const MapTopControlsWrapper = styled.div<{ visible?: boolean }>`
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
+  transition: opacity 2s ease-in-out;
   position: absolute;
   top: 10px;
   left: 18px;

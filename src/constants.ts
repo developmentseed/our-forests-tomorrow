@@ -9,11 +9,11 @@ export const GEOTIFF_BBOX = [
 
 export const EUROPE_BBOX = [-10, 40, 30, 55]
 
-export const CENTER = [
-  (GEOTIFF_BBOX[0] + GEOTIFF_BBOX[2]) / 2,
-  (GEOTIFF_BBOX[1] + GEOTIFF_BBOX[3]) / 2,
-]
-// export const CENTER = [-20, 50]
+// export const CENTER = [
+//   (GEOTIFF_BBOX[0] + GEOTIFF_BBOX[2]) / 2,
+//   (GEOTIFF_BBOX[1] + GEOTIFF_BBOX[3]) / 2,
+// ]
+export const CENTER = [10, 50]
 
 export const MAP_DEFAULT_VIEWPORT: ViewState = {
   longitude: CENTER[0],

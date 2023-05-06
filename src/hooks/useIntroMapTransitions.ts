@@ -23,7 +23,10 @@ export function useIntroMapTransitions(
     switch (introStep) {
       case IntroStepEnum.Title:
       case IntroStepEnum.Forests:
+      case IntroStepEnum.Forests2:
       case IntroStepEnum.Species:
+      case IntroStepEnum.Species2:
+      case IntroStepEnum.Species3:
         setCurrentSpecies('Fagus_sylvatica')
         setTimeStep('2095')
         mapRef?.flyTo({
@@ -51,7 +54,7 @@ export function useIntroMapTransitions(
           center: [5, 40],
           pitch: 20,
           bearing: 0,
-          zoom: 4,
+          zoom: 3.5,
           duration: 5000,
         })
         break
@@ -69,6 +72,7 @@ export function useIntroMapTransitions(
         })
         break
       case IntroStepEnum.Suitable:
+        setCurrentSpecies('Quercus_ilex')
         mapRef?.flyTo({
           center: [0, 48],
           pitch: 60,
@@ -77,26 +81,28 @@ export function useIntroMapTransitions(
           duration: 5000,
         })
         break
-      case IntroStepEnum.Chart:
-        mapRef?.flyTo({
-          center: [5, 40],
-          pitch: 20,
-          bearing: 0,
-          zoom: 4,
-          duration: 5000,
-        })
-        break
+      // case IntroStepEnum.Chart:
+      //   mapRef?.flyTo({
+      //     center: [5, 40],
+      //     pitch: 20,
+      //     bearing: 0,
+      //     zoom: 4,
+      //     duration: 5000,
+      //   })
+      //   break
       case IntroStepEnum.RegionMap:
+        setCurrentSpecies('Olea_europaea')
         mapRef?.flyTo({
-          center: [-5, 40],
-          pitch: 20,
-          bearing: 0,
-          zoom: 5,
+          center: [-5, 42],
+          pitch: 40,
+          bearing: 15,
+          zoom: 6,
           duration: 5000,
         })
         break
 
       case IntroStepEnum.UIExplanation:
+        setCurrentSpecies('Quercus_ilex')
         mapRef?.flyTo({
           center: [
             MAP_DEFAULT_VIEWPORT.longitude,
