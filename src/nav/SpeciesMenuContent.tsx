@@ -1,7 +1,5 @@
-import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale } from '../types'
-import { deckColorToCss } from '../utils'
 import { Species, SpeciesButton } from './SpeciesMenuContent.styled'
 
 type SpeciesMenuContentProps = {
@@ -9,7 +7,6 @@ type SpeciesMenuContentProps = {
   highlightedIds?: string[]
   onSpeciesClick?: (speciesKey: string) => void
   showLatin?: boolean
-  children?: ReactNode
 }
 
 function SpeciesMenuContent({
@@ -17,11 +14,9 @@ function SpeciesMenuContent({
   highlightedIds,
   onSpeciesClick,
   showLatin,
-  children,
 }: SpeciesMenuContentProps) {
   const { i18n } = useTranslation()
   const locale = i18n.language as Locale
-  console.log(species)
   return (
     <Species>
       {Object.entries(species).map(([speciesKey, speciesData]) => (
@@ -30,18 +25,12 @@ function SpeciesMenuContent({
           onClick={
             onSpeciesClick ? () => onSpeciesClick(speciesKey) : undefined
           }
-          // className={`sprite sprite-${speciesKey}`}
-          color={deckColorToCss(speciesData.color)}
           disabled={!!highlightedIds && !highlightedIds.includes(speciesKey)}
         >
-          <img src={`img/trees/${speciesData.labels?.en?.name.toLowerCase()}.webp`} />
+          <img
+            src={`img/trees/${speciesData.labels?.en?.name.toLowerCase()}.webp`}
+          />
           {showLatin ? speciesData.latin : speciesData.labels?.[locale]?.name}
-
-          {/* <i>
-        {showLatin
-          ? speciesData.labels[locale].name
-          : speciesData.latin}
-      </i> */}
         </SpeciesButton>
       ))}
     </Species>

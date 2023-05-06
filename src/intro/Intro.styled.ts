@@ -17,10 +17,15 @@ export const IntroSectionWrapper = styled.div<{ height?: string }>`
   text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
 
   & > * {
+    padding: 3rem;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      padding: 1rem;
+    }
   }
 `
 
@@ -40,16 +45,26 @@ export const IntroTitle = styled.div`
 `
 
 export const IntroForests = styled.div`
+  background: ${({ theme }) => theme.colors.forestDark};
+  text-shadow: none;
+`
+
+export const IntroForests2 = styled.div`
   background-image: url('./img/forest.webp');
   background-size: cover;
+  background-position: 50% 0;
 `
 
 export const IntroSpecies = styled.div`
   background: ${({ theme }) => theme.colors.forest};
-
-  & aside {
-    font-size: ${({ theme }) => theme.fontSizes.subtitle} !important;
-  }
+  text-shadow: none;
+`
+export const IntroSpecies2 = styled.div`
+  background: ${({ theme }) => theme.colors.pebbleLight};
+`
+export const IntroSpecies3 = styled.div`
+  text-shadow: none;
+  background: ${({ theme }) => theme.colors.forestDark};
 `
 
 export const IntroMap = styled.div``

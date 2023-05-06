@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MapWrapper = styled.div`
+export const MapWrapper = styled.div<{ fullMobile?: boolean }>`
   position: fixed;
   top: ${({ theme }) => theme.layout.navHeight};
   height: calc(100vh - ${({ theme }) => theme.layout.navHeight})};
@@ -8,8 +8,10 @@ export const MapWrapper = styled.div`
   transition: height 300ms;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: ${({theme}) => theme.mapRevealHeight};
-
+    height: ${({ theme, fullMobile }) =>
+      fullMobile
+        ? theme.mapRevealHeight
+        : `calc(100vh - ${theme.layout.navHeight})`};
   }
 `
 
