@@ -10,6 +10,7 @@ export const Page = styled.div<{
 }>`
   z-index: 3;
   position: relative;
+  pointer-events: all;
   top: ${({ revealMap, theme }) => (revealMap ? theme.mapRevealHeight : '0')};
   max-width: ${({ theme, full }) => (full ? '100%' : theme.breakpoints.laptop)};
   width: ${({ full }) => (full ? '100%' : '70vw')};

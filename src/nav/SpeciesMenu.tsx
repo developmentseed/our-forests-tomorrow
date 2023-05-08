@@ -9,7 +9,7 @@ import {
 import { useAtom, useSetAtom } from 'jotai'
 import { Trans, useTranslation } from 'react-i18next'
 import { AllSpeciesData, Locale, SpeciesSortBy, StatsBySpecies } from '../types'
-import { currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
+import { currentRegionAtom, currentSpeciesAtom, navSpeciesSortByAtom } from '../atoms'
 import Dropdown from '../components/Dropdown'
 import SpeciesMenuContent from './SpeciesMenuContent'
 import { CloseButton } from '../components/CloseButton.styled'
@@ -22,6 +22,7 @@ import {
   CloseButtonWrapper,
   Aside,
 } from './Menu.styled'
+import { GLOBAL_REGION_GID } from '../constants'
 
 type SpeciesMenuProps = {
   species: AllSpeciesData
@@ -32,14 +33,17 @@ type SpeciesMenuProps = {
 function SpeciesMenu({ species, stats, closeMenuCallback }: SpeciesMenuProps) {
   const { t, i18n } = useTranslation()
   const setCurrentSpecies = useSetAtom(currentSpeciesAtom)
+  const setCurrentRegion = useSetAtom(currentRegionAtom)
   const locale = i18n.language as Locale
 
   const onSpeciesClick = useCallback(
     (speciesId: string) => {
       setCurrentSpecies(speciesId)
+      console.log('??')
+      setCurrentRegion(GLOBAL_REGION_GID)
       closeMenuCallback()
     },
-    [closeMenuCallback, setCurrentSpecies]
+    [closeMenuCallback, setCurrentSpecies, setCurrentRegion]
   )
 
   const [highlightedIds, setHighlightedIds] = useState<string[] | undefined>()
