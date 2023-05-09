@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const StickyPageWrapper = styled.div`
   position: relative;
   top: ${({theme}) => theme.mapRevealHeight};
+  pointer-events: none;
 `
 
 function StickyPage({ children }: { children: any }) {
