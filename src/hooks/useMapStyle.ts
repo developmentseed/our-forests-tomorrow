@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { currentRCPAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
 import { THEME, TIME_STEPS } from '../constants'
 import basemap from './style.json'
+import { CONIFERS } from '../constants_common'
 
 function useMapStyle() {
   const species = useAtomValue(currentSpeciesAtom)
@@ -59,15 +60,17 @@ function getMapStyle({
           '#ff0fff',
         ]
 
+  const type = CONIFERS.includes(species) ? 'conifer' : 'deciduous'
+
   const icon =
     fut === 0
-      ? 'deciduous_stable'
+      ? `${type}_stable`
       : [
           'case',
           stable,
-          'deciduous_stable',
+          `${type}_stable`,
           decolonized,
-          'deciduous_decolonized',
+          `${type}_decolonized`,
           suitable,
           'seedling',
           'seedling',
@@ -101,7 +104,6 @@ function getMapStyle({
         paint: {
           'fill-color': fillColor,
         },
-        minZoom: 5,
       },
       {
         id: 'hex10_trees',
@@ -111,9 +113,16 @@ function getMapStyle({
         layout: {
           'icon-image': icon,
         },
-        filter,
+        filter: [
+          'all',
+          filter,
+          [
+            '==',
+            ['%', ['get', 'id'], ['match', ['zoom'], 5, 15, 1]],
+            0,
+          ],
+        ],
         paint: { 'icon-opacity': 0.5 },
-        minZoom: 5,
       },
       {
         id: 'hex20',
@@ -124,8 +133,6 @@ function getMapStyle({
         paint: {
           'fill-color': fillColor,
         },
-        minZoom: 2,
-        maxZoom: 5,
       },
       {
         id: 'hex20_trees',
@@ -134,11 +141,19 @@ function getMapStyle({
         'source-layer': `${species}_20_hex`,
         layout: {
           'icon-image': icon,
+          // 'icon-allow-overlap': true,
         },
-        filter,
+        // filter,
+        filter: [
+          'all',
+          filter,
+          [
+            '==',
+            ['%', ['get', 'id'], ['match', ['zoom'], 2, 120, 3, 70, 30]],
+            0,
+          ],
+        ],
         paint: { 'icon-opacity': 0.5 },
-        minZoom: 2,
-        maxZoom: 5,
       },
     ],
   }
