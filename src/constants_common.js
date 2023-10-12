@@ -96,6 +96,22 @@ export const SPECIES_WHITELIST = [
   'Ulmus_minor',
 ]
 
+export const CONIFERS = [
+  'Abies_alba',
+  'Cupressus_sempervirens',
+  'Juniperus_thurifera',
+  'Larix_decidua',
+  'Picea_abies',
+  'Pinus_brutia',
+  'Pinus_cembra',
+  'Pinus_halepensis',
+  'Pinus_nigra',
+  'Pinus_pinaster',
+  'Pinus_pinea',
+  'Pinus_sylvestris',
+  'Taxus_baccata'
+]
+
 export const GRIDS = [
   // { res: 80, minZoom: 0, maxZoom: 1 },
   // { res: 40, minZoom: 2, maxZoom: 3 },

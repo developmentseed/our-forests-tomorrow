@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { currentRCPAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
 import { THEME, TIME_STEPS } from '../constants'
 import basemap from './style.json'
+import { CONIFERS } from '../constants_common'
 
 function useMapStyle() {
   const species = useAtomValue(currentSpeciesAtom)
@@ -59,15 +60,17 @@ function getMapStyle({
           '#ff0fff',
         ]
 
+  const type = CONIFERS.includes(species) ? 'conifer' : 'deciduous'
+
   const icon =
     fut === 0
-      ? 'deciduous_stable'
+      ? `${type}_stable`
       : [
           'case',
           stable,
-          'deciduous_stable',
+          `${type}_stable`,
           decolonized,
-          'deciduous_decolonized',
+          `${type}_decolonized`,
           suitable,
           'seedling',
           'seedling',
