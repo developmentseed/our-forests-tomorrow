@@ -104,7 +104,6 @@ function getMapStyle({
         paint: {
           'fill-color': fillColor,
         },
-        minZoom: 5,
       },
       {
         id: 'hex10_trees',
@@ -114,9 +113,16 @@ function getMapStyle({
         layout: {
           'icon-image': icon,
         },
-        filter,
+        filter: [
+          'all',
+          filter,
+          [
+            '==',
+            ['%', ['get', 'id'], ['match', ['zoom'], 5, 15, 1]],
+            0,
+          ],
+        ],
         paint: { 'icon-opacity': 0.5 },
-        minZoom: 5,
       },
       {
         id: 'hex20',
@@ -127,8 +133,6 @@ function getMapStyle({
         paint: {
           'fill-color': fillColor,
         },
-        minZoom: 2,
-        maxZoom: 5,
       },
       {
         id: 'hex20_trees',
@@ -137,11 +141,19 @@ function getMapStyle({
         'source-layer': `${species}_20_hex`,
         layout: {
           'icon-image': icon,
+          // 'icon-allow-overlap': true,
         },
-        filter,
+        // filter,
+        filter: [
+          'all',
+          filter,
+          [
+            '==',
+            ['%', ['get', 'id'], ['match', ['zoom'], 2, 120, 3, 70, 30]],
+            0,
+          ],
+        ],
         paint: { 'icon-opacity': 0.5 },
-        minZoom: 2,
-        maxZoom: 5,
       },
     ],
   }
