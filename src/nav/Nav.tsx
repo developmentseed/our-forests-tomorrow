@@ -9,6 +9,7 @@ import { AllSpeciesData, StatsBySpecies } from '../types'
 import Menu from './Menu'
 import {
   NavButton,
+  NavLink,
   NavButtons,
   NavHeader,
   NavWrapper,
@@ -71,7 +72,7 @@ function Nav({ species, regions, stats }: NavProps) {
       <SandwichMenu onClick={() => setMobileMenu(!mobileMenu)} />
       <NavButtons visible={mobileMenu}>
         <nav>
-          <NavButton>{t('nav.about')}</NavButton>
+          <NavLink href="https://github.com/developmentseed/our-forests-tomorrow?tab=readme-ov-file#our-forests-tomorrow-visualizing-european-forests-future">{t('nav.about')}</NavLink>
           {/* I'd rather use the i18n object as the source of truth but couldn't get this to work - see https://github.com/i18next/i18next/issues/1068  */}
           {SUPPORTED_LANGUAGES.map((lang) => (
             <NavButton
