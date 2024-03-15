@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const NavWrapper = styled.header<{
   visible: boolean
@@ -73,14 +73,23 @@ export const NavButtons = styled.div<{ visible?: boolean }>`
   }
 `
 
+const navItemStyle = css`
+  height: 100%;
+
+  color: ${({ theme }) => theme.colors.pebbleLight};
+  text-transform: uppercase;
+  font-size: 0.8rem;
+
+  padding: 0 0.3rem;
+  text-decoration: none;
+  line-height: 48px;
+`
+
 export const NavButton = styled.button<{
   visible?: boolean
   selected?: boolean
 }>`
-  height: 100%;
-  color: ${({ theme }) => theme.colors.pebbleLight};
-  text-transform: uppercase;
-  font-size: 0.8rem;
+  ${navItemStyle}
 
   opacity: ${({ visible }) =>
     visible === true || visible === undefined ? 1 : 0};
@@ -90,5 +99,8 @@ export const NavButton = styled.button<{
   border-bottom-color: ${({ theme }) => theme.colors.leaf};
   border-bottom-style: solid;
   border-bottom-width: ${({ selected }) => (selected ? '3px' : 0)};
-  line-height: 48px;
+`
+
+export const NavLink = styled.a`
+  ${navItemStyle}
 `
