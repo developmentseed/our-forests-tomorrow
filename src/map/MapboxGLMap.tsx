@@ -15,14 +15,6 @@ import { introCompletedAtom } from '../atoms'
 import useMapStyle from '../hooks/useMapStyle'
 import { useIntroMapTransitions } from '../hooks/useIntroMapTransitions'
 
-// https://github.com/visgl/react-map-gl/issues/1266#issuecomment-1270562441
-// @ts-ignore
-import mapboxgl from 'mapbox-gl'
-// @ts-ignore
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass =
-  require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default /* eslint import/no-webpack-loader-syntax: off */
-
 export type MapboxGLMapProps = {
   children: ReactNode
   regionsGeoJson: FeatureCollection
