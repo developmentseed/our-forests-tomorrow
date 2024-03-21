@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/our-forests-tomorrow/static/css/main.f5e648d3.css",
-    "main.js": "/our-forests-tomorrow/static/js/main.890ac9e2.js",
-    "static/js/483.2fa41234.chunk.js": "/our-forests-tomorrow/static/js/483.2fa41234.chunk.js",
+    "main.css": "/our-forests-tomorrow/static/css/main.611fcf7e.css",
+    "main.js": "/our-forests-tomorrow/static/js/main.8fea2502.js",
+    "static/js/483.a105fbe5.chunk.js": "/our-forests-tomorrow/static/js/483.a105fbe5.chunk.js",
     "index.html": "/our-forests-tomorrow/index.html",
     "static/media/getFetch.cjs": "/our-forests-tomorrow/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.f5e648d3.css.map": "/our-forests-tomorrow/static/css/main.f5e648d3.css.map",
-    "main.890ac9e2.js.map": "/our-forests-tomorrow/static/js/main.890ac9e2.js.map",
-    "483.2fa41234.chunk.js.map": "/our-forests-tomorrow/static/js/483.2fa41234.chunk.js.map"
+    "main.611fcf7e.css.map": "/our-forests-tomorrow/static/css/main.611fcf7e.css.map",
+    "main.8fea2502.js.map": "/our-forests-tomorrow/static/js/main.8fea2502.js.map",
+    "483.a105fbe5.chunk.js.map": "/our-forests-tomorrow/static/js/483.a105fbe5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5e648d3.css",
-    "static/js/main.890ac9e2.js"
+    "static/css/main.611fcf7e.css",
+    "static/js/main.8fea2502.js"
   ]
 }
