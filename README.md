@@ -62,3 +62,9 @@ yarn
 yarn start
 ```
 
+## How to deploy
+
+1. Merge the changes you want to reflect on `gh-pages` branch.
+2. Fill up the value for `REACT_APP_MAPBOX_TOKEN` in `.env`.
+3. Run `yarn build`.
+4. Commit the built assets in `docs` folder. Push it to `gh-pages`.
