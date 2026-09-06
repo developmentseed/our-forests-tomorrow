@@ -1,9 +1,21 @@
 import { useAtomValue } from 'jotai'
 import { useMemo } from 'react'
-import { currentRCPAtom, currentSpeciesAtom, timeStepAtom } from '../atoms'
+
+import {
+  layers as protomapsLayers,
+  namedFlavor,
+} from '@protomaps/basemaps'
+
+import {
+  currentRCPAtom,
+  currentSpeciesAtom,
+  timeStepAtom,
+} from '../atoms'
+
 import { THEME, TIME_STEPS } from '../constants'
-import basemap from './style.json'
 import { CONIFERS } from '../constants_common'
+
+const PROTOMAPS_URL = 'pmtiles:///maps/europe.pmtiles'
 
 function useMapStyle() {
   const species = useAtomValue(currentSpeciesAtom)
@@ -12,7 +24,12 @@ function useMapStyle() {
 
   return useMemo(() => {
     const fut = TIME_STEPS.indexOf(timeStep)
-    return getMapStyle({ rcp, fut, species })
+
+    return getMapStyle({
+      rcp,
+      fut,
+      species,
+    })
   }, [species, timeStep, rcp])
 }
 
@@ -30,11 +47,13 @@ function getMapStyle({
     ['==', ['get', 'nat_1'], 1],
     ['>', ['get', `sdms_rcp${rcp}_fut${fut}_1`], 500],
   ]
+
   const decolonized = [
     'all',
     ['==', ['get', 'nat_1'], 1],
     ['<', ['get', `sdms_rcp${rcp}_fut${fut}_1`], 500],
   ]
+
   const suitable = [
     'all',
     ['==', ['get', 'nat_1'], 0],
@@ -60,44 +79,52 @@ function getMapStyle({
           '#ff0fff',
         ]
 
-  const type = CONIFERS.includes(species) ? 'conifer' : 'deciduous'
-
-  const icon =
-    fut === 0
-      ? `${type}_stable`
-      : [
-          'case',
-          stable,
-          `${type}_stable`,
-          decolonized,
-          `${type}_decolonized`,
-          suitable,
-          'seedling',
-          'seedling',
-        ]
+  const basemapLayers = protomapsLayers(
+    'protomaps',
+    namedFlavor('white'),
+    {
+      lang: 'en',
+    }
+  )
 
   const style = {
-    ...basemap,
+    version: 8 as const,
+
+    glyphs:
+      'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+
+    sprite:
+      'https://protomaps.github.io/basemaps-assets/sprites/v4/white',
+
     sources: {
-      ...basemap.sources,
+      protomaps: {
+        type: 'vector' as const,
+        url: PROTOMAPS_URL,
+        attribution:
+          '© <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+      },
+
       hex10: {
-        type: 'vector',
+        type: 'vector' as const,
         tiles: [
           `https://storage.googleapis.com/eu-trees4f-tiles/hex/tiles/${species}/10/{z}/{x}/{y}.pbf`,
         ],
       },
+
       hex20: {
-        type: 'vector',
+        type: 'vector' as const,
         tiles: [
           `https://storage.googleapis.com/eu-trees4f-tiles/hex/tiles/${species}/20/{z}/{x}/{y}.pbf`,
         ],
       },
     },
+
     layers: [
-      ...basemap.layers,
+      ...basemapLayers,
+
       {
         id: 'hex10',
-        type: 'fill',
+        type: 'fill' as const,
         source: 'hex10',
         'source-layer': `${species}_10_hex`,
         filter,
@@ -105,55 +132,16 @@ function getMapStyle({
           'fill-color': fillColor,
         },
       },
-      {
-        id: 'hex10_trees',
-        type: 'symbol',
-        source: 'hex10',
-        'source-layer': `${species}_10_hex`,
-        layout: {
-          'icon-image': icon,
-        },
-        filter: [
-          'all',
-          filter,
-          [
-            '==',
-            ['%', ['get', 'id'], ['match', ['zoom'], 5, 15, 1]],
-            0,
-          ],
-        ],
-        paint: { 'icon-opacity': 0.5 },
-      },
+
       {
         id: 'hex20',
-        type: 'fill',
+        type: 'fill' as const,
         source: 'hex20',
         'source-layer': `${species}_20_hex`,
         filter,
         paint: {
           'fill-color': fillColor,
         },
-      },
-      {
-        id: 'hex20_trees',
-        type: 'symbol',
-        source: 'hex20',
-        'source-layer': `${species}_20_hex`,
-        layout: {
-          'icon-image': icon,
-          // 'icon-allow-overlap': true,
-        },
-        // filter,
-        filter: [
-          'all',
-          filter,
-          [
-            '==',
-            ['%', ['get', 'id'], ['match', ['zoom'], 2, 120, 3, 70, 30]],
-            0,
-          ],
-        ],
-        paint: { 'icon-opacity': 0.5 },
       },
     ],
   }

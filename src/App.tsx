@@ -19,7 +19,7 @@ import {
   GLOBAL_REGION_GID,
   THEME,
 } from './constants'
-import MapboxGLMap from './map/MapboxGLMap'
+import MaplibreGLMap from './map/MaplibreGLMap'
 import MapTopControls from './map/MapTopControls'
 
 function App() {
@@ -60,13 +60,13 @@ function App() {
       <div id="menuPortal" style={{ position: 'relative' }}></div>
 
       {!introCompleted && <Intro species={speciesData} />}
-      <MapboxGLMap
+      <MaplibreGLMap
         regionsGeoJson={regionsGeoJson}
         countriesGeoJson={countriesGeoJson}
       >
         <MapTopControls />
         {isMobile && <MapControls />}
-      </MapboxGLMap>
+      </MaplibreGLMap>
       {introCompleted && (
         <Fragment>
           {currentRegion !== GLOBAL_REGION_GID ? (

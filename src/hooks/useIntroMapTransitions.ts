@@ -1,6 +1,6 @@
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useEffect } from 'react'
-import { MapRef } from 'react-map-gl'
+import { MapRef } from 'react-map-gl/maplibre'
 import {
   currentSpeciesAtom,
   // introIntersectionRatioAtom,
