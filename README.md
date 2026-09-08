@@ -8,6 +8,32 @@ The amount of considered species, the precision of the simulation and the relati
 
 The goal of that project is to bring those findings to a large audience, building interactive product(s) such as a minisite and notebooks, and through media partners.
 
+## Development
+
+### From the Eu-Trees4F study to a online map
+
+We built a Python script (located at `scripts/pbf_builder/build.py`) which download the study raw data and process it (through several steps and temporary files) into PBF files, allowing for Maplibre to automatically generate the related heatmap.
+
+You can read separate [the script README](/scripts/pbf_builder/README.md).
+
+The TL;DR would be:
+1. Install python and tippecanoe 
+1. Run `script/pbf_builder/build.py --all`
+2. Temp data is stored in `/data/pbf_builder/`, the final PBF files are located in `public/pbf_builder/`.
+
+### Using PMtiles to display Europe map
+
+To free ourselves from any paid map background, we leverage the open source PMtiles, stored in `public/maps/`. The file was generated with:
+
+```
+pmtiles extract https://build.protomaps.com/20260905.pmtiles public/maps/europe.pmtiles --bbox=-11,34,32,72 --maxzoom=7
+```
+
+### Automated deployment
+
+We leverage Github Pages to generate the PBF files on the fly and deploy the website.
+All configuration can be found in `.github/workflows/`.
+
 ## What are we up to?
 
 - The mini site prototype: [Our Forests Tomorrow](https://devseed.com/our-forests-tomorrow/)

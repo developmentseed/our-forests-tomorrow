@@ -1,0 +1,26 @@
+# EU-Trees4F ENS-SDMS dataset
+download_url: "https://ies-ows.jrc.ec.europa.eu/efdac/download/EU-Trees4F/EU-Trees4F_ens-sdms.zip"
+
+# Climate scenarios to generate.
+scenarios:
+  - rcp45
+  - rcp85
+
+model: "ens-sdms"
+
+# Number of pixels processed per raster chunk.
+# 0 means no explicit limit.
+chunk_size: 500000
+
+# Number of parallel species workers.
+workers: 1
+
+# Keep temporary GeoJSON files after Tippecanoe finishes.
+keep_geojson: false
+
+# Overwrite existing PBF output.
+force: true
+
+tippecanoe:
+  min_zoom: 2
+  max_zoom: 8

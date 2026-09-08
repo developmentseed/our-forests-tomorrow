@@ -5,8 +5,12 @@ import { ThemeProvider } from 'styled-components'
 import './i18n'
 import GlobalStyles from './index.styled'
 import { THEME } from './constants'
+import './map/registerPMTiles'
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+)
+
 root.render(
   <React.StrictMode>
     <Suspense fallback="loading...">
@@ -17,3 +21,4 @@ root.render(
     </Suspense>
   </React.StrictMode>
 )
+

@@ -24,3 +24,20 @@ yarn-error.log*
 
 in
 out
+
+# Ignore temp files used for PBF files generation
+
+.venv/
+
+__pycache__/
+*.pyc
+
+data/pbf_builder/raw/
+data/pbf_builder/extracted/
+data/pbf_builder/geojson/
+
+# Ignore files generated during GH Pages deployment
+public/pbf/
+docs/
+
+.DS_Store
